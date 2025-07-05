@@ -1,5 +1,4 @@
 ---
-layout: cover
 highlighter: shiki
 css: unocss
 colorSchema: dark
@@ -11,7 +10,6 @@ remoteAssets: true
 addons:
   - slidev-addon-graph
 ---
-
 
 # Solving Kinetic Equations with Deep Learning
 
