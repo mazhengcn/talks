@@ -12,7 +12,6 @@ export default mergeConfigs([
         fonts: {
           sans: 'Inter',
           hand: 'Playwrite IT Moderna',
-          jp: 'Noto Serif JP',
           cn: 'Noto Sans SC',
         },
       }),
