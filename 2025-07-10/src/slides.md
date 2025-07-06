@@ -32,19 +32,19 @@ Khnetic equations are important in many areas
 
 <div grid="~ cols-2 gap-4">
   <div flex="~ col gap-1" items-center>
-    <h4>Neutron transport</h4>
-    <img src="/kinetic/nte.png" rounded-lg h-50 border="~ orange/50">
+    <h3 text-green-2>Neutron transport</h3>
+    <img src="/kinetic/nte.png" rounded-lg h-50 border="~ green/50 shadow-xl" op80>
     <p>Nuclear fission, etc.</p>
   </div>
   <div flex="~ col gap-1" items-center>
-    <h4>Radiative transfer</h4>
-    <img src="/kinetic/rte.png" rounded-lg h-50 border="~ orange/50">
+    <h3 text-green-2>Radiative transfer</h3>
+    <img src="/kinetic/rte.png" rounded-lg h-50 border="~ green/50 shadow-xl">
     <p>Radiation therapy, nuclear fusion, etc.</p>
   </div>
 </div>
 
 <div border="~ green/50 rounded-lg shadow-xl" bg-green:10 items-center h-40>
-<div text="~ green" text-center mt-5 py2 text-2xl>Solving the neutron transport, radiative transfer and Boltzmann eqautions are the core part of these problems.</div>
+<div text-green text-center mt-5 py2 text-2xl>Solving the neutron transport, radiative transfer and Boltzmann eqautions are the core part of these problems.</div>
 </div>
 
 ---
