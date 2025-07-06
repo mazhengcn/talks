@@ -2,7 +2,7 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: dark
+colorSchema: light
 transition: fade-out
 mdc: true
 glowSeed: 4
@@ -15,12 +15,8 @@ addons:
 # Solve Kinetic Equations with Deep Learning {.font-600!}
 
 <div flex="~ col gap-2">
-  <div text-left text-2xl op50>
-  Zheng Ma
-  </div>
-  <div text-left text-sm op50>
-  Shanghai Jiao Tong University
-  </div>
+  <div text-left text-2xl op75>Zheng Ma</div>
+  <div text-left text-sm op50>Shanghai Jiao Tong University</div>
   <div text-sm op50>Nov. 12th 2024</div>
 </div>
 
@@ -28,12 +24,15 @@ addons:
 
 # Introduction
 
-Khnetic equations are important in many areas
+Kinetic equations are important in many areas
 
 <div grid="~ cols-2 gap-4">
-  <div flex="~ col gap-1" items-center>
-    <h3 text-green-2>Neutron transport</h3>
-    <img src="/kinetic/nte.png" rounded-lg h-50 border="~ green/50 shadow-xl" op80>
+  <div flex="~ col gap-2" items-center>
+    <div text-blue-8 text-2xl>Neutron transport</div>
+    <div flex fg-blue border="~ main rounded-lg" z-100>
+      <img src="/kinetic/nte.png" fill-blue z--1>
+    </div>
+    <img src="/kinetic/nte.png">
     <p>Nuclear fission, etc.</p>
   </div>
   <div flex="~ col gap-1" items-center>
@@ -102,7 +101,6 @@ Here, you can see many icons from different collections, each with its own prope
 ---
 
 # Engineering Challenges
-
 Good icons need to be:
 
 <div grid="~ gap-4 gap-y-15 cols-3" py10 w-max>
