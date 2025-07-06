@@ -1,4 +1,5 @@
 ---
+layout: cover
 highlighter: shiki
 css: unocss
 colorSchema: dark
@@ -11,22 +12,44 @@ addons:
   - slidev-addon-graph
 ---
 
-# Solving Kinetic Equations with Deep Learning
+# Solve Kinetic Equations with Deep Learning {.font-600!}
 
-<div text-2xl mt--1 op50>How we engineered the best icon solutions for Nuxt</div>
-
-<div abs-br mx-10 my-12 flex="~ col" text-sm text-right>
-  <img src="/logo-nuxtnation.svg" h-6 alt="Nuxt Nation" />
-  <div text-sm opacity-50>Nov. 12th 2024</div>
+<div flex="~ col gap-2">
+  <div text-left text-2xl op50>
+  Zheng Ma
+  </div>
+  <div text-left text-sm op50>
+  Shanghai Jiao Tong University
+  </div>
+  <div text-sm op50>Nov. 12th 2024</div>
 </div>
 
-<!--
-For today's topic, I'd like to talk about Nuxt Icon. I'll walk you through various of different solutions on rendering icons on web pages, with their pros and cons. And how we managed to find a balance trade-offs in the Nuxt Icon module and deliver to you.
--->
+---
+
+# Introduction
+
+Khnetic equations are important in many areas
+
+<div grid="~ cols-2 gap-4">
+  <div flex="~ col gap-1" items-center>
+    <h4>Neutron transport</h4>
+    <img src="/kinetic/nte.png" rounded-lg h-50 border="~ orange/50">
+    <p>Nuclear fission, etc.</p>
+  </div>
+  <div flex="~ col gap-1" items-center>
+    <h4>Radiative transfer</h4>
+    <img src="/kinetic/rte.png" rounded-lg h-50 border="~ orange/50">
+    <p>Radiation therapy, nuclear fusion, etc.</p>
+  </div>
+</div>
+
+<div border="~ green/50 rounded-lg shadow-xl" bg-green:10 items-center h-40>
+<div text="~ green" text-center mt-5 py2 text-2xl>Solving the neutron transport, radiative transfer and Boltzmann eqautions are the core part of these problems.</div>
+</div>
 
 ---
 layout: intro
-class: pl-30
+class: pl30
 glowSeed: 14
 ---
 
@@ -60,8 +83,6 @@ layout: fact
 
 # Icons
 
-<div v-click relative text-3xl mt--3><span v-mark.teal.highlight.delay100.op10="1" text-teal>"Tiny Image Assets"</span></div>
-
 <div v-click text-2xl  mt5 text-shadow-2xl op75>Simple to define, but complicated to engineer</div>
 
 <IconsBurst />
@@ -84,15 +105,15 @@ Here, you can see many icons from different collections, each with its own prope
 
 Good icons need to be:
 
-<div grid="~ gap-12 gap-y-15 cols-3" py10 w-max>
+<div grid="~ gap-4 gap-y-15 cols-3" py10 w-max>
 
-<div v-click flex="~ col gap-1">
+<div v-click flex="~ col gap-1"  border="~ rose/50 rounded-lg" bg-rose:10 pl4 py3>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
-    <div text-pink text-4xl i-ph-palette-duotone />
-    <div text-pink3>Colorable</div>
+    <div text-pink-9 text-4xl i-ph-palette-duotone />
+    <div text-pink9>Colorable</div>
   </div>
-  <div text-base op60 mb1>Adapt the color on the fly</div>
-  <div flex="~ gap-2 items-end">
+  <div text-base op50 mb1>This is a text</div>
+  <div flex="~ gap-2 items-end" items-center>
     <div i-ph-backpack-duotone text-blue />
     <div i-ph-tree-palm-duotone text-green />
     <div i-ph-sparkle-duotone text-yellow />
@@ -101,10 +122,10 @@ Good icons need to be:
   </div>
 </div>
 
-<div v-click flex="~ col gap-1">
+<div v-click flex="~ col gap-1" border="~ purple/50 rounded-lg" bg-purple:10 pl4 py3>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
-    <div text-green text-4xl  i-ph-arrows-in-simple-duotone />
-    <div text-green3>Scalable</div>
+    <div text-purple9 text-4xl  i-ph-arrows-in-simple-duotone />
+    <div text-purple9>Scalable</div>
   </div>
   <div text-base op60 mb1 mb--1>Resize as ease</div>
   <div flex="~ gap-2 items-end">
@@ -115,7 +136,7 @@ Good icons need to be:
   </div>
 </div>
 
-<div v-click flex="~ col gap-1">
+<div v-click flex="~ col gap-1" border="~ blue/50 rounded-lg" bg-blue:10 pl4 pr5 py3>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
     <div text-blue text-4xl i-ph-users-four-duotone />
     <div text-blue3>Large Amount</div>
@@ -145,7 +166,7 @@ Good icons need to be:
   </div>
 </div>
 
-<div v-click flex="~ col gap-1">
+<div v-click flex="~ col gap-1" item-center>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
     <div text-violet text-4xl i-ph-network-duotone />
     <div text-violet3>Loading</div>
@@ -1183,7 +1204,7 @@ Give it a try and let us know what you think! We're excited to hear your feedbac
 
 ---
 layout: center
-class: 'text-center pb-5'
+class: "text-center pb-5"
 ---
 
 # Thank You!

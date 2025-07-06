@@ -41,7 +41,7 @@ Joint work with Shi Jin, Keke Wu, Tianai Zhang and Xiongbin Yan
 
 # Background
 
-Kinetic equations are important in many areas
+Khnetic equations are important in many areas
 
 <div class="grid grid-cols-2 gap-x-4 mt-4">
 
