@@ -156,15 +156,15 @@ const poly3 = usePloy(3)
     aria-hidden="true"
   >
     <div
-      class="clip bg-gradient-to-r from-[#00DC82] to-white/10"
+      class="clip bg-gradient-to-r from-red to-white/10"
       :style="{ 'clip-path': `polygon(${poly1})`, 'opacity': opacity }"
     />
     <div
-      class="clip bg-gradient-to-l from-[#2f96ad] to-white/10"
+      class="clip bg-gradient-to-l from-purple to-white/10"
       :style="{ 'clip-path': `polygon(${poly2})`, 'opacity': opacity }"
     />
     <div
-      class="clip bg-gradient-to-t from-lime to-white/10"
+      class="clip bg-gradient-to-t from-blue to-white/10"
       :style="{ 'clip-path': `polygon(${poly3})`, 'opacity': 0.2 }"
     />
   </div>

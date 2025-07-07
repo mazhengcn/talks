@@ -26,24 +26,186 @@ addons:
 
 Kinetic equations are important in many areas
 
-<div grid="~ cols-2 gap-4">
-  <div flex="~ col gap-2" items-center>
-    <div text-blue-8 text-2xl>Neutron transport</div>
-    <div flex fg-blue border="~ main rounded-lg" z-100>
-      <img src="/kinetic/nte.png" fill-blue z--1>
-    </div>
-    <img src="/kinetic/nte.png">
-    <p>Nuclear fission, etc.</p>
+<div grid="~ cols-3 gap-2">
+  <div flex="~ col gap-1" items-center>
+    <div text-xl>Neutron transport</div>
+    <img src="/reactor.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <div>Fission reactor</div>
   </div>
   <div flex="~ col gap-1" items-center>
-    <h3 text-green-2>Radiative transfer</h3>
-    <img src="/kinetic/rte.png" rounded-lg h-50 border="~ green/50 shadow-xl">
-    <p>Radiation therapy, nuclear fusion, etc.</p>
+    <div text-xl>Radiative transfer</div>
+    <img src="/icf.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <div>ICF</div>
+  </div>
+  <div flex="~ col gap-1" items-center>
+    <div text-xl>Radiative transfer</div>
+    <img src="/reentry.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <div>Rarefied gas</div>
   </div>
 </div>
 
-<div border="~ green/50 rounded-lg shadow-xl" bg-green:10 items-center h-40>
-<div text-green text-center mt-5 py2 text-2xl>Solving the neutron transport, radiative transfer and Boltzmann eqautions are the core part of these problems.</div>
+<br>
+
+<div border="~ purple/50 rounded-lg" shadow-l bg-purple:10 items-center h-40>
+<div text-center mt-5 py2 text-2xl>Solving the <span text-orange>neutron transport, radiative transfer and Boltzmann eqautions</span> are the core part of these problems.</div>
+</div>
+
+---
+
+# Multiscale kinetic equations
+
+<div h3 />
+
+<div flex items-center justify-around>
+
+<div text-xl>
+
+$$
+\partial_t f +  v \cdot \nabla_x f = Q(f)
+$$
+
+</div>
+
+<img src="/kinetic/transport.png" border="~ rounded-lg purple/50" shadow-xl h-30 op75 />
+
+</div>
+
+<br>
+
+- $f$: distribution function of particles at time $t$ in phase sapce $(x, v)$
+- $Q$: collision operator
+- $\varepsilon$: Knudsen number (ratio between mean free path and characteristic length)
+
+
+<div grid="~ cols-2">
+
+<div flex="~ col gap-2" border="~ blue/50 rounded-lg" shadow-l items-center m-3>
+  <div bg-blue:10 rounded-b text-center text-sm w-full p-2 op50>Linear transport equation</div>
+  <div text-sm>
+
+  $$
+    \begin{equation*}
+    \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \mathrm{d}{d} v' - f \right )
+    \end{equation*}
+  $$
+
+  </div>
+</div>
+
+<div flex="~ col gap-2" border="~ blue/50 rounded-lg" shadow-l items-center m-3>
+  <div bg-blue:10 rounded-b text-center text-sm w-full p-2 op50>BGK equation</div>
+  <div text-sm>
+
+  $$
+    \begin{equation*}
+    \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left (M(U)  - f \right )
+    \end{equation*}
+  $$
+
+  </div>
+</div>
+</div>
+
+<!-- Multiscale problem: $\varepsilon$ can be $O(1)$ (kinetic regime) or $\ll 1$ (limiting macroscopic regime) -->
+
+---
+
+# Engineering Challenges
+
+Good icons need to be:
+
+<div grid="~ gap-12 gap-y-15 cols-3" py10 w-max>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-pink text-4xl i-ph-palette-duotone />
+    <div text-pink3>Colorable</div>
+  </div>
+  <div text-base op60 mb1>Adapt the color on the fly</div>
+  <div flex="~ gap-2 items-end">
+    <div i-ph-backpack-duotone text-blue />
+    <div i-ph-tree-palm-duotone text-green />
+    <div i-ph-sparkle-duotone text-yellow />
+    <div i-ph-beach-ball-duotone text-rose />
+    <div i-ph-balloon-duotone text-red />
+  </div>
+</div>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-green text-4xl  i-ph-arrows-in-simple-duotone />
+    <div text-green3>Scalable</div>
+  </div>
+  <div text-base op60 mb1 mb--1>Resize as ease</div>
+  <div flex="~ gap-2 items-end">
+    <div i-ph-at-duotone text-base />
+    <div i-ph-at-duotone text-lg />
+    <div i-ph-at-duotone text-2xl />
+    <div i-ph-at-duotone text-4xl />
+  </div>
+</div>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-blue text-4xl i-ph-users-four-duotone />
+    <div text-blue3>Large Amount</div>
+  </div>
+  <div text-base op60 mb1>Manage hundreds of icons</div>
+  <div flex="~ gap-2 items-center">
+    <div i-ph-user-duotone />
+    <div i-ph-user-circle-duotone />
+    <div i-ph-user-rectangle-duotone />
+    <div i-ph-user-switch-duotone />
+    <div i-ph-users-three-duotone />
+    <span text-sm>... 1024+</span>
+  </div>
+</div>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-amber text-4xl i-ph-cube-duotone/>
+    <div text-amber3>Bundling</div>
+  </div>
+  <div text-base op60 mb1>Optimize bundle</div>
+  <div flex="~ gap-2 items-center">
+    <div i-ph-image-duotone />
+    <div i-ph-text-aa-duotone />
+    <div i-ph-file-svg-duotone />
+    <div i-ph-circles-three-plus-duotone />
+  </div>
+</div>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-violet text-4xl i-ph-network-duotone />
+    <div text-violet3>Loading</div>
+  </div>
+  <div text-base op60 mb1>Fetch icons on-demand</div>
+  <div flex="~ gap-2 items-center">
+    <div i-ph-circle-dashed-duotone />
+    <div i-ph-triangle-dashed-duotone />
+    <div i-ph-folder-simple-dotted-duotone />
+    <div i-ph-circle-duotone />
+    <div i-ph-triangle-duotone />
+    <div i-ph-folder-simple-duotone />
+  </div>
+</div>
+
+<div v-click flex="~ col gap-1">
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div text-rose text-4xl i-ph-hand-deposit-duotone />
+    <div text-rose3>Dynamic</div>
+  </div>
+  <div text-base op60 mb1>Icons not known at compile time</div>
+  <div flex="~ gap-2 items-center">
+    <div i-ph-cloud-arrow-down-duotone />
+    <div i-mdi-cloud-arrow-down-outline />
+    <div i-mdi-cloud-download />
+    <div i-tabler-cloud-download />
+    <div i-iconamoon-cloud-download-duotone />
+  </div>
+</div>
+
 </div>
 
 ---

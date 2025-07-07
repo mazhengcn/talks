@@ -76,13 +76,16 @@ Solving the neutron transport, radiative transfer and Boltzmann eqautions are th
 
 ---
 
-# Multiscale Kinetic Equations
+# Multiscale kinetic equations
 
-<br>
+
+<div text-xl>
 
 $$
 \partial_t f +  v \cdot \nabla_x f = \frac{1}{\varepsilon} Q(f)
 $$
+
+</div>
 
 <div class="top-25 right-8 absolute">
   <img src="/transport.png" class="mx-auto h-30 rounded-lg b-1 b-b">
