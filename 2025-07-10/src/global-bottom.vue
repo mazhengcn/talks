@@ -156,15 +156,15 @@ const poly3 = usePloy(3)
     aria-hidden="true"
   >
     <div
-      class="clip bg-gradient-to-r from-red to-white/10"
+      class="clip bg-gradient-to-r from-pink to-white/10"
       :style="{ 'clip-path': `polygon(${poly1})`, 'opacity': opacity }"
     />
     <div
-      class="clip bg-gradient-to-l from-purple to-white/10"
+      class="clip bg-gradient-to-l from-cyan to-white/10"
       :style="{ 'clip-path': `polygon(${poly2})`, 'opacity': opacity }"
     />
     <div
-      class="clip bg-gradient-to-t from-blue to-white/10"
+      class="clip bg-gradient-to-t from-amber to-white/10"
       :style="{ 'clip-path': `polygon(${poly3})`, 'opacity': 0.2 }"
     />
   </div>
@@ -190,6 +190,6 @@ const poly3 = usePloy(3)
 }
 
 .light .clip {
-  opacity: 1 !important;
+  opacity: 0.75 !important;
 }
 </style>

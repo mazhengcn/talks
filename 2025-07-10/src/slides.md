@@ -38,16 +38,16 @@ Kinetic equations are important in many areas
     <div>ICF</div>
   </div>
   <div flex="~ col gap-1" items-center>
-    <div text-xl>Radiative transfer</div>
+    <div text-xl>Rarefied gas</div>
     <img src="/reentry.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
-    <div>Rarefied gas</div>
+    <div>Reentry</div>
   </div>
 </div>
 
 <br>
 
 <div border="~ purple/50 rounded-lg" shadow-l bg-purple:10 items-center h-40>
-<div text-center mt-5 py2 text-2xl>Solving the <span text-orange>neutron transport, radiative transfer and Boltzmann eqautions</span> are the core part of these problems.</div>
+<div text-center mt-5 py2 text-2xl>Solving the <span text-red>neutron transport</span>, <span text-red>radiative transfer</span> and <span text-red>Boltzmann eqautions</span> are the core part of these problems.</div>
 </div>
 
 ---
@@ -66,7 +66,7 @@ $$
 
 </div>
 
-<img src="/kinetic/transport.png" border="~ rounded-lg purple/50" shadow-xl h-30 op75 />
+<!-- <img src="/kinetic/transport.png" border="~ rounded-lg purple/50" shadow-l h-30 op75 /> -->
 
 </div>
 
@@ -76,25 +76,24 @@ $$
 - $Q$: collision operator
 - $\varepsilon$: Knudsen number (ratio between mean free path and characteristic length)
 
+<br>
 
-<div grid="~ cols-2">
+<div grid="~ cols-2 gap-4">
 
-<div flex="~ col gap-2" border="~ blue/50 rounded-lg" shadow-l items-center m-3>
-  <div bg-blue:10 rounded-b text-center text-sm w-full p-2 op50>Linear transport equation</div>
-  <div text-sm>
+<div flex="~ col gap-2" border="~ purple/50 rounded-lg" shadow-l items-center>
+  <div bg-purple:10 rounded-b text-base w-full py-2 px-3 op60>Linear transport equation</div>
+  <div text-base>
 
   $$
-    \begin{equation*}
-    \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \mathrm{d}{d} v' - f \right )
-    \end{equation*}
+    \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f\, \mathrm{d} v' - f \right)
   $$
 
   </div>
 </div>
 
-<div flex="~ col gap-2" border="~ blue/50 rounded-lg" shadow-l items-center m-3>
-  <div bg-blue:10 rounded-b text-center text-sm w-full p-2 op50>BGK equation</div>
-  <div text-sm>
+<div flex="~ col gap-2" border="~ purple/50 rounded-lg" shadow-l items-center>
+  <div bg-purple:10 rounded-b text-base w-full py-2 px-3 op60>BGK equation</div>
+  <div text-base>
 
   $$
     \begin{equation*}
@@ -106,7 +105,11 @@ $$
 </div>
 </div>
 
-<!-- Multiscale problem: $\varepsilon$ can be $O(1)$ (kinetic regime) or $\ll 1$ (limiting macroscopic regime) -->
+<div text-xl py2>
+
+Multiscale problem: $\varepsilon$ can be of $O(1)$ (**kinetic regime**) or $\ll 1$ (**diffusive regime**).
+
+</div>
 
 ---
 
