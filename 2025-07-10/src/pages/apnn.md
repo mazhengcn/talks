@@ -2,39 +2,40 @@
 layout: center
 ---
 
-<div flex="~ col gap-4" items-center>
-  <div text-4xl font-bold>Models for Multiscale Kinetic Equations</div>
-  <div text-2xl font-500 op75>PINNs, DeepRitz, etc.</div>
+<div flex="~ col gap-5 items-center">
+  <div font-600 m--2 text-center>
+
+  # Model fo multiscale kinetic equations
+
+  </div>
+  <div text-2xl op75 text-center>PINNs, DeepRitz, etc.</div>
 </div>
 
 ---
 
 # Linear Transport Equation
 
-$1$-D linear transport equation for illustration
+$1$-D for illustration
 
 $$
-  \begin{equation*}
-    \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \,\mathrm{d} v' - f \right )
-  \end{equation*}
+\varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \,\mathrm{d} v' - f \right )
 $$
 
-<br>
+<div mt8 />
 
-#### Physics Informed Neural Networks (PINNs):
+PINN for example:
 
-<br>
+- **Architecture**: approximate the <Emphasis>solution</Emphasis> by a deep neural network
 
-**Architecture** - approximate the solution by a deep neural network
 $$
 f_\theta^{\text{NN}}(t,x,v) \approx f(t,x,v)
 $$
 
-**Model** - take the *least square* of the linear transport equation residual (strong form) as loss
+- **Model**: take the <Emphasis>least square</Emphasis> of the linear transport equation residual (strong form) as loss
 
 $$
-  \mathcal{R}_{\text{PINN}}^{\varepsilon} =
-  \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}\times\mathcal{D}\times\Omega} \left| \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2 \, \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
+\mathcal{R}_{\text{PINN}}^{\varepsilon} =
+\int\left( \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right)^2 \, \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
 $$
 
 <!-- Physics Informed Neural Networks(PINNs)[^footnote1] -->
@@ -59,49 +60,42 @@ h1 {
 
 ---
 
-# Examples
+# Result of PINN
 
-<!-- <div class="top-0 right-10 absolute">
-
-$$
-\begin{equation*}
-\varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \mathrm{d}{d} v' - f \right )
-\end{equation*}
-$$
-
-</div> -->
+<div mt8 />
 
 $$
 \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \rho(t,x) - f \right )
 , \quad \rho(t,x) =  \frac{1}{2} \int_{-1}^{1} f \, \mathrm{d} v'
 $$
 
-<div class="grid grid-cols-2 gap-x-4 mt-4">
+<div grid="~ cols-[1fr_max-content_1fr] gap-4" mt-4>
 
-<div>
+<div v-click flex="~ col items-center">
 
-Kinetic regime: $\varepsilon=1$
+  Kinetic regime: $\varepsilon=1$
 
-$$
-  f_0(x, v) = \frac{1 + \cos (4 \pi x)}{\sqrt{2\pi}}e^{-\frac{v^2}{2}}
-$$
+  <img src="/apnn/ex1_pinns.png" alt="pinn-lte-eps1" border="~ rounded-lg violet/50" shadow-l h-50 op75 />
 
-<!-- <img src="/ex1_pinns.png" width="400" height="300" class="h-40 float-left ml-5"/> -->
-<img src="/apnn/ex1_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+  $$
+  f_0(x, v) = [1 + \cos (4 \pi x)]e^{-\frac{v^2}{2}} / \sqrt{2\pi}
+  $$
 
 </div>
 
-<div>
+<div v-click border="l violet/20" w-1px h-full />
 
-Parabolic regime: $\varepsilon=10^{-8}$
+<div v-click flex="~ col items-center">
 
-$$
+  Parabolic regime: $\varepsilon=10^{-8}$
+
+  <img src="/apnn/ex2_pinns.png" alt="pinn-lte-eps-8" border="~ rounded-lg violet/50" shadow-l h-50 op75 />
+
+  $$
   f_0(x, v) = 0
-$$
+  $$
 
-<br>
-
-<img src="/apnn/ex2_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
+</div>
 
 <div class="color-red text-center" >
   PINN fails!
@@ -109,49 +103,37 @@ $$
 
 </div>
 
-</div>
-
 ---
 
-# Failure of PINN Loss to Resolve Small Scales
+# Failure of PINN
 
-<!-- <div v-click-hide>
+PINN can not resolve small scale
 
-<img src="/loss_1e-8_pinns.png" width="300" height="500" class="h-40 mx-auto"/>
-
-</div> -->
-
-<img src="/apnn/loss_1e-8_pinns.png" class="h-40 mx-auto rounded-lg b-1 b-b" />
-
-<div class="overflow-auto h-60">
+<div mt8 />
 
 $$
-  \begin{aligned}
-      \mathcal{R}^{\varepsilon}_{\text{PINN}} = & \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}\times\mathcal{D}\times\Omega} \left| \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
-      & +  \frac{\lambda_1}{|\mathcal{T} \times \partial \mathcal{D} \times \Omega|}  \int_{\mathcal{T}\times\partial\mathcal{D} \times\Omega} |\mathcal{B}f^{\text{NN}}_{\theta} - F_{\text{B}}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
-      & +  \frac{\lambda_2}{|\mathcal{D}\times\Omega|} \int_{\mathcal{D} \times\Omega} |\mathcal{I}f^{\text{NN}}_{\theta} - f_{0}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}}.
-  \end{aligned}
+\mathcal{R}^{\varepsilon}_{\text{PINN}} = \int \left( \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right)^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
 $$
 
-We only need to focus on the first term and taking $\varepsilon \to 0$, this will lead to
+Take $\varepsilon \to 0$
 
 $$
-  \mathcal{R}_{\text{PINN}}^0 = \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_\Omega \left| - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2  \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
+  \mathcal{R}_{\text{PINN}}^0 = \int \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right )^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
 $$
 
-which can be viewed as the PINN loss of the steady state
+which can be viewed as the <Emphasis>PINN loss of the steady equation</Emphasis>
 
 $$
   f^{\text{NN}}_{\theta} = \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v'
 $$
 
-</div>
+PINN loss is not AP (Asymptotic-preserving), i.e., it does not converge to the <Emphasis>correct macroscopic limit</Emphasis> as $\varepsilon \to 0$.
 
 ---
 
-# Diffusion Limit: Micro-Macro Decomposition
+# Diffusion Limit
 
-<div class="overflow-auto h-100">
+<div mt5 />
 
 $$
 \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \rho(t,x) - f \right )
@@ -164,7 +146,7 @@ $$
 f(t,x,v) = \rho(t,x) + \varepsilon g(t,x,v).
 $$
 
-The non-equilibrium part $g$ clearly satisfies $\left \langle g \right \rangle = 0$.
+where the non-equilibrium part $g$ clearly satisfies <Emphasis>$\left \langle g \right \rangle = 0$</Emphasis>
 
 <!-- Subsititing $f = \rho + \varepsilon g$ into the linear transport equation yields
 
@@ -242,8 +224,6 @@ $$
 $$ -->
 
 
-</div>
-
 ---
 
 # Micro-macro System
@@ -279,21 +259,74 @@ $$
  \rho_t - \frac{1}{3} \rho_{xx} = 0.
 $$
 
+
 ---
 layout: center
-class: text-center
 ---
 
-# What kind of loss is "good"?
+<div flex="~ col gap-5 items-center">
+  <div font-600 m--2 text-center>
 
-Conservation, symmetry, parity, etc
+  # What kind of model or loss is "good"?
 
+  </div>
+  <div text-2xl op75 text-center>Conservation, symmetry, parity, etc.</div>
+</div>
 
 ---
 
 # Asymptotic-Preserving Neural Networks
 
-<img src="/apnn/apnns.png" class="h-70 mx-auto rounded-lg b-1 b-b" />
+<div flex="~ justify-center">
+<div flex="~ items-center justify-between" w100 mt10>
+<div flex="~ col items-center justify-between" h70>
+  <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-violet7 text-center px4>
+
+  $\mathcal{R}(\mathcal{F}^{\varepsilon})$
+
+  </div>
+  <div ml--20 text-orange>
+
+  $\mathcal{R}\to 0$
+
+  </div>
+  <div border="~ orange/50 rounded-lg" shadow-l bg-orange:10 text-orange7 px8 text-center>
+
+  $\mathcal{F}^{\varepsilon}$
+
+  </div>
+</div>
+<div flex="~ col items-end justify-between" h80 text-pink>
+
+  $\varepsilon \to 0$
+
+  $\varepsilon \to 0$
+
+</div>
+<div flex="~ col items-center justify-between" h70>
+  <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-violet7 text-center px4>
+
+  $\mathcal{R}(\mathcal{F}^0)$
+
+  </div>
+  <div mr--20 text-orange>
+
+  $\mathcal{R}\to 0$
+
+  </div>
+  <div border="~ orange/50 rounded-lg" shadow-l bg-orange:10 text-orange7 px8 text-center>
+
+  $\mathcal{F}^0$
+
+  </div>
+</div>
+</div>
+</div>
+
+<v-drag-arrow color="orange" pos="336,215,0,161"/>
+<v-drag-arrow color="orange" pos="639,215,0,158"/>
+<v-drag-arrow color="violet" pos="384,185,210,0"/>
+<v-drag-arrow color="violet" pos="384,406,210,0"/>
 
 $\mathcal{F^{\varepsilon}}$ is the microscopic equation that depends on the small scale parameter $\varepsilon$ and $\mathcal{F}^{0}$ is its macroscopic limit as $\varepsilon \to 0$, which is independent of $\varepsilon$. The latent solution of $\mathcal{F^{\varepsilon}}$ is approximated by neural networks with its measure denoted by $\mathcal{R}(\mathcal{F^{\varepsilon}})$. The asymptotic limit of $\mathcal{R}(\mathcal{F^{\varepsilon}})$ as $\varepsilon \to 0$, if exists, is denoted by $\mathcal{R}(\mathcal{F}^{0})$. If $\mathcal{R}(\mathcal{F}^{0})$ is a good measure of $\mathcal{F}^{0}$, then it is called asymptotic-preserving (AP).
 
@@ -1312,9 +1345,3 @@ Boltzmann-BGK equation:
 - Shi Jin, Zheng Ma and Keke Wu, Asymptotic-Preserving Neural Networks for Multiscale Kinetic Equations, preprint, 2023
 - Shi Jin, Zheng Ma and Tian-ai Zhang, Asymptotic-preserving neural networks for multiscale Vlasov-Poisson-Fokker-Planck system in the high-field, preprint, 2023
 - Keke Wu, Xiong-bin Yan, Shi Jin and Zheng Ma, Capturing the Diffusive Behavior of the Multiscale Linear Transport Equations by Asymptotic-Preserving Convolutional DeepONets, preprint, 2023
-
----
-layout: end
----
-
-# Thanks!

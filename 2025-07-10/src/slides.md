@@ -53,7 +53,7 @@ Kinetic equations are important in many areas
 <br>
 
 <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 p5>
-  <div text-center text-2xl>Key problem: numerical simulation of <span text-pink7>kinetic equations</span></div>
+  <div text-center text-2xl>Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis></div>
 </div>
 
 ---
@@ -106,7 +106,7 @@ $$
 <div v-click border="~ violet/50 rounded-lg" shadow-l mt-4>
   <div text-xl text-center>
 
-  Multiscale problem: $\varepsilon$ can vary from $O(1)$ <span bg-pink3:10 rounded-lg p2 text-pink7>kinetic regime</span> to $0$ <span bg-pink3:10 rounded-lg p2 text-pink7>hydrodynamic regime</span>
+  Multiscale problem: $\varepsilon$ can vary from $O(1)$ <Emphasis>kinetic regime</Emphasis> to $0$ <Emphasis>hydrodynamic regime</Emphasis>
 
   </div>
 </div>
@@ -251,24 +251,52 @@ layout: center
 
 # Solve PDEs with Deep Learning
 
-Key components and core ideas of solving PDEs by Deep Neural Networks
+Key components
 
-- **Architecture**: build a deep neural network (function class) as the trail function
-  - approximate solution (PINNs)
-  - approximate solution operator (DeepONet, FNO)
-  - mapping from equations (as a computational graph) to solutions (PDEFormer)
-- **Constraints (as Loss)**:
-  - **Model**: PDE / physical information needed (e.g., PINNs, DeepRitz, Deep-Galerkin)
+<div flex="~ col gap-2">
+<div v-click flex="~ col" border="~ blue/50 rounded-lg">
+  <div flex="~ gap-2" items-center bg-blue:10 h10 pl4 py2>
+    <div text-blue>Architecture</div>
+    <div text-blue3>build a deep neural network (function class) as the trail function</div>
+  </div>
+  <div pl3 content-center>
+
+  - Approximate solution: PINNs, DeepRitz, Deep Galerkin, etc.
+  - Approximate solution operator: DeepONet, FNO, etc.
+  - Mapping from equations (as a computational graph) to solutions (PDEFormer)
+
+  </div>
+</div>
+
+<div v-click flex="~ col" border="~ rose/50 rounded-lg">
+  <div flex="~ gap-2" items-center bg-rose:10 h10 pl4 py2>
+    <div text-rose>Constraints</div>
+    <div text-rose3>as the loss of minimization problem</div>
+  </div>
+  <div pl3 content-center>
+
+  - Model: PDE / physical information needed (e.g., PINNs, DeepRitz, Deep-Galerkin)
   - Data: pure supervised or as a priori information
   - IC (initial conditions) and BC (boundary conditions)
   - Other constraints: **conservation**, symmetry, etc.
-- **Optimization**: minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
 
+  </div>
+</div>
+
+<div v-click flex="~ col" border="~ amber/50 rounded-lg">
+  <div flex="~ gap-2" items-center bg-amber:10 h10 pl4 py2>
+    <div text-amber>Optimization</div>
+  </div>
+  <div pl3 content-center>
+
+  - minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
+
+  </div>
+</div>
+</div>
 
 ---
 src: /pages/apnn.md
----
-
 ---
 
 # Numerical Challenges
