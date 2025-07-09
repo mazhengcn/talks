@@ -1,202 +1,20 @@
----
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# class: text-center
-highlighter: shiki
-lineNumbers: false
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-drawings:
-  persist: false
-transition: slide-left
-title: Solving Transport Equations by DNNs
-mdc: true
-colorSchema: light
-fonts:
-  sans: inter
-  mono: Fira Code
----
-
-# Solve Multiscale Kinetic Equations with Deep Learning
-
-<br>
-
-Zheng Ma
-
-Shanghai Jiao Tong University
-
-Joint work with Shi Jin, Keke Wu, Tianai Zhang and Xiongbin Yan
-
-<!-- <div class="abs-br m-6 flex gap-2">
-  <img src="/affiliation.png" class="h-12">
-</div> -->
-
-<!-- https://sli.dev/ -->
-
-
----
-
-# Background
-
-Khnetic equations are important in many areas
-
-<div class="grid grid-cols-2 gap-x-4 mt-4">
-
-<div>
-Neutron Transport:
-
-<br>
-
-<div class="flex">
-  <img src="/nte.png" class="h-60 rounded-lg b-1 b-b">
-</div>
-
-Nuclear fission, ...
-
-</div>
-
-<div>
-Radiative Transfer:
-
-<br>
-
-<div class="flex">
-  <img src="/rte.png" class="h-60 rounded-lg b-1 b-b">
-</div>
-
-Radiation Therapy, nuclear fusion, ...
-</div>
-
-</div>
-
-Solving the neutron transport, radiative transfer and Boltzmann eqautions are the core part of these problems.
-
----
-
-# Multiscale kinetic equations
-
-
-<div text-xl>
-
-$$
-\partial_t f +  v \cdot \nabla_x f = \frac{1}{\varepsilon} Q(f)
-$$
-
-</div>
-
-<div class="top-25 right-8 absolute">
-  <img src="/transport.png" class="mx-auto h-30 rounded-lg b-1 b-b">
-</div>
-
-- **$f$**: distribution function of particles at time $t$ in phase sapce $(x, v)$
-- **$Q$**: collision operator
-- **$\varepsilon$**: Knudsen number (ratio between mean free path and characteristic length)
-
-<div class="grid grid-cols-2 gap-x-4 mt-4">
-
-<div>
-
-###### Linear Transport Equation
-
-$$
-  \begin{equation*}
-  \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \mathrm{d}{d} v' - f \right )
-  \end{equation*}
-$$
-
-</div>
-
-<div>
-
-###### Boltzmann-BGK Equation
-
-$$
-  \begin{equation*}
-  \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left (\textcolor{red}{M(U)}  - f \right )
-  \end{equation*}
-$$
-
-</div>
-</div>
-
-Multiscale problem: $\varepsilon$ can be $O(1)$ (kinetic regime) or $\ll 1$ (limiting macroscopic regime)
-
----
-
-# Numerical Chanllenge and Strategy
-
-"High dimensional problem": we need to evolve the density function $f(x, v, t)$ in phase space
-
-<div class="grid grid-cols-2 gap-x-4 mt-4">
-
-<div>
-
-**Knudsen number**
-  - stability issues for small $\varepsilon$ (stiffness)
-  - consistency of the scheme with limiting model as $\varepsilon \to 0$
-
-**Collision Operator**
-  - special discretization needed for the collision operator
-  - high computational cost for more complicated collision
-  - ray effect
-</div>
-
-<div>
-
-**Probabilistic approach**
-
-- Monte Carlo methods — easy implementation, efficient, half-order accuracy, random fluctuations
-
-**Deterministic approach**
-
-- discrete velocity/ordinate methods --- expensive, first or second order accuracy, maintain conservation.
-- spectral methods --- relatively expensive, spectral accuracy, do not maintain conservation.
-
-</div>
-
-</div>
-
-<div class="color-red bold text-center">
-
-*Deep learning methods may become new approach!*
-
-</div>
-
----
-
-# Solve PDEs with Deep Learning
-
-Key components and core ideas of solving PDEs by Deep Neural Networks
-
-- **Architecture**: build a deep neural network (function class) as the trail function
-  - approximate solution (PINNs)
-  - approximate solution operator (DeepONet, FNO)
-  - mapping from equations (as a computational graph) to solutions (PDEFormer)
-- **Constraints (as Loss)**:
-  - **Model**: PDE / physical information needed (e.g., PINNs, DeepRitz, Deep-Galerkin)
-  - Data: pure supervised or as a priori information
-  - IC (initial conditions) and BC (boundary conditions)
-  - Other constraints: **conservation**, symmetry, etc.
-- **Optimization**: minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
-
 
 ---
 layout: center
-class: text-center
 ---
 
-# What are models for multiscale kinetic equations?
+<div flex="~ col gap-4" items-center>
+  <div text-4xl font-bold>Models for Multiscale Kinetic Equations</div>
+  <div text-2xl font-500 op75>PINNs, DeepRitz, etc.</div>
+</div>
 
-PINNs? DeepRitz? ...
+
 
 ---
 
 # Linear Transport Equation
 
-We use a $1$-D linear transport equation as an example
+$1$-D linear transport equation for illustration
 
 $$
   \begin{equation*}
@@ -272,7 +90,7 @@ $$
 $$
 
 <!-- <img src="/ex1_pinns.png" width="400" height="300" class="h-40 float-left ml-5"/> -->
-<img src="/ex1_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="./apnn/ex1_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
 
 </div>
 
@@ -286,7 +104,7 @@ $$
 
 <br>
 
-<img src="/ex2_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
+<img src="./apnn/ex2_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
 
 <div class="color-red text-center" >
   PINN fails!
@@ -313,23 +131,21 @@ $$
 $$
   \begin{aligned}
       \mathcal{R}^{\varepsilon}_{\text{PINN}} = & \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}\times\mathcal{D}\times\Omega} \left| \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
-                                                & +  \frac{\lambda_1}{|\mathcal{T} \times \partial \mathcal{D} \times \Omega|}  \int_{\mathcal{T}\times\partial\mathcal{D} \times\Omega} |\mathcal{B}f^{\text{NN}}_{\theta} - F_{\text{B}}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
-                                                & +  \frac{\lambda_2}{|\mathcal{D}\times\Omega|} \int_{\mathcal{D} \times\Omega} |\mathcal{I}f^{\text{NN}}_{\theta} - f_{0}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}}.
+      & +  \frac{\lambda_1}{|\mathcal{T} \times \partial \mathcal{D} \times \Omega|}  \int_{\mathcal{T}\times\partial\mathcal{D} \times\Omega} |\mathcal{B}f^{\text{NN}}_{\theta} - F_{\text{B}}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
+      & +  \frac{\lambda_2}{|\mathcal{D}\times\Omega|} \int_{\mathcal{D} \times\Omega} |\mathcal{I}f^{\text{NN}}_{\theta} - f_{0}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}}.
   \end{aligned}
 $$
 
 We only need to focus on the first term and taking $\varepsilon \to 0$, this will lead to
 
 $$
-\begin{equation*}
-    \mathcal{R}_{\text{PINN}}^0 = \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_\Omega \left| - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2  \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
-\end{equation*}
+  \mathcal{R}_{\text{PINN}}^0 = \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_\Omega \left| - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right|^2  \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
 $$
 
 which can be viewed as the PINN loss of the steady state
 
 $$
-f^{\text{NN}}_{\theta} = \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v'
+  f^{\text{NN}}_{\theta} = \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v'
 $$
 
 </div>
@@ -480,7 +296,7 @@ Conservation, symmetry, parity, etc
 
 # Asymptotic-Preserving Neural Networks
 
-<img src="/apnns.png" class="h-70 mx-auto rounded-lg b-1 b-b" />
+<img src="./apnn/apnns.png" class="h-70 mx-auto rounded-lg b-1 b-b" />
 
 $\mathcal{F^{\varepsilon}}$ is the microscopic equation that depends on the small scale parameter $\varepsilon$ and $\mathcal{F}^{0}$ is its macroscopic limit as $\varepsilon \to 0$, which is independent of $\varepsilon$. The latent solution of $\mathcal{F^{\varepsilon}}$ is approximated by neural networks with its measure denoted by $\mathcal{R}(\mathcal{F^{\varepsilon}})$. The asymptotic limit of $\mathcal{R}(\mathcal{F^{\varepsilon}})$ as $\varepsilon \to 0$, if exists, is denoted by $\mathcal{R}(\mathcal{F}^{0})$. If $\mathcal{R}(\mathcal{F}^{0})$ is a good measure of $\mathcal{F}^{0}$, then it is called asymptotic-preserving (AP).
 

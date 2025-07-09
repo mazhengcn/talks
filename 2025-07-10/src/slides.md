@@ -29,32 +29,30 @@ Kinetic equations are important in many areas
 <div grid="~ cols-3 gap-2">
   <div flex="~ col gap-1" items-center>
     <div text-xl>Neutron transport</div>
-    <img src="/reactor.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <img src="/reactor.png" border="~ violet/50 rounded-lg" shadow-l h-55 />
     <div>Fission reactor</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Radiative transfer</div>
-    <img src="/icf.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <img src="/icf.png" border="~ violet/50 rounded-lg" shadow-l h-55 />
     <div>ICF</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Rarefied gas</div>
-    <img src="/reentry.png" border="~ purple/50 rounded-lg" shadow-l h-55 />
+    <img src="/reentry.png" border="~ violet/50 rounded-lg" shadow-l h-55 />
     <div>Reentry</div>
   </div>
 </div>
 
 <br>
 
-<div border="~ purple/50 rounded-lg" shadow-l bg-purple:10 items-center h-40>
-<div text-center mt-5 py2 text-2xl>Solving the <span text-red>neutron transport</span>, <span text-red>radiative transfer</span> and <span text-red>Boltzmann eqautions</span> are the core part of these problems.</div>
+<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 p5>
+  <div text-center text-2xl>Key problem: numerical simulation of <span text-red>kinetic equations</span>.</div>
 </div>
 
 ---
 
-# Multiscale kinetic equations
-
-<div h3 />
+# Multiscale Kinetic Equations
 
 <div flex items-center justify-around>
 
@@ -76,12 +74,10 @@ $$
 - $Q$: collision operator
 - $\varepsilon$: Knudsen number (ratio between mean free path and characteristic length)
 
-<br>
+<div grid="~ cols-2 gap-4" mt-4>
 
-<div grid="~ cols-2 gap-4">
-
-<div flex="~ col gap-2" border="~ purple/50 rounded-lg" shadow-l items-center>
-  <div bg-purple:10 rounded-b text-base w-full py-2 px-3 op60>Linear transport equation</div>
+<div flex="~ col gap-2" border="~ violet/50 rounded-lg" shadow-l items-center>
+  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op60>Linear transport equation</div>
   <div text-base>
 
   $$
@@ -91,29 +87,145 @@ $$
   </div>
 </div>
 
-<div flex="~ col gap-2" border="~ purple/50 rounded-lg" shadow-l items-center>
-  <div bg-purple:10 rounded-b text-base w-full py-2 px-3 op60>BGK equation</div>
+<div flex="~ col gap-2" border="~ violet/50 rounded-lg" shadow-l items-center>
+  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op60>BGK equation</div>
   <div text-base>
 
   $$
-    \begin{equation*}
-    \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left (M(U)  - f \right )
-    \end{equation*}
+  \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left (M(U)  - f \right )
   $$
 
   </div>
 </div>
 </div>
 
-<div text-xl py2>
+<div border="~ violet/50 rounded-lg" shadow-l mt-4>
+  <div text-xl text-center>
 
-Multiscale problem: $\varepsilon$ can be of $O(1)$ (**kinetic regime**) or $\ll 1$ (**diffusive regime**).
+  Multiscale problem: $\varepsilon$ varies from $O(1)$ <span text-red>kinetic regime</span> to $0$ <span text-red>hydrodynamic regime</span>.
 
+  </div>
 </div>
 
 ---
 
-# Engineering Challenges
+# Numerical Chanllenges
+
+Curse of dimensionality
+
+<br>
+
+<div grid="~ gap-4 cols-3">
+
+<div v-click flex="~ col gap-4" border="~ rose/50 rounded-lg" bg-rose:10 px4 p6>
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div i-la-cubes text-rose text-4xl />
+    <div text-rose>Dimension</div>
+  </div>
+
+  - phase space + time: 6 + 1 = 7
+  - collision is a 5-fold integral
+  - evaluate collision at every phase point
+
+</div>
+
+<div v-click flex="~ col gap-4" border="~ blue/50 rounded-lg" bg-blue:10 p6>
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div i-gg-size text-blue text-4xl />
+    <div text-blue>Collision</div>
+  </div>
+
+  - hard to determine the collision kernel
+  - highly non-linear for Boltzmann
+  - special velocity discretization is needed
+  - ray effect
+
+</div>
+
+<div v-click flex="~ col gap-4" border="~ amber/50 rounded-lg" bg-amber:10 p6>
+  <div flex="~ gap-1 items-center" text-3xl ml--1>
+    <div i-gg-size text-amber text-4xl />
+    <div text-amber>Multiscale</div>
+  </div>
+
+  - stability issues for small $\varepsilon$ (stiffness)
+  - consistency of the scheme with limiting model as $\varepsilon \to 0$
+  - automatically capture the transition across regimes
+
+</div>
+</div>
+
+---
+
+# Conventional Approaches
+
+<div h3 />
+
+**Probabilistic approach**
+
+- DSMC
+
+<ProsCons
+  :pros="[
+    'Easy for implementation',
+    'Relatively efficient',
+  ]"
+  :cons="[
+    'Low accuracy',
+    'Converge slow',
+    'Random fluctuations',
+  ]"
+/>
+
+---
+transition: none
+---
+
+# Conventional Approaches
+
+<div h3 />
+
+**Probabilistic approach**
+
+- DSMC
+
+**Deterministic approach**
+
+- discrete velocity/ordinate methods --- expensive, first or second order accuracy, maintain conservation.
+- spectral methods --- relatively expensive, spectral accuracy, do not maintain conservation.
+
+<ProsCons
+  :pros="[
+    'Easy for implementation',
+    'Relatively efficient',
+  ]"
+  :cons="[
+    'expensive',
+    'first or second order accuracy',
+    'not main conservation',
+  ]"
+/>
+
+---
+
+# Solve PDEs with Deep Learning
+
+Key components and core ideas of solving PDEs by Deep Neural Networks
+
+- **Architecture**: build a deep neural network (function class) as the trail function
+  - approximate solution (PINNs)
+  - approximate solution operator (DeepONet, FNO)
+  - mapping from equations (as a computational graph) to solutions (PDEFormer)
+- **Constraints (as Loss)**:
+  - **Model**: PDE / physical information needed (e.g., PINNs, DeepRitz, Deep-Galerkin)
+  - Data: pure supervised or as a priori information
+  - IC (initial conditions) and BC (boundary conditions)
+  - Other constraints: **conservation**, symmetry, etc.
+- **Optimization**: minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
+
+---
+
+# Numerical Challenges
 
 Good icons need to be:
 
@@ -590,7 +702,7 @@ class: h-full
 <div grid="~ cols-2" w-full h-full>
 <div>
 
-# Iconify <img src="/logo-iconify.svg" inline-block ml4 />
+# Iconify
 
 <div h-15 />
 <v-clicks>
@@ -710,8 +822,6 @@ So back to the solutions we were talking about, Iconify also comes with it's own
 ---
 
 # Solution 5: On-demand Components
-
-Introduce of <Repo name="unplugin/unplugin-icons" hide-owner />
 
 <div grid="~ cols-[1fr_1fr] gap-8">
 <div v-click>
@@ -865,33 +975,6 @@ I highly recommend this approach for most cases where you don't need to dynamica
 -->
 
 ---
-layout: center
-glow: top
-hide: true
----
-
-<div grid="~ cols-[max-content_1fr] gap-18">
-
-<div flex="~ col justify-center">
-
-## Solutions
-
-1. `<img>`
-1. Web Fonts
-1. Components
-1. On-demand Components
-1. Iconify Runtime
-1. Pure CSS Icons
-
-</div>
-
-<div flex="~ col items-center justify-center">
-  <img src="/meme-choice-both-1.png" class="w-120" v-click transition duration-400 :class="$clicks < 2 ? 'translate-y-20' : ''" />
-  <img src="/meme-choice-both-2.png" class="w-120" v-click forward:delay-300 />
-</div>
-</div>
-
----
 
 <h1 text-center flex="~ col gap-1 items-center" py5>
 <div flex="~ gap-2 items-center" font-bold><div i-logos-nuxt-icon text-3xl /> Integrate Icons to Nuxt</div>
@@ -996,21 +1079,6 @@ With these requirements in mind, [click] let's compare the solutions we discusse
 [click] On the other hand, CSS Icons are performant and work well with SSR, but they don't support dynamic icons.
 
 [pause a bit]
--->
-
----
-layout: center
----
-
-<div flex="~ col items-center justify-center">
-  <img src="/meme-choice-both-1.png" class="w-130" transition duration-400 :class="$clicks < 1 ? 'translate-y-20' : ''" />
-  <img src="/meme-choice-both-2.png" class="w-130" v-click forward:delay-300 />
-</div>
-
-<!--
-So, which should we choose? That's tough as we seems to either option we are trading off something we need.
-
-Ummm, so, [click] why don't we choose both?
 -->
 
 ---
