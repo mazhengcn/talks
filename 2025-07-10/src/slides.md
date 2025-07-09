@@ -10,6 +10,8 @@ title: Kinetic Machine Learning
 remoteAssets: true
 addons:
   - slidev-addon-graph
+fonts:
+  mono: JetBrains Mono
 ---
 
 # Solve Kinetic Equations with Deep Learning {.font-600!}
@@ -17,7 +19,11 @@ addons:
 <div flex="~ col gap-2">
   <div text-left text-2xl op75>Zheng Ma</div>
   <div text-left text-sm op50>Shanghai Jiao Tong University</div>
-  <div text-sm op50>Nov. 12th 2024</div>
+</div>
+
+<div abs-br mx-10 my-11 flex="~ col items-end" text-center>
+  <img src="/hksiam2025_banner.png" alt="hksiam2025" border="~ blue/50 rounded-lg" shadow-l h10 mb1 op75 />
+  <div text-sm opacity-75>July 10, 2025</div>
 </div>
 
 ---
@@ -47,16 +53,16 @@ Kinetic equations are important in many areas
 <br>
 
 <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 p5>
-  <div text-center text-2xl>Key problem: numerical simulation of <span text-red>kinetic equations</span>.</div>
+  <div text-center text-2xl>Key problem: numerical simulation of <span text-pink7>kinetic equations</span></div>
 </div>
 
 ---
 
 # Multiscale Kinetic Equations
 
-<div flex items-center justify-around>
+<div mt10 />
 
-<div text-xl>
+<div text-2xl>
 
 $$
 \partial_t f +  v \cdot \nabla_x f = Q(f)
@@ -64,24 +70,22 @@ $$
 
 </div>
 
-<!-- <img src="/kinetic/transport.png" border="~ rounded-lg purple/50" shadow-l h-30 op75 /> -->
+<div mt5 />
 
-</div>
+- $f(t, x, v)$: distribution function at time $t$ in phase sapce $(x, v)$
 
-<br>
+- $Q(f)$: collision operator
 
-- $f$: distribution function of particles at time $t$ in phase sapce $(x, v)$
-- $Q$: collision operator
 - $\varepsilon$: Knudsen number (ratio between mean free path and characteristic length)
 
-<div grid="~ cols-2 gap-4" mt-4>
+<div v-click grid="~ cols-2 gap-4" mt5>
 
 <div flex="~ col gap-2" border="~ violet/50 rounded-lg" shadow-l items-center>
-  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op60>Linear transport equation</div>
+  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op60>Neutron transport equation</div>
   <div text-base>
 
   $$
-    \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f\, \mathrm{d} v' - f \right)
+  \varepsilon \partial_t f + v \cdot \nabla_x f + \Sigma_t f= \frac{1}{\varepsilon} \int \Sigma_s(v,v') f \, \mathrm{d} v' + q
   $$
 
   </div>
@@ -92,17 +96,17 @@ $$
   <div text-base>
 
   $$
-  \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left (M(U)  - f \right )
+  \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left(M_{\text{eq}}[f]  - f \right)
   $$
 
   </div>
 </div>
 </div>
 
-<div border="~ violet/50 rounded-lg" shadow-l mt-4>
+<div v-click border="~ violet/50 rounded-lg" shadow-l mt-4>
   <div text-xl text-center>
 
-  Multiscale problem: $\varepsilon$ varies from $O(1)$ <span text-red>kinetic regime</span> to $0$ <span text-red>hydrodynamic regime</span>.
+  Multiscale problem: $\varepsilon$ can vary from $O(1)$ <span bg-pink3:10 rounded-lg p2 text-pink7>kinetic regime</span> to $0$ <span bg-pink3:10 rounded-lg p2 text-pink7>hydrodynamic regime</span>
 
   </div>
 </div>
@@ -113,7 +117,7 @@ $$
 
 Curse of dimensionality
 
-<br>
+<div mt5 />
 
 <div grid="~ gap-4 cols-3">
 
@@ -123,9 +127,11 @@ Curse of dimensionality
     <div text-rose>Dimension</div>
   </div>
 
-  - phase space + time: 6 + 1 = 7
-  - collision is a 5-fold integral
-  - evaluate collision at every phase point
+  - Phase space + time: 6 + 1 = 7
+
+  - Collision operator is a 5-fold integral
+
+  - Need to evalute collision at every phase point
 
 </div>
 
@@ -135,10 +141,11 @@ Curse of dimensionality
     <div text-blue>Collision</div>
   </div>
 
-  - hard to determine the collision kernel
-  - highly non-linear for Boltzmann
-  - special velocity discretization is needed
-  - ray effect
+  - Hard to maintain conservation at discrete level
+
+  - Highly nonlinear for Boltzmann collision
+
+  - Ray effect
 
 </div>
 
@@ -148,9 +155,11 @@ Curse of dimensionality
     <div text-amber>Multiscale</div>
   </div>
 
-  - stability issues for small $\varepsilon$ (stiffness)
-  - consistency of the scheme with limiting model as $\varepsilon \to 0$
-  - automatically capture the transition across regimes
+  - Stability issues for small $\varepsilon$ (stiffness)
+
+  - Consistency of the scheme with limiting model as $\varepsilon \to 0$
+
+  - Automatically capture the transition across regimes
 
 </div>
 </div>
@@ -159,52 +168,81 @@ Curse of dimensionality
 
 # Conventional Approaches
 
-<div h3 />
+Probabilistic approaches
 
-**Probabilistic approach**
 
-- DSMC
+- Monte Carlo methods for linear transport
+
+  - MCNP
+  - [COG](http://cog.llnl.gov) (LLNL, criticality safety analysis, general radiation)
+  - Mercury
+
+- Direct simulation Monte Carlo (DSMC) methods
+
+  - Bird, Nanbu, ...
+  - Sparta,
 
 <ProsCons
   :pros="[
-    'Easy for implementation',
+    'Easy implementation',
     'Relatively efficient',
   ]"
   :cons="[
-    'Low accuracy',
+    'Only half-order accuracy',
     'Converge slow',
     'Random fluctuations',
   ]"
 />
 
 ---
-transition: none
+layout: quote
+text: center
+---
+
+# Can deep learning solve the problems?
+
 ---
 
 # Conventional Approaches
 
-<div h3 />
+Deterministic approaches
 
-**Probabilistic approach**
+- Discrete velocity/ordinate methods (DVM)
 
-- DSMC
+  - Bobylev, Buet, Palczewski, Rogier, Schneider, ...
 
-**Deterministic approach**
+<div v-click="3">
 
-- discrete velocity/ordinate methods --- expensive, first or second order accuracy, maintain conservation.
-- spectral methods --- relatively expensive, spectral accuracy, do not maintain conservation.
+- Spectral methods
+
+  - Bobylev, Filbet, Gamba, Mouhot, Pareschi, Perthame, Rjasanow, Russo, Tharkabhushanam, etc.
+
+</div>
+
+<ProsCons v-click.hide
+  :pros="[
+    'Maintain conservation',
+    'High accuracy',
+  ]"
+  :cons="[
+    'Expensive',
+    'First or second order accuracy'
+  ]"
+/>
 
 <ProsCons
   :pros="[
-    'Easy for implementation',
-    'Relatively efficient',
+    'Spectral accuracy',
+    'Relatively expensive',
   ]"
   :cons="[
-    'expensive',
-    'first or second order accuracy',
-    'not main conservation',
+    'Do not main conservation',
   ]"
 />
+
+---
+layout: fact
+
 
 ---
 
@@ -322,36 +360,6 @@ Good icons need to be:
 </div>
 
 </div>
-
----
-layout: intro
-class: pl30
-glowSeed: 14
----
-
-# Anthony Fu
-
-<div class="[&>*]:important-leading-10 opacity-80">
-
-Core team member of {Vite} {Vue} and {Nuxt}<br>
-Creator of {Vitest} {Slidev} {UnoCSS} {Type Challenges} {Elk}<br>
-Maintainer of {ESLint Stylistic} {Shiki} {Twoslash}<br>
-Working at {NuxtLabs}<br>
-
-</div>
-
-<div my-10 w-min flex="~ gap-1" items-center justify-center>
-  <div i-ri-user-3-line op50 ma text-xl />
-  <div><a href="https://antfu.me" target="_blank" class="border-none! font-300">antfu.me</a></div>
-  <div i-ri-github-line op50 ma text-xl ml4/>
-  <div><a href="https://github.com/antfu" target="_blank" class="border-none! font-300">antfu</a></div>
-  <div i-ri-mastodon-line op50 ma text-xl ml4 />
-  <div><a href="https://m.webtoo.ls/@antfu" target="_blank" class="border-none! font-300">antfu@webtoo.ls</a></div>
-  <div i-ri-twitter-x-line op50 ma text-xl ml4/>
-  <div><a href="https://twitter.com/antfu7" target="_blank" class="border-none! font-300">antfu7</a></div>
-</div>
-
-<img src="https://antfu.me/avatar.png" rounded-full absolute top-38 right-15 w-40 />
 
 ---
 layout: fact
