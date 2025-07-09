@@ -407,7 +407,7 @@ $$
 \end{equation*}
 $$
 
-<img src="/ex2_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/ex2_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
 
 
 </div></div>
