@@ -87,7 +87,7 @@ $$
 $$
 
 <!-- <img src="/ex1_pinns.png" width="400" height="300" class="h-40 float-left ml-5"/> -->
-<img src="./apnn/ex1_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/ex1_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
 
 </div>
 
@@ -101,7 +101,7 @@ $$
 
 <br>
 
-<img src="./apnn/ex2_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/ex2_pinns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
 
 <div class="color-red text-center" >
   PINN fails!
@@ -121,7 +121,7 @@ $$
 
 </div> -->
 
-<img src="/loss_1e-8_pinns.png" class="h-40 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/loss_1e-8_pinns.png" class="h-40 mx-auto rounded-lg b-1 b-b" />
 
 <div class="overflow-auto h-60">
 
@@ -293,7 +293,7 @@ Conservation, symmetry, parity, etc
 
 # Asymptotic-Preserving Neural Networks
 
-<img src="./apnn/apnns.png" class="h-70 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/apnns.png" class="h-70 mx-auto rounded-lg b-1 b-b" />
 
 $\mathcal{F^{\varepsilon}}$ is the microscopic equation that depends on the small scale parameter $\varepsilon$ and $\mathcal{F}^{0}$ is its macroscopic limit as $\varepsilon \to 0$, which is independent of $\varepsilon$. The latent solution of $\mathcal{F^{\varepsilon}}$ is approximated by neural networks with its measure denoted by $\mathcal{R}(\mathcal{F^{\varepsilon}})$. The asymptotic limit of $\mathcal{R}(\mathcal{F^{\varepsilon}})$ as $\varepsilon \to 0$, if exists, is denoted by $\mathcal{R}(\mathcal{F}^{0})$. If $\mathcal{R}(\mathcal{F}^{0})$ is a good measure of $\mathcal{F}^{0}$, then it is called asymptotic-preserving (AP).
 
@@ -360,7 +360,7 @@ $$
 # APNN v1: based on Micro-macro decomposition
 
 
-<img src="/APNNs.jpg" class="h-90 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/APNNs.jpg" class="h-90 mx-auto rounded-lg b-1 b-b" op60 />
 
 Mass conservation mechanism $g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta}-\left \langle \tilde{g}^{\text{NN}}_{\theta} \right\rangle$ is also important!
 
@@ -390,7 +390,7 @@ $$
 \end{equation*}
 $$
 
-<img src="/ex1_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/ex1_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
 
 </div><div>
 
@@ -449,7 +449,7 @@ $$
 ######
 Plot of density $\rho$ at $t = 0.1$: APNNs with soft constraint (marker) vs. Ref (line).
 
-<img src="/ex2_1e-8_noexact.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/ex2_1e-8_noexact.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
 
 Mass conservation mechanism $g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta} -  \left \langle \tilde{g}^{\text{NN}}_{\theta} \right \rangle$ is important!
 
@@ -663,7 +663,7 @@ $\rho^{\text{NN}}_{\theta}(t, x) := t \cdot \exp \left( -\tilde{\rho}^{\text{NN}
 
 Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
-<img src="/dirichlet10_sol.png" class="h-40 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/dirichlet10_sol.png" class="h-40 mx-auto rounded-lg b-1 b-b"/>
 
 <!-- FCNet with units $[2, 128, 128, 128, 128, 1]$ for $\rho$ and $[3, 256, 256, 256, 256, 1]$ both for $r$ and $j$. Batch size is $512$ in domain, $1024 \times 2$ on boundary and $512$ on initial, the number of quadrature points is $30$. $\lambda_1 = \lambda_2 = \lambda_3 = \lambda_4 = \lambda_6 = 1, \lambda_7 = 10$. -->
 
@@ -687,7 +687,7 @@ Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
 ##### &emsp; &emsp; Figure 1:  without the enforcement of initial condition
 
-<img src="/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
 
 Due to the poor approximate of initial and boundary layer effect, it gives wrong solution at time $t = 0, 0.05, 0.1$.
 
@@ -695,7 +695,7 @@ Due to the poor approximate of initial and boundary layer effect, it gives wrong
 
 ##### &emsp; &emsp; &emsp; &emsp; Figure 2: without the constraint $\rho = \left \langle r \right \rangle$
 
-<img src="/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
 
 The solutions are also wrong at time $t = 0, 0.05, 0.1$, therefore, we consider this constraint into our APNN loss.
 
@@ -723,7 +723,7 @@ $$
 
 <div>
 
-<img src="/uq_1e-5.png" class="h-60 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/uq_1e-5.png" class="h-60 mx-auto rounded-lg b-1 b-b"/>
 </div>
 
 <!-- ---
@@ -805,7 +805,7 @@ U :=
 \end{equation*}
 $$
 
-<font color=red> Notice that the Boltzmann-BGK equation is an integro-differential equation with its nonlinear and non-local collision operator. </font>
+<div text-pink7>Notice that the Boltzmann-BGK equation is an integro-differential equation with its nonlinear and non-local collision operator. </div>
 
 
 ---
@@ -1097,9 +1097,9 @@ For $t = 0.1:$ relative $l^2$ error of density, momentum and energy are $5.43\te
 ######
 The integrals of approximate $f$ and approximate density, momentum and energy at time $t = 0$
 
-<img src="/ex1_sol_f_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
+<img src="/apnn/ex1_sol_f_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
 
-<img src="/ex1_sol_macro_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
+<img src="/apnn/ex1_sol_macro_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
 
 
 
@@ -1108,9 +1108,9 @@ The integrals of approximate $f$ and approximate density, momentum and energy at
 ######
 The integrals of approximate $f$ and approximate density, momentum and energy at time $t = 0.1$
 
-<img src="/ex1_sol_f_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
+<img src="/apnn/ex1_sol_f_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
 
-<img src="/ex1_sol_macro_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
+<img src="/apnn/ex1_sol_macro_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
 
 
 </div></div>
@@ -1161,7 +1161,7 @@ $$
 
 ---
 layout: image-right
-image: /apnn_grte.png
+image: /apnn/apnn_grte.png
 ---
 
 # APNNs for GRTE
@@ -1171,7 +1171,7 @@ Numerics and schema
 <!-- <div class="grid grid-cols-2 gap-x-4 mt-4"> -->
 
 <div>
-  <img src="/grte.png" class="mx-auto rounded-lg b-1 b-b">
+  <img src="/apnn/grte.png" class="mx-auto rounded-lg b-1 b-b">
 </div>
 
 ---
@@ -1199,7 +1199,7 @@ $$
 </div>
 
 <div>
-  <img src="/vpfp.png" class="mx-auto rounded-lg b-1 b-1">
+  <img src="/apnn/vpfp.png" class="mx-auto rounded-lg b-1 b-1">
 </div>
 </div>
 
@@ -1232,7 +1232,7 @@ $$
 </div>
 <div class="text-center">
 <br>
-<img src="/cons.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/cons.png" class="h-70 mx-auto rounded-lg b-1 b-b">
 
 Convolutional DeepONets
 
@@ -1248,7 +1248,7 @@ Convolutional DeepONets
 
 APCON based on Micro-macro decomposition
 
-<img src="/apcon_mm.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_mm.png" class="h-70 mx-auto rounded-lg b-1 b-b">
 
 </div>
 
@@ -1256,7 +1256,7 @@ APCON based on Micro-macro decomposition
 
 APCON based on even-odd decomposition
 
-<img src="/apcon_eo.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_eo.png" class="h-70 mx-auto rounded-lg b-1 b-b">
 
 </div>
 </div>
@@ -1270,7 +1270,7 @@ APCON based on even-odd decomposition
 
 Accuracy and parameters
 
-<img src="/apcon_table.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_table.png" class="h-70 mx-auto rounded-lg b-1 b-b">
 
 </div>
 
@@ -1278,7 +1278,7 @@ Accuracy and parameters
 
 APCON efficiency
 
-<img src="/apcon_e.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_e.png" class="h-70 mx-auto rounded-lg b-1 b-b">
 
 </div>
 </div>

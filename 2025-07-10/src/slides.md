@@ -194,12 +194,6 @@ Probabilistic approaches
   ]"
 />
 
----
-layout: quote
-text: center
----
-
-# Can deep learning solve the problems?
 
 ---
 
@@ -241,8 +235,17 @@ Deterministic approaches
 />
 
 ---
-layout: fact
+layout: center
+---
 
+<div flex="~ col gap-5 items-center">
+  <div font-600 m--2 text-center>
+
+  # Deep learning methods may become new approach
+
+  </div>
+  <div text-2xl op75 text-center>Overcome the curse of dimensionality</div>
+</div>
 
 ---
 
@@ -260,6 +263,11 @@ Key components and core ideas of solving PDEs by Deep Neural Networks
   - IC (initial conditions) and BC (boundary conditions)
   - Other constraints: **conservation**, symmetry, etc.
 - **Optimization**: minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
+
+
+---
+src: /pages/apnn.md
+---
 
 ---
 
