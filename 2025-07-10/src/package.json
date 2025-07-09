@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build --base /2025/hksiam/ --out ../../dist/2024/hksiam",
+    "build": "slidev build --base /2025/hksiam/ --out ../../dist/2025/hksiam",
     "export": "slidev export --per-slide --output ../2025-07-10-hkcsiam-en.pdf"
   }
 }
