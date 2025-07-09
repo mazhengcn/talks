@@ -1,4 +1,3 @@
-
 ---
 layout: center
 ---
@@ -7,8 +6,6 @@ layout: center
   <div text-4xl font-bold>Models for Multiscale Kinetic Equations</div>
   <div text-2xl font-500 op75>PINNs, DeepRitz, etc.</div>
 </div>
-
-
 
 ---
 
