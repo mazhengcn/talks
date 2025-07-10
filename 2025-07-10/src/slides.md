@@ -204,13 +204,16 @@ Deterministic approaches
 
 - Discrete velocity/ordinate methods (DVM)
 
-  - Bobylev, Buet, Palczewski, Rogier, Schneider, ...
+  - Ardra (LLNL)
+  - NEWT (ORNL)
+  - DORT
+  - Kit-RT
 
 <div v-click="3">
 
-- Spectral methods
+<div mt5 />
 
-  - Bobylev, Filbet, Gamba, Mouhot, Pareschi, Perthame, Rjasanow, Russo, Tharkabhushanam, etc.
+- Spectral methods
 
 </div>
 
