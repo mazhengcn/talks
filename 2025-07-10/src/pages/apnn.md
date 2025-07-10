@@ -5,7 +5,7 @@ layout: center
 <div flex="~ col gap-5 items-center">
   <div font-600 m--2 text-center>
 
-  # Model fo multiscale kinetic equations
+  # Constraints for multiscale kinetic equations
 
   </div>
   <div text-2xl op75 text-center>PINNs, DeepRitz, etc.</div>
@@ -87,7 +87,7 @@ $$
 
 <div v-click flex="~ col items-center">
 
-  Parabolic regime: $\varepsilon=10^{-8}$
+  Diffusive regime: $\varepsilon=10^{-8}$
 
   <img src="/apnn/ex2_pinns.png" alt="pinn-lte-eps-8" border="~ rounded-lg violet/50" shadow-l h-50 op75 />
 
@@ -105,7 +105,7 @@ $$
 
 ---
 
-# Failure of PINN
+# Failure of PINN Loss
 
 PINN can not resolve small scale
 
@@ -115,7 +115,7 @@ $$
 \mathcal{R}^{\varepsilon}_{\text{PINN}} = \int \left( \varepsilon^2 \partial_t f^{\text{NN}}_{\theta} + \varepsilon {v} \cdot \nabla_x f^{\text{NN}}_{\theta} - \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right ) \right)^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
 $$
 
-Take $\varepsilon \to 0$
+Let $\varepsilon \to 0$
 
 $$
   \mathcal{R}_{\text{PINN}}^0 = \int \left ( \frac{1}{2} \int_{-1}^{1} f^{\text{NN}}_{\theta} \mathrm{d} v' - f^{\text{NN}}_{\theta} \right )^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
@@ -137,13 +137,13 @@ PINN loss is not AP (Asymptotic-preserving), i.e., it does not converge to the <
 
 $$
 \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \rho(t,x) - f \right )
-, \; \rho(t,x) = \left \langle f \right \rangle := \frac{1}{2} \int_{-1}^{1} f \mathrm{d} v'
+, \quad \rho(t,x) = \left \langle f \right \rangle := \frac{1}{2} \int_{-1}^{1} f \mathrm{d} v'.
 $$
 
 Decompose $f$ into the equilibrium $\rho(t,x)$ and the non-equilibrium part $g(t,x,v)$:
 
 $$
-f(t,x,v) = \rho(t,x) + \varepsilon g(t,x,v).
+f(t,x,v) = \rho(t,x) + \varepsilon g(t,x,v),
 $$
 
 where the non-equilibrium part $g$ clearly satisfies <Emphasis>$\left \langle g \right \rangle = 0$</Emphasis>
@@ -264,10 +264,10 @@ $$
 layout: center
 ---
 
-<div flex="~ col gap-5 items-center">
-  <div font-600 m--2 text-center>
+<div flex="~ col gap-10 items-center">
+  <div font-600 m--10 text-center>
 
-  # What kind of model or loss is "good"?
+  # What is "good" loss for multiscale kinetic equations?
 
   </div>
   <div text-2xl op75 text-center>Conservation, symmetry, parity, etc.</div>
@@ -278,7 +278,7 @@ layout: center
 # Asymptotic-Preserving Neural Networks
 
 <div flex="~ justify-center">
-<div flex="~ items-center justify-between" w100 mt10>
+<div flex="~ items-center justify-between" w100>
 <div flex="~ col items-center justify-between" h70>
   <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-violet7 text-center px4>
 
@@ -323,12 +323,37 @@ layout: center
 </div>
 </div>
 
-<v-drag-arrow color="orange" pos="336,215,0,161"/>
-<v-drag-arrow color="orange" pos="639,215,0,158"/>
-<v-drag-arrow color="violet" pos="384,185,210,0"/>
-<v-drag-arrow color="violet" pos="384,406,210,0"/>
+<v-drag-arrow color="orange" pos="338,176,0,158"/>
+<v-drag-arrow color="orange" pos="641,176,0,158"/>
+<v-drag-arrow color="violet" pos="384,146,211,0"/>
+<v-drag-arrow color="violet" pos="384,365,211,0"/>
 
-$\mathcal{F^{\varepsilon}}$ is the microscopic equation that depends on the small scale parameter $\varepsilon$ and $\mathcal{F}^{0}$ is its macroscopic limit as $\varepsilon \to 0$, which is independent of $\varepsilon$. The latent solution of $\mathcal{F^{\varepsilon}}$ is approximated by neural networks with its measure denoted by $\mathcal{R}(\mathcal{F^{\varepsilon}})$. The asymptotic limit of $\mathcal{R}(\mathcal{F^{\varepsilon}})$ as $\varepsilon \to 0$, if exists, is denoted by $\mathcal{R}(\mathcal{F}^{0})$. If $\mathcal{R}(\mathcal{F}^{0})$ is a good measure of $\mathcal{F}^{0}$, then it is called asymptotic-preserving (AP).
+<div mt10 />
+
+<div grid="~ cols-2 gap-6" ml-5>
+<div flex="~ items-center justify-center gap-4">
+  <div bg-orange:10 rounded-lg px2 py0 text-orange7 text-center>
+
+  $\mathcal{F}^\varepsilon, \; \mathcal{F}^0$
+
+  </div>
+  <div>
+  Microscopic and macroscopic<br>
+  models
+  </div>
+</div>
+<div flex="~ items-center justify-center gap-4">
+  <div bg-violet:10 rounded-lg px2 py0 text-violet7 text-center>
+
+  $\mathcal{R}(\mathcal{F}^\varepsilon), \; \mathcal{R}(\mathcal{F}^0)$
+
+  </div>
+  <div>
+  Loss of microscopic<br>and macroscopic models
+  </div>
+</div>
+</div>
+
 
 ---
 
@@ -371,21 +396,26 @@ $$
 
 Re-design of loss
 
-$$
-    \begin{aligned}
-        \mathcal{R}^{\varepsilon}_{\text{APNN}} = & \frac{1}{|\mathcal{T} \times \mathcal{D}|} \int_{\mathcal{T}} \int_{\mathcal{D}} | \partial_t \rho^{\text{NN}}_{\theta} + \nabla_x \cdot \left \langle   {v} g^{\text{NN}}_{\theta} \right \rangle|^2 \mathrm{d}{{x}}  \mathrm{d}{t}                                      \\
-                                                  & + \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_\Omega | \varepsilon^2 \partial_t g^{\text{NN}}_{\theta}  + \varepsilon (I - \Pi)({v} \cdot \nabla_x g^{\text{NN}}_{\theta})                                      \\
-                                                  & \quad  + {v} \cdot  \nabla_{{x}} \rho^{\text{NN}}_{\theta} +  g^{\text{NN}}_{\theta}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}                                                                                                      \\
-                                                  & +  \frac{\lambda_1}{\mathcal{T} \times\partial \mathcal{D} \times \Omega|}  \int_{\mathcal{T}} \int_{\partial \mathcal{D}} \int_\Omega |\mathcal{B}(\rho^{\text{NN}}_{\theta} + \varepsilon g^{\text{NN}}_{\theta}) - F_{\text{B}}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t} \\
-                                                  & +  \frac{\lambda_2}{|\mathcal{D} \times \Omega|} \int_{\mathcal{D}} \int_\Omega |\mathcal{I}(\rho^{\text{NN}}_{\theta} + \varepsilon g^{\text{NN}}_{\theta}) - f_{0}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}}.
-    \end{aligned}
-$$
+<br>
 
 $$
-    \begin{aligned}
-        \mathcal{R}^{0}_{\text{APNN}} = & \frac{1}{|\mathcal{T} \times \mathcal{D}|} \int_{\mathcal{T}} \int_{\mathcal{D}} | \partial_t \rho^{\text{NN}}_{\theta} + \nabla_x \cdot \left \langle   {v} g^{\text{NN}}_{\theta} \right \rangle |^2 \mathrm{d}{{x}}  \mathrm{d}{t}                                      \\
-                                                  & + \frac{1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_\Omega | {v} \cdot  \nabla_{{x}} \rho^{\text{NN}}_{\theta} +  g^{\text{NN}}_{\theta} |^2.
-    \end{aligned}
+\begin{aligned}
+  \mathcal{R}^{\varepsilon}_{\text{APNN}} & = \int \left( \partial_t \rho^{\text{NN}}_{\theta} + \nabla_x \cdot \left \langle  {v} g^{\text{NN}}_{\theta} \right \rangle\right)^2 \mathrm{d}{{x}}  \mathrm{d}{t} \\
+  & + \int | \varepsilon^2 \partial_t g^{\text{NN}}_{\theta}  + \varepsilon (I - \Pi)({v} \cdot \nabla_x g^{\text{NN}}_{\theta})
+  \quad  + {v} \cdot  \nabla_{{x}} \rho^{\text{NN}}_{\theta} +  g^{\text{NN}}_{\theta}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}
+\end{aligned}
+$$
+
+<div mt5 />
+
+Let $\varepsilon \to 0$, the loss converges to
+
+<div mt5 />
+
+$$
+\mathcal{R}^{0}_{\text{APNN}}
+= \int \left( \partial_t \rho^{\text{NN}}_{\theta} + \nabla_x \cdot \left \langle   {v} g^{\text{NN}}_{\theta} \right \rangle\right)^2 \mathrm{d}{{x}}  \mathrm{d}{t}
++ \int \left({v} \cdot  \nabla_{{x}} \rho^{\text{NN}}_{\theta} +  g^{\text{NN}}_{\theta} \right)^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}.
 $$
 
 ---
@@ -393,9 +423,15 @@ $$
 # APNN v1: based on Micro-macro decomposition
 
 
-<img src="/apnn/APNNs.jpg" class="h-90 mx-auto rounded-lg b-1 b-b" op60 />
+<img src="/apnn/APNNs.jpg" class="h-90 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
-Mass conservation mechanism $g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta}-\left \langle \tilde{g}^{\text{NN}}_{\theta} \right\rangle$ is also important!
+<div mt5 />
+
+<div text-center>
+
+Mass conservation mechanism <Emphasis>$g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta}-\left \langle \tilde{g}^{\text{NN}}_{\theta} \right\rangle$</Emphasis> is also important!
+
+</div>
 
 
 ---
@@ -412,42 +448,37 @@ Mass conservation mechanism $g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\th
 <div>
 
 ######
-Ex 1: Periodic boundary condition ($\varepsilon=1$)
+Periodic boundary condition: $\varepsilon=1$
 
 $$
-\begin{equation*}
 \begin{aligned}
-  f(t, x_L, v) &= f(t, x_R, v), \\
-  f_0(x, v) &= \frac{1 + \cos (4 \pi x)}{\sqrt{2\pi}}e^{-\frac{v^2}{2}}.
+  & f(t, x_L, v) = f(t, x_R, v), \\
+  & f_0(x, v) = \frac{1 + \cos (4 \pi x)}{\sqrt{2\pi}}e^{-\frac{v^2}{2}}.
 \end{aligned}
-\end{equation*}
 $$
 
-<img src="/apnn/ex1_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/ex1_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
 </div><div>
 
 ######
-Ex 2: Inflow boundary condition ($\varepsilon=10^{-8}$)
+Inflow boundary condition $\varepsilon=10^{-8}$
 
 $$
-\begin{equation*}
 \begin{aligned}
-  f(t, x_L, v) &= 1 \; \text{for} \; v > 0, \\
-  f(t, x_R, v) &= 0 \; \text{for} \; v < 0, \\
+  f(t, x_L, v) = 1 \; & \text{for} \; v > 0\; \text{and}\; 1 \;\text{for} \; v<0, \\
   f_0(x, v) &= 0.
 \end{aligned}
-\end{equation*}
 $$
 
-<img src="/apnn/ex2_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/ex2_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
+</div>
+</div>
 
-</div></div>
+<div text-center>
 
-<div>
-
-One can observed that APNN works for both $\varepsilon=1$ and $\varepsilon=10^{-8}$.
+One can observed that APNN works for both $\varepsilon=1$ and <Emphasis> $\varepsilon=10^{-8}$</Emphasis>.
 
 </div>
 
@@ -466,66 +497,64 @@ One can observed that APNN works for both $\varepsilon=1$ and $\varepsilon=10^{-
 ######
 Ex 3: Inflow boundary condition ($\varepsilon=10^{-8}$)
 
-For the constraint $\left \langle g \right \rangle = 0$, one way is to construct a novel neural network for $g$ such that it  exactly satisfies $\left \langle g \right \rangle = 0$.
+For the constraint <Emphasis>$\left \langle g \right \rangle = 0$</Emphasis>, one way is to construct a novel neural network for $g$ such that it  exactly satisfies <Emphasis>$\left \langle g \right \rangle = 0$</Emphasis>.
 
 The other way is to treat it as a soft constraint with parameter $\lambda_3$, we use $\hat{g}_{\theta}^{\text{NN}}$ and modifies the loss as
+
+<div mt10 />
+
 $$
-\begin{equation*}
-  \mathcal{R}_{\text{APNN}} +  \frac{\lambda_3}{|\mathcal{T} \times \mathcal{D}|} \int_{\mathcal{T}} \int_{\mathcal{D}} | \left \langle  \hat{g}^{\text{NN}}_{\theta} \right \rangle - 0|^2 \mathrm{d}{{x}}  \mathrm{d}{t}.
-\end{equation*}
+\mathcal{R}_{\text{APNN}} +  \lambda_3 \int | \left \langle  \hat{g}^{\text{NN}}_{\theta} \right \rangle - 0|^2 \mathrm{d}{{x}}  \mathrm{d}{t}.
 $$
 
+</div>
 
-
-</div><div>
+<div>
 
 ######
 Plot of density $\rho$ at $t = 0.1$: APNNs with soft constraint (marker) vs. Ref (line).
 
-<img src="/apnn/ex2_1e-8_noexact.png" class="h-50 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/ex2_1e-8_noexact.png" class="h-50 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
-Mass conservation mechanism $g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta} -  \left \langle \tilde{g}^{\text{NN}}_{\theta} \right \rangle$ is important!
+</div>
+</div>
 
-</div></div>
+<div mt5 />
 
-<div>
+<div text-center>
 
+Mass conservation mechanism <Emphasis>$g^{\text{NN}}_{\theta} = \tilde{g}^{\text{NN}}_{\theta} -  \left \langle \tilde{g}^{\text{NN}}_{\theta} \right \rangle$</Emphasis> is important!
 
 </div>
 
 ---
 
 # Even and odd parity method
+
 Alternative method for constructing AP schemes in classical numerical methods
 
 $$
-\begin{equation*}
 \varepsilon \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( \frac{1}{2} \int_{-1}^{1} f \mathrm{d} v' - f \right ), \; -1 \le v \le 1
-\end{equation*}
 $$
 
 By splitting equation and define even- and odd-parities as
 
 $$
-\begin{equation*}
-    \begin{aligned}
-        r(t, x, v) & = \frac{1}{2}[f(t, x, v) + f(t, x, -v)], \; 0 \le v \le 1,  \\
-        j(t, x, v) & = \frac{1}{2\varepsilon}[f(t, x, v) - f(t, x, -v)],  \; 0 \le v \le 1,
-    \end{aligned}
-\end{equation*}
+\begin{aligned}
+    r(t, x, v) & = \frac{1}{2}[f(t, x, v) + f(t, x, -v)], \; 0 \le v \le 1,  \\
+    j(t, x, v) & = \frac{1}{2\varepsilon}[f(t, x, v) - f(t, x, -v)],  \; 0 \le v \le 1,
+\end{aligned}
 $$
 
 one can obtain
 
 $$
-\begin{equation*}
-    \left\{
-    \begin{aligned}
-         & \partial_t r + v\partial_x j = \frac{1}{\varepsilon^2}(\rho - r), \\
-         & \partial_t j + \frac{1}{\varepsilon^2} v \partial_x r = -\frac{1}{\varepsilon^2} j,
-    \end{aligned}
-    \right.
-\end{equation*}
+\left\{
+\begin{aligned}
+      & \partial_t r + v\partial_x j = \frac{1}{\varepsilon^2}(\rho - r), \\
+      & \partial_t j + \frac{1}{\varepsilon^2} v \partial_x r = -\frac{1}{\varepsilon^2} j,
+\end{aligned}
+\right.
 $$
 
 where $\rho = \left \langle r \right \rangle := \int_0^1 r(t, x, v)  \mathrm{d} v$.
@@ -578,15 +607,13 @@ $$
 The even-odd parity system for the linear trasport equation
 
 $$
-\begin{equation*}
-    \left\{
-    \begin{aligned}
-         & \partial_t r + v\partial_x j = \frac{1}{\varepsilon^2}(\rho - r), \\
-         & \partial_t j + \frac{1}{\varepsilon^2} v \partial_x r = -\frac{1}{\varepsilon^2} j, \\
-         & \partial_t \rho + \left \langle v\partial_x j \right \rangle = 0.
-    \end{aligned}
-    \right.
-\end{equation*}
+\left\{
+\begin{aligned}
+      & \partial_t r + v\partial_x j = \frac{1}{\varepsilon^2}(\rho - r), \\
+      & \partial_t j + \frac{1}{\varepsilon^2} v \partial_x r = -\frac{1}{\varepsilon^2} j, \\
+      & \color{red}{\partial_t \rho + \left \langle v\partial_x j \right \rangle = 0}.
+\end{aligned}
+\right.
 $$
 
 Sending $\varepsilon \to 0$, the above system formally approaches
@@ -597,7 +624,7 @@ $$
     \begin{aligned}
         \rho & = r, \\
         v \partial_x r&  = - j, \\
-       \partial_t \rho + \left \langle v\partial_x j \right \rangle & = 0.
+       \color{red}{\partial_t \rho + \left \langle v\partial_x j \right \rangle} & \color{red}{= 0}.
     \end{aligned}
     \right.
 \end{equation*}
@@ -643,24 +670,27 @@ $$
 
 <!-- Then we propose the least square of the residual of the even-odd system as the APNN loss -->
 
+<br>
+
 $$
-\begin{equation*}
-    \begin{aligned}
-        \mathcal{R}^{\varepsilon}_{\text{APNN}} = & \frac{\lambda_1}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_{\Omega} | \varepsilon^2 \partial_t r^{\text{NN}}_{\theta} + \varepsilon^2 v\partial_x j^{\text{NN}}_{\theta} - (\rho^{\text{NN}}_{\theta} - r^{\text{NN}}_{\theta}) |^2 \mathrm{d}{{v}} \mathrm{d}{{x}}  \mathrm{d}{t} \\
-                                                  & + \frac{\lambda_2}{|\mathcal{T} \times \mathcal{D} \times \Omega|} \int_{\mathcal{T}} \int_{\mathcal{D}} \int_{\Omega} |\varepsilon^2 \partial_t j^{\text{NN}}_{\theta} + v \partial_x r^{\text{NN}}_{\theta} - (-j^{\text{NN}}_{\theta}) |^2 \mathrm{d}{{v}} \mathrm{d}{{x}}  \mathrm{d}{t}                                        \\
-                                                  & + \frac{\lambda_3}{|\mathcal{T} \times \mathcal{D}|} \int_{\mathcal{T}} \int_{\mathcal{D}} | \partial_t \rho^{\text{NN}}_{\theta} +  \left \langle v\partial_x j^{\text{NN}}_{\theta} \right \rangle |^2   \mathrm{d}{{x}}  \mathrm{d}{t}
-        \\
-                                                  & + \frac{\lambda_4}{|\mathcal{T} \times \mathcal{D}|} \int_{\mathcal{T}} \int_{\mathcal{D}} |\rho^{\text{NN}}_{\theta} -  \left \langle r^{\text{NN}}_{\theta} \right \rangle |^2   \mathrm{d}{{x}}  \mathrm{d}{t}
-        \\
-                                                  & +  \frac{\lambda_5}{|\mathcal{D}|} \int_{\mathcal{D}} |\rho^{\text{NN}}_{\theta}(0, x) - \left \langle f_{0} \right \rangle |^2 \mathrm{d}{\bm{x}}
- +  \frac{\lambda_6}{|\mathcal{D} \times \Omega|} \int_{\mathcal{D}} \int_\Omega |\mathcal{I}(r^{\text{NN}}_{\theta} + \varepsilon j^{\text{NN}}_{\theta}) - f_{0}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}}
-        \\
-                                                  & +  \frac{\lambda_7}{|\mathcal{T} \times\partial \mathcal{D} \times \Omega|}  \int_{\mathcal{T}} \int_{\partial \mathcal{D}} \int_\Omega |\mathcal{B}(r^{\text{NN}}_{\theta} + \varepsilon j^{\text{NN}}_{\theta}) - F_{\text{B}}|^2 \mathrm{d}{{v}} \mathrm{d}{{x}} \mathrm{d}{t}.
-    \end{aligned}
-\end{equation*}
+\begin{aligned}
+    \mathcal{R}^{\varepsilon}_{\text{APNN}}
+    &= \lambda_1 \int | \varepsilon^2 \partial_t r^{\text{NN}}_{\theta} + \varepsilon^2 v\partial_x j^{\text{NN}}_{\theta} - (\rho^{\text{NN}}_{\theta} - r^{\text{NN}}_{\theta}) |^2 \mathrm{d}{{v}} \mathrm{d}{{x}}  \mathrm{d}{t} \\
+    & + \lambda_2\int |\varepsilon^2 \partial_t j^{\text{NN}}_{\theta} + v \partial_x r^{\text{NN}}_{\theta} - (-j^{\text{NN}}_{\theta}) |^2 \mathrm{d}{{v}} \mathrm{d}{{x}}  \mathrm{d}{t}                                        \\
+    & + \lambda_3\int | \partial_t \rho^{\text{NN}}_{\theta} +  \left \langle v\partial_x j^{\text{NN}}_{\theta} \right \rangle |^2   \mathrm{d}{{x}}  \mathrm{d}{t}
+    \\
+    & + \lambda_4\int |\rho^{\text{NN}}_{\theta} -  \left \langle r^{\text{NN}}_{\theta} \right \rangle |^2   \mathrm{d}{{x}}  \mathrm{d}{t}
+\end{aligned}
 $$
 
-Notice that the constraint $\textcolor{red}{\rho = \left \langle r \right \rangle}$ is also added into the APNN loss.
+<div mt10 />
+
+
+<div text-center>
+
+Notice that the constraint <Emphasis>$\rho = \left \langle r \right \rangle$</Emphasis> is also added into the APNN loss.
+
+</div>
 
 ---
 
@@ -696,7 +726,7 @@ $\rho^{\text{NN}}_{\theta}(t, x) := t \cdot \exp \left( -\tilde{\rho}^{\text{NN}
 
 Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
-<img src="/apnn/dirichlet10_sol.png" class="h-40 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/dirichlet10_sol.png" class="h-40 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
 <!-- FCNet with units $[2, 128, 128, 128, 128, 1]$ for $\rho$ and $[3, 256, 256, 256, 256, 1]$ both for $r$ and $j$. Batch size is $512$ in domain, $1024 \times 2$ on boundary and $512$ on initial, the number of quadrature points is $30$. $\lambda_1 = \lambda_2 = \lambda_3 = \lambda_4 = \lambda_6 = 1, \lambda_7 = 10$. -->
 
@@ -720,7 +750,7 @@ Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
 ##### &emsp; &emsp; Figure 1:  without the enforcement of initial condition
 
-<img src="/apnn/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
 Due to the poor approximate of initial and boundary layer effect, it gives wrong solution at time $t = 0, 0.05, 0.1$.
 
@@ -728,7 +758,7 @@ Due to the poor approximate of initial and boundary layer effect, it gives wrong
 
 ##### &emsp; &emsp; &emsp; &emsp; Figure 2: without the constraint $\rho = \left \langle r \right \rangle$
 
-<img src="/apnn/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg b-1 b-b" />
+<img src="/apnn/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
 The solutions are also wrong at time $t = 0, 0.05, 0.1$, therefore, we consider this constraint into our APNN loss.
 
@@ -756,7 +786,7 @@ $$
 
 <div>
 
-<img src="/apnn/uq_1e-5.png" class="h-60 mx-auto rounded-lg b-1 b-b"/>
+<img src="/apnn/uq_1e-5.png" class="h-60 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl op75/>
 </div>
 
 <!-- ---
@@ -838,14 +868,12 @@ U :=
 \end{equation*}
 $$
 
-<div text-pink7>Notice that the Boltzmann-BGK equation is an integro-differential equation with its nonlinear and non-local collision operator. </div>
+Notice that the Boltzmann-BGK equation is an integro-differential equation with its nonlinear and non-local collision operator.
 
 
 ---
 
 # Density, macroscopic velocity and temperature
-
-<br>
 
 - density
   $$
@@ -871,8 +899,6 @@ $$
 ---
 
 # Local conservation laws
-
-<br>
 
 $$
 \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left ( M(U) - f \right ),  \quad v \in \mathbb{R},
@@ -916,7 +942,6 @@ $$
 
 # APNN System
 
-<br>
 
 The systems of Boltzmann-BGK model
 
@@ -959,7 +984,8 @@ $$
 ---
 
 # Boundary and initial conditions
-<br>
+
+<div mt5 />
 
 The boundary conditions of $\rho, u, T$ are set as constants:
 
@@ -984,39 +1010,6 @@ $$
 
 Here, time $t \in \mathcal{T} := [0, T]$, space point $x \in \mathcal{D} := [x_L, x_R]$ and
  we restrict the range of velocity to a bounded symmetrical domain $\Omega = [-V, V]$ with $V = 10$ since this assumption might be realistic in many studies.
-
-
----
-
-# APNN v2 for Boltzmann-BGK equation
-<br>
-
-$$
-\begin{equation*}
-    \left\{
-    \begin{aligned}
-         & \varepsilon \left ( \partial_t f + v \partial_x f \right ) = M(U) - f, \\
-         &  \partial_t
-            \begin{pmatrix}
-             \rho \\
-             \rho u \\
-            \frac{1}{2} \rho |u|^2 + \frac{1}{2} \rho T
-            \end{pmatrix}
-             + \nabla_x \cdot \left \langle v m f \right \rangle = 0, \\
-        & \begin{pmatrix}
-             \rho \\
-             \rho u \\
-            \frac{1}{2} \rho |u|^2 + \frac{1}{2} \rho T
-            \end{pmatrix} = \int_{\mathbb{R}} m  f \mathrm{d} v, \\
-        & \rho(t, x_L) = \rho_L, \;  \rho(t, x_R) = \rho_R, \\
-        & u(t, x_L) = u_L, \; u(t, x_R) = u_R, \\
-        & T(t, x_L) = T_L, \; T(t, x_R) = T_R, \\
-        & f(0, x, v) = f_0(x, v), \\
-        & \rho(0, x) = \rho_0(x), u(0, x) = u_0(x),  T(0, x) = T_0(x).
-    \end{aligned}
-    \right.
-\end{equation*}
-$$
 
 ---
 
@@ -1050,26 +1043,17 @@ which $\rho ^{\text{NN}}_{\theta}, u ^{\text{NN}}_{\theta}, T ^{\text{NN}}_{\the
 <div class="overflow-auto h-100">
 
 $$
-\begin{equation*}
-    \begin{aligned}
-        \mathcal{R}^{\varepsilon}_{\text{APNN, BGK}} = & \frac{\lambda_1}{N_1^{(1)}} \sum_{i=1}^{N_1^{(1)}}
-        | \varepsilon (\partial_t f^{\text{NN}}_{\theta}(t_i,x_i,v_i) +  v\nabla_x f^{\text{NN}}_{\theta}(t_i,x_i,v_i)) - \left ( M(U^{\text{NN}}_{\theta}) - f^{\text{NN}}_{\theta} \right )(t_i,x_i,v_i) |^2  \\
-                                        & + \frac{\lambda_2}{N_1^{(2)}} \sum_{i=1}^{N_1^{(2)}} |\partial_t \rho^{\text{NN}}_{\theta}(t_i,x_i) + \nabla_x \left \langle v f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i)|^2  \\
-                                        & + \frac{\lambda_3}{N_1^{(3)}} \sum_{i=1}^{N_1^{(3)}} |\partial_t (\rho^{\text{NN}}_{\theta}(t_i,x_i) u^{\text{NN}}_{\theta}(t_i,x_i)) + \nabla_x \left \langle v^2 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2 \\
-                                        & + \frac{\lambda_4}{N_1^{(4)}} \sum_{i=1}^{N_1^{(4)}} |\partial_t \left (\frac{1}{2} \rho^{\text{NN}}_{\theta}(t_i,x_i) (u^{\text{NN}}_{\theta}(t_i,x_i))^2 + \frac{1}{2} \rho^{\text{NN}}_{\theta}(t_i,x_i) T^{\text{NN}}_{\theta}(t_i,x_i)\right ) + \\
-                                                & \quad \quad \quad \quad \quad \quad \nabla_x \left \langle \frac{1}{2} v^3 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2 \\
-                                        & + \frac{\lambda_5}{N_2^{(1)}} \sum_{i=1}^{N_2^{(1)}} |\rho^{\text{NN}}_{\theta}(t_i,x_i) - \left \langle f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i)|^2 \\
-                                        & + \frac{\lambda_6}{N_2^{(2)}} \sum_{i=1}^{N_2^{(2)}} |\rho^{\text{NN}}_{\theta}(t_i,x_i) u^{\text{NN}}_{\theta}(t_i,x_i) - \left \langle v f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2  \\
-                                        & + \frac{\lambda_7}{N_2^{(3)}} \sum_{i=1}^{N_2^{(3)}} |\partial_t \left (\frac{1}{2} \rho^{\text{NN}}_{\theta} (u^{\text{NN}}_{\theta})^2 + \frac{1}{2} \rho^{\text{NN}}_{\theta} T^{\text{NN}}_{\theta}\right )(t_i,x_i) - \left \langle \frac{1}{2} v^2 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2  \\
-                                        & + \frac{\lambda_8}{N_3^{(1)}} \sum_{i=1}^{N_3^{(1)}} |\rho^{\text{NN}}_{\theta}(t_i, x_L) - \rho_L|^2 + |\rho^{\text{NN}}_{\theta}(t_i, x_R) - \rho_R|^2 \\
-                                        & + \frac{\lambda_9}{N_3^{(2)}} \sum_{i=1}^{N_3^{(2)}} |u^{\text{NN}}_{\theta}(t_i, x_L) - u_L|^2 + |u^{\text{NN}}_{\theta}(t_i, x_R) - u_R|^2 \\
-                                        & + \frac{\lambda_{10}}{N_3^{(3)}} \sum_{i=1}^{N_3^{(3)}} |T^{\text{NN}}_{\theta}(t_i, x_L) - T_L|^2 + |T^{\text{NN}}_{\theta}(t_i, x_R) - T_R|^2 \\
-                                        & + \frac{\lambda_{11}}{N_4^{(1)}} \sum_{i=1}^{N_4^{(1)}} |f^{\text{NN}}_{\theta}(0, x_i, v_i) - f_0(x_i, v_i)|^2  \\
-                                        & + \frac{\lambda_{12}}{N_4^{(2)}} \sum_{i=1}^{N_4^{(2)}} |\rho^{\text{NN}}_{\theta}(0, x_i) - \rho_0(x_i)|^2 \\
-                                        & + \frac{\lambda_{13}}{N_4^{(3)}} \sum_{i=1}^{N_4^{(3)}} |u^{\text{NN}}_{\theta}(0, x_i) - u_0(x_i)|^2  \\
-                                        & + \frac{\lambda_{14}}{N_4^{(4)}} \sum_{i=1}^{N_4^{(4)}} |T^{\text{NN}}_{\theta}(0, x_i) - T_0(x_i)|^2 .
-    \end{aligned}
-\end{equation*}
+\begin{aligned}
+  \mathcal{R}^{\varepsilon}_{\text{APNN, BGK}}
+  &= \frac{\lambda_1}{N_1^{(1)}} \sum_{i=1}^{N_1^{(1)}}
+  | \varepsilon (\partial_t f^{\text{NN}}_{\theta}(t_i,x_i,v_i) +  v\nabla_x f^{\text{NN}}_{\theta}(t_i,x_i,v_i)) - \left ( M(U^{\text{NN}}_{\theta}) - f^{\text{NN}}_{\theta} \right )(t_i,x_i,v_i) |^2  \\
+  & + \frac{\lambda_2}{N_1^{(2)}} \sum_{i=1}^{N_1^{(2)}} |\partial_t \rho^{\text{NN}}_{\theta}(t_i,x_i) + \nabla_x \left \langle v f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i)|^2  \\
+  & + \frac{\lambda_3}{N_1^{(3)}} \sum_{i=1}^{N_1^{(3)}} |\partial_t (\rho^{\text{NN}}_{\theta}(t_i,x_i) u^{\text{NN}}_{\theta}(t_i,x_i)) + \nabla_x \left \langle v^2 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2 \\
+  & + \frac{\lambda_4}{N_1^{(4)}} \sum_{i=1}^{N_1^{(4)}} |\partial_t \left (\frac{1}{2} \rho^{\text{NN}}_{\theta}(t_i,x_i) (u^{\text{NN}}_{\theta}(t_i,x_i))^2 + \frac{1}{2} \rho^{\text{NN}}_{\theta}(t_i,x_i) T^{\text{NN}}_{\theta}(t_i,x_i)\right ) + \\ & \quad \quad \quad \quad \quad \quad \nabla_x \left \langle \frac{1}{2} v^3 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2 \\
+  & + \frac{\lambda_5}{N_2^{(1)}} \sum_{i=1}^{N_2^{(1)}} |\rho^{\text{NN}}_{\theta}(t_i,x_i) - \left \langle f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i)|^2 \\
+  & + \frac{\lambda_6}{N_2^{(2)}} \sum_{i=1}^{N_2^{(2)}} |\rho^{\text{NN}}_{\theta}(t_i,x_i) u^{\text{NN}}_{\theta}(t_i,x_i) - \left \langle v f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2  \\
+  & + \frac{\lambda_7}{N_2^{(3)}} \sum_{i=1}^{N_2^{(3)}} |\partial_t \left (\frac{1}{2} \rho^{\text{NN}}_{\theta} (u^{\text{NN}}_{\theta})^2 + \frac{1}{2} \rho^{\text{NN}}_{\theta} T^{\text{NN}}_{\theta}\right )(t_i,x_i) - \left \langle \frac{1}{2} v^2 f^{\text{NN}}_{\theta} \right \rangle (t_i,x_i) |^2
+\end{aligned}
 $$
 
 </div>
@@ -1123,16 +1107,16 @@ For $t = 0.1:$ relative $l^2$ error of density, momentum and energy are $5.43\te
 ---
 
 
-<div class="grid grid-cols-2 gap-x-4 mt-4">
+<div class="grid grid-cols-2 gap-4 mt-4">
 
 <div>
 
 ######
 The integrals of approximate $f$ and approximate density, momentum and energy at time $t = 0$
 
-<img src="/apnn/ex1_sol_f_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
+<img src="/apnn/ex1_sol_f_t0.png" width="400" height="300" class="h-45 float-left ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 />
 
-<img src="/apnn/ex1_sol_macro_t0.png" width="400" height="300" class="h-45 float-left ml-5"/>
+<img src="/apnn/ex1_sol_macro_t0.png" width="400" height="300" class="h-45 float-left ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 mt4 />
 
 
 
@@ -1141,12 +1125,56 @@ The integrals of approximate $f$ and approximate density, momentum and energy at
 ######
 The integrals of approximate $f$ and approximate density, momentum and energy at time $t = 0.1$
 
-<img src="/apnn/ex1_sol_f_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
+<img src="/apnn/ex1_sol_f_t1.png" width="400" height="300" class="h-45 float-right ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 />
 
-<img src="/apnn/ex1_sol_macro_t1.png" width="400" height="300" class="h-45 float-right ml-5"/>
+<img src="/apnn/ex1_sol_macro_t1.png" width="400" height="300" class="h-45 float-right ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 mt4 />
 
 
 </div></div>
+
+---
+layout: center
+---
+
+<div flex="~ col gap-4 items-center">
+  <div font-600 m--2 text-center>
+
+  # APNN for More General Systems
+
+  </div>
+  <div text-2xl op75 text-center>VPFP, Gray-RTE, etc.</div>
+</div>
+
+---
+
+# APNNs for Vlasov-Poisson-Fokker-Planck system
+
+<br>
+
+<div class="grid grid-cols-2 gap-x-4 mt-4">
+
+<div>
+
+VPFP System
+
+$$
+\begin{aligned}
+  & \partial_t f+v\cdot\nabla_x f-\frac{1}{\varepsilon}\nabla_x \phi \cdot \nabla_v f =\frac{1}{\varepsilon} \nabla_{v} \cdot\left[v f+\nabla_{v} f\right], \\
+  & -\nabla_x \phi(t, x) =\rho(t, x)-h(x),
+\end{aligned}
+$$
+where
+$$
+\rho(t, x)=\int_{\mathbb{R}^N} f(t, x, v) \mathrm{d} v
+$$
+</div>
+
+<div>
+  <img src="/apnn/vpfp.png" class="ml-8 rounded-lg b-1 b-1" border="~ violet/50" shadow-xl op75 />
+</div>
+</div>
+
+
 
 ---
 
@@ -1204,42 +1232,81 @@ Numerics and schema
 <!-- <div class="grid grid-cols-2 gap-x-4 mt-4"> -->
 
 <div>
-  <img src="/apnn/grte.png" class="mx-auto rounded-lg b-1 b-b">
+  <img src="/apnn/grte.png" class="mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl op75 />
 </div>
 
 ---
 
-# APNNs for Vlasov-Poisson-Fokker-Planck system
+# RT-APNNs: ResNet
 
-<br>
+With 3 key improvements to APNNs
 
-<div class="grid grid-cols-2 gap-x-4 mt-4">
+<div mt5 />
 
-<div>
-
-VPFP System
-
-$$
-\begin{aligned}
-  & \partial_t f+v\cdot\nabla_x f-\frac{1}{\varepsilon}\nabla_x \phi \cdot \nabla_v f =\frac{1}{\varepsilon} \nabla_{v} \cdot\left[v f+\nabla_{v} f\right], \\
-  & -\nabla_x \phi(t, x) =\rho(t, x)-h(x),
-\end{aligned}
-$$
-where
-$$
-\rho(t, x)=\int_{\mathbb{R}^N} f(t, x, v) \mathrm{d} v
-$$
+<div flex="~ justify-center">
+  <img src="/apnn/rt_apnns.png" border="~ violet:50" rounded-lg h-90 op75 />
 </div>
 
-<div>
-  <img src="/apnn/vpfp.png" class="mx-auto rounded-lg b-1 b-1">
+
+---
+
+# RT-APNNs: Pre-training
+
+With 3 key improvements to APNNs
+
+<div flex="~ justify-center">
+  <img src="/apnn/pre_train.png" border="~ violet:50" rounded-lg h-85 op75 />
 </div>
+
+<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 p2 mx22 text-xl>
+Improve the <span text-pink7>long time</span> stability
 </div>
 
 ---
 
-# APCONs
-Asymptotic-Preserving Convolutional Deep Operator Networks
+# RT-APNNs: MCMC
+
+With 3 key improvements to APNNs
+
+<div flex="~ justify-center">
+  <img src="/apnn/mcmc.png" border="~ violet:50" rounded-lg h-85 op75 />
+</div>
+
+<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 p2 mx46 text-xl>
+Improve the <span text-pink7>Sampling</span> efficiency
+</div>
+
+---
+
+# RT-APNNs Result: Marshak Wave
+
+ResNet + Pre-training + MCMC
+
+<div flex="~ justify-center">
+  <img src="/apnn/rtapnn_result.png" border="~ violet:50" rounded-lg h-85 op75 />
+</div>
+
+<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 py2 px0 mx20 text-xl>
+Obtain higher accuracy and efficiency, especially for long time simulation
+</div>
+
+---
+layout: center
+---
+
+<div flex="~ col gap-4 items-center">
+  <div font-600 m--2 text-center>
+
+  # APNN with Different Architectures
+
+  </div>
+  <div text-2xl op75 text-center>APRFMs, APCONs, etc.</div>
+</div>
+
+---
+
+# APCONs: Operator Learning
+APNN + Modified DeepONets
 
 <div class="grid grid-cols-2 gap-x-4 mt-4">
 <div>
@@ -1265,7 +1332,7 @@ $$
 </div>
 <div class="text-center">
 <br>
-<img src="/apnn/cons.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/cons.png" class="h-80 ml-8 rounded-lg b-1 b-b" border="~ violet/50" shadow-xl p2>
 
 Convolutional DeepONets
 
@@ -1276,12 +1343,12 @@ Convolutional DeepONets
 
 # Schematic of APCONs
 
-<div class="grid grid-cols-2 gap-x-4 mt-4">
+<div class="grid grid-cols-2 gap-x-2 mt-4">
 <div>
 
 APCON based on Micro-macro decomposition
 
-<img src="/apnn/apcon_mm.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_mm.png" border="~ violet/50" class="h-70 mx-auto rounded-lg b-1 b-b" shadow-xl p2>
 
 </div>
 
@@ -1289,7 +1356,7 @@ APCON based on Micro-macro decomposition
 
 APCON based on even-odd decomposition
 
-<img src="/apnn/apcon_eo.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_eo.png" border="~ violet/50" class="h-70 mx-auto rounded-lg b-1 b-b" shadow-xl p2>
 
 </div>
 </div>
@@ -1303,7 +1370,7 @@ APCON based on even-odd decomposition
 
 Accuracy and parameters
 
-<img src="/apnn/apcon_table.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_table.png" class="h-70 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl>
 
 </div>
 
@@ -1311,37 +1378,41 @@ Accuracy and parameters
 
 APCON efficiency
 
-<img src="/apnn/apcon_e.png" class="h-70 mx-auto rounded-lg b-1 b-b">
+<img src="/apnn/apcon_e.png" class="h-70 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl>
 
 </div>
+</div>
+
+<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 p4 text-xl>
+With <span text-pink7>less paramers</span> than PIDON, <span text-pink7><span text-2xl>100x</span> faster</span> than conventional numerical methods
 </div>
 
 ---
 
 # Conclusions
 
-We propose several Asymptotic-Preserving Neural Networks for solving the multiscale time-dependent kinetic problems:
-
-- Linear transport
-
-  - APNN v1 based on micro-macro decomposition
-  - APNN v2 based on odd-even parity method
-  - APCONs: based on convolutional DeepONets and APNN
-
-- GRTE and VFPF
-
-  - APNN v1 and APNN v2
-
-Boltzmann-BGK equation:
-
-- APNN v2 based on local conservation laws
+- We proposed APNNs framwork for solving multiscale kinetic equations by deep learning:
+  - Based on micro-macro decomposition: APNN v1
+  - Based on odd-even parity method: APNN v1
+  - Based on local conservation laws: APNN v2
+  - Combined with ResNet, pre-training and MCMC: RT-APNNs
+  - Combined with random feature methods: APRFMs
+  - Combined with <Emphasis>operator learning</Emphasis>: APCONs
+- APNNs can be applied to various multiscale kinetic equations, such as:
+  - Linear transport equations
+  - Boltzmann-BGK equation
+  - Vlasov-Poisson-Fokker-Planck system
+  - Gray radiative transfer equations
+  - and more: <Emphasis>full Boltzmann equations</Emphasis>
 
 ---
 
 # References
 
-- Lulu Zhang, Tao Luo, Yaoyu Zhang, Weinan E, Zhi-Qin John, and Zheng Ma. Mod-net: A Machine Learning Approach via Model-Operator-Data Network for Solving PDEs. Communication in Computational Physics, 32(2):299–335, 2022.
-- Shi Jin, Zheng Ma and Keke Wu, Asymptotic-Preserving Neural Networks for Multiscale Time-Dependent Linear Transport Equations. Journal of Scientific Computing 94, 57 (2023)
-- Shi Jin, Zheng Ma and Keke Wu, Asymptotic-Preserving Neural Networks for Multiscale Kinetic Equations, preprint, 2023
-- Shi Jin, Zheng Ma and Tian-ai Zhang, Asymptotic-preserving neural networks for multiscale Vlasov-Poisson-Fokker-Planck system in the high-field, preprint, 2023
-- Keke Wu, Xiong-bin Yan, Shi Jin and Zheng Ma, Capturing the Diffusive Behavior of the Multiscale Linear Transport Equations by Asymptotic-Preserving Convolutional DeepONets, preprint, 2023
+- Keke Wu, Xizhe Xie, Wengu Chen, Han Wang and Zheng Ma, RT-APNN for Solving Gray Radiative Transfer Equations, <em>preprint</em>, 2025
+- Jingru Chen, Zheng Ma and Keke Wu, A micro-macro decomposition-based asymptotic-preserving random feature method for multiscale radiative transfer equations, <em>Jounral of Computational Physics</em>, 2025
+- Shi Jin, Zheng Ma and Keke Wu, Asymptotic-Preserving Neural Networks for Multiscale Kinetic Equations, <em>Communication in Computational Physics</em>, 2024
+- Shi Jin, Zheng Ma and Tian-ai Zhang, Asymptotic-preserving neural networks for multiscale Vlasov-Poisson-Fokker-Planck system in the high-field, <em>Jounral of Scientific Computing</em>, 2024
+- Keke Wu, Xiong-bin Yan, Shi Jin and Zheng Ma, Capturing the Diffusive Behavior of the Multiscale Linear Transport Equations by Asymptotic-Preserving Convolutional DeepONets, <em>Computer Methods in Applied Mechanics and Engineering
+</em>, 2024
+- Shi Jin, Zheng Ma and Keke Wu, Asymptotic-Preserving Neural Networks for Multiscale Time-Dependent Linear Transport Equations, <em>Journal of Scientific Computing</em>, 2023
