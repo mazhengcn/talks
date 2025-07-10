@@ -19,7 +19,7 @@ fonts:
 <div flex="~ col gap-2">
   <div text-left text-2xl op75>Zheng Ma</div>
   <div text-left text-sm op50>Shanghai Jiao Tong University</div>
-  <div text-left text-sm op50>Joint work with Shi Jin, Keke Wu, Tianai Zhang</div>
+  <div text-left text-sm op50>Joint work with Shi Jin, Keke Wu, Tianai Zhang, Han Wang, Jingrun Chen</div>
 </div>
 
 <div abs-br mx-10 my-11 flex="~ col items-end" text-center>
