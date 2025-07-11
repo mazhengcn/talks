@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "rimraf dist && pnpm -r run build",
     "dev": "esno scripts/picker.ts dev --open",
@@ -16,8 +16,8 @@
     "@eslint/config-inspector": "catalog:",
     "@iconify/collections": "catalog:",
     "@iconify/json": "catalog:",
-    "@slidev/cli": "catalog:",
-    "@slidev/client": "catalog:",
+    "@slidev/cli": "^51.8.2",
+    "@slidev/client": "^51.8.2",
     "@slidev/theme-default": "catalog:",
     "@types/node": "catalog:",
     "@types/prompts": "catalog:",
