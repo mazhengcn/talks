@@ -11,7 +11,6 @@ export default mergeConfigs([
       presetWebFonts({
         fonts: {
           sans: 'Inter',
-          hand: 'Playwrite IT Moderna',
           cn: 'Noto Sans SC',
         },
       }),
