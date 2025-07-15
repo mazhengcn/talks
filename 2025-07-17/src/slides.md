@@ -118,11 +118,12 @@ Curse of dimensionality
 
 <div grid="~ gap-4 cols-3">
 
-<div v-click flex="~ col gap-4" border="~ red/50 rounded-lg" bg-rose:10 px4 p6>
+<div v-click flex="~ col gap-4 items-center" rounded-lg bg-red:15 p6>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
     <div i-ph-cube-transparent-duotone text-red text-4xl />
     <div text-red>Dimension</div>
   </div>
+  <div text-red2>
 
   - Phase space + time: 6 + 1 = 7
 
@@ -130,13 +131,15 @@ Curse of dimensionality
 
   - Need to evalute collision at every phase point
 
+  </div>
 </div>
 
-<div v-click flex="~ col gap-4" border="~ green/50 rounded-lg" bg-blue:10 p6>
+<div v-click flex="~ col gap-4 items-center" rounded-lg bg-green:15 p6>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
     <div i-ph-circles-three-duotone text-green text-4xl />
     <div text-green>Collision</div>
   </div>
+  <div text-green2>
 
   - Hard to maintain conservation at discrete level
 
@@ -144,13 +147,15 @@ Curse of dimensionality
 
   - Ray effect
 
+  </div>
 </div>
 
-<div v-click flex="~ col gap-4" border="~ amber/50 rounded-lg" bg-amber:10 p6>
+<div v-click flex="~ col gap-4 items-center" rounded-lg bg-amber:15 p6>
   <div flex="~ gap-1 items-center" text-3xl ml--1>
     <div i-ph-chart-bar-duotone text-amber text-4xl />
     <div text-amber>Multiscale</div>
   </div>
+  <div text-amber2>
 
   - Stability issues for small $\varepsilon$ (stiffness)
 
@@ -158,6 +163,7 @@ Curse of dimensionality
 
   - Automatically capture the transition across regimes
 
+  </div>
 </div>
 </div>
 
