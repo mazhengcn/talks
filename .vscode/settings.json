@@ -59,5 +59,6 @@
     "json",
     "jsonc",
     "yaml"
-  ]
+  ],
+  "slidev.dev-command": "bun slidev ${args}"
 }

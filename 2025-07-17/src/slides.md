@@ -236,7 +236,7 @@ Deterministic approaches
     'Relatively expensive',
   ]"
   :cons="[
-    'Do not main conservation',
+    'Do not maintain conservation',
   ]"
 />
 
