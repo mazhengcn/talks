@@ -11,7 +11,7 @@
   },
   "workspaces": {
     "packages": [
-      "./*"
+      "*/src"
     ],
     "catalog": {
       "@antfu/eslint-config": "^4.16.2",
@@ -76,18 +76,15 @@
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "eslint-typegen": "catalog:",
-    "esno": "catalog:",
     "execa": "catalog:",
     "fast-glob": "catalog:",
     "markdown-it-magic-link": "catalog:",
-    "playwright-chromium": "catalog:",
-    "pnpm": "catalog:",
+    "playwright-chromium": "^1.54.1",
     "prettier-plugin-slidev": "catalog:",
     "prompts": "catalog:",
     "rimraf": "catalog:",
     "seedrandom": "catalog:",
     "slidev-addon-graph": "catalog:",
-    "taze": "catalog:",
     "typescript": "catalog:",
     "unocss": "catalog:",
     "uqr": "catalog:",
