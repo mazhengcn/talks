@@ -11,6 +11,7 @@ export default mergeConfigs([
       presetWebFonts({
         fonts: {
           sans: 'Inter',
+          mono: 'JetBrains Mono',
           cn: 'Noto Sans SC',
         },
       }),

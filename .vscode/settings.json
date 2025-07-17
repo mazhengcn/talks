@@ -10,13 +10,13 @@
     "**/Thumbs.db": true
   },
   // Disable the default formatter
-  "prettier.enable": false,
   "editor.formatOnSave": false,
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
+  "eslint.runtime": "bun",
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     {

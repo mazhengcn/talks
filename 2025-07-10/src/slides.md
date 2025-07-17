@@ -10,8 +10,6 @@ title: Kinetic Machine Learning
 remoteAssets: true
 addons:
   - slidev-addon-graph
-fonts:
-  mono: JetBrains Mono
 ---
 
 # Solve Kinetic Equations with Deep Learning {.font-600!}
@@ -73,7 +71,7 @@ $$
 
 <div mt5 />
 
-- $f(t, x, v)$: distribution function at time $t$ in phase sapce $(x, v)$
+- $f(t, x, v)$: distribution function at time $t$ in phase space $(x, v)$
 
 - $Q(f)$: collision operator
 

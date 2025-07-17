@@ -1,5 +1,5 @@
-# Journey to Nuxt Icon
+# Solve Kinetic Equations with Deep Learning
 
-2024/11/12
+2025/07/10
 
-[Nuxt Nation 2024](https://nuxtnation.com/)
+[HKSIAM 2025](https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php)

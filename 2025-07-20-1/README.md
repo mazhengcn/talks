@@ -1,3 +1,3 @@
-# Vite DevTools 前瞻介绍
+# Solve Kinetic Equations with Deep Learning
 
-2025/07/12 - [VueConf 2025](https://vueconf.cn/)
+2025/07/20 - [CSIAM-BDAI 2025](http://bdai2025.icrp.xjtu.edu.cn)
