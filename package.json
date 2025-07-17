@@ -1,9 +1,17 @@
 {
   "type": "module",
   "private": true,
+  "scripts": {
+    "build": "rimraf dist && bun run --filter='*' build",
+    "dev": "bun scripts/picker.ts dev --open",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "update": "bun scripts/redirects.ts",
+    "prepare": "git submodule update --init --recursive"
+  },
   "workspaces": {
     "packages": [
-      "*/src"
+      "./*"
     ],
     "catalog": {
       "@antfu/eslint-config": "^4.16.2",
@@ -47,14 +55,6 @@
       "vue-router": "^4.5.1",
       "vue-tsc": "^2.2.12"
     }
-  },
-  "scripts": {
-    "build": "rimraf dist && bun run --filter='*' build",
-    "dev": "bun scripts/picker.ts dev --open",
-    "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint .",
-    "update": "esno scripts/redirects.ts",
-    "prepare": "git submodule update --init --recursive"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",

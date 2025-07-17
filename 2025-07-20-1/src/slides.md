@@ -32,7 +32,7 @@ Kinetic equations are important in many areas
 <div grid="~ cols-3 gap-2">
   <div flex="~ col gap-1" items-center>
     <div text-xl>Neutron transport</div>
-    <img src="/reactor.png" border="~ amber/50" rounded-lg shadow-l h-55 />
+    <img src="/reactor.png" border="~ lime/50" rounded-lg shadow-l h-55 />
     <div>Fission reactor</div>
   </div>
   <div flex="~ col gap-1" items-center>
@@ -42,14 +42,14 @@ Kinetic equations are important in many areas
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Rarefied gas</div>
-    <img src="/reentry.png" border="~ pink/50 rounded-lg" shadow-l h-55 />
+    <img src="/reentry.png" border="~ lime/50 rounded-lg" shadow-l h-55 />
     <div>Reentry</div>
   </div>
 </div>
 
 <br>
 
-<div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 p5>
+<div border="~ lime/50 rounded-lg" shadow-l bg-blue:10 p5>
   <div text-center text-2xl>Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis></div>
 </div>
 
@@ -77,9 +77,9 @@ $$
 
 <div v-click grid="~ cols-2 gap-4" mt5>
 
-<div flex="~ col gap-2" border="~ violet/50 rounded-lg" shadow-l items-center>
-  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op75>Neutron transport equation</div>
-  <div text-base>
+<div flex="~ col gap-2" border="~ yellow/50" rounded-lg shadow-l items-center>
+  <div bg-yellow:20 rounded-t w-full py-2 px-3><div op75>Neutron transport equation</div></div>
+  <div text-base text-yellow-2>
 
   $$
   \varepsilon \partial_t f + v \cdot \nabla_x f + \Sigma_t f= \frac{1}{\varepsilon} \int \Sigma_s(v,v') f \, \mathrm{d} v' + q
@@ -88,9 +88,9 @@ $$
   </div>
 </div>
 
-<div flex="~ col gap-2" border="~ violet/50 rounded-lg" shadow-l items-center>
-  <div bg-violet:10 rounded-b text-base w-full py-2 px-3 op75>BGK equation</div>
-  <div text-base>
+<div flex="~ col gap-2" border="~ green/50" rounded-lg shadow-l items-center>
+  <div bg-green:20 rounded-t w-full py-2 px-3><div op76 text-base>BGK equation</div></div>
+  <div text-base text-green-2>
 
   $$
   \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left(M_{\text{eq}}[f]  - f \right)
