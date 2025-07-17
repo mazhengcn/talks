@@ -43,7 +43,6 @@ $$
 <!--
 [^footnote1]: Maziar Raissi, Paris Perdikaris, and George E Karniadakis.  Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. Journal of Computational Physics, 2019 -->
 
-
 <!-- background: '/carton8.png'  png。format -->
 
 <!-- <style>
@@ -223,7 +222,6 @@ $$
 \end{equation*}
 $$ -->
 
-
 ---
 
 # Micro-macro System
@@ -258,7 +256,6 @@ Plugging the second equation into the first equation gives the diffusion equatio
 $$
  \rho_t - \frac{1}{3} \rho_{xx} = 0.
 $$
-
 
 ---
 layout: center
@@ -354,7 +351,6 @@ layout: center
 </div>
 </div>
 
-
 ---
 
 # Micro-macro System
@@ -422,7 +418,6 @@ $$
 
 # APNN v1: based on Micro-macro decomposition
 
-
 <img src="/apnn/APNNs.jpg" class="h-90 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
 <div mt5 />
@@ -433,13 +428,11 @@ Mass conservation mechanism <Emphasis>$g^{\text{NN}}_{\theta} = \tilde{g}^{\text
 
 </div>
 
-
 ---
 
 # Test examples
 
 <div>
-
 
 </div>
 
@@ -559,7 +552,6 @@ $$
 
 where $\rho = \left \langle r \right \rangle := \int_0^1 r(t, x, v)  \mathrm{d} v$.
 
-
 ---
 
 # Even and odd parity method
@@ -595,8 +587,6 @@ $$
     \partial_t \rho + \left \langle v\partial_x j \right \rangle = 0.
 \end{equation*}
 $$
-
-
 
 ---
 
@@ -685,7 +675,6 @@ $$
 
 <div mt10 />
 
-
 <div text-center>
 
 Notice that the constraint <Emphasis>$\rho = \left \langle r \right \rangle$</Emphasis> is also added into the APNN loss.
@@ -718,7 +707,6 @@ Note that the function $f$ has a jump at $t = 0$ since $F_L(v) = 1, F_R(v) = 0$ 
 <u>For better numerical performance,  $\rho^{\text{NN}}_{\theta}$ can be further constructed to automatically satisfies initial condition:</u>
 
 $\rho^{\text{NN}}_{\theta}(t, x) := t \cdot \exp \left( -\tilde{\rho}^{\text{NN}}_{\theta}(t, x)\right) \approx \rho(t, x)$
-
 
 </div>
 
@@ -764,13 +752,11 @@ The solutions are also wrong at time $t = 0, 0.05, 0.1$, therefore, we consider 
 
 </div></div>
 
-
 ---
 
 # Test examples - Case II
 
 UQ problems with inflow condition ($\varepsilon=10^{-5}$)
-
 
 $$
 \begin{equation*}
@@ -782,7 +768,6 @@ $$
     \sigma_S(\bm z) = 1 + \frac{1}{10} \prod_{i=1}^{20} \sin(\pi z^i), \;\bm{z} = (z^1, z^2, \cdots, z^{20}) \sim \mathcal{U}([-1, 1]^{20}),
 \end{equation*}
 $$
-
 
 <div>
 
@@ -870,7 +855,6 @@ $$
 
 Notice that the Boltzmann-BGK equation is an integro-differential equation with its nonlinear and non-local collision operator.
 
-
 ---
 
 # Density, macroscopic velocity and temperature
@@ -894,7 +878,6 @@ Notice that the Boltzmann-BGK equation is an integro-differential equation with 
   $$
   \Rightarrow \frac{1}{2} \rho T  = \frac{1}{2}\int_{\mathbb{R}} v^2  f \mathrm{d} v - \frac{1}{2} \rho |u|^2 \; (\text{The ideal gas law}).
   $$
-
 
 ---
 
@@ -937,11 +920,9 @@ $$
 \end{equation*}
 $$
 
-
 ---
 
 # APNN System
-
 
 The systems of Boltzmann-BGK model
 
@@ -998,7 +979,6 @@ $$
 \end{aligned}
 \end{equation*}
 $$
-
 
 The initial condition of $f$ is computed by the initial functions $\rho_0(x), u_0(x), T_0(x)$:
 
@@ -1103,9 +1083,7 @@ For $t = 0.1:$ relative $l^2$ error of density, momentum and energy are $5.43\te
 
 </div></div>
 
-
 ---
-
 
 <div class="grid grid-cols-2 gap-4 mt-4">
 
@@ -1118,8 +1096,6 @@ The integrals of approximate $f$ and approximate density, momentum and energy at
 
 <img src="/apnn/ex1_sol_macro_t0.png" width="400" height="300" class="h-45 float-left ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 mt4 />
 
-
-
 </div><div>
 
 ######
@@ -1128,7 +1104,6 @@ The integrals of approximate $f$ and approximate density, momentum and energy at
 <img src="/apnn/ex1_sol_f_t1.png" width="400" height="300" class="h-45 float-right ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 />
 
 <img src="/apnn/ex1_sol_macro_t1.png" width="400" height="300" class="h-45 float-right ml-5" border="~ violet/50 rounded-lg" shadow-xl op75 mt4 />
-
 
 </div></div>
 
@@ -1173,8 +1148,6 @@ $$
   <img src="/apnn/vpfp.png" class="ml-8 rounded-lg b-1 b-1" border="~ violet/50" shadow-xl op75 />
 </div>
 </div>
-
-
 
 ---
 
@@ -1246,7 +1219,6 @@ With 3 key improvements to APNNs
 <div flex="~ justify-center">
   <img src="/apnn/rt_apnns.png" border="~ violet:50" rounded-lg h-90 op75 />
 </div>
-
 
 ---
 

@@ -173,7 +173,6 @@ Curse of dimensionality
 
 Probabilistic approaches
 
-
 - Monte Carlo methods for linear transport
 
   - MCNP
@@ -196,7 +195,6 @@ Probabilistic approaches
     'Random fluctuations',
   ]"
 />
-
 
 ---
 
@@ -287,7 +285,6 @@ Key components
 
   </div>
 </div>
-
 
 <div v-click flex="~ col" border="~ amber/50 rounded-lg">
   <div flex="~ gap-2" items-center bg-amber:10 h10 pl4 py2>
