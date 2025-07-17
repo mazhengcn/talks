@@ -19,8 +19,8 @@ remoteAssets: true
 </div>
 
 <div abs-br mx-10 my-11 flex="~ col items-end" text-center>
-  <img src="/hksiam2025_banner.png" alt="hksiam2025" border="~ blue/50 rounded-lg" shadow-l h10 mb1 op75 />
-  <div text-sm opacity-75>July 10, 2025</div>
+  <img src="/logo.png" alt="hksiam2025" border="~ main" rounded-lg w-23 mb1 op60 />
+  <div text-sm op50>July 20, 2025</div>
 </div>
 
 ---
@@ -32,24 +32,24 @@ Kinetic equations are important in many areas
 <div grid="~ cols-3 gap-2">
   <div flex="~ col gap-1" items-center>
     <div text-xl>Neutron transport</div>
-    <img src="/reactor.png" border="~ lime/50" rounded-lg shadow-l h-55 />
+    <img src="/reactor.png" border="~ blue/50" rounded-lg shadow-l h-55 />
     <div>Fission reactor</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Radiative transfer</div>
-    <img src="/icf.png" border="~ lime/50 rounded-lg" shadow-l h-55 />
+    <img src="/icf.png" border="~ blue/50 rounded-lg" shadow-l h-55 />
     <div>ICF</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Rarefied gas</div>
-    <img src="/reentry.png" border="~ lime/50 rounded-lg" shadow-l h-55 />
+    <img src="/reentry.png" border="~ blue/50 rounded-lg" shadow-l h-55 />
     <div>Reentry</div>
   </div>
 </div>
 
 <br>
 
-<div border="~ lime/50 rounded-lg" shadow-l bg-blue:10 p5>
+<div border="~ blue/50 rounded-lg" shadow-l bg-blue:10 p5>
   <div text-center text-2xl>Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis></div>
 </div>
 
@@ -118,8 +118,8 @@ Curse of dimensionality
 
 <div grid="~ gap-4 cols-3">
 
-<div v-click flex="~ col gap-4 items-center" rounded-lg bg-red:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl ml--1>
+<div v-click flex="~ col gap-4" rounded-lg bg-red:15 p6>
+  <div flex="~ gap-1 items-center" text-3xl>
     <div i-ph-cube-transparent-duotone text-red text-4xl />
     <div text-red>Dimension</div>
   </div>
@@ -134,8 +134,8 @@ Curse of dimensionality
   </div>
 </div>
 
-<div v-click flex="~ col gap-4 items-center" rounded-lg bg-green:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl ml--1>
+<div v-click flex="~ col gap-4" rounded-lg bg-green:15 p6>
+  <div flex="~ gap-1 items-center" text-3xl>
     <div i-ph-circles-three-duotone text-green text-4xl />
     <div text-green>Collision</div>
   </div>
@@ -150,8 +150,8 @@ Curse of dimensionality
   </div>
 </div>
 
-<div v-click flex="~ col gap-4 items-center" rounded-lg bg-amber:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl ml--1>
+<div v-click flex="~ col gap-4" rounded-lg bg-amber:15 p6>
+  <div flex="~ gap-1 items-center" text-3xl>
     <div i-ph-chart-bar-duotone text-amber text-4xl />
     <div text-amber>Multiscale</div>
   </div>
