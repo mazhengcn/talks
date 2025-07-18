@@ -19,7 +19,7 @@ remoteAssets: true
 </div>
 
 <div abs-br mx-10 my-11 flex="~ col items-end" text-center>
-  <img src="/logo.png" alt="hksiam2025" border="~ main" rounded-lg w-23 mb1 op60 />
+  <img src="/logo.png" alt="csiam-bdai-2025" border="~ main" rounded-lg w-23 mb1 op60 />
   <div text-sm op50>July 20, 2025</div>
 </div>
 
@@ -32,27 +32,27 @@ Kinetic equations are important in many areas
 <div grid="~ cols-3 gap-2">
   <div flex="~ col gap-1" items-center>
     <div text-xl>Neutron transport</div>
-    <img src="/reactor.png" border="~ purple/50" rounded-lg shadow-l h-55 />
+    <img src="/reactor.png" border="~ violet/50" rounded-lg h-55 />
     <div>Fission reactor</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Radiative transfer</div>
-    <img src="/icf.png" border="~ purple/50" rounded-lg shadow-l h-55 />
+    <img src="/icf.png" border="~ violet/50" rounded-lg h-55 />
     <div>ICF</div>
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Rarefied gas</div>
-    <img src="/reentry.png" border="~ purple/50" rounded-lg shadow-l h-55 />
+    <img src="/reentry.png" border="~ violet/50" rounded-lg shadow-l h-55 />
     <div>Reentry</div>
   </div>
 </div>
 
 <br>
 
-<div rounded-lg shadow-l bg-purple:10 p5>
+<div rounded-lg bg-violet:10 p4 mx8>
   <div text-center text-2xl>
 
-  Key problem: numerical simulation of `kinetic equations`
+  Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis>
 
   </div>
 </div>
@@ -81,9 +81,11 @@ $$
 
 <div v-click grid="~ cols-2 gap-4" mt5>
 
-<div flex="~ col gap-2" border="~ yellow/20" rounded-lg shadow-l items-center>
-  <div bg-yellow:20 rounded-t-lg w-full py-2 px-3 mt0><div op75>Neutron transport equation</div></div>
-  <div text-base text-yellow-2>
+<div flex="~ col gap-2" border="~ orange/50" rounded-lg items-center bg-orange:10>
+  <div bg-orange:10 rounded w-full py-2 px-3 mt0>
+    <div>Neutron transport equation</div>
+  </div>
+  <div text-base text-orange1>
 
   $$
   \varepsilon \partial_t f + v \cdot \nabla_x f + \Sigma_t f= \frac{1}{\varepsilon} \int \Sigma_s(v,v') f \, \mathrm{d} v' + q
@@ -92,9 +94,11 @@ $$
   </div>
 </div>
 
-<div flex="~ col gap-2" border="~ green/50" rounded-lg shadow-l items-center>
-  <div bg-green:20 rounded-t-lg w-full py-2 px-3><div op76 text-base>BGK equation</div></div>
-  <div text-base text-green-2>
+<div flex="~ col gap-2" border="~ lime/50" rounded-lg items-center bg-lime:10>
+  <div bg-lime:10 rounded w-full py-2 px-3>
+    <div>BGK equation</div>
+  </div>
+  <div text-base text-lime1>
 
   $$
   \partial_t f + v \cdot \nabla_x f = \frac{1}{\varepsilon} \left(M_{\text{eq}}[f]  - f \right)
@@ -104,7 +108,7 @@ $$
 </div>
 </div>
 
-<div v-click border="~ violet/50 rounded-lg" shadow-l mt-4>
+<div v-click rounded-lg mt-4 p1 bg-violet:10>
   <div text-xl text-center>
 
   Multiscale problem: $\varepsilon$ can vary from $O(1)$ <Emphasis>kinetic regime</Emphasis> to $0$ <Emphasis>hydrodynamic regime</Emphasis>
@@ -262,12 +266,12 @@ layout: center
 Key components
 
 <div flex="~ col gap-2">
-<div v-click flex="~ col" border="~ red/50 rounded-lg">
-  <div flex="~ gap-2" items-center bg-red:15 h10 pl4 py2>
-    <div text-red>Constraints</div>
-    <div text-red3>as the loss of minimization problem</div>
+<div v-click flex="~ col" border="~ red/50 rounded-lg" bg-red:10>
+  <div flex="~ gap-2 items-center" bg-red:10 px4 py2 rounded>
+    <div text-xl text-red3>Constraints</div>
+    <div>as the loss of minimization problem</div>
   </div>
-  <div pl3 content-center text-red2>
+  <div ml2 px2 text-red1>
 
   - Model: PDE / physical information needed (e.g., PINNs, DeepRitz, DeepGalerkin)
   - Data: pure supervised or as a priori information
@@ -276,12 +280,12 @@ Key components
 
   </div>
 </div>
-<div v-click flex="~ col" border="~ green/50 rounded-lg">
-  <div flex="~ gap-2" items-center bg-green:15 h10 pl4 py2>
-    <div text-green>Architecture</div>
-    <div text-green3>build a deep neural network (function class) as the trial function</div>
+<div v-click flex="~ col" border="~ green/50 rounded-lg" bg-green:10>
+  <div flex="~ gap-2" items-center bg-green:10 rounded px4 py2>
+    <div text-xl>Architecture</div>
+    <div>build a deep neural network (function class) as the trial function</div>
   </div>
-  <div pl3 content-center text-green2>
+  <div ml2 px2 text-green1>
 
   - Approximate solution: PINNs, DeepRitz, DeepGalerkin, etc.
   - Approximate solution operator: DeepONet, FNO, etc.
@@ -290,17 +294,21 @@ Key components
   </div>
 </div>
 
-<div v-click flex="~ col" border="~ orange/50 rounded-lg">
-  <div flex="~ gap-2" items-center bg-orange:15 h10 pl4 py2>
-    <div text-orange>Optimization</div>
+<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10>
+  <div flex="~ gap-2" items-center bg-amber:10 rounded px4 py2>
+    <div text-xl text-amber3>Optimization</div>
   </div>
-  <div pl3 content-center text-orange2>
+  <div ml2 px2 text-amber1>
 
   - Minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
 
   </div>
 </div>
 </div>
+
+---
+src: /pages/apnn.md
+---
 
 ---
 layout: center

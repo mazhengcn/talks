@@ -1,0 +1,1169 @@
+%%%% This Beamer example was created by LianTze Lim, April 2017.
+
+%%%% This is a VERY simple and minimalistic beamer theme,
+%%%% even reminiscent of marker pens on transparencies!
+%%%% It mimics the look of the "seminar" package, which
+%%%% can only be used with plain TeX.
+%%%% There are also some comments and example to show how
+%%%% to customise various elements, e.g. the font and colours.
+\documentclass[mathserif,envcountsect,compress,8pt]{beamer}
+%\documentclass[8pt,c,aspectratio=169]{beamer}
+%\usetheme[progressbar=frametitle,block=fill]{metropolis} % ����ɫ���
+%\documentclass[10pt,cjk]{beamer}
+%\documentclass[10pt,CJKutf8]{beamer}
+%% If you'd like the default font size to be even larger, use 14pt or 17pt; these are supported by Beamer.
+%\usepackage{CJKutf8}
+% \usepackage{CJK}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage[font=Times,timeinterval=1]{tdclock}% ����ʱ��
+% \usepackage{ccmap} %ʹpdfLatex���ɵ��ļ�֧�ָ���
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{amsmath,amsfonts,amsthm,mathrsfs}
+% \usepackage{undertilde}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[figuresright]{rotating}
+\usepackage{multirow,booktabs}
+\usepackage{epstopdf}
+\usepackage{array}
+\usepackage{diagbox}
+\usepackage{verbatim}
+\usepackage[labelsep=space]{caption}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{color} % ������ɫ
+\usepackage{colortbl}
+\usepackage{xcolor}
+% \usepackage{xkcdcolors} % xkcd colors
+%\usepackage[most]{tcolorbox}
+\usepackage{epsfig}% epsͼ��
+\usepackage{epstopdf}
+\usepackage{indentfirst}% �����������
+\usepackage{transparent}
+\usepackage{diagbox}
+\usepackage{bbding}
+\usepackage{pifont}
+%\usepackage{utfsym}
+
+
+%%%%%%������ɫ
+%\usepackage{tikz}
+%\usetikzlibrary{tikzmark}
+%%\usetikzlibrary{calc, arrows.meta, intersections, patterns, positioning, shapes.misc, fadings, through,decorations.pathreplacing}
+%% HTML color setting
+%\definecolor{LightBlue}{HTML}{6878BA}
+%\newcommand{\lightblue}[1]{\textcolor{LightBlue}{#1}}
+%
+%\definecolor{MidnightBlue}{HTML}{7985B3}
+%\newcommand{\nightblue}[1]{\textcolor{MidnightBlue}{#1}}
+%
+%\definecolor{RedOrange}{HTML}{F26035}
+%\newcommand{\redorg}[1]{\textcolor{RedOrange}{#1}}
+%
+%\definecolor{Plum}{HTML}{92268F}
+%\newcommand{\plum}[1]{\textcolor{Plum}{#1}}
+%
+%% RGB color setting
+%\def\ora{\color{orange}}
+%
+%\definecolor{purple}{RGB}{146,39,144}
+%\newcommand{\ple}[1]{\textcolor{purple}{#1}}
+%
+%\definecolor{red}{RGB}{255,0,0}
+%\newcommand{\red}[1]{\textcolor{red}{#1}}
+%
+%\definecolor{org}{RGB}{251,122,0}
+%\newcommand{\org}[1]{\textcolor{org}{#1}}
+%
+%\newcommand{\highlight}[2]{\colorbox{#1!17}{$\displaystyle #2$}}
+%\renewcommand{\highlight}[2]{\colorbox{#1!17}{#2}}
+
+%\usepackage{xcolor}
+%\usepackage{tcolorbox}
+%\usepackage{colortbl}
+\usepackage{geometry}
+
+\definecolor{MyDarkBlue}{rgb}{0.9, 0.99, 0.9}
+%\definecolor{myRed}{134,31,65}
+%\definecolor{myOrange}{RGB}{229, 117, 31}
+%\usepackage{xcolor}
+%\graphicspath{{./figure/}}
+\graphicspath{{./figure_1/},
+                {./figure_FWI/}
+                }
+%\graphicspath{{./figure_FWI/}}
+%\graphicspath{{./picture/}}
+%%%%%%%%���˶���
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{setspace}
+\newtheorem{yinli}{����}[section]
+\newtheorem{dingli}{����}[section]
+\newtheorem{dingyi}{����}[section]
+\newtheorem{zhu}{ע}[section]
+\newtheorem{li}{��}[section]
+
+%\hyphenpenalty=5000
+%\tolerance=1000
+
+\newcommand{\ck}[1]{\textcolor{black}{#1}}
+\newcommand{\cb}[1]{\textcolor{blue}{#1}}
+\newcommand{\ccr}[1]{\textcolor{red}{#1}}
+\floatname{algorithm}{Algorithm}
+%�޸ı���ͼ����ʾΪͼ����
+\addto{\captionsenglish}{%
+\renewcommand\figurename{Figure}
+\renewcommand\tablename{Table}
+}
+
+\renewcommand{\thefigure}{\arabic{figure}.}
+\renewcommand{\thetable}{\arabic{table}.}
+\renewcommand{\thealgorithm}{\arabic{algorithm}.}
+%\newenvironment{sequation}{\begin{equation}\footnotesize}{\end{equation}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% These lines should usually go into a .sty file,
+% but I'll leave them here so that it's easier to
+% see how to customise a Beamer theme.
+% Remember, the Beamer manual is your friend!!
+% http://texdoc.net/pkg/beamer
+%
+%% So if your re-definitions have a @ somewhere, you
+%% _MUST_ put a \makeatletter before these lines and then
+%% \makeatother after them. This trick can only be done
+%% in the preamble! BUT if you're doing these re-definitions
+%% in a .sty file (so that you \usepackage it later), you
+%% don't need the \makeatletter and \makeatother.
+\makeatletter
+
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{caption}[numbered]
+%% Set the left and right margins
+\setbeamersize{text margin left=1em,text margin right=2em}
+\setlength{\parindent}{2em}
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\baselineskip}{10pt}
+\setlength{\parskip}{0pt}
+
+
+%\tcbuselibrary{theorems}
+%\tcbset{highlight math/.append style={left=0mm,right=0mm,top=0mm,bottom=0mm, colframe=white}}
+
+%\usefonttheme{serif} % �ʺϻ㱨չʾ�ķǳ�������
+\setbeamercovered{dynamic} % translucent when using pause1
+% \setbeamercovered{transparent}
+
+%\usetheme{Singapore} %Boadilla(��õ�)%% Madrid, Malmoe, Warsaw(�ܺ�), Marburg, CambridgeUS(��ѡ), Default, AnnArbor, Antibes, Bergen��Berkeley��Berlin��Boadilla��Copenhagen��Darmstadt��Dresden��Frankfurt��
+%Goettingen��Hannover��Ilmenau����ѡ����JuanLesPins��Luebeck��Montpellier��
+%PaloAlto��Pittsburgh��Singapore��Szeged
+\usecolortheme{default}%beaver default
+\setbeamercolor{background canvas}{bg=blue!10} % ������ɫ�ɵ�.
+\setbeamercolor{sidebar}{bg=blue!500}
+\setbeamertemplate{background canvas}[bottom=white,top=structure.fg!25]
+\beamertemplateshadingbackground{white!0}{structure!2} % ������ɫ�ɵ�.
+
+%% FONTS
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{series=\bfseries,size=\Large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\small}
+\setbeamerfont{block title}{series=\bfseries,size=\normalsize}
+\setbeamerfont{footline}{size=\normalsize}
+%% COLOURS
+%% If you'd like everything to have the same colour
+\usebeamercolor{structure}
+%\setbeamercolor{normal text}{fg=structure.fg}
+\setbeamercolor{normal text}{fg=black,bg=white}
+%% Add a line after the frametitle
+\addtobeamertemplate{frametitle}{}{\vspace*{-1ex}\rule{\textwidth}{1pt}}
+
+%% Use circular discs as itemized list markers;
+%% there's an existing option in Beamer for it so I'll use it
+\setbeamertemplate{itemize items}[circle]
+
+%% Remove default navigation symbols (We'll add the ones we need in the footline
+\setbeamertemplate{navigation symbols}{}
+
+%% And before the footline... actually we'd like to re-define
+%% the footline
+\setbeamertemplate{footline}{%
+   %% Beamer headlines and footlines are always full-paperwidth, so if you want the horizontal line to
+   %% not span it entirely you'll need to do a bit of arithmetic
+   \centering
+   \begin{minipage}{\dimexpr\paperwidth-\beamer@leftmargin-\beamer@rightmargin\relax}
+   \centering
+%   \rule{\linewidth}{1pt}\vskip2pt
+%   \usebeamerfont{footline}%
+%   \usebeamercolor{footline}%
+   %% The frame number smack in the middle
+
+%   {\tiny \insertshortdate{}\hfill
+   {\tiny~~~~~~~~~~~~\insertpagenumber/\inserttotalframenumber}\hfill~~~~~~~~~~~~~~
+   %
+   %% ONLY the navigation symbols we want at the far right.
+   %% We use an \llap so that it takes up zero width, and doesn't throw the page number off-centre!
+   \llap{\insertframenavigationsymbol\insertbackfindforwardnavigationsymbol}~~~~\par
+   %\llap{\insertbackfindforwardnavigationsymbol}~~~~\par
+   \end{minipage}\vskip2pt
+}
+
+\makeatother
+%%%% END STYLE CUSTOMISATION %%%%%%%%%%%%
+%%=================================================================================================
+\title{Solving PDE Inverse Problems with Generative Models and Their Applications}
+%\title{Deep learning for Inverse Problems in Partial Differential Equation}%Solving forward and inverse problems of subdiffusion by deep learning
+%\subtitle{Deep Learning for FWI}
+% \author{Zheng Ma\\[0.6em]}
+\author[author]{Zheng Ma}
+\institute{\normalsize School of Mathematical Sciences, Shanghai Jiao Tong University}
+%\date{April 2017}
+%\date{2023-11}
+%\date[\initclock\mmddyyyy\tddate\ \ \hhmmss\tdtime]{\today}
+%\date[June 2024]  {��ʮ����ȫ�������⡢������Ӧ���� CSIAM �����������רί�� 2024}%Very Large Conference, April 2021}
+%%=================================================================================================
+
+
+
+
+
+
+
+
+%%-------------------------------------------------------------------------------------------------
+\begin{document}
+%\color{MyDarkBlue}
+% \begin{CJK*}{GBK}{kai}
+\begin{frame}
+	\thispagestyle{empty}
+	\titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+\setcounter{page}{1}
+\begin{frame}{Contents}
+	%\begin{multicols}{1}
+	\tableofcontents
+	%\end{multicols}
+\end{frame}
+
+\AtBeginSection[] % Do nothing for \section*
+{
+	\begin{frame}<beamer>
+		\frametitle{Contents}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+\setcounter{tocdepth}{1}
+
+\addtocounter{framenumber}{-1}
+%++++++++++++++++++++++++++++++++++++++++++++++++============================================================================
+\section{Diffusion model for inverse problems}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	%{\color{blue}Generative model:}\\
+	% \vspace{10pt}
+	\textbf{The goal}:  To learn a representation of an {\color{blue}intractable probability distribution},
+	$p(x)$ defined over $x\in\mathbb{R}^{n}$.
+	
+	\textbf{Implement}: Define a generator:
+	\begin{equation*}
+		g_{\theta}:z\in \mathbb{R}^d\sim p(z) \to x,
+	\end{equation*}
+	where $p(z)$ is a tractable probability distribution(such as Gaussian), $\theta$ is the trainable parameters.
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{0.5\linewidth}
+				\centering
+				\includegraphics[width=1.5in]{generate.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{A deep generative model, $g_{\theta}$, is trained to map samples from a simple distribution, $p(z)$, (bottom
+			right) to the more complicated distribution $g_{\theta}(z)$ (top right), which is similar to the true distribution $p(x)$
+			(top left).}\label{fig_1}
+	\end{figure}
+	
+	
+	%\footnote{\tiny Y. Zhu and N. Zabaras. Bayesian deep convolutional encoder-decoder networks for surrogate modeling and uncertainty quantification. Journal of Computational Physics, 366:415�C447,2018.} \footnote{\tiny Y. Afshar, S. Bhatnagar, S. Pan, K. Duraisamy, and S. Kaushik. Prediction of aerodynamic flow fields using convolutional neural networks. Computational %Mechanics, 64:525�C545, 2019.}.
+	
+\end{frame}
+
+%\begin{frame}{�ؼ����������}
+%\begin{figure}[h]
+%  \vspace*{1\baselineskip}
+%  \begin{equation*}
+%    {\tikzmarknode{lij}{\highlight{RedOrange}{$\dfrac{\mathrm{d} f(t, x, v)}{\mathrm{d} t}$}}} =
+%      {\tikzmarknode{n}{\highlight{Plum}{$\dfrac{\partial f}{\partial t}$}}} +
+%    {\tikzmarknode{mi}{\highlight{LightBlue}{$\dfrac{\partial f}{\partial x} \cdot \dfrac{\mathrm{d} x}{\mathrm{d} t}$}}}
+%    \Rightarrow \dfrac{\partial f}{\partial t} + v \cdot \dfrac{\partial f}{\partial x} = {\tikzmarknode{lmax}{\highlight{orange}{$\mathcal{C} (f)$}}}
+%  \end{equation*}
+%  \vspace*{1\baselineskip}
+%\end{figure}
+%\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	%{\color{blue}Generative model:}\\
+	% \vspace{10pt}
+	
+	\begin{itemize}
+		\item [\ding{226}] Variational Auto-Encoder(VAE)(Kingma et al., ICLR, 2013);
+		\item [\ding{226}] Generative adversarial networks (GAN) (Goodfellow et al., NeurIPS);
+		\item [\ding{226}] Normalizing flows (NF, Danilo et al., PMLR, 2015);
+		\item [\ding{226}] Diffusion model(Ho et al., NeurIPS, 2020).
+	\end{itemize}
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{0.8\linewidth}
+				\centering
+				\includegraphics[width=4.0in]{generate2.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{Samples in training and testing.}\label{fig_1}
+	\end{figure}
+	
+	
+	%\footnote{\tiny Y. Zhu and N. Zabaras. Bayesian deep convolutional encoder-decoder networks for surrogate modeling and uncertainty quantification. Journal of Computational Physics, 366:415�C447,2018.} \footnote{\tiny Y. Afshar, S. Bhatnagar, S. Pan, K. Duraisamy, and S. Kaushik. Prediction of aerodynamic flow fields using convolutional neural networks. Computational %Mechanics, 64:525�C545, 2019.}.
+	
+\end{frame}
+\subsection{Diffusion model}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Diffusion process:}}\\
+	\vspace{20pt}
+	
+	Construct a diffusion process $\{\mathbf{x}(t)\}_{t=0}^{T}$, where $\mathbf{x}(0)\sim p_0$ (data distribution), $\mathbf{x}(T)\sim p_{T}$ (tractable form to generate sample).
+	Then, we can model the diffusion process as a SDE
+	\begin{equation}\label{2.2s}
+		d\mathbf{x}=-\frac{\beta(t)}{2}\mathbf{x}dt+\sqrt{\beta(t)}d\mathbf{\omega}.
+	\end{equation}
+	Denote $p(\mathbf{x}(t))$ is the probability density of $\mathbf{x}(t)$, and use $p(\mathbf{x}(t)|\mathbf{x}(s))$
+	to denote the transition kernel from $\mathbf{x}(s)$ to $\mathbf{x}(t)$,  where $0\le s<t\le \hat{T} $.
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Generative samples from a reverse SDE:}}\\
+	\vspace{20pt}
+	
+	Obtain samples $\mathbf{x}(0)\sim p(x(0))$,  by starting from samples of $\mathbf{x}(\hat{T})\sim p(x(\hat{T}))$, i.e,
+	running the reverse-time SDE:
+	\begin{equation*}
+		d\mathbf{x}=[-\frac{\beta(t)}{2}\mathbf{x}-\beta(t){\color{red}\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))}]dt+\sqrt{\beta(t)}d\bar{\mathbf{\omega}},
+		\label{2.3}
+	\end{equation*}
+	
+	We can learn the score {\color{red}$\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))$} by neural network {\color{green}$s_{\theta^{*}}(\mathbf{x}(t), t)$}.
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{0.8\linewidth}
+				\centering
+				\includegraphics[width=3.0in]{diffusion1.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{Solving a reverse time SDE yields a score-based generative model. Transforming
+			data to a simple noise distribution can be accomplished with a continuous-time SDE.
+			This SDE can be reversed if we know the score of the distribution at each intermediate time
+			step, $\nabla_x\log p_t(x)$.}\label{fig_1}
+	\end{figure}
+	
+\end{frame}
+
+
+\subsection{Our approach}\label{section01}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	%{\color{blue}Bayesian framework:}\\
+	\vspace{10pt}
+	Inverse Problem:
+	\begin{equation*}\label{2.1}
+		\bar{y}_\delta=F(\bar{x}_0)+\xi_\delta, ~\xi_{\delta}\sim \mathcal{N}(0,\sigma^2 I).
+	\end{equation*}
+	
+	Bayesian inversion
+	\begin{equation*}\label{pd_01}
+		p(\bar{x}_0|\bar{y}_{\delta})=\frac{1}{p(\bar{y}_{\delta})}p(\bar{y}_{\delta}|\bar{x}_0)p(\bar{x}_0).
+	\end{equation*}
+	
+	{\color{green}How to solve the posterior distribution?}
+	
+	We use the forward diffusion process (\ref{2.2s}) to obtain a family of diffused distribution $p(\bar{x}(t)|\bar{y}_{\delta})$ with the {\color{red}initial distribution $p(\bar{x}_0|\bar{y}_{\delta})$} and  derive the {\color{red}conditioned reverse time SDE}
+	\begin{equation}\label{eq7}
+		d\bar{x}(t)=[-\frac{\beta(t)}{2}\bar{x}(t)-\beta(t){\color{blue}\nabla_{\bar{x}(t)}
+			\log {p(\bar{x}(t)|\bar{y}_{\delta})}}]dt+\sqrt{\beta(t)}d\bar{\mathbf{\omega}},
+	\end{equation}
+	where
+	\begin{equation}\label{eq8s}
+		{\color{blue}\nabla_{\bar{x}(t)}\log p(\bar{x}(t)|\bar{y}_{\delta})=\nabla_{\bar{x}(t)}\log p(\bar{x}(t))}+{\color{red}\nabla_{\bar{x}(t)}\log p(\bar{y}_{\delta}|\bar{x}(t))}.
+	\end{equation}
+	
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	
+	Chung (Chung, 2022) suggests the following approximation:
+	{\color{red}
+	\begin{equation*}
+		p(\bar{y}_{\delta}|\bar{x}(t))\simeq p(\bar{y}_{\delta}|\hat{\bar{x}}_0),
+	\end{equation*}}
+	where
+		{\color{blue}
+			\begin{equation*}
+				\hat{\bar{x}}_0\simeq\frac{1}{\sqrt{\bar\alpha(t)}}(\bar{x}(t)+(1-\bar\alpha(t))s_{\theta^*}(\bar{x}(t),t)).
+			\end{equation*}
+		}
+	
+	The key substitution:
+	\begin{equation}
+		\begin{aligned}
+			p(\bar{y}_{\delta}|\bar{x}(t)) & =\int p(\bar{y}_{\delta}|\bar{x}_0,\bar{x}(t))p(\bar{x}_0|\bar{x}(t))d\bar{x}_0      \\
+			                               & =\int p(\bar{y}_{\delta}|\bar{x}_0)p(\bar{x}_0|\bar{x}(t))d\bar{x}_0                 \\
+			                               & =\mathbb{E}_{\bar{x}_0\sim p(\bar{x}_0|\bar{x}(t))}[p(\bar{y}_{\delta}|\bar{x}_0)].
+		\end{aligned}
+	\end{equation}
+\end{frame}
+
+
+\begin{frame}
+
+	The likely function:
+	\begin{equation*}
+		p(\bar{y}_{\delta}|\hat{\bar{x}}_0)=\frac{1}{\sqrt{(2\pi)^n\sigma^{2n}}}\exp[-\frac{\|\bar{y}_{\delta}-F(\hat{\bar{x}}_0)\|_2^2}{2\sigma^2}].
+	\end{equation*}
+	
+	Then, we can deduce
+	\begin{equation}
+		\nabla_{\bar{x}(t)}\log p(\bar{y}_{\delta}|\bar{x}(t))\simeq
+		\nabla_{\bar{x}(t)}\log p(\bar{y}_{\delta}|\hat{\bar{x}}_0)\simeq -\frac{1}{\sigma^2}\nabla_{\bar{x}(t)}\|\bar{y}_{\delta}-F(\hat{\bar{x}}_0(\bar{x}(t)))\|_2^2.
+		\label{eq15}
+	\end{equation}
+	
+	We replace (\ref{eq8s}) by
+	\begin{align*}
+		\nabla_{\bar{x}(t)}\log p(\bar{x}(t)|\bar{y}_{\delta}) & = {\color{red}\nabla_{\bar{x}(t)}\log p(\bar{x}(t))}+{\color{blue}\nabla_{\bar{x}(t)}\log p(\bar{y}_{\delta}|\bar{x}(t))}                     \\
+		                                                       & {\color{red}\simeq s_{\theta*}(\bar{x}(t),t)}-{\color{blue}\zeta\nabla_{\bar{x}(t)}\|\bar{y}_{\delta}-F(\hat{\bar{x}}_0(\bar{x}(t)))\|_2^2.}
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+
+
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{0.8\linewidth}
+				\centering
+				\includegraphics[width=9cm,height=4.3cm]{DPS_ag1.png}
+			\end{minipage}
+		}%
+		\centering
+		\label{fig_1}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Improve the DPS algorithm:}}\\
+	\vspace{20pt}
+	Let $f(\mathbf{x}(t),t)=-\frac{\beta(t)}{2}\mathbf{x}, ~g(t)=\sqrt{\beta(t)}$, the SDE (\ref{2.2s}) rewrite
+	\begin{equation*}
+		d\mathbf{x}(t)=f(\mathbf{x}(t),t)dt+g(t)dw,
+	\end{equation*}
+	then $p(\mathbf{x}(t))$ is the marginal probability density function, satisfying Fokker-Planck equation
+	\begin{equation}    \label{FP1}
+		\frac{\partial p(\mathbf{x}(t))}{\partial t}={\color{red}-\nabla_{\mathbf{x}(t)}\cdot[f(\mathbf{x}(t),t)p(\mathbf{x}(t))]+\frac{1}{2}g^2(t)\nabla_{\mathbf{x}(t)}\nabla_{\mathbf{x}(t)}p(\mathbf{x}(t))}.
+	\end{equation}
+	Using $\nabla_{\mathbf{x}(t)}(\log p(\mathbf{x}(t)))p(\mathbf{x}(t))=\nabla_{\mathbf{x}(t)}p(\mathbf{x}(t))$
+	\begin{equation}
+		\begin{aligned}
+			\frac{\partial p(\mathbf{x}(t))}{\partial t}= & -\nabla_{\mathbf{x}(t)}\cdot[f(\mathbf{x}(t),t)p(\mathbf{x}(t))-\frac{1}{2}(g^2(t)-\mu^2(t))\nabla_{\mathbf{x}(t)}p(\mathbf{x}(t))]                     \\
+			                                              & +\frac{1}{2}\mu^2(t)\nabla_{\mathbf{x}(t)}\nabla_{\mathbf{x}(t)}p(\mathbf{x}(t))                                                                        \\
+			=                                             & {\color{red}-\nabla_{\mathbf{x}(t)}\cdot[(f(\mathbf{x}(t),t)-\frac{1}{2}(g^2(t)-\mu^2(t))\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t)))p(\mathbf{x}(t))]} \\
+			                                              & {\color{red}+\frac{1}{2}\mu^2(t)\nabla_{\mathbf{x}(t)}\nabla_{\mathbf{x}(t)}p(\mathbf{x}(t))}.
+			\label{FP2}
+		\end{aligned}
+	\end{equation}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Improve the DPS algorithm}}
+	
+	%\fcolorbox{black}{lightgray}{Improve the DPS algorithm.}
+	%{\color{blue}Improve the DPS algorithm:}\\
+	\vspace{20pt}
+	
+	The SDE corresponding to equation (\ref{FP2}) is
+	\begin{equation*}
+		d\mathbf{x}(t)=[f(\mathbf{x}(t),t)-\frac{1}{2}(g^2(t)-\mu^2(t))\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))]dt+\mu(t)dw.
+	\end{equation*}
+	Again, we obtain the reverse SDE of the above SDE as follows:
+	\begin{equation*}
+		d\mathbf{x}(t)=[f(\mathbf{x}(t),t)-\frac{1}{2}(g^2(t)+\mu^2(t))\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))]dt+\mu(t)dw.
+	\end{equation*}
+	Let $\mu(t)=0$, we can get the following ordinary differential equation,
+	\begin{equation}\label{4.2}
+		d\mathbf{x}(t) = [-\frac{\beta(t)}{2}\mathbf{x}(t)-\frac{\beta(t)}{2}\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))]dt.
+	\end{equation}
+	
+	For the inverse problem, the corresponding reverse differential equation
+	\begin{equation}\label{eqODE}
+		d\bar{x}(t) = [-\frac{\beta(t)}{2}\bar{x}(t)-\frac{\beta(t)}{2}(\nabla_{\bar{x}(t)}\log p(\bar{x}(t))+\nabla_{\bar{x}(t)}\log p(\bar{y}_{\delta}|\bar{x}(t)))]dt.
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[t]{0.8\linewidth}
+			\centering
+			\includegraphics[width=4.0in]{ODE-DPS.png}
+		\end{minipage}
+		\centering
+		\label{fig_1}
+	\end{figure}
+\end{frame}
+
+
+\subsection{Experiments}
+
+\subsubsection{Inverse problems of heat equation}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	In this part, we consider the following heat equation:
+	\begin{equation*}\label{5.0}
+		\left\{\begin{aligned}
+			u_t(x,y,t) & = a\Delta u(x,y,t) + f(x,y),~(x,y,t)\in\Omega\times (0,T), \\
+			u(x,y,t)   & = \psi(x,y,t),~(x,y,t)\in\partial\Omega\times (0,T),       \\
+			u(x,y,0)   & = \phi(x,y),~(x,y)\in\bar{\Omega},
+		\end{aligned}\right.
+	\end{equation*}
+	where $\Omega = [0,1]\times [0,1]$, the coefficient $a$ is a positive constant.
+	
+	Given measurement data:
+	\begin{equation*}\label{5.1}
+		\bar{y}^{\delta}:=u^{\delta}(x,y,T)=u(x,y,T)+\varepsilon \eta\max|u(x,y,T)|
+	\end{equation*}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[t]{0.8\linewidth}
+			\centering
+			\includegraphics[width=9cm,height=6cm]{IP_source1.png}
+		\end{minipage}
+		\centering
+		\label{fig_1}
+		\caption{The inversion results of source $f_1$. (a): the true $f_1$ and measurement data $u^{\delta}(x,y,T;f_1)$. (b)(c)(d)(e): the inversion $f_1$ and errors using different regularization methods. (f): the errors between the true $f_1$ and the inversion $f_{1,rec}$. (g): the errors between the measurement data $u^{\delta}(x,y,T;f_1)$ and $u(x,y,T;f_{1,rec})$. Here, we set the noise level $\varepsilon=0.05$ in (\ref{5.1}), the stopping parameter $\tau=1.01$ in discrepancy principle, the regularization parameter $\alpha=0.005$ in Tikhonov regularization.}
+		\label{f1_figure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	
+	\begin{table}[ht]
+		\begin{center}
+			\begin{tabular}{llllllr}
+				%\firsthline
+				\toprule[1.pt]
+				              & \multicolumn{2}{c}{$f_1$} & \multicolumn{2}{c}{$f_2$} & \multicolumn{2}{c}{$f_3$}                                                    \\
+				\cline{2-3} \cline{4-5} \cline{6-7}
+				Methods       & steps(time/s)             & $e_{l_2}$                 & steps(time/s)             & $e_{l_2}$      & steps(time/s) & $e_{l_2}$       \\ \hline
+				Method 1      & 1471(605)                 & 34.4\%                    & 1704(708)                 & 34.1\%         & 1732(716)     & 33.9\%          \\
+				Method 2      & 523(222)                  & 24.1\%                    & 817(345)                  & 29.4\%         & 637(265)      & 27.4\%          \\
+				Method 3      & 2000(827)                 & 37.9\%                    & 2000(825)                 & 39.5\%         & 2000(839)     & 37.7\%          \\
+				ODE-DPS(ours) & 1000(474)                 & \textbf{ 9.4\%}           & 1000(476)                 & \textbf{7.3\%} & 1000(478)     & \textbf{10.4\%} \\
+				%\hline
+				\bottomrule[1.0pt]
+			\end{tabular}
+		\end{center}
+		\caption{The relative $l_2$ error ($e_{l_2}$), iteration steps and the running time of inverse heat source using different inversion methods. Methods 1, 2, and 3 correspond to Landweber iteration, improved Landweber iteration, and Tikhonov regularization, respectively. We set the noise level $\varepsilon=0.05$ in (\ref{5.1}), the stopping parameter $\tau=1.01$ in discrepancy principle, the regularization parameter $\alpha=0.005$ in Tikhonov regularization.}
+		\label{heat_source_table}
+	\end{table}
+\end{frame}
+
+\subsubsection{Inverse problems of wave equation}
+
+\begin{frame}
+	We consider a wave equation as follows:
+	\begin{equation}
+		\left\{\begin{aligned}
+			u_{tt}(x,y,t) & = a\Delta u(x,y,t) + f(x,y), (x,y,t)\in\Omega\times(0,T), \\
+			u(x,y,t)      & = g(x,y,t), (x,y,t)\in \partial\Omega\times (0,T),        \\
+			u(x,y,0)      & = \phi(x,y), (x,y)\in\bar\Omega,                          \\
+			u_t(x,y,0)    & = \psi(x,y), (x,y)\in\bar\Omega,
+		\end{aligned}\right.
+		\label{wave}
+	\end{equation}
+	
+	Inverse problem: $u(x,y,T) \Rightarrow f(x,y)$.
+\end{frame}
+
+
+\begin{frame}
+
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[t]{0.8\linewidth}
+			\centering
+			\includegraphics[width=9cm,height=6cm]{IP_wave_source1.png}
+		\end{minipage}
+		\centering
+		\label{fig_1}
+		\caption{The inversion results of source $f$ in wave equation. (a): the true $f$ and measurement data $u^\delta(x,y,T; f)$. (b)(c)(d)(e): the inversion $f$ and errors using different regularization methods. (f): the errors between the true $f$ and the inversion $f_{rec}$. (g): the errors between the measurement data $u^\delta(x,y,T;f)$ and $u(x,y,T;f_{rec})$. Here, we set the noise level $\varepsilon=0.05$ in (\ref{5.1}), the stopping parameter $\tau=1.01$ in discrepancy principle, the regularization parameter $\alpha=0.1$ in Tikhonov regularization.}
+		\label{f1_figure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+
+	\begin{table}[htbp!]
+		
+		\begin{center}
+			\begin{tabular}{llr}
+				%\firsthline
+				\toprule[1pt]
+				Methods       & steps(time/s) & $e_{l_2}$      \\
+				\hline
+				Method 1      & 468(126)      & 30.5\%         \\
+				Method 2      & 142(36)       & 29.1\%         \\
+				Method 3      & 2000(554)     & 31.8\%         \\
+				ODE-DPS(ours) & 1000(309)     & \textbf{3.5\%} \\
+				%\hline
+				\bottomrule[1pt]
+			\end{tabular}
+		\end{center}
+		\caption{The relative $l_2$ error ($e_{l_2}$), iteration steps and the runing time of inverse source problem of wave equation (\ref{wave}) using different inversion methods. Methods 1, 2, and 3 correspond to Landweber iteration, improved Landweber iteration, and Tikhonov regularization, respectively. We fix the maximum number of iterations for Methods 1, 2, and 3 at 2000. We set the noise level $\varepsilon=0.05$ in (\ref{5.1}), the stopping parameter $\tau=1.01$ in discrepancy principle, the regularization parameter $\alpha=0.1$ in Tikhonov regularization.}
+		\label{wave_source_table}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Robustness to Noise:}}
+	\vspace{30pt}
+	
+	\begin{table}[htbp!]
+		\centering
+		\setlength{\tabcolsep}{3mm}{
+			\begin{tabular}{c| c c c c c c}
+				\toprule[1pt]
+				\diagbox{Methods}{$\varepsilon$} & 0              & 0.001          & 0.005          & 0.01           & 0.05           & 0.1            \\
+				\hline
+				ODE-DPS(ours)                    & \textbf{2.0\%} & \textbf{2.2\%} & \textbf{2.1\%} & \textbf{2.3\%} & \textbf{3.5\%} & \textbf{4.6\%} \\
+				Method 1                         & 25.2\%         & 25.4\%         & 26.8\%         & 27.8\%         & 30.5\%         & 33.9\%         \\
+				Method 2                         & 21.6\%         & 21.8\%         & 23.3\%         & 24.7\%         & 29.1\%         & 30.9\%         \\
+				Method 3                         & 27.0\%         & 27.1\%         & 28.0\%         & 28.8\%         & 31.8\%         & 34.4\%         \\
+				\bottomrule[1pt]
+			\end{tabular}}
+		\caption{The relative $l_2$ error of the inversion source $f$ for wave equation (\ref{wave}) under different noise level. Methods 1, 2, and 3 correspond to Landweber iteration, improved Landweber iteration, and Tikhonov regularization, respectively. We fix the maximum number of iterations for all algorithms to 1000. We set the noise level $\varepsilon=0.05$ in (\ref{5.1}), the stopping parameter $\tau=1.01$ in discrepancy principle, the regularization parameter $\alpha=0.1$ in Tikhonov regularization.}
+		\label{tbl:robustness3}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Ablation Study by heat equation:}}
+	\vspace{50pt}
+	\begin{table}[htbp!]
+		\centering
+		\begin{tabular}{c c c c c }
+			\toprule[1pt]
+			Methods       & Weighted norm & ODE          & $e_{l_2}$      & step(time/s) \\
+			\hline
+			DPS           & $\times$      & $\times$     & 16.8\%         & 1000 (458)   \\
+			W-DPS         & $\checkmark$  & $\times$     & 15.8\%         & 1000 (462)   \\
+			$l_2$-ODE-DPS & $\times$      & $\checkmark$ & 13.4\%         & 1000 (468)   \\
+			ODE-DPS(ours) & $\checkmark$  & $\checkmark$ & \textbf{9.4\%} & 1000 (464)   \\
+			\bottomrule[1pt]
+		\end{tabular}
+		\caption{The performance of the reconstructions source (\textbf{Case 1}) of heat equation (\ref{5.0}) in terms of relative $l_2$ error with 1000 iterations.}
+		\label{tab:ablation}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Ablation Study by heat equation:}}
+	%\fcolorbox{black}{lightgray}{Ablation Study by heat equation:}
+	\vspace{40pt}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[t]{0.8\linewidth}
+			\centering
+			\includegraphics[width=3.5in]{ablation_study.png}
+		\end{minipage}
+		\centering
+		\caption{The relative $l_2$ error of the reconstructed source $f_1$ in the heat equation (\ref{5.0}) using the DPS, W-DPS, $l_2$-ODE-DPS and our method (ODE-DPS). (a): the relative $l_2$ errors between the true $f_1$ and the inversion $f_{1,\text{rec}}$. (b): the relative $l_2$ errors between the measurement data $u^\delta(x,y,T;f_1)$ and $u(x,y,T;f_{1,\text{rec}})$.}
+	\end{figure}
+\end{frame}
+
+
+\section{Unsupervised deep Learning approach for FWI}
+
+\subsection{Model}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\normalsize
+	\colorbox {lightgray}{{\color{blue}Seismological inverse problem:}}\\
+	%{\color{red} Seismological inverse problem:}\\
+	\vspace{10pt}
+	The seismic wave signals received by surface stations are used to
+	inverse the physical parameters of the Earth's interior, such as {\color{blue}seismic location} and {\color{blue}seismic tomography imaging}.
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{0.3\linewidth}
+				\centering
+				\includegraphics[width=1.2in]{seismic1.png}
+			\end{minipage}
+		}%
+		\subfigure{
+			\begin{minipage}[t]{0.3\linewidth}
+				\centering
+				\includegraphics[width=1in]{seismic2.png}
+			\end{minipage}
+		}%
+		\subfigure{
+			\begin{minipage}[t]{0.3\linewidth}
+				\centering
+				\includegraphics[width=1in]{seismic3.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{Applications of seismic tomography imaging}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\normalsize
+	
+	Let $\Omega = [0, L_x] \times [0, L_z] \subset \mathbb{R}^2$, we consider
+	\begin{align}\label{fwi_2.1}
+		\left \{
+		\begin{aligned}
+			 & \frac{1}{v(x)^2}\frac{\partial^2u(x,t)}{\partial t^2}=\nabla^2u(x,t)+s(x,t;\xi), \\
+			 & u(x,0)=0,                                                                        \\
+			 & u_t(x,0)=0,
+		\end{aligned}
+		\right.
+	\end{align}
+	where
+	\begin{align*}
+		s(x,t;\xi)=s_0(t)\delta(x-\xi),
+	\end{align*}
+	$s_0(t)=(1-2\pi^2 f^2t^2)e^{-\pi^2f^2t^2}$
+	is the Ricker wavelet with frequency $f$, $\delta$ denotes the Dirac delta
+	function.
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{1\linewidth}
+				\centering
+				\includegraphics[width=2.5in]{Wave_source.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{A conceptual illustration of full-waveform inversion.  The signal emitted by the sources (Star) is recorded at the
+			sensors (Cylinder).}\label{fig_wave_source}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	Inverse Problem:\\
+	Using
+		{\color{blue}
+			\begin{align*}
+				d_s(x_r, t) = u_s(x_r, t; v, \xi_s) + \eta_s, s=1,~\cdots,n_s, ~r=1,\cdots,n_r,~\eta_s\sim N(0, \Sigma)
+			\end{align*}}
+	to inverse the velocity parameter {\color{blue}$v(x)$}. $n_s$ denotes the number of sources and $n_r$ represents the number of receivers.
+	
+	\vspace{10pt}
+	Full-waveform inversion ($l_2$): \\
+	To minimize the following cost function
+	\begin{align*}
+		\min\limits_{v} L(v)=\min\limits_{v}\{\sum_{s=1}^{n_s}\sum_{r=1}^{n_r}\|u_s(x_r,t;v,\xi_s)-d_s(x_r,t)\|^2\}.
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}
+
+	{\color{blue}1. Data-Driven.} \footnote{\tiny Y. Wu and Y. Lin. InversionNet: An efficient and accurate data-driven full waveform inver-
+		sion. IEEE Transactions on Computational Imaging, 6:419C433, 2019} \footnote{\tiny F. Yang and J. Ma. Deep-learning inversion: A next-generation seismic velocity model build-
+		ing method. Geophysics, 84(4):R583CR599, 2019.} \footnote{\tiny M. Zhu, S. Feng, Y. Lin, and L. Lu. Fourier-DeepONet: Fourier-enhanced deep operator net-
+		works for full waveform inversion with improved accuracy, generalizability, and robustness.
+		arXiv preprint arXiv:2305.17289, 2023.}\\
+	
+	{\color{blue}2. Unsupervised learning.}\footnote{\tiny M. Rasht-Behesht, C. Huber, K. Shukla, and G. E. Karniadakis. Physics-informed neural net-
+		works (PINNs) for wave propagation and full waveform inversions. Journal of Geophysical
+		Research: Solid Earth, 127(5):e2021JB023120, 2022.} \footnote{\tiny He and Y. Wang. Reparameterized full-waveform inversion using deep neural networks.
+		Geophysics, 86(1):V1CV13, 2021.}
+	
+\end{frame}
+
+\begin{frame}
+	We introduce the forward operator $F(v)$, defined as:
+	{\color{blue}
+	\begin{align*}
+		F(v)=u,
+	\end{align*}}
+	where $v\in \mathbb{R}^{m_x \times m_z}$, $u\in \mathbb{R}^{n_s\times n_r\times n_T}$.
+	We express the observed data as:
+	{\color{blue}
+	\begin{align*}
+		d=F(v)+\eta,
+	\end{align*}}
+	where $d,~\eta\in\mathbb{R}^{n_s\times n_r\times n_T}$, $\eta\sim N(0,\Sigma)$ with $\Sigma=\sigma^2 I$.
+\end{frame}
+
+\subsection{Our approach}\label{section01}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	{\color{blue}Bayesian framework:}\\
+	\vspace{10pt}
+	The posterior distribution $p(v|d)$ follows the Bayes' rule:
+	{\color{blue}
+	\begin{align*}\label{3.1}
+		p(v|d)=\frac{1}{p(d)}p(d|v)p(v),
+	\end{align*}}
+	where $p(d|v)$ denotes the likelihood
+	\begin{align*}
+		p(d|v)\propto \exp(-\Phi(F(v),d)).
+	\end{align*}
+	Here, $\Phi(F(v),d)=-\log p(d|v)$ (the negative log-likelihood) represents the misfit between the observed data and simulated data at the state $v$.
+	
+	
+	%\footnote{\tiny Y. Zhu and N. Zabaras. Bayesian deep convolutional encoder-decoder networks for surrogate modeling and uncertainty quantification. Journal of Computational Physics, 366:415�C447,2018.} \footnote{\tiny Y. Afshar, S. Bhatnagar, S. Pan, K. Duraisamy, and S. Kaushik. Prediction of aerodynamic flow fields using convolutional neural networks. Computational Mechanics, 64:525�C545, 2019.}.
+	
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	We parameterize the velocity $v$ using a DNN with random weights:
+	{\color{blue}
+	\begin{align*}
+		v=m(z_0;\bm{\theta}),
+	\end{align*}}
+	where $z_0$ represents a fixed random tensor, and $\bm{\theta}$ comprises random variable.
+	
+		{\color{red}Our objective}: to infer $\bm{\theta}$ from the posterior
+	distribution $p(\bm{\theta}|d)$
+	{\color{blue}
+			\begin{equation*}
+				p(\bm{\theta}|d)\propto p(d|\bm{\theta})p(\bm{\theta}),
+			\end{equation*}}
+	where
+	\begin{align*}
+		p(d|\bm{\theta})\propto \exp(-\Phi(F(m(z_0;\bm{\theta})), d)).
+	\end{align*}
+	
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	{\color{red} Question?}\\
+	How to solve the posterior distribution $p(\bm{\theta}|d)$?\\
+	\vspace{10pt}
+	{\color{red} Answers:}\\
+	1. MCMC;\\
+	2. Ensemble kalman filter;\\
+	3. Stein Variational Gradient Descent(SVGD);\\
+	4. {\color{blue}Variational inference};\\
+	and so on.
+	
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	{\color{red}Question?}\\
+	What is variational inference?\\
+	\vspace{10pt}
+	{\color{red}Answers:}\\
+	
+	Use a distribution $q(\bm{\theta}|\bm{\mu})$ to approximate the posterior distribution $p(\bm{\theta}|d)$
+	by solving the following minimization problem:
+	\begin{align*}
+		\mathop{\min}_{\bm{\mu}}D_{KL}(q(\bm{\theta}|\bm{\mu})\|p(\bm{\theta}|d)),
+	\end{align*}
+	where
+	\begin{align*}
+		D_{KL}(q(x)\|p(x)) = \int q(x)\log\frac{q(x)}{p(x)}dx.
+	\end{align*}
+	
+	%{\color{red}Example:}\\
+	%$$q(\bm{\theta}|\bm{\mu})=N(a, b^2), \bm{\mu}=(a,b).$$
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	{\color{red}Question?}\\
+	How to choose the approximate distribution $q(\bm{\theta}|\bm{\mu})$?\\
+	\vspace{10pt}
+	{\color{red}Answers:}\\
+	
+	1. Mean-field variational approximation:
+	\begin{align*}
+		q(\bm{\theta}|\bm{\mu})=q(\theta_1|\mu_1)q(\theta_2|\mu_2)\cdots q(\theta_N|\mu_N).
+	\end{align*}
+	
+	2. {\color{blue}Variational Dropout approximation method:}
+	\begin{equation*}\label{3.2.2}
+		\bm{\theta}=\bm{\mu}\odot \bm{b}:~\theta_{i}=\mu_{i}*b_{i},~i=1,\cdots,N,
+	\end{equation*}
+	where $\mu_i$ represents the trainable parameter associated
+	with $\theta_i$, and $b_i\sim \bm{B}(p_i)$ follows a Bernoulli
+	distribution with a probability $p_i$.
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	Through some detailed calculations, we can deduce the following optimization problem:
+	{\color{orange}
+	\begin{align*}
+		\mathop{\min}_{\bm{\mu}}L_{W_1}(\bm{\mu}) & =\mathop{\min}_{\bm{\mu}}E_{\bm{b}\sim \bm{B}(p)}\big\{\Phi_{W_1}(F(m(z_0;\bm{\mu}\odot \bm{b})),d)+\alpha TV(m(z_0;\bm{\mu}\odot\bm{b}))\big\}                                                   \\ \nonumber
+		                                          & =\mathop{\min}_{\bm{\mu}}E_{\bm{b}\sim \bm{B}(p)}\big\{\frac{1}{2}\sum_{s=1}^{n_s}\sum_{r=1}^{n_r}W_{1}\big(\mathcal{P}(u_s(x_r,t;m(z_0;\bm{\mu}\odot\bm{b}),\xi_s)),\mathcal{P}(d_s(x_r,t))\big) \\
+		                                          & +\alpha TV(m(z_0;\bm{\mu}\odot\bm{b}))\big\}.
+	\end{align*}}
+	where $\|\cdot\|_{W_1}$ denotes $W_1$ distance \footnote{\tiny H. Zhang and J. Ma. Optimal transport with a new preprocessing for deep-learning full
+		waveform inversion. In 2022 IEEE International Conference on Image Processing (ICIP),
+		pages 1446C1450, 2022.}.
+\end{frame}
+
+%\begin{frame}
+%\setlength{\parskip}{0.6\baselineskip}
+%\colorbox {lightgray}{{\color{blue}Calculations:}}\\
+%
+%\begin{align*}\label{3.3}\nonumber
+%	\mathop{\min}_{\bm{\mu}}D_{KL}(q(\bm{\theta}|\bm{\mu})\|p(\bm{\theta}|d))
+%	&=\mathop{\min}_{\bm{\mu}}\int q(\bm{\theta}|\bm{\mu})\log\frac{q(\bm{\theta}|\bm{\mu})}{p(\bm{\theta}|d)}d\bm{\theta}\\ \nonumber
+%	&\propto\mathop{\min}_{\bm{\mu}}[\int q(\bm{\theta}|\bm{\mu})\log\frac{q(\bm{\theta}|\bm{\mu})}{p(\bm{\theta})}d\bm{\theta}
+%	-\int q(\bm{\theta}|\bm{\mu})\log p(d|\bm{\theta})d\bm{\theta}]\\
+%	&=\mathop{\min}_{\bm{\mu}}[D_{KL}(q(\bm{\theta}|\bm{\mu})\|p(\bm{\theta}))-E_{\bm{\theta}\sim q(\bm{\theta}|\bm{\mu})}\log p(d|\bm{\theta})],
+%\end{align*}
+%where
+%\begin{align*}
+%	D_{KL}(q(\bm{\theta}|\bm{\mu})\|p(\bm{\theta}))=C_0,
+%\end{align*}
+%$C_0$ independent the parameter $\bm{\mu}$.
+%\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Schematic workflow:}}\\
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure{
+			\begin{minipage}[t]{1\linewidth}
+				\centering
+				\includegraphics[width=4.5in]{Digram_Our.png}
+			\end{minipage}
+		}%
+		\centering
+		\caption{Schematic workflow of our proposed method for full-waveform inverion. $\bm{\mu}_{ini}^{*}$ is obtained through the pretraining detailed in the following sections.}\label{fig_digram}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Pretrain:}}\\
+	
+	\vspace{10pt}
+	We minimize the following problem:
+	{\color{blue}
+	\begin{align*}
+		\bm{\mu}_{ini}^{*} & = \arg\min J(\bm{\mu})                                                           \\
+		                   & = \arg\min E_{\bm{b}\sim\bm{B}(p)}\|m(z_0;\bm{\mu}\odot\bm{b})-v_{ini}\|_{l_1},
+	\end{align*}}
+	where, $\|\cdot\|_{l_1}$ denotes the $l_1$ norm, and $v_{ini}$ represents an initial model of the velocity parameter $v$.
+\end{frame}
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Inference:}}\\
+	\vspace{10pt}
+	Conditional mean estimator
+	\begin{align*}
+		v_{CM} = \int vp(v|d)dv.
+	\end{align*}
+	Utilizing $v=m(z_0;\bm{\theta})$, we can deduce that:
+	\begin{align*}
+		v_{CM} = \int m(z_0;\bm{\theta})p(\bm{\theta}|d)d\bm{\theta}.
+	\end{align*}
+	
+	Then
+		{\color{blue}
+			\begin{align*}
+				v_{CM} \approx \frac{1}{M}\sum_{k=1}^{M}m(z_0;\bm{\theta}_k) = \frac{1}{M}\sum_{k=1}^{M}m(z_0;\bm{\mu}^*\odot \bm{b_k}),
+			\end{align*}}
+	where $\bm{b}_k\sim \bm{B}(p)$.
+\end{frame}
+
+
+\subsection{Experiments}
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{marmousi_noise_p03_revised_rec.png}
+		\caption{Inversion results for the noisy observed data of the Marmousi model.
+			The top row displays the true velocity model and the initial guess.
+			The second row shows the inverted results obtained by the traditional inversion methods $\rm{FWI(l_2)+TV}$ and $\rm{FWI(W_1)+TV}$.
+			The third row presents the inverted results obtained through DNN-FWI and our method.}
+		\label{fig_mar2-1}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{marmousi_noise_p03_revised_index.png}
+		\caption{The trend of SNR, SSIM, and relative $l_2$ error of different methods with
+			respect to the number of iterations for the Marmousi model with noisy observed data.}
+		\label{fig_mar2-4}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+
+	\begin{table}[H]
+		\begin{center}
+			%\begin{spacing}{1.36}
+			\resizebox{1\hsize}{!}{
+				\begin{tabular}{cccccccccccccc}
+					%\hline
+					\toprule[1pt]
+					\multirow{1}{*}{Case} &  & \multirow{1}{*}{Index} &  & \multirow{1}{*}{$\rm{FWI(l_2)+TV}$} &  & \multicolumn{ 1}{c}{$\rm{FWI(W_1)+TV}$} &  & \multicolumn{ 1}{c}{$\rm{DNN-FWI}$} &  & \multicolumn{1}{c}{Ours} &  & \\
+					\cline{4-13}
+					\hline
+					                      &  & SNR                    &  & 16.05                               &  & 18.46                                   &  & 16.86                               &  & \textbf{19.67}                \\
+					Noise-free            &  & SSIM                   &  & 0.6833                              &  & 0.8220                                  &  & 0.7900                              &  & \textbf{0.7987}               \\
+					                      &  & Error                  &  & 0.1576                              &  & 0.1193                                  &  & 0.1435                              &  & \textbf{0.1038}               \\
+					
+					\hline
+					                      &  & SNR                    &  & 16.01                               &  & 16.31                                   &  & 15.64                               &  & \textbf{19.51}                \\
+					Noise($\sigma=0.01$)  &  & SSIM                   &  & 0.6801                              &  & 0.7280                                  &  & 0.7688                              &  & \textbf{0.7900}               \\
+					                      &  & Error                  &  & 0.1584                              &  & 0.1529                                  &  & 0.1653                              &  & \textbf{0.1057}               \\
+					\hline
+					
+					\hline
+				\end{tabular}
+			}
+			\caption{The SNR, SSIM, and relative $l_2$ error (Error) for the inverted Marmousi model
+				obtained by different approaches.}\label{table_mar}
+			%\end{spacing}
+		\end{center}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\setlength{\parskip}{0.6\baselineskip}
+	\colorbox {lightgray}{{\color{blue}Robustness to Noise:}}
+	\vspace{30pt}
+	\begin{table}[htbp!]
+		\belowrulesep=0pt
+		\aboverulesep=-1pt
+		\centering
+		\setlength{\tabcolsep}{3mm}{
+			\begin{tabular}{c| c c c c c}
+				\toprule[1pt]
+				\diagbox{Methods}{$\sigma$} & 0                    & 0.001                & 0.005                & 0.01                 & 0.05                 \\
+				\hline
+				$\rm{FWI(l_2)+TV}$          & 0.1576               & 0.1601               & 0.1608               & 0.1584               & 0.1582               \\
+				$\rm{FWI(W_1)+TV}$          & 0.1193               & 0.1225               & 0.1381               & 0.1529               & 0.1536               \\
+				Our method                  & {\color{blue}0.1038} & {\color{blue}0.1077} & {\color{blue}0.1063} & {\color{blue}0.1057} & {\color{blue}0.1050} \\
+				\bottomrule[1pt]
+			\end{tabular}}
+		\caption{The relative $l_2$ error of the inversion $v$ for the Marmousi model is evaluated under different noise levels. We fix the number of iterations for our method at 200, while the two traditional inversion methods are set to 1000 iterations. }
+		\label{tbl_noise}
+	\end{table}
+\end{frame}
+
+%%%%%%%%%========================================================
+\begin{frame}
+
+
+	\centerline{\large
+		Thank you for your attention!}
+	%Thank you for your time and attention!}
+	
+	
+\end{frame}
+
+%\begin{frame}{��л}
+%\begin{itemize}
+%  \item ��л���ίԱ��ĸ�λ��ʦ��
+%  \item ��л֣��ʦ��������Ϥ�Ľ̵���
+%  \item ��л��ѧ��ͳ��ѧԺ��������
+%  \item ��лʦ���ֵܽ��õĹ��ĺͰ�����
+%\end{itemize}
+%\end{frame}
+
+
+%\vskip10pt
+%
+%\setlength{\arraycolsep}{0.5pt}
+%
+%\begin{scriptsize}
+%
+%\end{scriptsize}
+%
+%������~\ref{sec3.1.4}~ҳ�й��ڵ�һ��\,$2\times 2$\,����尰����������㷨��ֹͣ׼�������
+%{\color{red}
+%
+%\justifying\let\raggedright\justifying
+
+
+
+
+
+
+
+
+\end{document}
