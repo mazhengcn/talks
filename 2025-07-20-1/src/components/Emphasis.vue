@@ -1,5 +1,5 @@
 <template>
-  <span bg-pink3:10 rounded-lg p2 text-pink7>
+  <span rounded-lg px2 py1 class="text-[#c99efb] bg-[#161616ee]">
 
     <slot />
 

@@ -6,3 +6,8 @@ command = "bun run build"
 from = "/2025/hksiam/*"
 to = "/2025/hksiam/index.html"
 status = 200
+
+[[redirects]]
+from = "/2025/csiam-bdai-1/*"
+to = "/2025/csiam-bdai-1/index.html"
+status = 200
