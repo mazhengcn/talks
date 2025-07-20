@@ -96,14 +96,16 @@ Examples
 
 As SDE
 
-- Construct a **diffusion process**
+Construct a **diffusion process**
 
 $$
 \{\mathbf{x}(t)\}_{t=0}^{T}
 $$
 where $\mathbf{x}(0)\sim p_0$ is `data distribution` and $\mathbf{x}(T)\sim p_{T}$ is `tractable form to generate sample`.
 
-- Then, we can model the diffusion process as a **SDE**
+<div mt8 />
+
+Then, we can model the diffusion process as a **SDE**
 
 $$
 d\mathbf{x}=-\frac{\beta(t)}{2}\mathbf{x}dt+\sqrt{\beta(t)}d\mathbf{\omega}.
@@ -111,7 +113,39 @@ $$
 
 <div bg-purple:10 rounded-lg px4 py2>
 
-  Denote $p(\mathbf{x}(t))$ is the probability density of $\mathbf{x}(t)$, and use $p(\mathbf{x}(t)|\mathbf{x}(s))$ to denote the transition kernel from $\mathbf{x}(s)$ to $\mathbf{x}(t)$,  where $0 \le s < t \le \hat{T}$.
+  - $p(\mathbf{x}(t))$: probability density of $\mathbf{x}(t)$
+
+  - $p(\mathbf{x}(t)|\mathbf{x}(s))$: transition kernel from $\mathbf{x}(s)$ to $\mathbf{x}(t)$ with $0 \le s < t \le \hat{T}$.
+
+</div>
+
+---
+
+# Diffusion Process
+
+Generative samples from a reverse SDE
+
+Obtain samples
+
+$$
+\mathbf{x}(0)\sim p(x(0))
+$$
+
+by starting from samples of $\mathbf{x}(\hat{T})\sim p(x(\hat{T}))$, i.e., running the reverse-time SDE:
+
+$$
+d\mathbf{x}=[-\frac{\beta(t)}{2}\mathbf{x}-\beta(t){\color{violet}\nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t))}]dt+\sqrt{\beta(t)}d\bar{\mathbf{\omega}}
+$$
+
+<div mt8 />
+
+We can learn the score function by neural network:
+
+<div bg-purple:10 rounded-lg px4 py2 text-lime>
+
+  $$
+  \nabla_{\mathbf{x}(t)}\log p(\mathbf{x}(t)) \approx s_{\theta^*}(\mathbf{x}(t), t)
+  $$
 
 </div>
 

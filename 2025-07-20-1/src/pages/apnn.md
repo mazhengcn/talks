@@ -145,7 +145,7 @@ $$
 f(t,x,v) = \rho(t,x) + \varepsilon g(t,x,v),
 $$
 
-where the non-equilibrium part $g$ clearly satisfies <Emphasis>$\left \langle g \right \rangle = 0$</Emphasis>
+where the non-equilibrium part $g$ clearly satisfies <span v-mark.lime><Emphasis>$\left \langle g \right \rangle = 0$</Emphasis></span>
 
 <!-- Subsititing $f = \rho + \varepsilon g$ into the linear transport equation yields
 
@@ -277,23 +277,23 @@ layout: center
 <div flex="~ justify-center">
 <div flex="~ items-center justify-between" w100>
 <div flex="~ col items-center justify-between" h70>
-  <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-violet7 text-center px4>
+  <div border="~ lime/50 rounded-lg" shadow-l bg-lime:10 text-lime3 text-center px4>
 
   $\mathcal{R}(\mathcal{F}^{\varepsilon})$
 
   </div>
-  <div ml--20 text-orange>
+  <div ml--20 text-lime3>
 
   $\mathcal{R}\to 0$
 
   </div>
-  <div border="~ orange/50 rounded-lg" shadow-l bg-orange:10 text-orange7 px8 text-center>
+  <div border="~ lime/50 rounded-lg" shadow-l bg-lime:10 text- px8 text-center text-lime3>
 
   $\mathcal{F}^{\varepsilon}$
 
   </div>
 </div>
-<div flex="~ col items-end justify-between" h80 text-pink>
+<div flex="~ col items-end justify-between" h80 text-gray>
 
   $\varepsilon \to 0$
 
@@ -301,17 +301,17 @@ layout: center
 
 </div>
 <div flex="~ col items-center justify-between" h70>
-  <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-violet7 text-center px4>
+  <div border="~ amber/50 rounded-lg" shadow-l bg-amber:10 text-amber3 text-center px4>
 
   $\mathcal{R}(\mathcal{F}^0)$
 
   </div>
-  <div mr--20 text-orange>
+  <div mr--20 text-amber3>
 
   $\mathcal{R}\to 0$
 
   </div>
-  <div border="~ orange/50 rounded-lg" shadow-l bg-orange:10 text-orange7 px8 text-center>
+  <div border="~ amber/50 rounded-lg" shadow-l bg-amber:10 text-amber3 px8 text-center>
 
   $\mathcal{F}^0$
 
@@ -320,34 +320,25 @@ layout: center
 </div>
 </div>
 
-<v-drag-arrow color="orange" pos="338,176,0,158"/>
+<v-drag-arrow color="green" pos="338,176,0,158"/>
 <v-drag-arrow color="orange" pos="641,176,0,158"/>
-<v-drag-arrow color="violet" pos="384,146,211,0"/>
-<v-drag-arrow color="violet" pos="384,365,211,0"/>
+<v-drag-arrow color="gray" pos="384,146,211,0"/>
+<v-drag-arrow color="gray" pos="384,365,211,0"/>
 
 <div mt10 />
 
-<div grid="~ cols-2 gap-6" ml-5>
-<div flex="~ items-center justify-center gap-4">
-  <div bg-orange:10 rounded-lg px2 py0 text-orange7 text-center>
+<div grid="~ cols-2 gap-4" ml-5>
+<div flex="~ items-center gap-4" bg-lime:10 rounded-lg pl4 py2 text-lime3 text-center>
 
-  $\mathcal{F}^\varepsilon, \; \mathcal{F}^0$
+  $\mathcal{F}^\varepsilon, \; \mathcal{R}(\mathcal{F}^\varepsilon)$
 
-  </div>
-  <div>
-  Microscopic and macroscopic<br>
-  models
-  </div>
+  Microscopic models and its loss
 </div>
-<div flex="~ items-center justify-center gap-4">
-  <div bg-violet:10 rounded-lg px2 py0 text-violet7 text-center>
+<div flex="~ items-center gap-4" bg-amber:10 rounded-lg pl4 py2 text-amber3 text-center>
 
-  $\mathcal{R}(\mathcal{F}^\varepsilon), \; \mathcal{R}(\mathcal{F}^0)$
+  $\mathcal{F}^0, \; \mathcal{R}(\mathcal{F}^0)$
 
-  </div>
-  <div>
-  Loss of microscopic<br>and macroscopic models
-  </div>
+  Macroscopic models and its loss
 </div>
 </div>
 
@@ -440,7 +431,6 @@ Mass conservation mechanism <Emphasis>$g^{\text{NN}}_{\theta} = \tilde{g}^{\text
 
 <div>
 
-######
 Periodic boundary condition: $\varepsilon=1$
 
 $$
@@ -452,19 +442,20 @@ $$
 
 <img src="/apnn/ex1_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
 
-</div><div>
+</div>
+<div>
 
-######
 Inflow boundary condition $\varepsilon=10^{-8}$
 
 $$
 \begin{aligned}
-  f(t, x_L, v) = 1 \; & \text{for} \; v > 0\; \text{and}\; 1 \;\text{for} \; v<0, \\
+  f(t, x_L, v) = 1 \; & \text{for} \; v > 0 \\
+  f(t, x_R, v) = 1 \; & \text{for} \; v < 0 \\
   f_0(x, v) &= 0.
 \end{aligned}
 $$
 
-<img src="/apnn/ex2_apnns.png" class="h-50 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
+<img src="/apnn/ex2_apnns.png" class="h-50 mx-auto rounded-lg" border="~ violet/50" shadow-xl mt--2 />
 
 </div>
 </div>
@@ -704,7 +695,7 @@ $$
 
 Note that the function $f$ has a jump at $t = 0$ since $F_L(v) = 1, F_R(v) = 0$ but $f_0(x, v) = 0$.
 
-<u>For better numerical performance,  $\rho^{\text{NN}}_{\theta}$ can be further constructed to automatically satisfies initial condition:</u>
+For better numerical performance,  $\rho^{\text{NN}}_{\theta}$ can be further constructed to automatically satisfies initial condition:
 
 $\rho^{\text{NN}}_{\theta}(t, x) := t \cdot \exp \left( -\tilde{\rho}^{\text{NN}}_{\theta}(t, x)\right) \approx \rho(t, x)$
 
@@ -714,7 +705,7 @@ $\rho^{\text{NN}}_{\theta}(t, x) := t \cdot \exp \left( -\tilde{\rho}^{\text{NN}
 
 Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
-<img src="/apnn/dirichlet10_sol.png" class="h-40 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
+<img src="/apnn/dirichlet10_sol.png" rounded-lg op75 />
 
 <!-- FCNet with units $[2, 128, 128, 128, 128, 1]$ for $\rho$ and $[3, 256, 256, 256, 256, 1]$ both for $r$ and $j$. Batch size is $512$ in domain, $1024 \times 2$ on boundary and $512$ on initial, the number of quadrature points is $30$. $\lambda_1 = \lambda_2 = \lambda_3 = \lambda_4 = \lambda_6 = 1, \lambda_7 = 10$. -->
 
@@ -738,7 +729,7 @@ Plot of density $\rho$ at $t = 0, 0.05, 0.1$: APNNs (marker) vs. Ref (line).
 
 ##### &emsp; &emsp; Figure 1:  without the enforcement of initial condition
 
-<img src="/apnn/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
+<img src="/apnn/dirichlet10_sol_2.png" class="h-60 mx-auto rounded-lg" shadow-xl />
 
 Due to the poor approximate of initial and boundary layer effect, it gives wrong solution at time $t = 0, 0.05, 0.1$.
 
@@ -746,7 +737,7 @@ Due to the poor approximate of initial and boundary layer effect, it gives wrong
 
 ##### &emsp; &emsp; &emsp; &emsp; Figure 2: without the constraint $\rho = \left \langle r \right \rangle$
 
-<img src="/apnn/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg b-1 b-b" border="~ violet/50" shadow-xl />
+<img src="/apnn/dirichlet10_sol_1.png" class="h-60 mx-auto rounded-lg" shadow-xl />
 
 The solutions are also wrong at time $t = 0, 0.05, 0.1$, therefore, we consider this constraint into our APNN loss.
 
