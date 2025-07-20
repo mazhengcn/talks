@@ -1226,7 +1226,7 @@ With 3 key improvements to APNNs
 </div>
 
 <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 p2 mx22 text-xl>
-Improve the <span text-pink7>long time</span> stability
+Improve the <span text-violet>long time</span> stability
 </div>
 
 ---
@@ -1240,7 +1240,7 @@ With 3 key improvements to APNNs
 </div>
 
 <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 p2 mx46 text-xl>
-Improve the <span text-pink7>Sampling</span> efficiency
+Improve the <span text-violet>Sampling</span> efficiency
 </div>
 
 ---
@@ -1254,7 +1254,7 @@ ResNet + Pre-training + MCMC
 </div>
 
 <div border="~ violet/50 rounded-lg" shadow-l bg-violet:10 text-center mt4 py2 px0 mx20 text-xl>
-Obtain higher accuracy and efficiency, especially for long time simulation
+Obtain higher accuracy and efficiency, especially for <span text-violet3>long time</span> simulation
 </div>
 
 ---
