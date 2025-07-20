@@ -263,6 +263,16 @@ layout: center
 
 # Solve PDEs with Deep Learning
 
+Original "PINNs"
+
+<div v-click border="~ 2 pink7" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
+
+<img src='/pinns-origin.png' alt="original pinn paper" rounded-2xl border="~ violet:50" shadow-lg />
+
+---
+
+# Solve PDEs with Deep Learning
+
 Key components
 
 <div flex="~ col gap-2">
@@ -305,6 +315,7 @@ Key components
   </div>
 </div>
 </div>
+
 
 ---
 src: /pages/apnn.md
