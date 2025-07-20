@@ -1,0 +1,14 @@
+{
+  "name": "deeprte",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build --base /2025/deeprte/ --out ../../dist/2025/deeprte",
+    "export": "slidev export --per-slide --output ../2025-deeprte-en.pdf"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:"
+  }
+}
