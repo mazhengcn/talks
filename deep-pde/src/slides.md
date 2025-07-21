@@ -18,7 +18,6 @@ title: Deep Learning and Differential Equations
 <div flex="~ col gap-2">
   <div>马 征</div>
   <div op75>上海交通大学</div>
-  <div op75>中法暑期学校</div>
   <div text-xs op75>2025.07.24</div>
 </div>
 
@@ -52,6 +51,60 @@ glow: right
   <div i-ph-arrow-right-duotone op50 />
   <div>了解深度学习求解微分方程待解决的问题</div>
 
+</div>
+
+---
+
+# 微分方程的应用
+
+<div grid="~ cols-3 gap-3" py4>
+  <div v-click flex="~ col gap-1" p4 rounded bg-teal:15 text-teal1>
+    <div text-3xl i-ph:atom-duotone text-teal mb2 />
+    <div>物理学</div>
+    <div text-xs op50>流体动力学方程</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-orange:15 text-orange1>
+    <div text-3xl i-ph:circuitry-duotone text-orange mb2 />
+    <div>工程学</div>
+    <div text-xs op50>弹性力学方程</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-yellow:15 text-yellow1>
+    <div text-3xl i-ph:flask-duotone text-yellow mb2 />
+    <div>化学</div>
+    <div text-xs op50>反应扩散方程</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-red:15 text-red1>
+    <div text-3xl i-ph:recycle-duotone text-red mb2 />
+    <div>材料科学</div>
+    <div text-xs op50>相场模型</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-purple:15 text-purple1>
+    <div text-3xl i-ph:cloud-snow-duotone text-purple mb2 />
+    <div>气候科学</div>
+    <div text-xs op50>大气环流模型</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
+    <div text-3xl i-ph:images-duotone text-blue mb2 />
+    <div>图像处理</div>
+    <div text-xs op50>热方程</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-green:15 text-green1>
+    <div text-3xl i-ph:globe-hemisphere-east-duotone text-green mb2 />
+    <div>地质科学</div>
+    <div text-xs op50>地震波方程</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
+    <div text-3xl i-ph:currency-circle-dollar-duotone text-violet mb2 />
+    <div>金融学</div>
+    <div text-xs op50>Black-Sholes 方程</div>
+  </div>
 </div>
 
 ---

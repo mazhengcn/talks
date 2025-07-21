@@ -44,13 +44,6 @@
       "name": "2025-07-10",
       "version": "0.0.0",
     },
-    "2025-07-12/src": {
-      "name": "deep-pde",
-      "version": "0.0.0",
-      "devDependencies": {
-        "@antfu/eslint-config": "catalog:",
-      },
-    },
     "2025-07-20-1/src": {
       "name": "2025-07-20-1",
       "version": "0.0.0",
@@ -60,6 +53,13 @@
     },
     "2025-07-20-2/src": {
       "name": "2025-07-20-2",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@antfu/eslint-config": "catalog:",
+      },
+    },
+    "deep-pde/src": {
+      "name": "deep-pde",
       "version": "0.0.0",
       "devDependencies": {
         "@antfu/eslint-config": "catalog:",
@@ -918,7 +918,7 @@
 
     "deep-is": ["deep-is@0.1.4", "", {}, "sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ=="],
 
-    "deep-pde": ["deep-pde@workspace:2025-07-12/src"],
+    "deep-pde": ["deep-pde@workspace:deep-pde/src"],
 
     "deeprte": ["deeprte@workspace:deeprte/src"],
 
