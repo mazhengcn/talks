@@ -108,8 +108,8 @@ glow: right
 </div>
 
 ---
-glow: top
----
+
+## glow: top
 
 # 微分方程
 
@@ -181,15 +181,98 @@ glow: top
 />
 
 ---
+
+# 神经网络方法求解微分方程
+
+主要组成部分
+
+<div flex="~ col gap-2">
+
+  <div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+    <div flex="~ gap-2" items-center bg-lime:10 rounded px4 py2>
+      <div text-xl text-lime3>架构</div>
+      <div>神经网络用来参数化、逼近哪些函数/映射</div>
+    </div>
+    <div flex="~ col gap-1" ml2 px2 py1 text-lime1>
+      <div>参数化解</div>
+      <div>参数化解算子</div>
+      <div>参数化从方程的形式到解的映射</div>
+    </div>
+  </div>
+
+  <div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10>
+    <div flex="~ gap-2 items-center" bg-amber:10 px4 py2 rounded>
+      <div text-xl text-amber3>约束</div>
+      <div>即微分方程的损失函数</div>
+    </div>
+    <div flex="~ col gap-1" ml2 px2 py1 text-amber1>
+      <div>模型: 方程本身或与其等价的数学、物理形式</div>
+      <div>数据: 即监督学习，通常由传统数值方法产生或实验获得</div>
+      <div>初值条件、边值条件等</div>
+      <div>其它物理约束，如守恒性、对称性、熵条件等等</div>
+    </div>
+  </div>
+
+  <div v-click flex="~ col" border="~ blue/50 rounded-lg" bg-blue:10>
+    <div flex="~ gap-2" items-center bg-blue:10 rounded px4 py2>
+      <div text-xl text-blue3>优化</div>
+      <div>神经网络的训练通过求解化问题获得参数</div>
+    </div>
+    <div ml2 px2 py1 text-blue1>
+      <div>使用优化方法获得参数，如SGD, Adam, LBFGS等</div>
+    </div>
+  </div>
+</div>
+
+---
+
+# 神经网络方法求解偏微分方程
+
+原始的"PINNs"方法文章
+
+<img src='/pinns-origin.png' alt="original pinn paper" rounded-2xl border="~ lime/50" shadow-lg />
+
+<div v-click border="~ 2 pink7" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
+
+---
+
+# 神经网络方法分类
+
+目前使用神经网络求解偏微分方按照架构大概分成两种途径
+
+<div grid="~ cols-2 gap-10" mt10 h-85>
+  <div flex="~ col gap-6 items-center" bg-red:10 rounded-lg p4>
+    <div text-3xl text-red3>使用网络直接学习方程的解</div>
+    <div flex="~ col gap-4 justify-end" px4 text-red1 text-xl>
+      <div>PINN (Physical-informed NN)</div>
+      <div>Deep Ritz method</div>
+      <div>WAN (Weak Adversarial Networks)</div>
+      <div>Deep BSDE (Backward Stochastic Differential Equation) method</div>
+    </div>
+  </div>
+  <div flex="~ col gap-6 items-center" bg-blue:10 rounded-lg p4>
+    <div text-3xl text-blue3>使用网络学习解算子</div>
+    <div flex="~ col gap-4 justify-end" px4 text-blue1 text-xl>
+      <div>DeepONet</div>
+      <div>FNO</div>
+    </div>
+  </div>
+</div>
+
+---
+
 layout: center
 glowOpacity: 0.1
+
 ---
 
 <img src="/voidzero-nuxtlabs.png" w-150>
 
 ---
+
 layout: center
 glowOpacity: 0.1
+
 ---
 
 <div flex="~ col gap-2 items-center">
@@ -198,8 +281,10 @@ glowOpacity: 0.1
 </div>
 
 ---
+
 layout: center
 glowOpacity: 0.1
+
 ---
 
 <div flex="~ col gap-2 items-center">
@@ -207,21 +292,25 @@ glowOpacity: 0.1
 </div>
 
 ---
+
 layout: center
 glowOpacity: 0
+
 ---
 
 <img src="/vite-plus.png" w-280 mix-blend-lighten>
 
 ---
-layout: center
----
+
+## layout: center
 
 <h1 important-text-5xl>为什么需要 DevTools？</h1>
 
 ---
+
 layout: none
 class: h-full
+
 ---
 
 <div h-full grid="~ rows-2">
@@ -271,8 +360,10 @@ class: h-full
 </div>
 
 ---
+
 class: text-2xl
 glow: right
+
 ---
 
 # 好工具原则
@@ -321,8 +412,8 @@ glow: right
 -->
 
 ---
-layout: center
----
+
+## layout: center
 
 <div flex="~ col gap-2 items-center" relative text-6xl>
   <div text-amber2 text-5xl>Transparency</div>
@@ -403,7 +494,6 @@ layout: center
 
 ---
 
-
 <h3 flex="~ gap-2 items-center" text-2xl>
   <div i-logos-eslint />
   ESLint Config Inspector
@@ -412,7 +502,6 @@ layout: center
 <img src="/devtools/eslint-overview.png" w-250 />
 
 ---
-
 
 <h3 flex="~ gap-2 items-center" text-2xl>
   <div i-logos-eslint />
@@ -449,9 +538,11 @@ layout: center
 <img src="/devtools/node-inspector-sunbrust.png" w-250 />
 
 ---
+
 layout: center
 glow: bottom
 class: text-center
+
 ---
 
 <img src="/vite-devtools.png" w-120 />
@@ -506,8 +597,10 @@ CJS/ESM 可视化
 -->
 
 ---
+
 class: p0
 glow: bottom
+
 ---
 
 <div class="grid grid-cols-2 gap-4 h-full">
@@ -579,10 +672,9 @@ glow: bottom
 </div>
 </div>
 
+---
 
----
-class: important-p0
----
+## class: important-p0
 
 <div flex="~ gap-2 items-center">
 <img src="/vd/modules.png" w-140 />
@@ -595,10 +687,9 @@ class: important-p0
 </div>
 </div>
 
+---
 
----
-class: important-p0
----
+## class: important-p0
 
 <div flex="~ gap-2 items-center" h-full>
 <img src="/vd/folders.png" w-180 />
@@ -606,13 +697,12 @@ class: important-p0
 
 # 打包文件树
 
-
 </div>
 </div>
 
 ---
-class: important-p0
----
+
+## class: important-p0
 
 <div flex="~ gap-2 items-center" h-full>
 <img src="/vd/graph.png" w-180 />
@@ -623,10 +713,9 @@ class: important-p0
 </div>
 </div>
 
+---
 
----
-class: important-p0
----
+## class: important-p0
 
 <div flex="~ gap-2 items-center">
 <img src="/vd/flow.png" w-100 />
@@ -640,26 +729,25 @@ class: important-p0
 </div>
 </div>
 
+---
 
----
-class: text-center
----
+## class: text-center
 
 # 代码转换对比
 
 <img src="/vd/transform.png" w-240 mt--5 />
 
 ---
-class: text-center
----
+
+## class: text-center
 
 # 分包信息
 
 <img src="/vd/chunk.png" w-210 mt--5 />
 
 ---
-class: text-center !pt15
----
+
+## class: text-center !pt15
 
 # 模块依赖关系图
 
@@ -671,10 +759,9 @@ class: text-center !pt15
 
 <img src="/vd/chart.png" w-200 />
 
+---
 
----
-layout: center
----
+## layout: center
 
 <div flex="~ col gap-2 items-center" relative text-6xl>
   <div text-purple2 text-5xl>Extensibility</div>
@@ -682,14 +769,14 @@ layout: center
 </div>
 
 ---
-clicks: 19
----
+
+## clicks: 19
 
 <DevToolsKit />
 
 ---
-clicks: 2
----
+
+## clicks: 2
 
 <div flex="~ col gap-4 items-center justify-center" text-2xl w-full h-full>
   <img src="/devtools-kit.svg" w-60 op85 transition-all duration-500 :class="$clicks < 1 ? 'translate-y-15 scale-110' : ''"/>
@@ -698,16 +785,16 @@ clicks: 2
 </div>
 
 ---
-layout: center
----
+
+## layout: center
 
 <div scale-200>
   <Repo name="vitejs/devtools"  />
 </div>
 
 ---
-class: text-center
----
+
+## class: text-center
 
 <div text-4xl mt-20 mb-12>致谢</div>
 
@@ -734,12 +821,13 @@ class: text-center
   </div>
 </div>
 
-
 ---
+
 layout: intro
 class: text-center pb-5
 glowX: 50
 glowY: 120
+
 ---
 
 <h1 font-serif important-text-5em>感 谢</h1>
