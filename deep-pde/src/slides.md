@@ -108,20 +108,77 @@ glow: right
 </div>
 
 ---
-layout: center
-glow: bottom
-class: text-center
+glow: top
 ---
 
-<img src="/vite-devtools.png" w-120 />
-<div text-3xl mt4 mb-8 tracking-0.5em text-lime>前瞻介绍</div>
+# 微分方程
 
-<div abs-br mx-10 my-11 flex="~ col gap-4 items-end" text-left op75>
-  <span>VueConf Shenzhen</span>
-  <div text-xs opacity-75 mt--4>2025.07.12</div>
+<div mt5 text-amber>
+  绝大多数方程并不存在解析解，往往需要数值手段进行求解，而神经网络为求解提供了更多方法可能
 </div>
 
-<img src="/shanghai.svg" h-50 absolute bottom-0 right-0 op10 />
+<div mt6 />
+
+<div flex="~ gap-10 justify-center">
+  <img src="/car-simulation.png" alt="Car Simulation" border="~ lime/50" shadow-xl rounded-lg op75 />
+  <img src="/fluid-simulation.png" alt="CFD" border="~ lime/50" shadow-xl rounded-lg op75 />
+</div>
+
+---
+
+# 传统数值方法
+
+<br>
+
+<div flex="~ col gap-6" mt10 text-2xl>
+
+  <div text-blue>离散网格用来表示解</div>
+
+  <div text-amber>时间上逐步演化求解</div>
+
+  <div text-purple>求解（非）线性方程组</div>
+</div>
+
+<ProsCons
+  :pros="[
+    '精度高',
+    '能够保持物理量的性质'
+  ]"
+  :cons="[
+    '复杂几何需要结构化网格',
+    '存在维数灾难',
+    '求解效率相对较低'
+  ]"
+/>
+
+---
+
+# 神经网络方法
+
+<br>
+
+<div flex="~ col gap-6" mt10 text-2xl>
+
+  <div text-blue>神经网络表示解或解算子</div>
+
+  <div text-amber>转化成优化问题求解</div>
+
+  <div text-purple>通过梯度下降等方法求解参数</div>
+</div>
+
+<ProsCons
+  :pros="[
+    '不需要离散网格',
+    '直接求解时间上全局的解',
+    '更适合解决高维问题',
+    '更容易将数据融入求解过程'
+  ]"
+  :cons="[
+    '边界条件难以处理',
+    '训练效率难以保证',
+    '缺少理论保障'
+  ]"
+/>
 
 ---
 layout: center
