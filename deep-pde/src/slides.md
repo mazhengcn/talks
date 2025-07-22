@@ -181,19 +181,19 @@ glow: top
 />
 
 ---
+glow: right
+---
 
-# 神经网络方法求解微分方程
+# 神经网络方法求解微分方程 {.mt--2}
 
-主要组成部分
-
-<div flex="~ col gap-2">
+<div flex="~ col gap-2" mt--1>
 
   <div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
     <div flex="~ gap-2" items-center bg-lime:10 rounded px4 py2>
       <div text-xl text-lime3>架构</div>
       <div>神经网络用来参数化、逼近哪些函数/映射</div>
     </div>
-    <div flex="~ col gap-1" ml2 px2 py1 text-lime1>
+    <div flex="~ col gap-2" ml2 px2 py2 text-lime1>
       <div>参数化解</div>
       <div>参数化解算子</div>
       <div>参数化从方程的形式到解的映射</div>
@@ -205,7 +205,7 @@ glow: top
       <div text-xl text-orange3>约束</div>
       <div>即微分方程的损失函数</div>
     </div>
-    <div flex="~ col gap-1" ml2 px2 py1 text-orange1>
+    <div flex="~ col gap-2" ml2 px2 py2 text-orange1>
       <div>模型: 方程本身或与其等价的数学、物理形式</div>
       <div>数据: 即监督学习，通常由传统数值方法产生或实验获得</div>
       <div>初值条件、边值条件等</div>
@@ -218,7 +218,7 @@ glow: top
       <div text-xl text-blue3>优化</div>
       <div>神经网络的训练通过求解化问题获得参数</div>
     </div>
-    <div ml2 px2 py1 text-blue1>
+    <div ml2 px2 py2 text-blue1>
       <div>使用优化方法获得参数，如SGD, Adam, LBFGS等</div>
     </div>
   </div>
@@ -240,51 +240,83 @@ glow: top
 
 目前使用神经网络求解偏微分方按照架构大概分成两种途径
 
-<div grid="~ cols-2 gap-10" mt10>
-  <div flex="~ col gap-2" bg-red:10 rounded-lg p8>
-    <div text-3xl i-ph:function-duotone text-red mb2 />
-    <div text-2xl text-red3>网络直接学习方程的解</div>
-    <div>
-
-      - PINN (Physical-informed NN)
-      - Deep Ritz method
-      - WAN (Weak Adversarial Networks)
-      - Deep BSDE (Backward Stochastic Differential Equation) method
-
+<div flex="~ col gap-4" mt5>
+  <div flex="~ col gap-2" bg-red:10 rounded-lg p4>
+    <div flex="~ gap-2">
+      <div text-4xl i-ph:function-duotone text-red />
+      <div text-2xl text-red3>神经网络学习方程的解函数/div>
+    </div>
+    <div flex="~ col gap-2" mt2>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-red />
+        <div text-red1>物理信息嵌入神经网络 (Physical-informed Neural Networks, PINNs)</div>
+      </div>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-red />
+        <div text-red1>Deep Ritz method</div>
+      </div>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-red />
+        <div text-red1>弱对抗生成网络 (Weak Adversarial Networks, WAN)</div>
+      </div>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-red />
+        <div text-red1>深度倒向随机微分方程 (Backward Stochastic Differential Equation, Deep BSDE)</div>
+      </div>
     </div>
   </div>
-  <div flex="~ col gap-6" bg-blue:10 rounded-lg p4>
-    <div flex="~ gap-2 items-center" ml--2>
-      <div i-ph:terminal-duotone text-3xl text-blue />
-      <span text-2xl text-blue3>使用网络学习解算子</span>
+  <div flex="~ col gap-2" bg-blue:10 rounded-lg p4>
+    <div flex="~ gap-2">
+      <div i-ph:arrow-right-bold text-4xl text-blue />
+      <span text-2xl text-blue3>神经网络学习方程的解算子</span>
     </div>
-    <div flex="~ col gap-4 justify-end" px4 text-blue1 text-xl>
-      <div>DeepONet</div>
-      <div>FNO</div>
+    <div flex="~ col gap-2" mt2>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-blue />
+        <div text-blue1>DeepONet</div>
+      </div>
+      <div flex="~ gap-1 items-center">
+        <div i-ph:dot-duotone text-xl text-blue />
+        <div text-blue1>傅里叶神经算子 (Fourer Neural Operator, FNO)</div>
+      </div>
     </div>
   </div>
 </div>
 
 ---
+layout: section
+---
 
-layout: center
-glowOpacity: 0.1
+# 神经网络逼近解函数 {.text-red1!}
+
 
 ---
 
-<img src="/voidzero-nuxtlabs.png" w-150>
+# 一个常微分方程的例子
 
----
+牛顿第二定律
 
-layout: center
-glowOpacity: 0.1
 
----
+<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>
+    问题描述
+  </div>
+  <div text-lime1>
 
-<div flex="~ col gap-2 items-center">
-  <img src="/vercel-nuxtlabs.jpg" w-150>
-  <div text-2xl mt1>NuxtLabs is joining Vercel</div>
+  $$
+  ma = m\frac{d^2 s(t)}{dt^2} = F(t) = t
+  $$
+
+  </div>
+  <div pl4 text-lime1>
+
+  从位置 $0$，初速度$0$开始运动，求$s(t)$
+
+  </div>
 </div>
+
+
+
 
 ---
 
@@ -603,10 +635,8 @@ CJS/ESM 可视化
 -->
 
 ---
-
 class: p0
 glow: bottom
-
 ---
 
 <div class="grid grid-cols-2 gap-4 h-full">
