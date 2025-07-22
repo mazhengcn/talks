@@ -200,12 +200,12 @@ glow: top
     </div>
   </div>
 
-  <div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10>
-    <div flex="~ gap-2 items-center" bg-amber:10 px4 py2 rounded>
-      <div text-xl text-amber3>约束</div>
+  <div v-click flex="~ col" border="~ orange/50 rounded-lg" bg-orange:10>
+    <div flex="~ gap-2 items-center" bg-orange:10 px4 py2 rounded>
+      <div text-xl text-orange3>约束</div>
       <div>即微分方程的损失函数</div>
     </div>
-    <div flex="~ col gap-1" ml2 px2 py1 text-amber1>
+    <div flex="~ col gap-1" ml2 px2 py1 text-orange1>
       <div>模型: 方程本身或与其等价的数学、物理形式</div>
       <div>数据: 即监督学习，通常由传统数值方法产生或实验获得</div>
       <div>初值条件、边值条件等</div>
@@ -241,8 +241,11 @@ glow: top
 目前使用神经网络求解偏微分方按照架构大概分成两种途径
 
 <div grid="~ cols-2 gap-10" mt10 h-85>
-  <div flex="~ col gap-6 items-center" bg-red:10 rounded-lg p4>
-    <div text-3xl text-red3>使用网络直接学习方程的解</div>
+  <div flex="~ col gap-6" bg-red:10 rounded-lg p4>
+    <div flex="~ gap-2 items-center" ml--2>
+      <div i-ph:function-duotone text-3xl text-red />
+      <span text-2xl text-red3>使用网络直接学习方程的解</span>
+    </div>
     <div flex="~ col gap-4 justify-end" px4 text-red1 text-xl>
       <div>PINN (Physical-informed NN)</div>
       <div>Deep Ritz method</div>
@@ -250,8 +253,11 @@ glow: top
       <div>Deep BSDE (Backward Stochastic Differential Equation) method</div>
     </div>
   </div>
-  <div flex="~ col gap-6 items-center" bg-blue:10 rounded-lg p4>
-    <div text-3xl text-blue3>使用网络学习解算子</div>
+  <div flex="~ col gap-6" bg-blue:10 rounded-lg p4>
+    <div flex="~ gap-2 items-center" ml--2>
+      <div i-ph:terminal-duotone text-3xl text-blue />
+      <span text-2xl text-blue3>使用网络学习解算子</span>
+    </div>
     <div flex="~ col gap-4 justify-end" px4 text-blue1 text-xl>
       <div>DeepONet</div>
       <div>FNO</div>
@@ -412,8 +418,8 @@ glow: right
 -->
 
 ---
-
-## layout: center
+layout: center
+---
 
 <div flex="~ col gap-2 items-center" relative text-6xl>
   <div text-amber2 text-5xl>Transparency</div>
@@ -775,8 +781,8 @@ glow: bottom
 <DevToolsKit />
 
 ---
-
-## clicks: 2
+clicks: 2
+---
 
 <div flex="~ col gap-4 items-center justify-center" text-2xl w-full h-full>
   <img src="/devtools-kit.svg" w-60 op85 transition-all duration-500 :class="$clicks < 1 ? 'translate-y-15 scale-110' : ''"/>
@@ -785,16 +791,8 @@ glow: bottom
 </div>
 
 ---
-
-## layout: center
-
-<div scale-200>
-  <Repo name="vitejs/devtools"  />
-</div>
-
+class: text-center
 ---
-
-## class: text-center
 
 <div text-4xl mt-20 mb-12>致谢</div>
 
