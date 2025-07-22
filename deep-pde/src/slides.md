@@ -240,17 +240,17 @@ glow: top
 
 目前使用神经网络求解偏微分方按照架构大概分成两种途径
 
-<div grid="~ cols-2 gap-10" mt10 h-85>
-  <div flex="~ col gap-6" bg-red:10 rounded-lg p4>
-    <div flex="~ gap-2 items-center" ml--2>
-      <div i-ph:function-duotone text-3xl text-red />
-      <span text-2xl text-red3>使用网络直接学习方程的解</span>
-    </div>
-    <div flex="~ col gap-4 justify-end" px4 text-red1 text-xl>
-      <div>PINN (Physical-informed NN)</div>
-      <div>Deep Ritz method</div>
-      <div>WAN (Weak Adversarial Networks)</div>
-      <div>Deep BSDE (Backward Stochastic Differential Equation) method</div>
+<div grid="~ cols-2 gap-10" mt10>
+  <div flex="~ col gap-2" bg-red:10 rounded-lg p8>
+    <div text-3xl i-ph:function-duotone text-red mb2 />
+    <div text-2xl text-red3>网络直接学习方程的解</div>
+    <div>
+
+      - PINN (Physical-informed NN)
+      - Deep Ritz method
+      - WAN (Weak Adversarial Networks)
+      - Deep BSDE (Backward Stochastic Differential Equation) method
+
     </div>
   </div>
   <div flex="~ col gap-6" bg-blue:10 rounded-lg p4>
