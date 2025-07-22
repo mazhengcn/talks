@@ -108,8 +108,8 @@ glow: right
 </div>
 
 ---
-
-## glow: top
+glow: top
+---
 
 # 微分方程
 
