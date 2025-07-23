@@ -11,7 +11,7 @@ export default mergeConfigs([
     presets: [
       presetWebFonts({
         fonts: {
-          mono: 'DM Mono',
+          mono: 'JetBrains Mono',
           sans: 'Noto Sans SC',
           fast: 'Ubuntu',
           hand: 'Caveat',

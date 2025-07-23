@@ -190,7 +190,7 @@ glow: right
 
   <div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
     <div flex="~ gap-2" items-center bg-lime:10 rounded px4 py2>
-      <div text-xl text-lime3>架构</div>
+      <div text-xl text-lime3>模型</div>
       <div>神经网络用来参数化、逼近哪些函数/映射</div>
     </div>
     <div flex="~ col gap-2" ml2 px2 py2 text-lime1>
@@ -206,7 +206,7 @@ glow: right
       <div>即微分方程的损失函数</div>
     </div>
     <div flex="~ col gap-2" ml2 px2 py2 text-orange1>
-      <div>模型: 方程本身或与其等价的数学、物理形式</div>
+      <div>物理信息: 方程本身或与其等价的数学、物理形式</div>
       <div>数据: 即监督学习，通常由传统数值方法产生或实验获得</div>
       <div>初值条件、边值条件等</div>
       <div>其它物理约束，如守恒性、对称性、熵条件等等</div>
@@ -296,7 +296,7 @@ layout: section
 牛顿第二定律
 
 <div flex="~ col gap-2">
-<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+<div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
   <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
   <div text-lime1>
 
@@ -311,22 +311,216 @@ layout: section
 
   </div>
 </div>
-<div flex="~ col" border="~ orange/50 rounded-lg" bg-orange:15>
-  <div bg-orange:15 rounded px4 py2 text-orange text-xl>即求如下常微分方程初值问题的解</div>
-  <div text-orange1>
+<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:15>
+  <div bg-amber:15 rounded px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
+  <div text-amber1>
 
   $$
   m\frac{d^2 s}{dt^2} = F(t) = t, \; s(0) = 0, \; s'(0) = 0.
   $$
 
   </div>
-</div>
-<div bg-pink:15 rounded-lg px4 text-pink3 text-center>
+  <div pl4 text-amber3>
+  解析解:
 
-  解析解：$s(t) = 0.5 t^2$.
+  $$
+  s(t) = 0.5 t^2
+  $$
 
+  </div>
 </div>
 </div>
+
+---
+
+# 如何求解？
+
+传统思路
+
+<div grid="~ cols-[max-content_min-content_auto] gap-6 items-center">
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-one-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>模型</div>
+      <div op50>
+        离散/参数化方程的解
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div border="~ lime/50" bg-lime:10 rounded-lg px2 text-center>
+
+  $s(t) = c_0 + c_1 t + c_2 t^2$
+
+  </div>
+
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-two-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>约束</div>
+      <div op50>
+        方程、初值、边界值及其它物理、数学约束
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div flex="~ col gap-2" border="~ orange/50" bg-orange:10 text-center rounded-lg>
+
+  $m\dfrac{d^2(c_0 + c_1 t + c_2 t^2)}{dt^2} = t$
+
+  $s(0) = 0, \; s'(0) = 0$
+
+  </div>
+
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-three-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>求解</div>
+      <div op50>
+        线性代数方程组、优化器、时间演化方法（龙格-库塔）
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div flex="~ col items-center" border="~ blue/50" bg-blue:10 rounded-lg>
+
+  $2m c_2 t = t, \; m c_0 = 0, \; m c_1 = 0$
+
+  <div i-ph:arrow-down-duotone op50 />
+
+  $c_2 = 1/m, \; c_0 = 0, \; c_1 = 0$
+
+  </div>
+</div>
+
+---
+
+# 更复杂的例子
+
+牛顿第二定律
+
+<div flex="~ col gap-2">
+<div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
+  <div text-pink4>
+
+  $$
+  ma = F(t) = \sin t + 1/t
+  $$
+
+  </div>
+  <div pl4 text-lime1>
+
+  初始位置为原点，初速度为零开始运动，求$s(t)$.
+
+  </div>
+</div>
+<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:15>
+  <div bg-amber:15 rounded px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
+  <div text-pink4>
+
+  $$
+  m\frac{d^2 s}{dt^2} = \sin t + 1/t, \; s(0) = 0, \; s'(0) = 0.
+  $$
+
+  </div>
+  <div pl4 text-amber3>
+  解析解:
+
+  $$
+  s(t) = 0.5 t^2
+  $$
+
+  </div>
+</div>
+</div>
+
+---
+
+# 复杂的例子？
+
+神经网络
+
+<div grid="~ cols-[max-content_min-content_auto] gap-8 items-center">
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-one-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>模型</div>
+      <div op50>
+        神经网络参数化方程的解
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div border="~ lime/50" bg-lime:10 rounded-lg px2 text-center>
+
+  $\displaystyle s_\theta(t) = \sum_i a_i\sigma(w_i t + b_i), \; \theta=\{(a_i,w_i,b_i)\}$
+
+  </div>
+
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-two-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>约束</div>
+      <div op50>
+        方程、初值转换为损失函数
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div border="~ orange/50" bg-orange:10 text-center rounded-lg>
+
+  $\displaystyle L(\theta) = \int \|\dfrac{d^2 s_\theta}{dt^2} - \sin t - 1/t\|^2\, \mathrm{d}t + \|s_\theta(0)-0\|^2 + \|s'_\theta(0)- 0\|^2$
+
+  </div>
+
+  <div flex="~ gap-4 items-center">
+    <div i-ph:number-circle-three-duotone text-green text-4xl />
+    <div flex="~ col gap-1">
+      <div text-xl>求解</div>
+      <div op50>
+        SGD, Adam等基于梯度的优化器
+      </div>
+    </div>
+  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50 />
+  <div flex="~ col items-center" border="~ blue/50" bg-blue:10 rounded-lg text-center>
+
+  $\min_{\theta} L(\theta)$
+
+  <div i-ph:arrow-down-duotone op50 />
+
+  $\theta^{k+1} = \theta^k - \eta \nabla_\theta L(\theta)$
+
+  </div>
+</div>
+
+---
+
+# 物理信息嵌入神经网络 (PINNs)
+
+核心思想：应用微分方程形式来设计神经网络的损失函数
+
+<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>目标方程</div>
+  <div text-lime1>
+
+  $$
+  \mathcal{L} u = f, \; x\in\Omega,
+  $$
+
+  $$
+  \mathcal{B} u = g, \; x\in\partial\Omega.
+  $$
+
+  </div>
+  <div pl4 text-lime1>
+
+  初始位置为原点，初速度为零开始运动，求$s(t)$.
+
+  </div>
+</div>
+
 
 ---
 
@@ -355,317 +549,12 @@ PINNs的特点
 
 ---
 layout: center
-glowOpacity: 0.1
----
-
-<div flex="~ col gap-2 items-center">
-  <img src="/voidzero-vercel.png" w-140>
-</div>
-
----
-
-layout: center
-glowOpacity: 0
-
----
-
-<img src="/vite-plus.png" w-280 mix-blend-lighten>
-
----
-
-## layout: center
-
-<h1 important-text-5xl>为什么需要 DevTools？</h1>
-
----
-
-layout: none
-class: h-full
-
----
-
-<div h-full grid="~ rows-2">
-
-<div p14>
-
-  <h2 text-4xl mb-2 v-click="1">广义的 Developer Tools</h2>
-
-  <div text-2xl ml--3 text-amber v-click="3">「给开发者使用的工具」</div>
-
-  <div mt-6 v-click="4">
-    <div flex="~ gap-2 items-center" text-2xl>
-      <div i-logos-vitejs w-8 />
-      <div i-logos-vitest w-8 />
-      <div i-logos-vue w-8 />
-      <div i-logos-nuxt-icon w-8 />
-      <div i-logos-react w-8 />
-      <div i-logos-eslint w-8 />
-      <div i-logos-unocss w-8 />
-      <div op50>...</div>
-    </div>
-    <div mt3 op75>
-      Vite 本身就是一种开发者工具
-    </div>
-  </div>
-
-</div>
-
-<div p13 border="t main">
-
-  <h2 text-4xl mb-2 v-click="2">狭义的 DevTools</h2>
-
-  <div text-2xl ml--3 text-lime v-click="5">「为更好的使用工具而提供的工具」</div>
-
-  <div v-click="6" mt-6 flex="~ gap-2 wrap">
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-chrome/> Chrome DevTools</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-nuxt-icon w-5 /> Nuxt DevTools</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-vue w-5 /> Vue DevTools</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-carbon-ibm-watson-discovery/> Vite Plugin Inspect</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-unocss/> UnoCSS Inspector</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-eslint/> ESLint Config Inspector</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><div i-logos-vitest/> Vitest UI</div>
-    <div px2 bg-hex-8882 rounded flex="~ gap-1 items-center"><img src="/node-modules-inspector.svg" w-5/> Node Modules Inspector</div>
-    <div op50>...</div>
-  </div>
-</div>
-</div>
-
----
-
-class: text-2xl
-glow: right
-
----
-
-# 好工具原则
-
-<div grid="~ cols-[max-content_min-content_auto] items-center gap-10" py10>
-  <div flex="~ gap-2 items-center" text-blue relative v-click>
-    <div i-ph-stairs-duotone text-2xl />
-    <span>入门门槛</span>
-  </div>
-  <div i-ph-arrow-right-duotone op50 v-click />
-  <div v-after>容易上手，简单配置，一句话讲明白在做什么</div>
-
-  <div flex="~ gap-2 items-center" text-lime relative v-click>
-    <div i-ph-book-bookmark-duotone text-2xl />
-    <span>直觉设计</span>
-  </div>
-  <div i-ph-arrow-right-duotone op50 v-click />
-  <div v-after>符合用户期待和直觉，优秀的用户体验</div>
-
-  <div flex="~ gap-2 items-center" text-amber relative v-click>
-    <div i-ph-magnifying-glass-duotone text-2xl />
-    <span>信息透明</span>
-  </div>
-  <div i-ph-arrow-right-duotone op50 v-click />
-  <div v-after>信息透明，可以看到内部的状态和过程，便于调试和优化</div>
-
-  <div flex="~ gap-2 items-center" text-orange relative v-click>
-    <div i-ph-puzzle-piece-duotone text-2xl />
-    <span>可组合性</span>
-  </div>
-  <div i-ph-arrow-right-duotone op50 v-click />
-  <div v-after>模块互相解耦，易于组合和扩展</div>
-
-  <div flex="~ gap-2 items-center" text-purple relative v-click>
-    <div i-ph-plugs-duotone text-2xl />
-    <span>可扩展性</span>
-  </div>
-  <div i-ph-arrow-right-duotone op50 v-click />
-  <div v-after>灵活的插件和配置系统</div>
-</div>
-
-<div absolute top-66 left-9 w-220 h-17 border="2 amber rounded-xl" bg-amber:10 z--1 v-click />
-
-<!--
-除了好
--->
-
----
-layout: center
 ---
 
 <div flex="~ col gap-2 items-center" relative text-6xl>
   <div text-amber2 text-5xl>Transparency</div>
   <span text-amber>信息透明</span>
 </div>
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-unocss />
-  UnoCSS Inspector
-</h3>
-
-<img src="/devtools/uno-inspector.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-carbon-ibm-watson-discovery  />
-  Vite Plugin Inspect
-</h3>
-
-<img src="/devtools/vite-inspect.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-carbon-ibm-watson-discovery  />
-  Vite Plugin Inspect
-</h3>
-
-<img src="/devtools/vite-inspect-graph.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-carbon-ibm-watson-discovery  />
-  Vite Plugin Inspect
-</h3>
-
-<img src="/devtools/vite-inspect-plugin-time.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-vitest />
-  Vitest UI
-</h3>
-
-<img src="/devtools/vitest-ui.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-nuxt-icon />
-  Nuxt DevTools
-</h3>
-
-<img src="/devtools/nuxt-components-graph.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-nuxt-icon />
-  Nuxt DevTools
-</h3>
-
-<img src="/devtools/nuxt-imports.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-eslint />
-  ESLint Config Inspector
-</h3>
-
-<img src="/devtools/eslint-files.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-eslint />
-  ESLint Config Inspector
-</h3>
-
-<img src="/devtools/eslint-overview.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-eslint />
-  ESLint Config Inspector
-</h3>
-
-<img src="/devtools/eslint-plugins.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <img src="/node-modules-inspector.svg" w-9 />
-  Node Modules Inspector
-</h3>
-
-<img src="/devtools/node-inspector-overview.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <img src="/node-modules-inspector.svg" w-9 />
-  Node Modules Inspector
-</h3>
-
-<img src="/devtools/node-inspector-graph.png" w-250 />
-
----
-
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <img src="/node-modules-inspector.svg" w-9 />
-  Node Modules Inspector
-</h3>
-
-<img src="/devtools/node-inspector-sunbrust.png" w-250 />
-
----
-
-layout: center
-glow: bottom
-class: text-center
-
----
-
-<img src="/vite-devtools.png" w-120 />
-
----
-
-# 目标愿景
-
-<div grid="~ cols-3 gap-3" py4>
-  <div v-click flex="~ col gap-1" p4 rounded bg-teal:15 text-teal1>
-    <div text-3xl i-ph:chart-donut-duotone text-teal mb2 />
-    <div>可视化</div>
-    <div text-xs op50>展示 Vite/Rolldown 内部状态和过程</div>
-  </div>
-
-  <div v-click flex="~ col gap-1" p4 rounded bg-orange:15 text-orange1>
-    <div text-3xl i-ph:package-duotone text-orange mb2 />
-    <div>构建分析</div>
-    <div text-xs op50>提供建议和优化方案</div>
-  </div>
-
-  <div v-click flex="~ col gap-1" p4 rounded bg-yellow:15 text-yellow1>
-    <div text-3xl i-ph:plugs-duotone text-yellow mb2 />
-    <div>插件分析</div>
-    <div text-xs op50>帮助插件作者遵循最佳实践</div>
-  </div>
-
-  <div v-click flex="~ col gap-1" p4 rounded bg-red:15 text-red1>
-    <div text-3xl i-ph:bug-beetle-duotone text-red mb2 />
-    <div>构建快照</div>
-    <div text-xs op50>记录构建过程，可分享和分析的重现</div>
-  </div>
-
-  <div v-click flex="~ col gap-1" p4 rounded bg-purple:15 text-purple1>
-    <div text-3xl i-ph:stack-plus-duotone text-purple mb2 />
-    <div>Vite Plus</div>
-    <div text-xs op50>集成 Vitest UI、Oxlint 可视化等等</div>
-  </div>
-
-  <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
-    <div text-3xl i-ph:circles-three-plus-duotone text-blue mb2 />
-    <div>DevTools Kit</div>
-    <div text-xs op50>统一的 DevTools 架构，让上层框架提供扩展</div>
-  </div>
-</div>
-
-<!--
-分包优化
-Tree-shaking 可视化
-Barrel-file 检测
-CJS/ESM 可视化
--->
 
 ---
 class: p0
@@ -729,108 +618,8 @@ glow: bottom
 </div>
 
 ---
-
-<div flex="~ gap-2 items-center" h-full>
-<img src="/vd/overview.png" w-120 />
-<div flex="~ col gap-2 justify-center">
-
-# 构建总览
-
-目前的 Vite DevTools 通过<br>消费 Rolldown 的产物来可视化构建过程和信息<br>
-
-</div>
-</div>
-
+layout: center
 ---
-
-## class: important-p0
-
-<div flex="~ gap-2 items-center">
-<img src="/vd/modules.png" w-140 />
-<div flex="~ col gap-2 justify-center">
-
-# 打包文件列表
-
-展示所有参与打包的文件，<br>提供筛选搜索功能。
-
-</div>
-</div>
-
----
-
-## class: important-p0
-
-<div flex="~ gap-2 items-center" h-full>
-<img src="/vd/folders.png" w-180 />
-<div flex="~ col gap-2 justify-center">
-
-# 打包文件树
-
-</div>
-</div>
-
----
-
-## class: important-p0
-
-<div flex="~ gap-2 items-center" h-full>
-<img src="/vd/graph.png" w-180 />
-<div flex="~ col gap-2 justify-center">
-
-# 模块关系图
-
-</div>
-</div>
-
----
-
-## class: important-p0
-
-<div flex="~ gap-2 items-center">
-<img src="/vd/flow.png" w-100 />
-<div flex="~ col gap-2 justify-center">
-
-# 模块转换流程
-
-从文件解析，模块加载，转换，打包，到最后的输出<br>
-可以追踪整个流程，找到瓶颈和优化点
-
-</div>
-</div>
-
----
-
-## class: text-center
-
-# 代码转换对比
-
-<img src="/vd/transform.png" w-240 mt--5 />
-
----
-
-## class: text-center
-
-# 分包信息
-
-<img src="/vd/chunk.png" w-210 mt--5 />
-
----
-
-## class: text-center !pt15
-
-# 模块依赖关系图
-
-<img src="/vd/imports.png" w-250 />
-
----
-
-# 性能消耗图表 <span text-lime font-mono bg-lime:10 px2 py1 rounded text-xs translate-y--6 inline-block>WIP</span>
-
-<img src="/vd/chart.png" w-200 />
-
----
-
-## layout: center
 
 <div flex="~ col gap-2 items-center" relative text-6xl>
   <div text-purple2 text-5xl>Extensibility</div>
