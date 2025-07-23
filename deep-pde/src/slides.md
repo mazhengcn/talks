@@ -244,7 +244,7 @@ glow: right
   <div flex="~ col gap-2" bg-red:10 rounded-lg p4>
     <div flex="~ gap-2">
       <div text-4xl i-ph:function-duotone text-red />
-      <div text-2xl text-red3>神经网络学习方程的解函数/div>
+      <span text-2xl text-red3>神经网络学习方程的解函数</span>
     </div>
     <div flex="~ col gap-2" mt2>
       <div flex="~ gap-1 items-center">
@@ -296,27 +296,38 @@ layout: section
 
 牛顿第二定律
 
+<div flex="~ col gap-2">
+  <div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+    <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>
+      问题描述
+    </div>
+    <div text-lime1>
 
-<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
-  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>
-    问题描述
+    $$
+    F = ma = m\frac{d^2 s}{dt^2}
+    $$
+
+    </div>
+    <div pl4 text-lime1>
+
+    其中$F(t) = t$. 初始位置为原点，初速度为零开始运动，求$s(t)$.
+
+    </div>
   </div>
-  <div text-lime1>
 
-  $$
-  ma = m\frac{d^2 s(t)}{dt^2} = F(t) = t
-  $$
+  <div flex="~ col" border="~ orange/50 rounded-lg" bg-orange:15 px4 py2>
+    <div bg-orange:15 rounded px4 py2 text-orange text-xl>
+    即求如下常微分方程初值问题的解
+    </div>
+    <div text-orange1>
 
-  </div>
-  <div pl4 text-lime1>
+    $$
+    m\frac{d^2 s}{dt^2} = F(t) = t, \; s(0) = 0, \; s'(0) = 0.
+    $$
 
-  从位置 $0$，初速度$0$开始运动，求$s(t)$
-
+    </div>
   </div>
 </div>
-
-
-
 
 ---
 
