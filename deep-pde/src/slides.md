@@ -289,7 +289,6 @@ layout: section
 
 # 神经网络逼近解函数 {.text-red1!}
 
-
 ---
 
 # 一个常微分方程的例子
@@ -297,43 +296,66 @@ layout: section
 牛顿第二定律
 
 <div flex="~ col gap-2">
-  <div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
-    <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>
-      问题描述
-    </div>
-    <div text-lime1>
+<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
+  <div text-lime1>
 
-    $$
-    F = ma = m\frac{d^2 s}{dt^2}
-    $$
+  $$
+  F = ma = m\frac{d^2 s}{dt^2}
+  $$
 
-    </div>
-    <div pl4 text-lime1>
-
-    其中$F(t) = t$. 初始位置为原点，初速度为零开始运动，求$s(t)$.
-
-    </div>
   </div>
+  <div pl4 text-lime1>
 
-  <div flex="~ col" border="~ orange/50 rounded-lg" bg-orange:15 px4 py2>
-    <div bg-orange:15 rounded px4 py2 text-orange text-xl>
-    即求如下常微分方程初值问题的解
-    </div>
-    <div text-orange1>
+  其中$F(t) = t$. 初始位置为原点，初速度为零开始运动，求$s(t)$.
 
-    $$
-    m\frac{d^2 s}{dt^2} = F(t) = t, \; s(0) = 0, \; s'(0) = 0.
-    $$
-
-    </div>
   </div>
+</div>
+<div flex="~ col" border="~ orange/50 rounded-lg" bg-orange:15>
+  <div bg-orange:15 rounded px4 py2 text-orange text-xl>即求如下常微分方程初值问题的解</div>
+  <div text-orange1>
+
+  $$
+  m\frac{d^2 s}{dt^2} = F(t) = t, \; s(0) = 0, \; s'(0) = 0.
+  $$
+
+  </div>
+</div>
+<div bg-pink:15 rounded-lg px4 text-pink3 text-center>
+
+  解析解：$s(t) = 0.5 t^2$.
+
+</div>
 </div>
 
 ---
 
+# 学习方程解
+
+PINNs的特点
+
+<br>
+
+<div flex="~ col gap-6" mt10 text-2xl>
+  <div text-blue>神经网络参数化方程的解</div>
+  <div text-amber>网络输入是时空域上的采样点，不需要网格</div>
+</div>
+
+<ProsCons
+  :pros="[
+    '实施简单',
+    '对一般方程形式都成立'
+  ]"
+  :cons="[
+    '网络训练比较慢',
+    '边界条件难以处理',
+    '对一般方程没有收敛性保证'
+  ]"
+/>
+
+---
 layout: center
 glowOpacity: 0.1
-
 ---
 
 <div flex="~ col gap-2 items-center">
