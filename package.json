@@ -62,7 +62,6 @@
     "@slidev/client": "catalog:",
     "@slidev/theme-default": "catalog:",
     "@types/bun": "catalog:",
-    "@types/node": "catalog:",
     "@types/prompts": "catalog:",
     "@types/seedrandom": "catalog:",
     "chroma-js": "catalog:",
