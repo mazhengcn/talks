@@ -224,15 +224,6 @@ glow: right
   </div>
 </div>
 
----
-
-# 神经网络方法求解偏微分方程
-
-原始的"PINNs"方法文章
-
-<img src='/pinns-origin.png' alt="original pinn paper" rounded-2xl border="~ lime/50" shadow-lg />
-
-<div v-click border="~ 2 pink7" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
 
 ---
 
@@ -569,13 +560,15 @@ PINNs的特点
 
 ---
 
-# 学习方程解
 
-PINNs流程图
+<div grid="~ cols-[2fr_1fr] gap-4" h-full>
+  <div ma flex="~ col gap-6 items-center">
+    <div text-orange text-2xl bg-orange:10 px2 py1 rounded>PINNs流程图</div>
+    <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op80 />
+  </div>
 
-<div grid="~ cols-[max-content_auto] gap-6 items-center">
-  <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op75 w-120 />
-  <div border="~ orange:50" bg-orange:10 rounded-lg w-120>
+  <div border="l main" h-full>
+  <div mt-48 text-orange text-base pl4>
 
   $$
   \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
@@ -590,7 +583,18 @@ PINNs流程图
   $$
 
   </div>
+  </div>
 </div>
+
+---
+
+# 残差优化历史
+
+原始的"PINNs"方法文章
+
+<img src='/pinns-origin.png' alt="original pinn paper" rounded-2xl border="~ lime/50" shadow-lg />
+
+<div v-click border="~ 2 orange" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
 
 ---
 layout: center
