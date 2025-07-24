@@ -8,7 +8,7 @@ mdc: true
 glowSeed: 4
 glow: bottom
 lang: zh-CN
-title: Deep Learning and Differential Equations
+title: 深度学习与微分方程
 ---
 
 # 深度学习与微分方程 {.font-600!} <span text-xl text-lime translate-y--10 bg-lime:10 px2 py2 rounded-lg inline-block>从入门到<span v-mark.orange>精通</span></span>
@@ -560,15 +560,10 @@ PINNs的特点
 
 ---
 
+# PINNs求解流程
 
-<div grid="~ cols-[2fr_1fr] gap-4" h-full>
-  <div ma flex="~ col gap-6 items-center">
-    <div text-orange text-2xl bg-orange:10 px2 py1 rounded>PINNs流程图</div>
-    <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op80 />
-  </div>
-
-  <div border="l main" h-full>
-  <div mt-48 text-orange1 text-base pl4>
+<div grid="~ cols-[1fr_min-content_3fr] gap-6 items-center" mt-30>
+  <div text-orange1 text-base>
 
   $$
   \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
@@ -583,7 +578,8 @@ PINNs的特点
   $$
 
   </div>
-  </div>
+  <div i-ph:arrow-right-duotone text-2xl op50/>
+  <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op75 />
 </div>
 
 ---
