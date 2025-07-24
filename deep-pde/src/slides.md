@@ -479,7 +479,7 @@ layout: section
     <div flex="~ col gap-1">
       <div text-xl>求解</div>
       <div op50>
-        SGD, Adam等基于梯度的优化器
+        SGD, Adam等基于<br>梯度的优化器
       </div>
     </div>
   </div>
@@ -501,7 +501,8 @@ layout: section
 
 核心思想：应用微分方程形式来设计神经网络的损失函数
 
-<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+<div flex="~ col gap-6 items-center">
+<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10 w-full>
   <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>目标方程</div>
   <div text-lime1>
 
@@ -514,11 +515,20 @@ layout: section
   $$
 
   </div>
-  <div pl4 text-lime1>
+</div>
 
-  初始位置为原点，初速度为零开始运动，求$s(t)$.
+<div i-ph:arrow-down-duotone  text-2xl op50 />
+
+<div flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10 w-full>
+  <div bg-amber:10 rounded px4 py2 text-amber3 text-xl>转换成如下的损失函数</div>
+  <div text-amber1>
+
+  $$
+  \min_\theta L(\theta) = \int_\Omega \|\mathcal{L}u - f\|^2\,\mathrm{d}x + \int_{\partial\Omega} \|\mathcal{B}u - g\|^2\,\mathrm{d}x
+  $$
 
   </div>
+</div>
 </div>
 
 
