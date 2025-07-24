@@ -568,7 +568,7 @@ PINNs的特点
   </div>
 
   <div border="l main" h-full>
-  <div mt-48 text-orange text-base pl4>
+  <div mt-48 text-orange1 text-base pl4>
 
   $$
   \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
@@ -592,9 +592,11 @@ PINNs的特点
 
 原始的"PINNs"方法文章
 
-<img src='/pinns-origin.png' alt="original pinn paper" rounded-2xl border="~ lime/50" shadow-lg />
+<div border="~ lime/50" shadow-lg overflow="~ scroll" rounded-2xl h-110>
+  <img src='/pinns-origin.png' alt="original pinn paper" />
+</div>
 
-<div v-click border="~ 2 orange" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
+<div v-click.hide border="~ 2 orange" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
 
 ---
 layout: center
