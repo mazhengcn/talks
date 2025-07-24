@@ -519,7 +519,7 @@ layout: section
 
 <div i-ph:arrow-down-duotone  text-2xl op50 />
 
-<div flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10 w-full>
+<div v-click.hide flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10 w-full>
   <div bg-amber:10 rounded px4 py2 text-amber3 text-xl>转换成如下的损失函数</div>
   <div text-amber1>
 
@@ -529,8 +529,18 @@ layout: section
 
   </div>
 </div>
-</div>
 
+<div v-after flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10 w-full mt--38.5>
+  <div bg-amber:10 rounded px4 py2 text-amber3 text-xl>积分采用Monte Carlo离散进行近似</div>
+  <div text-amber1>
+
+  $$
+  \min_\theta L(\theta) \approx \frac{\lambda_1}{N_1}\sum_{i=1}^{N_1} |\mathcal{L}u(x_i) - f(x_i)|^2 + \frac{\lambda_2}{N_2}\sum_{j=1}^{N_2} |\mathcal{B}u(x_j) - g(x_j)|^2
+  $$
+
+  </div>
+</div>
+</div>
 
 ---
 
@@ -556,6 +566,31 @@ PINNs的特点
     '对一般方程没有收敛性保证'
   ]"
 />
+
+---
+
+# 学习方程解
+
+PINNs流程图
+
+<div grid="~ cols-[max-content_auto] gap-6 items-center">
+  <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op75 w-120 />
+  <div border="~ orange:50" bg-orange:10 rounded-lg w-120>
+
+  $$
+  \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
+  $$
+
+  $$
+  u(t, x) = g_D(x, t), \quad x\in \Gamma_D\subset\partial\Omega
+  $$
+
+  $$
+  \frac{\partial u}{\partial n}(t, x) = g_R(u, x, t), \quad x\in \Gamma_R\subset\partial\Omega
+  $$
+
+  </div>
+</div>
 
 ---
 layout: center
