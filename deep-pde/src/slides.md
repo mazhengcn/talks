@@ -120,8 +120,8 @@ glow: top
 <div mt6 />
 
 <div flex="~ gap-10 justify-center">
-  <img src="/car-simulation.png" alt="Car Simulation" border="~ lime/50" shadow-xl rounded-lg op75 />
-  <img src="/fluid-simulation.png" alt="CFD" border="~ lime/50" shadow-xl rounded-lg op75 />
+  <img src="/car-simulation.png" alt="Car Simulation" border="~ lime/50" shadow-xl rounded-lg />
+  <img src="/fluid-simulation.png" alt="CFD" border="~ lime/50" shadow-xl rounded-lg />
 </div>
 
 ---
@@ -232,31 +232,31 @@ glow: right
 目前使用神经网络求解偏微分方按照架构大概分成两种途径
 
 <div flex="~ col gap-4" mt5>
-  <div flex="~ col gap-2" bg-red:10 rounded-lg p4>
+  <div v-click flex="~ col gap-2" bg-orange:10 rounded-lg p4>
     <div flex="~ gap-2">
-      <div text-4xl i-ph:function-duotone text-red />
-      <span text-2xl text-red3>神经网络学习方程的解函数</span>
+      <div text-4xl i-ph:function-duotone text-orange />
+      <span text-2xl text-orange>神经网络学习方程的解函数</span>
     </div>
     <div flex="~ col gap-2" mt2>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-red />
-        <div text-red1>物理信息嵌入神经网络 (Physical-informed Neural Networks, PINNs)</div>
+        <div i-ph:dot-duotone text-xl text-orange />
+        <div text-orange1>物理信息嵌入神经网络 (Physical-informed Neural Networks, PINNs)</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-red />
-        <div text-red1>Deep Ritz method</div>
+        <div i-ph:dot-duotone text-xl text-orange />
+        <div text-orange1>Deep Ritz method</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-red />
-        <div text-red1>弱对抗生成网络 (Weak Adversarial Networks, WAN)</div>
+        <div i-ph:dot-duotone text-xl text-orange />
+        <div text-orange1>弱对抗生成网络 (Weak Adversarial Networks, WAN)</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-red />
-        <div text-red1>深度倒向随机微分方程 (Backward Stochastic Differential Equation, Deep BSDE)</div>
+        <div i-ph:dot-duotone text-xl text-orange />
+        <div text-orange1>深度倒向随机微分方程 (Backward Stochastic Differential Equation, Deep BSDE)</div>
       </div>
     </div>
   </div>
-  <div flex="~ col gap-2" bg-blue:10 rounded-lg p4>
+  <div v-click flex="~ col gap-2" bg-blue:10 rounded-lg p4>
     <div flex="~ gap-2">
       <div i-ph:arrow-right-bold text-4xl text-blue />
       <span text-2xl text-blue3>神经网络学习方程的解算子</span>
@@ -278,7 +278,7 @@ glow: right
 layout: section
 ---
 
-# 神经网络逼近解函数 {.text-red1!}
+# 神经网络逼近解函数 {.text-orange!}
 
 ---
 
@@ -393,7 +393,7 @@ layout: section
 <div flex="~ col gap-2">
 <div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
   <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
-  <div text-pink4>
+  <div text-orange>
 
   $$
   ma = F(t) = \sin t + 1/t
@@ -408,7 +408,7 @@ layout: section
 </div>
 <div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:15>
   <div bg-amber:15 rounded px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
-  <div text-pink4>
+  <div text-orange>
 
   $$
   m\frac{d^2 s}{dt^2} = \sin t + 1/t, \; s(0) = 0, \; s'(0) = 0.
@@ -563,7 +563,7 @@ PINNs的特点
 # PINNs求解流程
 
 <div grid="~ cols-[1fr_min-content_3fr] gap-6 items-center" mt-30>
-  <div text-orange1 text-base>
+  <div text-orange1 text-base bg-orange:10 rounded-lg pb3 pt2 px2>
 
   $$
   \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
@@ -579,8 +579,20 @@ PINNs的特点
 
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50/>
-  <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg op75 />
+  <img src="/pinns-workflow.png" alt="pinns workflow" rounded-lg />
 </div>
+
+---
+transition: none
+---
+
+# 残差优化历史
+
+原始的"PINNs"方法文章
+
+<img src='/pinns-origin.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
+
+<div v-click border="~ 2 orange" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
 
 ---
 
@@ -592,7 +604,91 @@ PINNs的特点
   <img src='/pinns-origin.png' alt="original pinn paper" />
 </div>
 
-<div v-click.hide border="~ 2 orange" rounded-lg h10 w44 absolute z-10 left-148.5 top-47.5></div>
+---
+
+# 残差优化历史
+
+原始的"PINNs"方法文章
+
+<img src='/pinns-history.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
+
+---
+
+# 残差优化历史
+
+原始的"PINNs"方法文章
+
+<img src='/pinns-loss.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl h-102 />
+
+---
+class: p0
+---
+
+<div grid="~ cols-[1fr_min-content_1fr] gap-2 items-center" h-full>
+<div flex="~ col gap-4 items-center" pl6>
+  <div text-4xl bg-orange:15 px2 py1 rounded-lg text-orange>1994</div>
+  <img src='/pinns-1994.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
+</div>
+
+<div i-ph:arrows-left-right-duotone text-4xl text-lime mt-15 />
+
+<div flex="~ col gap-4 items-center" pr6>
+  <div text-4xl bg-orange:15 px2 py1 rounded-lg text-orange>2018</div>
+  <img src='/pinns-2018.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
+</div>
+
+</div>
+
+---
+class: p0
+---
+
+<div grid="~ cols-[1.6fr_1fr] gap-8 items-center" pl8 h-full>
+  <div ma flex="~ col gap-4 items-center">
+    <div text-orange text-3xl bg-orange:10 px2 rounded-lg>1994年示例</div>
+    <img src='/pinns-1994-poisson.png' alt="original pinn paper" border="~ lime/50" rounded-xl />
+  </div>
+  <div flex="~ col gap-2 items-center justify-center" border="l main">
+    <img src='/pinns-1994-error.png' alt="original pinn paper" border="~ lime/50" rounded-lg h-15 />
+    <img src='/pinns-1994-results.png' alt="original pinn paper" border="~ lime/50" rounded-xl w-70 />
+    <div flex="~ justify-center" border="t main" pt2 w-full>
+      <img src='/pinns-1994-convergence.png' alt="original pinn paper" border="~ lime/50" rounded-xl w-70 />
+    </div>
+  </div>
+</div>
+
+---
+glow: left
+---
+
+# PINNs示例
+
+求解 Burgers 方程
+
+<div grid="~ cols-2 gap-8">
+  <div flex="~ col gap-4">
+  <div bg-orange:15 rounded-lg text-xl text-orange1 p2>
+
+  $$
+  u_t + uu_x = \frac{1}{100\pi}u_{xx}
+  $$
+
+  </div>
+  <div pl4 pt2>
+
+  - 周期边界条件
+
+  - 同时获得时空全域解
+
+  - 可以处理奇性较强的问题
+
+  </div>
+  </div>
+
+<img src='/pinns-burgers.png' alt="original pinn paper" border="~ lime/50" rounded-xl />
+
+</div>
+
 
 ---
 layout: center
