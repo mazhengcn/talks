@@ -1,0 +1,29 @@
+{
+  "name": "Zheng Talks",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/starship:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "oven.bun-vscode",
+        "antfu.slidev",
+        "antfu.unocss",
+        "dbaeumer.vscode-eslint",
+        "antfu.iconify",
+        "Vue.volar"
+      ]
+    }
+  },
+  "mounts": [
+    "type=volume,source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules"
+  ],
+  "postCreateCommand": {
+    "init-starship": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
+    "install-dependencies": "bun install"
+  },
+  "remoteUser": "bun"
+}
