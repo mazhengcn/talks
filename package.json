@@ -6,8 +6,7 @@
     "dev": "bun scripts/picker.ts dev --open",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
-    "update": "bun scripts/redirects.ts",
-    "prepare": "git submodule update --init --recursive"
+    "update": "bun scripts/redirects.ts"
   },
   "workspaces": {
     "packages": [
