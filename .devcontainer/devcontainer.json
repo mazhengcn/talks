@@ -23,7 +23,7 @@
   ],
   "postCreateCommand": {
     "init-starship": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
-    "install-dependencies": "bun install"
+    "install-dependencies": "sudo chown bun node_modules && bun install"
   },
   "remoteUser": "bun"
 }
