@@ -10,9 +10,9 @@ title: DeepRTE
 remoteAssets: true
 ---
 
-# DeepRTE
+# DeepRTE {.font-600!.text-lime}
 
-<div text-2xl op90>Pre-trained Attention Based Neural Operator for Radiative Trasfer</div>
+<div text-2xl op75>Pre-trained Attention Based Neural Operator for Radiative Trasfer</div>
 
 <div mt15 />
 
@@ -23,9 +23,11 @@ remoteAssets: true
 </div>
 
 <div abs-br mx-10 my-11 flex="~ col items-end" text-center>
-  <div text-sm op50>July 20, 2025</div>
+  <div text-sm op50>August 20, 2025</div>
 </div>
 
+---
+glow: left
 ---
 
 # Introduction
@@ -35,17 +37,17 @@ Radiative transfer are important in many areas
 <div grid="~ cols-2">
   <div flex="~ col gap-1" items-center>
     <div text-xl>ICF</div>
-    <img src="/icf.png" border="~ lime/50" rounded-lg h-65 />
+    <img src="/icf.png" border="2 main" rounded-lg h-65 />
   </div>
   <div flex="~ col gap-1" items-center>
     <div text-xl>Radiation Therapy</div>
-    <img src="/rad-therapy.jpg" border="~ lime/50" rounded-lg shadow-l h-65 />
+    <img src="/rad-therapy.jpg" border="2 main" rounded-lg shadow-l h-65 />
   </div>
 </div>
 
 <br>
 
-<div rounded-lg bg-lime:10 p2>
+<div rounded-lg bg-lime:10 p2 backdrop-blur>
   <div text-center text-2xl>
 
   Key problem: numerical simulation of <span text-lime3>radiative transfer equation (RTE)</span>
@@ -59,7 +61,7 @@ Radiative transfer are important in many areas
 
 <div mt10 />
 
-<div text-xl text-violet3>
+<div text-xl text-lime>
 
 $$
 \Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) =
@@ -83,11 +85,11 @@ $$
 
 <div mt6 />
 
-<div flex="~ col gap-2" border="~ violet/50" rounded-lg bg-violet:10>
-  <div bg-violet:10 rounded py-2 px-3>
+<div flex="~ col gap-2" border="2 lime/50" rounded-lg bg-lime:10 overflow-hidden>
+  <div bg-lime:10 py-2 px-3>
     <div>Boundary condition</div>
   </div>
-  <div flex="~ gap-2 items-center justify-center" text-violet3 m--2>
+  <div flex="~ gap-2 items-center justify-center" text-lime m--2>
 
   $$
   I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)
