@@ -188,9 +188,9 @@ glow: right
 
 <div flex="~ col gap-2" mt--1>
 
-  <div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
-    <div flex="~ gap-2" items-center bg-lime:10 rounded px4 py2>
-      <div text-xl text-lime3>模型</div>
+  <div v-click flex="~ col" border="2 lime/50 rounded-lg" bg-lime:10 overflow-hidden>
+    <div flex="~ gap-2" items-center bg-lime:10 px4 py2>
+      <div text-xl text-lime3 font-semibold>模型</div>
       <div>神经网络用来参数化、逼近哪些函数/映射</div>
     </div>
     <div flex="~ col gap-2" ml2 px2 py2 text-lime1>
@@ -200,9 +200,9 @@ glow: right
     </div>
   </div>
 
-  <div v-click flex="~ col" border="~ orange/50 rounded-lg" bg-orange:10>
-    <div flex="~ gap-2 items-center" bg-orange:10 px4 py2 rounded>
-      <div text-xl text-orange3>约束</div>
+  <div v-click flex="~ col" border="2 orange/50 rounded-lg" bg-orange:10 overflow-hidden>
+    <div flex="~ gap-2 items-center" bg-orange:10 px4 py2>
+      <div text-xl text-orange3 font-semibold>约束</div>
       <div>即微分方程的损失函数</div>
     </div>
     <div flex="~ col gap-2" ml2 px2 py2 text-orange1>
@@ -213,9 +213,9 @@ glow: right
     </div>
   </div>
 
-  <div v-click flex="~ col" border="~ blue/50 rounded-lg" bg-blue:10>
-    <div flex="~ gap-2" items-center bg-blue:10 rounded px4 py2>
-      <div text-xl text-blue3>优化</div>
+  <div v-click flex="~ col" border="2 blue/50 rounded-lg" bg-blue:10 overflow-hidden>
+    <div flex="~ gap-2" items-center bg-blue:10 px4 py2>
+      <div text-xl text-blue3 font-semibold>优化</div>
       <div>神经网络的训练通过求解化问题获得参数</div>
     </div>
     <div ml2 px2 py2 text-blue1>
@@ -224,7 +224,8 @@ glow: right
   </div>
 </div>
 
-
+---
+glow: right
 ---
 
 # 神经网络方法分类
@@ -232,43 +233,43 @@ glow: right
 目前使用神经网络求解偏微分方按照架构大概分成两种途径
 
 <div flex="~ col gap-4" mt5>
-  <div v-click flex="~ col gap-2" bg-orange:10 rounded-lg p4>
-    <div flex="~ gap-2">
-      <div text-4xl i-ph:function-duotone text-orange />
-      <span text-2xl text-orange>神经网络学习方程的解函数</span>
+  <div v-click flex="~ col gap-2" border="2 violet/50" bg-violet:10 rounded-lg overflow-hidden>
+    <div flex="~ gap-2" bg-violet:10 p2>
+      <div text-3xl i-ph:function-duotone text-violet />
+      <div text-xl text-violet3 font-600>神经网络学习方程的解函数</div>
     </div>
-    <div flex="~ col gap-2" mt2>
+    <div flex="~ col gap-2" px4 pb2>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-orange />
-        <div text-orange1>物理信息嵌入神经网络 (Physical-informed Neural Networks, PINNs)</div>
+        <div i-ph:dot-duotone text-xl text-violet />
+        <div text-violet1>物理信息嵌入神经网络 (Physical-informed Neural Networks, PINNs)</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-orange />
-        <div text-orange1>Deep Ritz method</div>
+        <div i-ph:dot-duotone text-xl text-violet />
+        <div text-violet1>Deep Ritz method</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-orange />
-        <div text-orange1>弱对抗生成网络 (Weak Adversarial Networks, WAN)</div>
+        <div i-ph:dot-duotone text-xl text-violet />
+        <div text-violet1>弱对抗生成网络 (Weak Adversarial Networks, WAN)</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-orange />
-        <div text-orange1>深度倒向随机微分方程 (Backward Stochastic Differential Equation, Deep BSDE)</div>
+        <div i-ph:dot-duotone text-xl text-violet />
+        <div text-violet1>深度倒向随机微分方程 (Backward Stochastic Differential Equation, Deep BSDE)</div>
       </div>
     </div>
   </div>
-  <div v-click flex="~ col gap-2" bg-blue:10 rounded-lg p4>
-    <div flex="~ gap-2">
-      <div i-ph:arrow-right-bold text-4xl text-blue />
-      <span text-2xl text-blue3>神经网络学习方程的解算子</span>
+  <div v-click flex="~ col gap-2" border="2 teal/50" bg-teal:10 rounded-lg overflow-hidden>
+    <div flex="~ gap-2" bg-teal:10 p2>
+      <div i-ph:arrow-right-bold text-3xl text-teal />
+      <span text-xl text-teal3 font-600>神经网络学习方程的解算子</span>
     </div>
-    <div flex="~ col gap-2" mt2>
+    <div flex="~ col gap-2" px4 pb2>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-blue />
-        <div text-blue1>DeepONet</div>
+        <div i-ph:dot-duotone text-xl text-teal />
+        <div text-teal1>DeepONet</div>
       </div>
       <div flex="~ gap-1 items-center">
-        <div i-ph:dot-duotone text-xl text-blue />
-        <div text-blue1>傅里叶神经算子 (Fourer Neural Operator, FNO)</div>
+        <div i-ph:dot-duotone text-xl text-teal />
+        <div text-teal1>傅里叶神经算子 (Fourer Neural Operator, FNO)</div>
       </div>
     </div>
   </div>
@@ -278,7 +279,7 @@ glow: right
 layout: section
 ---
 
-# 神经网络逼近解函数 {.text-orange!}
+# 神经网络逼近解函数 {.text-violet!}
 
 ---
 
@@ -287,8 +288,8 @@ layout: section
 牛顿第二定律
 
 <div flex="~ col gap-2">
-<div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
-  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
+<div v-click flex="~ col" border="2 lime/50 rounded-lg" bg-lime:10 overflow-hidden>
+  <div bg-lime:10 px4 py2 text-lime3 text-xl>问题描述</div>
   <div text-lime1>
 
   $$
@@ -302,8 +303,8 @@ layout: section
 
   </div>
 </div>
-<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:15>
-  <div bg-amber:15 rounded px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
+<div v-click flex="~ col" border="2 amber/50 rounded-lg" bg-amber:15 overflow-hidden>
+  <div bg-amber:15 px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
   <div text-amber1>
 
   $$
@@ -339,7 +340,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div border="~ lime/50" bg-lime:10 rounded-lg px2 text-center>
+  <div border="2 lime/50" bg-lime:10 rounded-lg px2 text-center>
 
   $s(t) = c_0 + c_1 t + c_2 t^2$
 
@@ -355,7 +356,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div flex="~ col gap-2" border="~ orange/50" bg-orange:10 text-center rounded-lg>
+  <div flex="~ col gap-2" border="2 orange/50" bg-orange:10 text-center rounded-lg>
 
   $m\dfrac{d^2(c_0 + c_1 t + c_2 t^2)}{dt^2} = t$
 
@@ -373,7 +374,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div flex="~ col items-center" border="~ blue/50" bg-blue:10 rounded-lg>
+  <div flex="~ col items-center" border="2 blue/50" bg-blue:10 rounded-lg>
 
   $2m c_2 t = t, \; m c_0 = 0, \; m c_1 = 0$
 
@@ -391,7 +392,7 @@ layout: section
 牛顿第二定律
 
 <div flex="~ col gap-2">
-<div v-click flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10>
+<div v-click flex="~ col" border="2 lime/50 rounded-lg" bg-lime:10 overflow-hidden>
   <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>问题描述</div>
   <div text-orange>
 
@@ -406,7 +407,7 @@ layout: section
 
   </div>
 </div>
-<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:15>
+<div v-click flex="~ col" border="2 amber/50 rounded-lg" bg-amber:15 overflow-hidden>
   <div bg-amber:15 rounded px4 py2 text-amber text-xl>即求如下常微分方程初值问题的解</div>
   <div text-orange>
 
@@ -443,7 +444,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div border="~ lime/50" bg-lime:10 rounded-lg px2 text-center>
+  <div border="2 lime/50" bg-lime:10 rounded-lg px2 text-center>
 
   $\displaystyle s_\theta(t) = \sum_i a_i\sigma(w_i t + b_i), \; \theta=\{(a_i,w_i,b_i)\}$
 
@@ -459,7 +460,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div border="~ orange/50" bg-orange:10 text-center rounded-lg>
+  <div border="2 orange/50" bg-orange:10 text-center rounded-lg>
 
   $\displaystyle L(\theta) = \int \|\dfrac{d^2 s_\theta}{dt^2} - \sin t - 1/t\|^2\, \mathrm{d}t + \|s_\theta(0)-0\|^2 + \|s'_\theta(0)- 0\|^2$
 
@@ -475,7 +476,7 @@ layout: section
     </div>
   </div>
   <div i-ph:arrow-right-duotone text-2xl op50 />
-  <div flex="~ col items-center" border="~ blue/50" bg-blue:10 rounded-lg text-center>
+  <div flex="~ col items-center" border="2 blue/50" bg-blue:10 rounded-lg text-center>
 
   $\min_{\theta} L(\theta)$
 
@@ -493,8 +494,8 @@ layout: section
 核心思想：应用微分方程形式来设计神经网络的损失函数
 
 <div flex="~ col gap-6 items-center">
-<div flex="~ col" border="~ lime/50 rounded-lg" bg-lime:10 w-full>
-  <div bg-lime:10 rounded px4 py2 text-lime3 text-xl>目标方程</div>
+<div flex="~ col" border="2 lime/50 rounded-lg" bg-lime:10 w-full overflow-hidden>
+  <div bg-lime:10 px4 py2 text-lime3 text-xl>目标方程</div>
   <div text-lime1>
 
   $$
@@ -521,8 +522,8 @@ layout: section
   </div>
 </div>
 
-<div v-after flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10 w-full mt--38.5>
-  <div bg-amber:10 rounded px4 py2 text-amber3 text-xl>积分采用Monte Carlo离散进行近似</div>
+<div v-after flex="~ col" border="2 amber/50 rounded-lg" bg-amber:10 w-full mt--38.5 overflow-hidden>
+  <div bg-amber:10 px4 py2 text-amber3 text-xl>积分采用Monte Carlo离散进行近似</div>
   <div text-amber1>
 
   $$
@@ -559,11 +560,13 @@ PINNs的特点
 />
 
 ---
+glow: left
+---
 
 # PINNs求解流程
 
 <div grid="~ cols-[1fr_min-content_3fr] gap-6 items-center" mt-30>
-  <div text-orange1 text-base bg-orange:10 rounded-lg pb3 pt2 px2>
+  <div border="2 white/5" text-base bg-white:5 rounded-lg pb3 pt2 px2 backdrop-blur>
 
   $$
   \frac{\partial u}{\partial t} = \lambda^2 \frac{\partial^2 u}{\partial t^2}
@@ -626,14 +629,14 @@ class: p0
 
 <div grid="~ cols-[1fr_min-content_1fr] gap-2 items-center" h-full>
 <div flex="~ col gap-4 items-center" pl6>
-  <div text-4xl bg-orange:15 px2 py1 rounded-lg text-orange>1994</div>
+  <div text-4xl bg-orange:10 px2 py1 rounded-lg text-orange3>1994</div>
   <img src='/pinns-1994.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
 </div>
 
-<div i-ph:arrows-left-right-duotone text-4xl text-lime mt-15 />
+<div i-ph:arrows-left-right-duotone text-violet text-4xl mt-15 />
 
 <div flex="~ col gap-4 items-center" pr6>
-  <div text-4xl bg-orange:15 px2 py1 rounded-lg text-orange>2018</div>
+  <div text-4xl bg-lime:15 px2 py1 rounded-lg text-lime3>2018</div>
   <img src='/pinns-2018.png' alt="original pinn paper" border="~ lime/50" shadow-lg rounded-2xl />
 </div>
 
@@ -645,14 +648,14 @@ class: p0
 
 <div grid="~ cols-[1.6fr_1fr] gap-8 items-center" pl8 h-full>
   <div ma flex="~ col gap-4 items-center">
-    <div text-orange text-3xl bg-orange:10 px2 rounded-lg>1994年示例</div>
-    <img src='/pinns-1994-poisson.png' alt="original pinn paper" border="~ lime/50" rounded-xl />
+    <div text-orange3 text-3xl bg-orange:10 px2 rounded-lg>1994年示例</div>
+    <img src='/pinns-1994-poisson.png' alt="original pinn paper" border="2 main" rounded-xl />
   </div>
   <div flex="~ col gap-2 items-center justify-center" border="l main">
-    <img src='/pinns-1994-error.png' alt="original pinn paper" border="~ lime/50" rounded-lg h-15 />
-    <img src='/pinns-1994-results.png' alt="original pinn paper" border="~ lime/50" rounded-xl w-70 />
+    <img src='/pinns-1994-error.png' alt="original pinn paper" border="2 main" rounded-lg h-15 />
+    <img src='/pinns-1994-results.png' alt="original pinn paper" border="2 main" rounded-xl w-70 />
     <div flex="~ justify-center" border="t main" pt2 w-full>
-      <img src='/pinns-1994-convergence.png' alt="original pinn paper" border="~ lime/50" rounded-xl w-70 />
+      <img src='/pinns-1994-convergence.png' alt="original pinn paper" border="2 main" rounded-xl w-70 />
     </div>
   </div>
 </div>
@@ -667,7 +670,7 @@ glow: left
 
 <div grid="~ cols-2 gap-8">
   <div flex="~ col gap-4">
-  <div bg-orange:15 rounded-lg text-xl text-orange1 p2>
+  <div bg-white:5 rounded-lg text-xl p2 backdrop-blur>
 
   $$
   u_t + uu_x = \frac{1}{100\pi}u_{xx}
@@ -685,10 +688,45 @@ glow: left
   </div>
   </div>
 
-<img src='/pinns-burgers.png' alt="original pinn paper" border="~ lime/50" rounded-xl />
+<img src='/pinns-burgers.png' alt="original pinn paper" border="2 main" rounded-xl />
 
 </div>
 
+---
+
+# Deep Ritz方法
+
+核心思想：变分原理构建损失函数
+
+<div flex="~ col gap-6 items-center">
+<div flex="~ col" border="2 lime/50 rounded-lg" bg-lime:10 w-full overflow-hidden>
+  <div bg-lime:10 px4 py2 text-lime3 text-xl>例子：目标方程</div>
+  <div text-lime1>
+
+  $$
+  \Delta u = f, \; x\in\Omega,
+  $$
+
+  $$
+  u = 0, \; x\in\partial\Omega.
+  $$
+
+  </div>
+</div>
+
+<div i-ph:arrow-down-duotone  text-2xl op50 />
+
+<div v-click flex="~ col" border="2 amber/50" rounded-lg bg-amber:10 w-full overflow-hidden>
+  <div bg-amber:10 px4 py2 text-amber3 text-xl>变分形式作为损失函数</div>
+  <div text-amber1>
+
+  $$
+  I(u) = \int_{\Omega}\left(\frac{1}{2}|\nabla u(x)|^2 - f(x) u(x)\right)\,\mathrm{d}x
+  $$
+
+  </div>
+</div>
+</div>
 
 ---
 layout: center
