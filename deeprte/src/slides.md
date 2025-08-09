@@ -165,6 +165,46 @@ layout: center
 </div>
 
 ---
+
+# GlassCard with LaTeX Support
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+  <GlassCard
+    title="Mathematical Formulation with $\LaTeX$"
+    subtitle="The radiative transfer equation involves $I(r,\Omega)$"
+    variant="primary"
+    icon="ph-calculator-duotone"
+    :enable-latex="true"
+    :items="[
+      'Radiation intensity: $I(r,\\Omega)$',
+      'Total cross section: $\\mu_t(r)$',
+      'Scattering cross section: $\\mu_s(r)$',
+      'Phase function: $p(\\Omega,\\Omega^*)$'
+    ]"
+    size="lg"
+  />
+
+  <GlassCard
+    title="Neural Network Notation"
+    subtitle="Deep learning with $\mathbb{R}^n$ spaces"
+    variant="tech"
+    icon="ph-brain-duotone"
+    :enable-latex="true"
+    :items="[
+      'Input layer: $x \\in \\mathbb{R}^{d_{in}}$',
+      'Hidden layers: $h_i = \\sigma(W_i h_{i-1} + b_i)$',
+      'Output layer: $y \\in \\mathbb{R}^{d_{out}}$',
+      'Loss function: $\\mathcal{L}(\\theta)$'
+    ]"
+    size="lg"
+  />
+</div>
+
+<div class="mt-6 text-center text-sm text-on-surface-variant">
+  Use <code>:enable-latex="true"</code> prop to render LaTeX in titles, subtitles, and list items
+</div>
+
+---
 glow: left
 ---
 
