@@ -155,17 +155,20 @@ const poly3 = usePloy(3)
     :style="{ filter: `blur(70px) hue-rotate(${hue}deg)` }"
     aria-hidden="true"
   >
+    <!-- SJTU Blue Gradient -->
     <div
-      class="clip bg-gradient-to-r from-[#00DC82] to-white/10"
+      class="clip bg-gradient-to-r from-[var(--sjtu-primary)] to-[var(--tech-electric)]"
       :style="{ 'clip-path': `polygon(${poly1})`, 'opacity': opacity }"
     />
+    <!-- Academic Gold Gradient -->
     <div
-      class="clip bg-gradient-to-l from-[#2f96ad] to-white/10"
+      class="clip bg-gradient-to-l from-[var(--sjtu-secondary)] to-[var(--tech-energy)]"
       :style="{ 'clip-path': `polygon(${poly2})`, 'opacity': opacity }"
     />
+    <!-- Tech Accent Gradient, more subtle -->
     <div
-      class="clip bg-gradient-to-t from-lime to-white/10"
-      :style="{ 'clip-path': `polygon(${poly3})`, 'opacity': 0.2 }"
+      class="clip bg-gradient-to-t from-[var(--tech-innovation)] to-[var(--surface-bg)]"
+      :style="{ 'clip-path': `polygon(${poly3})`, 'opacity': 0.18 }"
     />
   </div>
 </template>
@@ -233,7 +236,14 @@ const poly3 = usePloy(3)
   inset: 0;
 }
 
-.light .clip {
-  opacity: 1 !important;
+/* Ensure gradients are readable in both themes */
+.clip {
+  opacity: 0.9;
+  mix-blend-mode: lighten;
+}
+
+.dark .clip {
+  mix-blend-mode: screen;
+  opacity: 0.7;
 }
 </style>
