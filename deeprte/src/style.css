@@ -1,6 +1,48 @@
 :root {
   --slidev-code-padding: 8px 10px;
+  --slidev-code-background: #f8f9fa !important;
+
+  /* SJTU Color System CSS Variables - Light Mode */
+  --sjtu-primary: #0066cc;
+  --sjtu-primary-light: #36acff;
+  --sjtu-primary-dark: #0052a3;
+  --sjtu-secondary: #e29a28;
+  --sjtu-secondary-light: #f5c968;
+  --sjtu-secondary-dark: #bc7a1d;
+  --tech-electric: #0ea5e9;
+  --tech-cyber: #22c55e;
+  --tech-innovation: #a855f7;
+  --tech-energy: #f97316;
+
+  /* Surface colors for light mode */
+  --surface-bg: #ffffff;
+  --surface-bg-2: #f8f9fa;
+  --surface-bg-3: #f1f3f4;
+  --text-on-surface: #212529;
+  --text-on-surface-variant: #6c757d;
+  --text-on-surface-muted: #adb5bd;
+  --border-color: #dee2e6;
+}
+
+.dark {
   --slidev-code-background: #16161680 !important;
+
+  /* SJTU Color System CSS Variables - Dark Mode */
+  --sjtu-primary: #36acff;
+  --sjtu-primary-light: #7cc8ff;
+  --sjtu-primary-dark: #0c8ce9;
+  --sjtu-secondary: #f5c968;
+  --sjtu-secondary-light: #f9dd95;
+  --sjtu-secondary-dark: #e29a28;
+
+  /* Surface colors for dark mode */
+  --surface-bg: #1a1a1a;
+  --surface-bg-2: #2d2d2d;
+  --surface-bg-3: #404040;
+  --text-on-surface: #ffffff;
+  --text-on-surface-variant: #a3a3a3;
+  --text-on-surface-muted: #737373;
+  --border-color: #404040;
 }
 
 .slidev-layout a {
@@ -8,29 +50,47 @@
 }
 
 a:has(> code) {
-  underline: none;
+  text-decoration: none;
   border: 0px !important;
 }
 
 .monaco-editor {
   --slidev-code-background: transparent !important;
-  --vscode-editorSuggestWidget-border: #eee1 !important;
-  --vscode-editorHoverWidget-border: #eee1 !important;
+  --vscode-editorSuggestWidget-border: #e5e7eb !important;
+  --vscode-editorHoverWidget-border: #e5e7eb !important;
+}
+
+.dark .monaco-editor {
+  --vscode-editorSuggestWidget-border: #374151 !important;
+  --vscode-editorHoverWidget-border: #374151 !important;
 }
 
 .slidev-monaco-container-inner {
-  border: 1px solid #eee1;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
 }
 
 .monaco-editor .suggest-widget,
 .monaco-editor .suggest-details {
-  background: #16161670 !important;
+  background: rgba(248, 249, 250, 0.95) !important;
   backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color) !important;
 }
 
 .monaco-editor .monaco-hover {
-  background: #161616b0 !important;
+  background: rgba(248, 249, 250, 0.95) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color) !important;
+}
+
+.dark .monaco-editor .suggest-widget,
+.dark .monaco-editor .suggest-details {
+  background: rgba(26, 26, 26, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+
+.dark .monaco-editor .monaco-hover {
+  background: rgba(26, 26, 26, 0.95) !important;
   backdrop-filter: blur(8px);
 }
 
@@ -40,8 +100,65 @@ h6 {
   letter-spacing: 0 !important;
 }
 
+#slide-content {
+  background-color: var(--surface-bg) !important;
+  color: var(--text-on-surface) !important;
+}
+
 .dark #slide-content {
-  background-color: black !important;
+  background-color: #000000 !important;
+}
+
+/* SJTU Theme Enhancements */
+.slidev-layout {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Enhanced code styling with SJTU colors */
+.slidev-code {
+  background: rgba(248, 249, 250, 0.95) !important;
+  border: 1px solid rgba(0, 102, 204, 0.15);
+  border-radius: 8px;
+  color: var(--text-on-surface);
+}
+
+.dark .slidev-code {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border-color: rgba(54, 172, 255, 0.3);
+  color: var(--text-on-surface);
+}
+
+/* Math equation styling */
+.katex {
+  font-size: 1.1em !important;
+}
+
+/* Improved link styling */
+.slidev-layout a {
+  color: var(--sjtu-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.slidev-layout a:hover {
+  color: var(--tech-electric);
+  border-bottom-color: var(--tech-electric);
+}
+
+.dark .slidev-layout a {
+  color: var(--sjtu-primary);
+}
+
+.dark .slidev-layout a:hover {
+  color: var(--tech-electric);
 }
 
 /* Transitions */

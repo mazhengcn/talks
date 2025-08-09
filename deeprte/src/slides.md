@@ -2,7 +2,7 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: dark
+colorSchema: auto
 transition: fade-out
 mdc: true
 glowSeed: 4
@@ -10,20 +10,158 @@ title: DeepRTE
 remoteAssets: true
 ---
 
-# DeepRTE {.font-600!.text-lime}
+# DeepRTE {.emphasis-primary.text-4xl}
 
-<div text-2xl op75>Pre-trained Attention Based Neural Operator for Radiative Trasfer</div>
+<div text-2xl class="text-on-surface-variant">Pre-trained Attention Based Neural Operator for Radiative Trasfer</div>
 
 <div mt15 />
 
 <div flex="~ col gap-2">
-  <div text-left text-2xl op75>Zheng Ma</div>
-  <div text-left text-sm op50>Shanghai Jiao Tong University</div>
-  <div text-left text-sm op50>Joint work with Yekun Zhu and Min Tang</div>
+  <div text-left text-2xl class="text-on-surface">Zheng Ma</div>
+  <div text-left text-sm class="text-secondary">Shanghai Jiao Tong University</div>
+  <div text-left text-sm class="text-on-surface-variant">Joint work with Yekun Zhu and Min Tang</div>
 </div>
 
 <div abs-br mx-10 my-11 flex="~ col items-end" text-center>
-  <div text-sm op50>August 20, 2025</div>
+  <div text-sm class="text-on-surface-muted">August 20, 2025</div>
+</div>
+
+---
+layout: center
+---
+
+# Modern Vibrant Palette Demo
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+  <div class="card p-4">
+    <div class="emphasis-primary text-lg mb-2">SJTU Blue</div>
+    <div class="bg-gradient-sjtu h-10 rounded"></div>
+  </div>
+  <div class="card p-4">
+    <div class="emphasis-secondary text-lg mb-2">Academic Gold</div>
+    <div class="bg-gradient-academic h-10 rounded"></div>
+  </div>
+  <div class="card p-4">
+    <div class="text-gradient-tech text-lg font-bold mb-2">Tech Gradient</div>
+    <div class="bg-gradient-tech h-10 rounded"></div>
+  </div>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-8">
+  <div class="card p-4">
+    <div class="text-gradient-tech text-lg font-bold mb-2">Accent Magenta</div>
+    <div class="bg-[var(--accent-magenta-500)] h-10 rounded"></div>
+  </div>
+  <div class="card p-4">
+    <div class="text-gradient-tech text-lg font-bold mb-2">Accent Aqua</div>
+    <div class="bg-[var(--accent-aqua-500)] h-10 rounded"></div>
+  </div>
+</div>
+
+<div class="mt-10 text-center">
+  <button class="btn-primary mx-2">Primary Button</button>
+  <button class="btn-secondary mx-2">Secondary Button</button>
+  <button class="btn-outline mx-2">Outline Button</button>
+</div>
+
+---
+layout: center
+---
+
+# Enhanced GlassCard Demo
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+    <GlassCard
+    title="Neural Networks"
+    subtitle="Deep learning fundamentals"
+    variant="primary"
+    icon="ph-cube-transparent-duotone"
+    :items="['Forward propagation', 'Backpropagation', 'Gradient descent', 'Activation functions']"
+  />
+
+  <GlassCard
+    title="Research Focus"
+    subtitle="Current projects"
+    variant="gradient-secondary"
+    icon="ph-circles-three-duotone"
+    :items="['Radiative Transfer', 'Neural Operators', 'Physics-Informed ML', 'Scientific Computing']"
+  />
+
+  <GlassCard
+    title="Development"
+    subtitle="Technical stack"
+    variant="tech"
+    icon="ph-chart-bar-duotone"
+    :items="['Python/JAX', 'Neural Networks', 'Scientific Computing', 'Open Source']"
+    />
+</div>
+
+<div class="grid grid-cols-4 gap-4 mt-8">
+  <GlassCard
+    title="Success"
+    variant="success"
+    icon="ph-cube-transparent-duotone"
+    size="sm"
+    :items="['Completed', 'Validated', 'Published']"
+  />
+
+  <GlassCard
+    title="Warning"
+    variant="warning"
+    icon="ph-circles-three-duotone"
+    size="sm"
+    :items="['In Progress', 'Review Needed', 'Pending']"
+  />
+
+  <GlassCard
+    title="Error"
+    variant="error"
+    icon="ph-chart-bar-duotone"
+    size="sm"
+    :items="['Failed Tests', 'Bug Reports', 'Critical Issues']"
+  />
+
+  <GlassCard
+    title="Gradient Primary"
+    variant="gradient-primary"
+    icon="ph-cube-transparent-duotone"
+    size="sm"
+    :items="['Vibrant', 'Modern', 'Eye-catching']"
+  />
+</div>
+
+---
+
+# Another demo
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+  <GlassCard
+    title="Large Card with Icon"
+    subtitle="Enhanced with Iconify icons"
+    variant="tech"
+    icon="ph-circles-three-duotone"
+    size="lg"
+  >
+    <div class="text-on-surface">
+      This card demonstrates the <span class="emphasis-tech">enhanced features</span>:
+      <br>• Icon support from Iconify
+      <br>• Better text spacing without subtitles
+      <br>• Reduced shadow for cleaner look
+      <br>• New gradient border variants
+    </div>
+  </GlassCard>
+
+  <GlassCard variant="gradient-primary" size="lg" icon="ph:chart-bar-duotone">
+    <div class="text-gradient-tech text-xl font-bold mb-4">Gradient Borders</div>
+    <div class="text-on-surface mb-4">
+      The new gradient variants create beautiful colored borders that adapt to both themes.
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <div class="bg-tech-electric/20 px-3 py-1 rounded text-sm">Electric</div>
+      <div class="bg-tech-innovation/20 px-3 py-1 rounded text-sm">Innovation</div>
+      <div class="bg-tech-cyber/20 px-3 py-1 rounded text-sm">Cyber</div>
+    </div>
+  </GlassCard>
 </div>
 
 ---
@@ -36,21 +174,21 @@ Radiative transfer are important in many areas
 
 <div grid="~ cols-2">
   <div flex="~ col gap-1" items-center>
-    <div text-xl>ICF</div>
-    <img src="/icf.png" border="2 main" rounded-lg h-65 />
+    <div text-xl class="text-on-surface">ICF</div>
+    <img src="/icf.png" class="border-primary" rounded-lg h-65 />
   </div>
   <div flex="~ col gap-1" items-center>
-    <div text-xl>Radiation Therapy</div>
-    <img src="/rad-therapy.jpg" border="2 main" rounded-lg shadow-l h-65 />
+    <div text-xl class="text-on-surface">Radiation Therapy</div>
+    <img src="/rad-therapy.jpg" class="border-primary" rounded-lg shadow-l h-65 />
   </div>
 </div>
 
 <br>
 
-<div rounded-lg bg-lime:10 p2 backdrop-blur>
-  <div text-center text-2xl>
+<div class="card bg-tech-cyber-50 dark:bg-tech-cyber-950 border-tech-cyber-200 dark:border-tech-cyber-800" p4 backdrop-blur>
+  <div text-center text-2xl class="text-on-surface">
 
-  Key problem: numerical simulation of <span text-lime3>radiative transfer equation (RTE)</span>
+  Key problem: numerical simulation of <span class="emphasis-tech">radiative transfer equation (RTE)</span>
 
   </div>
 </div>
@@ -61,7 +199,7 @@ Radiative transfer are important in many areas
 
 <div mt10 />
 
-<div text-xl text-lime>
+<div text-xl class="text-primary">
 
 $$
 \Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) =
@@ -85,11 +223,11 @@ $$
 
 <div mt6 />
 
-<div flex="~ col gap-2" border="2 lime/50" rounded-lg bg-lime:10 overflow-hidden>
-  <div bg-lime:10 py-2 px-3>
-    <div>Boundary condition</div>
+<div flex="~ col gap-2" class="card bg-tech-electric-50 dark:bg-tech-electric-950 border-tech-electric-200 dark:border-tech-electric-800" overflow-hidden>
+  <div class="bg-tech-electric-100 dark:bg-tech-electric-900" py-2 px-3>
+    <div class="text-primary font-medium">Boundary condition</div>
   </div>
-  <div flex="~ gap-2 items-center justify-center" text-lime m--2>
+  <div flex="~ gap-2 items-center justify-center" class="text-primary" m--2>
 
   $$
   I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)
@@ -101,6 +239,20 @@ $$
   $$
 
   </div>
+</div>
+
+---
+
+# Numerical Chanllenges
+
+Curse of dimensionality
+
+<div flex="~ gap-4 items-center" mt-10>
+  <GlassCard title="Dimension" variant="tech" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" />
+
+  <GlassCard title="Dimension" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" variant="primary" />
+
+  <GlassCard title="Dimension" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" variant="secondary" />
 </div>
 
 ---

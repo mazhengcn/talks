@@ -1,14 +1,13 @@
 {
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "css"
   },
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/node_modules": true
+    "**/Thumbs.db": true
   },
   // Disable the default formatter
   "editor.formatOnSave": false,
