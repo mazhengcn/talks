@@ -207,13 +207,18 @@ layout: center
     icon="i-ph:acorn"
     size="lg"
   >
-    <div class="text-on-surface">
-      This card demonstrates the <span class="emphasis-tech">enhanced features</span>:
-      <br>• Icon support from Iconify
-      <br>• Better text spacing without subtitles
-      <br>• Reduced shadow for cleaner look
-      <br>• New gradient border variants
-    </div>
+  <div class="text-on-surface">
+  This card demonstrates the <span class="emphasis-tech">enhanced features</span>:
+
+  - Icon support from Iconify
+
+  - Better text spacing without subtitles
+
+  - Reduced shadow for cleaner look
+
+  - New gradient border variants
+
+  </div>
   </GlassCard>
 
   <GlassCard variant="gradient-primary" size="lg">
@@ -392,7 +397,7 @@ Modern text styling and emphasis techniques
         <p>Use the <Emphasis>Emphasis component</Emphasis> for highlighting.</p>
         <p>Creates <Emphasis>pill-shaped</Emphasis> highlight effects.</p>
       </div>
-      <div class="bg-surface/30 p-2 rounded text-xs font-mono">
+      <div class="code-block-simple p-2 text-xs">
         &lt;Emphasis&gt;text&lt;/Emphasis&gt;
       </div>
     </div>
@@ -430,7 +435,7 @@ Modern text styling and emphasis techniques
 
 Beautiful text gradients for modern presentations
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-4 mt-6">
   <div>
     <GlassCard
       title="Text Gradients"
@@ -443,17 +448,17 @@ Beautiful text gradients for modern presentations
         <div>
           <div class="text-gradient-sjtu font-bold mb-1">SJTU Gradient</div>
           <div class="text-xs opacity-70 mb-1">University presentations</div>
-          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-sjtu</code>
+          <code class="code-inline">.text-gradient-sjtu</code>
         </div>
         <div>
           <div class="text-gradient-academic font-bold mb-1">Academic Gradient</div>
           <div class="text-xs opacity-70 mb-1">Warm academic tones</div>
-          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-academic</code>
+          <code class="code-inline">.text-gradient-academic</code>
         </div>
         <div>
           <div class="text-gradient-tech font-bold mb-1">Tech Gradient</div>
           <div class="text-xs opacity-70 mb-1">Vibrant tech colors</div>
-          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-tech</code>
+          <code class="code-inline">.text-gradient-tech</code>
         </div>
       </div>
     </GlassCard>
@@ -478,18 +483,18 @@ Beautiful text gradients for modern presentations
           <div class="text-white font-semibold text-sm">Tech Background</div>
         </div>
         <div class="text-xs opacity-70 pt-2">
-          Use <code class="bg-surface/30 px-1 rounded">.bg-gradient-*</code> classes
+          Use <code class="code-inline">.bg-gradient-*</code> classes
         </div>
       </div>
     </GlassCard>
   </div>
 </div>
 
-<div class="mt-6">
+<div class="mt-4">
   <GlassCard variant="gradient-primary" text-center size="sm">
     <div class="font-semibold mb-2">Pro Tip</div>
     <div class="text-sm opacity-90">
-      Combine gradients with <code class="bg-white/20 dark:bg-black/20 px-1 rounded">backdrop-blur</code> for glassmorphism effects
+      Combine gradients with <code class="code-inline">backdrop-blur</code> for glassmorphism effects
     </div>
   </GlassCard>
 </div>
@@ -592,8 +597,8 @@ Professional button designs with hover effects
     />
     <div mt-6>
       <div class="text-sm mb-2">Example usage:</div>
-      <div class="code-block p-3 text-sm font-mono">
-        icon="i-ph-star-duotone"
+      <div class="code-block-simple p-3 text-sm">
+        <span class="code-syntax-attr">icon=</span><span class="code-syntax-string">"i-ph-star-duotone"</span>
       </div>
     </div>
   </div>
@@ -631,13 +636,13 @@ Easy GitHub repository integration
   <div>
     <h3 class="text-2xl mb-6">Usage Examples</h3>
     <div class="space-y-4">
-      <div class="code-block p-4">
-        <div class="text-sm font-mono mb-2">Basic usage:</div>
-        <code class="text-xs">&lt;Repo name="owner/repo" /&gt;</code>
+      <div class="code-block-simple p-4">
+        <div class="text-sm font-mono mb-2 code-syntax-comment">Basic usage:</div>
+        <code class="text-xs code-syntax-tag">&lt;Repo name="owner/repo" /&gt;</code>
       </div>
-      <div class="code-block p-4">
-        <div class="text-sm font-mono mb-2">Hide owner:</div>
-        <code class="text-xs">&lt;Repo name="owner/repo" :hide-owner="true" /&gt;</code>
+      <div class="code-block-simple p-4">
+        <div class="text-sm font-mono mb-2 code-syntax-comment">Hide owner:</div>
+        <code class="text-xs code-syntax-tag">&lt;Repo name="owner/repo" :hide-owner="true" /&gt;</code>
       </div>
     </div>
     <GlassCard variant="primary" size="sm" mt-6>
@@ -694,14 +699,14 @@ Professional comparison tables with glassmorphism design
       icon="i-ph-code-duotone"
       size="sm"
     >
-      <div class="code-block p-2 text-sm font-mono bg-surface/50 rounded-lg">
-        <div class="text-tech-electric-600 dark:text-tech-electric-400">&lt;ProsCons</div>
-        <div class="ml-4 text-academic-600 dark:text-academic-400">:pros="[</div>
-        <div class="ml-8 text-gray-600 dark:text-gray-300">'Easy to implement',</div>
-        <div class="ml-8 text-gray-600 dark:text-gray-300">'Visually appealing'</div>
-        <div class="ml-4 text-academic-600 dark:text-academic-400">]"</div>
-        <div class="ml-4 text-rose-600 dark:text-rose-400">:cons="['Limited scope']"</div>
-        <div class="text-tech-electric-600 dark:text-tech-electric-400">/&gt;</div>
+      <div class="code-block-simple p-2 text-sm">
+        <div class="code-syntax-tag">&lt;ProsCons</div>
+        <div class="ml-4 code-syntax-attr">:pros="[</div>
+        <div class="ml-8 code-syntax-string">'Easy to implement',</div>
+        <div class="ml-8 code-syntax-string">'Visually appealing'</div>
+        <div class="ml-4 code-syntax-attr">]"</div>
+        <div class="ml-4 code-syntax-attr">:cons="[<span class="code-syntax-string">'Limited scope'</span>]"</div>
+        <div class="code-syntax-tag">/&gt;</div>
       </div>
     </GlassCard>
   </div>
@@ -1109,8 +1114,8 @@ class: "pb-5"
   </div>
   <div class="mt-12">
     <div class="text-lg mb-4">Get started with:</div>
-    <div class="code-block p-4 font-mono text-sm inline-block">
-      npm run dev
+    <div class="code-block-simple p-4 text-sm inline-block">
+      <span class="code-syntax-tag">npm run dev</span>
     </div>
   </div>
 </div>

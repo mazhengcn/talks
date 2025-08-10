@@ -285,6 +285,12 @@ export function presetSJTU(): Preset {
 
       // Code blocks - better contrast
       'code-block': 'bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg',
+      'code-block-simple': 'bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-neutral-200/60 dark:border-neutral-700/60 rounded-lg font-mono shadow-sm',
+      'code-inline': 'bg-white/40 dark:bg-neutral-800/40 backdrop-blur-sm text-sjtu-700 dark:text-sjtu-300 px-2 py-1 rounded border border-sjtu-200/30 dark:border-sjtu-600/20',
+      'code-syntax-tag': 'text-tech-electric-600 dark:text-tech-electric-400',
+      'code-syntax-attr': 'text-academic-600 dark:text-academic-400',
+      'code-syntax-string': 'text-gray-600 dark:text-gray-300',
+      'code-syntax-comment': 'text-gray-500 dark:text-gray-400 italic',
 
       // Emphasis styles for presentations - theme adaptive
       'emphasis-primary': 'text-gradient-sjtu font-semibold',
