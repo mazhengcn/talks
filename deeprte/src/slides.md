@@ -166,9 +166,55 @@ layout: center
 
 ---
 
-# GlassCard with LaTeX Support
+# List Style Options
 
-<div i-ph:acorn />
+<div class="grid grid-cols-2 gap-8 mt-8">
+  <GlassCard
+    title="Square Bullets (Default)"
+    subtitle="Matches Slidev's default style"
+    variant="primary"
+    :items="['Machine Learning', 'Deep Learning', 'Neural Networks', 'Scientific Computing']"
+    list-style="square"
+  />
+
+  <GlassCard
+    title="Round Dot Bullets"
+    subtitle="Classic circular bullet points"
+    variant="secondary"
+    :items="['Data Science', 'Python Programming', 'Research Papers', 'Open Source']"
+    list-style="dot"
+  />
+</div>
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+  <GlassCard
+    title="Tech Style"
+    variant="tech"
+    size="sm"
+    :items="['JAX Framework', 'GPU Computing', 'CUDA Support']"
+    list-style="square"
+  />
+
+  <GlassCard
+    title="Success Status"
+    variant="success"
+    size="sm"
+    :items="['Tests Passing', 'Code Review', 'Documentation']"
+    list-style="dot"
+  />
+
+  <GlassCard
+    title="Gradient Style"
+    variant="gradient-primary"
+    size="sm"
+    :items="['Modern Design', 'Vibrant Colors', 'Clean Layout']"
+    list-style="square"
+  />
+</div>
+
+---
+
+# GlassCard with LaTeX Support
 
 <div class="grid grid-cols-2 gap-8 mt-8">
   <GlassCard
@@ -194,7 +240,7 @@ layout: center
     :items="[
       'Input layer: $x \\in \\mathbb{R}^{d_{\\text{in}}}$',
       'Hidden layers: $h_i = \\sigma(W_i h_{i-1} + b_i)$',
-      'Output layer: $y \\in \\mathbb{R}^{d_{out}}$',
+      'Output layer: $y \\in \\mathbb{R}^{d_\\text{out}}$',
       'Loss function: $\\mathcal{L}(\\theta)$'
     ]"
     size="lg"

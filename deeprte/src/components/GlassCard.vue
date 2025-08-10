@@ -9,12 +9,14 @@ interface Props {
   size?: 'sm' | 'md' | 'lg'
   icon?: string
   enableLatex?: boolean
+  listStyle?: 'dot' | 'square'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'neutral',
   size: 'md',
   enableLatex: false,
+  listStyle: 'square',
 })
 
 // Refs for DOM elements
@@ -322,13 +324,21 @@ const dotClasses = {
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="flex items-start"
+        class="flex items-center"
         :class="[
           size === 'sm' ? 'text-xs' : 'text-sm',
         ]"
       >
+        <!-- Square bullet (Slidev style) -->
         <span
-          class="inline-block w-1 h-1 rounded-full mr-3 mt-2 flex-shrink-0"
+          v-if="listStyle === 'square'"
+          class="inline-block w-1.5 h-1.5 mr-3 flex-shrink-0"
+          :class="dotClasses[variant]"
+        />
+        <!-- Round dot bullet -->
+        <span
+          v-else
+          class="inline-block w-1.5 h-1.5 rounded-full mr-3 flex-shrink-0"
           :class="dotClasses[variant]"
         />
         <span class="text-on-surface flex-1">{{ item }}</span>
