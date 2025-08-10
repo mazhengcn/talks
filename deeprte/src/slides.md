@@ -75,7 +75,7 @@ layout: center
     title="Neural Networks"
     subtitle="Deep learning fundamentals"
     variant="primary"
-    icon="ph-cube-transparent-duotone"
+    icon="i-ph:cube-transparent-duotone"
     :items="['Forward propagation', 'Backpropagation', 'Gradient descent', 'Activation functions']"
   />
 
@@ -83,7 +83,7 @@ layout: center
     title="Research Focus"
     subtitle="Current projects"
     variant="gradient-secondary"
-    icon="ph-circles-three-duotone"
+    icon="i-ph:circles-three-duotone"
     :items="['Radiative Transfer', 'Neural Operators', 'Physics-Informed ML', 'Scientific Computing']"
   />
 
@@ -91,7 +91,7 @@ layout: center
     title="Development"
     subtitle="Technical stack"
     variant="tech"
-    icon="ph-chart-bar-duotone"
+    icon="i-ph:chart-bar-duotone"
     :items="['Python/JAX', 'Neural Networks', 'Scientific Computing', 'Open Source']"
     />
 </div>
@@ -100,7 +100,7 @@ layout: center
   <GlassCard
     title="Success"
     variant="success"
-    icon="ph-cube-transparent-duotone"
+    icon="i-material-symbols:19mp-outline-rounded"
     size="sm"
     :items="['Completed', 'Validated', 'Published']"
   />
@@ -108,7 +108,7 @@ layout: center
   <GlassCard
     title="Warning"
     variant="warning"
-    icon="ph-circles-three-duotone"
+    icon="i-ph:circles-three-duotone"
     size="sm"
     :items="['In Progress', 'Review Needed', 'Pending']"
   />
@@ -116,7 +116,7 @@ layout: center
   <GlassCard
     title="Error"
     variant="error"
-    icon="ph-chart-bar-duotone"
+    icon="i-ph:chart-bar-duotone"
     size="sm"
     :items="['Failed Tests', 'Bug Reports', 'Critical Issues']"
   />
@@ -124,7 +124,7 @@ layout: center
   <GlassCard
     title="Gradient Primary"
     variant="gradient-primary"
-    icon="ph-cube-transparent-duotone"
+    icon="i-ph:cube-transparent-duotone"
     size="sm"
     :items="['Vibrant', 'Modern', 'Eye-catching']"
   />
@@ -139,7 +139,7 @@ layout: center
     title="Large Card with Icon"
     subtitle="Enhanced with Iconify icons"
     variant="tech"
-    icon="ph-circles-three-duotone"
+    icon="i-ph:acorn"
     size="lg"
   >
     <div class="text-on-surface">
@@ -151,7 +151,7 @@ layout: center
     </div>
   </GlassCard>
 
-  <GlassCard variant="gradient-primary" size="lg" icon="ph:chart-bar-duotone">
+  <GlassCard variant="gradient-primary" size="lg">
     <div class="text-gradient-tech text-xl font-bold mb-4">Gradient Borders</div>
     <div class="text-on-surface mb-4">
       The new gradient variants create beautiful colored borders that adapt to both themes.
@@ -168,12 +168,13 @@ layout: center
 
 # GlassCard with LaTeX Support
 
+<div i-ph:acorn />
+
 <div class="grid grid-cols-2 gap-8 mt-8">
   <GlassCard
     title="Mathematical Formulation with $\LaTeX$"
     subtitle="The radiative transfer equation involves $I(r,\Omega)$"
-    variant="primary"
-    icon="ph-calculator-duotone"
+    variant="warning"
     :enable-latex="true"
     :items="[
       'Radiation intensity: $I(r,\\Omega)$',
@@ -187,11 +188,11 @@ layout: center
   <GlassCard
     title="Neural Network Notation"
     subtitle="Deep learning with $\mathbb{R}^n$ spaces"
-    variant="tech"
-    icon="ph-brain-duotone"
+    variant="gradient-primary"
+    icon="i-ph:dog-duotone"
     :enable-latex="true"
     :items="[
-      'Input layer: $x \\in \\mathbb{R}^{d_{in}}$',
+      'Input layer: $x \\in \\mathbb{R}^{d_{\\text{in}}}$',
       'Hidden layers: $h_i = \\sigma(W_i h_{i-1} + b_i)$',
       'Output layer: $y \\in \\mathbb{R}^{d_{out}}$',
       'Loss function: $\\mathcal{L}(\\theta)$'
@@ -225,21 +226,15 @@ Radiative transfer are important in many areas
 
 <br>
 
-<div class="card bg-tech-cyber-50 dark:bg-tech-cyber-950 border-tech-cyber-200 dark:border-tech-cyber-800" p4 backdrop-blur>
-  <div text-center text-2xl class="text-on-surface">
-
+<GlassCard variant="tech" text-center>
   Key problem: numerical simulation of <span class="emphasis-tech">radiative transfer equation (RTE)</span>
-
-  </div>
-</div>
+</GlassCard>
 
 ---
 
 # Radiative Transfer Equation
 
-<div mt10 />
-
-<div text-xl class="text-primary">
+<GlassCard variant="primary" size="sm">
 
 $$
 \Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) =
@@ -247,9 +242,9 @@ $$
 I(r, \Omega^*)\,\mathrm{d}\Omega^*,
 $$
 
-</div>
-
 <div mt5 />
+
+<GlassCard>
 
 - $I(r,\Omega)$: radiation intensity at phase space $(r,\Omega)$
 
@@ -259,27 +254,25 @@ $$
 
 - $p(\Omega,\Omega^*)$: phase function or scattering function
 
+</GlassCard>
+
 <!-- <div v-click grid="~ cols-2 gap-4" mt5> -->
 
-<div mt6 />
+</GlassCard>
 
-<div flex="~ col gap-2" class="card bg-tech-electric-50 dark:bg-tech-electric-950 border-tech-electric-200 dark:border-tech-electric-800" overflow-hidden>
-  <div class="bg-tech-electric-100 dark:bg-tech-electric-900" py-2 px-3>
-    <div class="text-primary font-medium">Boundary condition</div>
-  </div>
-  <div flex="~ gap-2 items-center justify-center" class="text-primary" m--2>
+<div mt4 />
 
-  $$
-  I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)
-  $$
+<GlassCard title="Boundary condition" variant="primary" size="sm">
+  <div flex="~ gap-2 items-center justify-center">
+
+  $I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)$
 
   with
 
-  $$\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \},
-  $$
+  $\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \},$
 
   </div>
-</div>
+</GlassCard>
 
 ---
 
