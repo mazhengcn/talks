@@ -280,8 +280,8 @@ export function presetSJTU(): Preset {
       'hover-surface': 'hover:bg-neutral-100 dark:hover:bg-neutral-800',
 
       // Card styles - glassmorphism, transparency, adaptive borders and shadows
-      'card': 'bg-surface/60 backdrop-blur-md border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg dark:shadow-2xl',
-      'card-hover': 'card hover-surface transition-colors duration-200',
+      'card': 'bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg dark:shadow-2xl',
+      'card-hover': 'bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg dark:shadow-2xl hover-surface transition-colors duration-200',
 
       // Code blocks - better contrast
       'code-block': 'bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-lg',
@@ -291,10 +291,10 @@ export function presetSJTU(): Preset {
       'emphasis-secondary': 'text-gradient-academic font-semibold',
       'emphasis-tech': 'text-gradient-tech font-semibold',
 
-      // Button styles - enhanced for both themes
-      'btn-primary': 'bg-primary text-white dark:text-neutral-900 hover-primary px-4 py-2 rounded-lg font-medium transition-colors shadow-md',
-      'btn-secondary': 'bg-secondary text-white dark:text-neutral-900 hover-secondary px-4 py-2 rounded-lg font-medium transition-colors shadow-md',
-      'btn-outline': 'border-2 border-primary text-primary hover-primary px-4 py-2 rounded-lg font-medium transition-colors bg-transparent',
+      // Button styles - modern glassmorphism design
+      'btn-primary': 'bg-sjtu-600/20 dark:bg-sjtu-400/25 backdrop-blur-lg border border-sjtu-400/40 dark:border-sjtu-300/40 text-sjtu-700 dark:text-sjtu-200 hover:bg-sjtu-500/30 dark:hover:bg-sjtu-400/35 hover:border-sjtu-300/60 dark:hover:border-sjtu-200/60 hover:text-sjtu-800 dark:hover:text-sjtu-100 px-5 py-2.5 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-sjtu-500/20 dark:hover:shadow-sjtu-400/20 hover:scale-[1.02] active:scale-[0.98]',
+      'btn-secondary': 'bg-academic-600/20 dark:bg-academic-400/25 backdrop-blur-lg border border-academic-400/40 dark:border-academic-300/40 text-academic-700 dark:text-academic-200 hover:bg-academic-500/30 dark:hover:bg-academic-400/35 hover:border-academic-300/60 dark:hover:border-academic-200/60 hover:text-academic-800 dark:hover:text-academic-100 px-5 py-2.5 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-academic-500/20 dark:hover:shadow-academic-400/20 hover:scale-[1.02] active:scale-[0.98]',
+      'btn-outline': 'bg-white/5 dark:bg-neutral-900/10 backdrop-blur-lg border-2 border-sjtu-600/30 dark:border-sjtu-400/40 text-sjtu-600 dark:text-sjtu-300 hover:bg-sjtu-600/10 dark:hover:bg-sjtu-400/15 hover:border-sjtu-500/50 dark:hover:border-sjtu-300/60 hover:text-sjtu-700 dark:hover:text-sjtu-200 px-5 py-2.5 rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-sjtu-500/15 dark:hover:shadow-sjtu-400/15 hover:scale-[1.02] active:scale-[0.98]',
 
       // Theme-adaptive glow effects
       'glow-adaptive': 'glow-sjtu dark:glow-sjtu-dark',
