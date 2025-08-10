@@ -324,7 +324,7 @@ glow: left
 
 This template includes several powerful components for presentations
 
-<div grid="~ cols-2 gap-8" mt-8>
+<div grid="~ cols-2 gap-8" mt-6>
   <GlassCard
     title="Available Components"
     subtitle="Ready-to-use presentation elements"
@@ -356,73 +356,69 @@ This template includes several powerful components for presentations
 
 Modern text styling and emphasis techniques
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-5 mt-5">
   <GlassCard
     title="Text Emphasis Classes"
     subtitle="Built-in styling utilities"
     variant="primary"
     icon="i-ph-text-aa-duotone"
-    size="lg"
+    size="md"
   >
-    <div class="space-y-4">
-      <div class="space-y-2">
-        <div class="text-xl emphasis-primary">Primary Emphasis</div>
-        <div class="text-sm text-on-surface-variant">SJTU Blue gradient • <code class="text-xs">.emphasis-primary</code></div>
+    <div class="space-y-3">
+      <div>
+        <div class="text-lg emphasis-primary">Primary Emphasis</div>
+        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-primary</code></div>
       </div>
-      <div class="space-y-2">
-        <div class="text-xl emphasis-secondary">Secondary Emphasis</div>
-        <div class="text-sm text-on-surface-variant">Academic Gold gradient • <code class="text-xs">.emphasis-secondary</code></div>
+      <div>
+        <div class="text-lg emphasis-secondary">Secondary Emphasis</div>
+        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-secondary</code></div>
       </div>
-      <div class="space-y-2">
-        <div class="text-xl emphasis-tech">Tech Emphasis</div>
-        <div class="text-sm text-on-surface-variant">Vibrant tech gradient • <code class="text-xs">.emphasis-tech</code></div>
+      <div>
+        <div class="text-lg emphasis-tech">Tech Emphasis</div>
+        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-tech</code></div>
       </div>
     </div>
   </GlassCard>
 
   <GlassCard
     title="Emphasis Component"
-    subtitle="Inline text highlighting"
+    subtitle="Inline highlighting"
     variant="tech"
     icon="i-ph-highlighter-duotone"
-    size="lg"
+    size="md"
   >
-    <div class="space-y-4">
-      <div class="space-y-3 text-base">
-        <p>Use the <Emphasis>Emphasis component</Emphasis> for inline highlighting.</p>
-        <p>Creates a <Emphasis>modern pill-shaped</Emphasis> highlight effect.</p>
-        <p>Perfect for <Emphasis>key terms</Emphasis> and <Emphasis>important concepts</Emphasis>.</p>
+    <div class="space-y-3">
+      <div class="text-sm space-y-2">
+        <p>Use the <Emphasis>Emphasis component</Emphasis> for highlighting.</p>
+        <p>Creates <Emphasis>pill-shaped</Emphasis> highlight effects.</p>
       </div>
-      <div class="space-y-2">
-        <div class="text-sm text-on-surface-variant">Component usage:</div>
-        <div class="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-lg text-xs font-mono">
-          &lt;Emphasis&gt;highlighted text&lt;/Emphasis&gt;
-        </div>
+      <div class="bg-surface/30 p-2 rounded text-xs font-mono">
+        &lt;Emphasis&gt;text&lt;/Emphasis&gt;
       </div>
     </div>
   </GlassCard>
 </div>
 
-<div class="mt-6">
+<div class="mt-4">
   <GlassCard
-    title="Advanced Typography Features"
+    title="Typography Features"
     subtitle="Professional text presentation"
     variant="gradient-primary"
     icon="i-ph-article-duotone"
     size="sm"
   >
-    <div class="grid grid-cols-3 gap-4 text-center">
-      <div class="space-y-2">
-        <div class="text-lg font-bold text-sjtu-600 dark:text-sjtu-400">Headlines</div>
-        <div class="text-sm text-on-surface-variant">Bold, clear titles</div>
+    <div class="grid grid-cols-3 gap-3 text-center text-sm">
+      <div>
+        <div class="font-bold text-sjtu-600 dark:text-sjtu-400">Headlines</div>
+        <div class="text-xs opacity-70">Bold titles</div>
       </div>
-      <div class="space-y-2">
-        <div class="text-lg font-medium text-academic-600 dark:text-academic-400">Subtitles</div>
-        <div class="text-sm text-on-surface-variant">Supporting context</div>
+      <div>
+        <div class="font-medium text-academic-600 dark:text-academic-400">Subtitles</div>
+        <div class="text-xs opacity-70">Context</div>
       </div>
-      <div class="space-y-2">
-        <div class="text-lg font-normal text-on-surface">Body Text</div>
-        <div class="text-sm text-on-surface-variant">Readable content</div>
+      <div>
+        <div class="font-normal">Body Text</div>
+        <div class="text-xs opacity-70">Content</div>
       </div>
     </div>
   </GlassCard>
@@ -434,45 +430,68 @@ Modern text styling and emphasis techniques
 
 Beautiful text gradients for modern presentations
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-6">
   <div>
-    <h3 class="text-2xl mb-6">Available Gradients</h3>
-    <div class="space-y-6">
-      <div>
-        <div class="text-3xl text-gradient-sjtu font-bold mb-2">SJTU Gradient</div>
-        <div class="text-sm opacity-70 mb-1">Perfect for university presentations</div>
-        <code class="text-xs">.text-gradient-sjtu</code>
+    <GlassCard
+      title="Text Gradients"
+      subtitle="Premium typography effects"
+      variant="primary"
+      icon="i-ph-text-aa-duotone"
+      size="sm"
+    >
+      <div class="py-1.5">
+        <div>
+          <div class="text-gradient-sjtu font-bold mb-1">SJTU Gradient</div>
+          <div class="text-xs opacity-70 mb-1">University presentations</div>
+          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-sjtu</code>
+        </div>
+        <div>
+          <div class="text-gradient-academic font-bold mb-1">Academic Gradient</div>
+          <div class="text-xs opacity-70 mb-1">Warm academic tones</div>
+          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-academic</code>
+        </div>
+        <div>
+          <div class="text-gradient-tech font-bold mb-1">Tech Gradient</div>
+          <div class="text-xs opacity-70 mb-1">Vibrant tech colors</div>
+          <code class="text-xs bg-surface/30 px-2 py-1 rounded">.text-gradient-tech</code>
+        </div>
       </div>
-      <div>
-        <div class="text-3xl text-gradient-academic font-bold mb-2">Academic Gradient</div>
-        <div class="text-sm opacity-70 mb-1">Warm academic tones</div>
-        <code class="text-xs">.text-gradient-academic</code>
-      </div>
-      <div>
-        <div class="text-3xl text-gradient-tech font-bold mb-2">Tech Gradient</div>
-        <div class="text-sm opacity-70 mb-1">Vibrant tech colors</div>
-        <code class="text-xs">.text-gradient-tech</code>
-      </div>
-    </div>
+    </GlassCard>
   </div>
 
   <div>
-    <h3 class="text-2xl mb-6">Background Gradients</h3>
-    <div class="space-y-4">
-      <div class="bg-gradient-sjtu h-16 rounded-lg flex items-center justify-center">
-        <div class="text-white font-semibold">SJTU Background</div>
+    <GlassCard
+      title="Background Gradients"
+      subtitle="Stunning background effects"
+      variant="secondary"
+      icon="i-ph-palette-duotone"
+      size="sm"
+    >
+      <div class="space-y-3">
+        <div class="bg-gradient-sjtu h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
+          <div class="text-white font-semibold text-sm">SJTU Background</div>
+        </div>
+        <div class="bg-gradient-academic h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
+          <div class="text-white font-semibold text-sm">Academic Background</div>
+        </div>
+        <div class="bg-gradient-tech h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
+          <div class="text-white font-semibold text-sm">Tech Background</div>
+        </div>
+        <div class="text-xs opacity-70 pt-2">
+          Use <code class="bg-surface/30 px-1 rounded">.bg-gradient-*</code> classes
+        </div>
       </div>
-      <div class="bg-gradient-academic h-16 rounded-lg flex items-center justify-center">
-        <div class="text-white font-semibold">Academic Background</div>
-      </div>
-      <div class="bg-gradient-tech h-16 rounded-lg flex items-center justify-center">
-        <div class="text-white font-semibold">Tech Background</div>
-      </div>
-    </div>
-    <div mt-4 text-sm opacity-60>
-      Use <code>.bg-gradient-sjtu</code>, <code>.bg-gradient-academic</code>, or <code>.bg-gradient-tech</code>
-    </div>
+    </GlassCard>
   </div>
+</div>
+
+<div class="mt-6">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="font-semibold mb-2">Pro Tip</div>
+    <div class="text-sm opacity-90">
+      Combine gradients with <code class="bg-white/20 dark:bg-black/20 px-1 rounded">backdrop-blur</code> for glassmorphism effects
+    </div>
+  </GlassCard>
 </div>
 
 ---
