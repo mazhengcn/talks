@@ -369,12 +369,10 @@ Modern text styling and emphasis techniques
         <div class="text-xl emphasis-primary">Primary Emphasis</div>
         <div class="text-sm text-on-surface-variant">SJTU Blue gradient • <code class="text-xs">.emphasis-primary</code></div>
       </div>
-
       <div class="space-y-2">
         <div class="text-xl emphasis-secondary">Secondary Emphasis</div>
         <div class="text-sm text-on-surface-variant">Academic Gold gradient • <code class="text-xs">.emphasis-secondary</code></div>
       </div>
-
       <div class="space-y-2">
         <div class="text-xl emphasis-tech">Tech Emphasis</div>
         <div class="text-sm text-on-surface-variant">Vibrant tech gradient • <code class="text-xs">.emphasis-tech</code></div>
@@ -392,12 +390,9 @@ Modern text styling and emphasis techniques
     <div class="space-y-4">
       <div class="space-y-3 text-base">
         <p>Use the <Emphasis>Emphasis component</Emphasis> for inline highlighting.</p>
-
         <p>Creates a <Emphasis>modern pill-shaped</Emphasis> highlight effect.</p>
-
         <p>Perfect for <Emphasis>key terms</Emphasis> and <Emphasis>important concepts</Emphasis>.</p>
       </div>
-
       <div class="space-y-2">
         <div class="text-sm text-on-surface-variant">Component usage:</div>
         <div class="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-lg text-xs font-mono">
