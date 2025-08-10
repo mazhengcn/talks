@@ -631,45 +631,59 @@ Easy GitHub repository integration
 
 # ProsCons Component
 
-Professional comparison tables
+Professional comparison tables with glassmorphism design
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-6">
   <div>
-    <h3 class="text-2xl mb-6">Basic Usage</h3>
+    <GlassCard
+      title="Live Demo"
+      subtitle="Interactive comparison"
+      variant="primary"
+      icon="i-ph-presentation-chart-duotone"
+      size="sm"
+    >
+      <div>Glassmorphism design showcase</div>
+    </GlassCard>
+    <GlassCard variant="gradient-primary" size="sm" mt4>
+      <div class="text-center">
+        <div class="font-semibold mb-1 text-sm">Perfect For</div>
+        <div class="text-xs opacity-90">
+          Comparisons • Decisions • Evaluations
+        </div>
+      </div>
+    </GlassCard>
     <ProsCons
       :pros="[
-        'Easy to implement',
-        'Visually appealing',
-        'Supports multiple items',
-        'Responsive design'
+        'Beautiful glassmorphism effects',
+        'Smooth animations',
+        'Perfect light/dark mode support',
+        'Easy Vue.js integration'
       ]"
       :cons="[
-        'Requires Vue.js',
-        'Limited customization',
-        'Not suitable for complex comparisons'
+        'Requires Vue.js framework',
+        'Fixed comparison format',
+        'Not suitable for complex data'
       ]"
     />
   </div>
 
   <div>
-    <h3 class="text-2xl mb-6">Usage Code</h3>
-    <div class="code-block p-4 text-sm font-mono">
-      <div class="mb-4">
-        &lt;ProsCons<br>
-        &nbsp;&nbsp;:pros="[<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;'Easy to implement',<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;'Visually appealing',<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;'Supports multiple items'<br>
-        &nbsp;&nbsp;]"<br>
-        &nbsp;&nbsp;:cons="[<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;'Requires Vue.js',<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;'Limited customization'<br>
-        &nbsp;&nbsp;]"<br>
-        /&gt;
+    <GlassCard
+      title="Implementation"
+      subtitle="Simple Vue.js component"
+      variant="secondary"
+      icon="i-ph-code-duotone"
+      size="sm"
+    >
+      <div class="code-block p-2 text-sm font-mono bg-surface/50 rounded-lg">
+        <div class="text-tech-electric-600 dark:text-tech-electric-400">&lt;ProsCons</div>
+        <div class="ml-4 text-academic-600 dark:text-academic-400">:pros="[</div>
+        <div class="ml-8 text-gray-600 dark:text-gray-300">'Easy to implement',</div>
+        <div class="ml-8 text-gray-600 dark:text-gray-300">'Visually appealing'</div>
+        <div class="ml-4 text-academic-600 dark:text-academic-400">]"</div>
+        <div class="ml-4 text-rose-600 dark:text-rose-400">:cons="['Limited scope']"</div>
+        <div class="text-tech-electric-600 dark:text-tech-electric-400">/&gt;</div>
       </div>
-    </div>
-    <GlassCard variant="secondary" size="sm" mt-6>
-      Perfect for decision making, feature comparisons, or presenting balanced viewpoints
     </GlassCard>
   </div>
 </div>
@@ -678,48 +692,73 @@ Professional comparison tables
 
 # Advanced ProsCons Examples
 
-Different use cases and scenarios
+Real-world comparison scenarios
 
-<div class="space-y-8">
+<div class="grid grid-cols-2 gap-6">
   <div>
-    <h3 class="text-2xl mb-4">Technology Comparison</h3>
-    <div class="grid grid-cols-2 gap-8">
-      <div>
-        <div class="text-lg mb-3 emphasis-tech">Machine Learning Approach</div>
-        <ProsCons
-          :pros="[
-            'Handles complex patterns',
-            'Scalable to large datasets',
-            'Continuous learning capability',
-            'Automated feature extraction'
-          ]"
-          :cons="[
-            'Requires large training data',
-            'Black box model',
-            'Computationally expensive',
-            'Potential overfitting issues'
-          ]"
-        />
-      </div>
-      <div>
-        <div class="text-lg mb-3 emphasis-primary">Traditional Methods</div>
-        <ProsCons
-          :pros="[
-            'Interpretable results',
-            'Fast execution',
-            'Well-understood theory',
-            'Lower computational cost'
-          ]"
-          :cons="[
-            'Manual feature engineering',
-            'Limited scalability',
-            'Rigid assumptions',
-            'Performance ceiling'
-          ]"
-        />
-      </div>
-    </div>
+    <GlassCard
+      title="AI vs Traditional Methods"
+      subtitle="Technology comparison example"
+      variant="tech"
+      icon="i-ph-brain-duotone"
+      size="sm"
+    >
+      <div class="text-sm mb-3">Modern ML approaches vs. classical algorithms</div>
+    </GlassCard>
+    <ProsCons
+      :pros="[
+        'Handles complex patterns',
+        'Scales to large datasets',
+        'Continuous learning',
+        'Auto feature extraction'
+      ]"
+      :cons="[
+        'Needs large training data',
+        'Black box decisions',
+        'High computational cost',
+        'Potential overfitting'
+      ]"
+    />
   </div>
+
+  <div>
+    <GlassCard
+      title="Cloud vs On-Premise"
+      subtitle="Infrastructure decision"
+      variant="secondary"
+      icon="i-ph-cloud-duotone"
+      size="sm"
+    >
+      <div class="text-sm mb-3">Deployment strategy comparison</div>
+    </GlassCard>
+    <ProsCons
+      :pros="[
+        'Infinite scalability',
+        'Managed services',
+        'Global distribution',
+        'Cost optimization'
+      ]"
+      :cons="[
+        'Data sovereignty concerns',
+        'Network dependency',
+        'Vendor lock-in risk',
+        'Less direct control'
+      ]"
+    />
+  </div>
+</div>
+
+<div class="mt-6">
+  <GlassCard
+    variant="gradient-secondary"
+    text-center
+    size="sm"
+  >
+    <div class="font-semibold mb-2">Component Features</div>
+    <div class="text-sm opacity-90">
+      Glassmorphism design • Smooth animations • v-click support • Responsive layout • Light/dark themes
+    </div>
+  </GlassCard>
 </div>
 
 ---
