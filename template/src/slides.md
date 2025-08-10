@@ -22,8 +22,38 @@ remoteAssets: true
   <div text-left text-sm class="text-on-surface-variant">Modern presentation template with comprehensive design system</div>
 </div>
 
-<div abs-br mx-10 my-11 flex="~ col items-end" text-center>
-  <div text-sm class="text-on-surface-muted">August 10, 2025</div>
+<!-- SJTU Official Logo - Enhanced Glassmorphism with Theme Colors -->
+<div class="absolute top-6 right-6 group">
+  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-xl p-2.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 hover:shadow-sjtu-500/12 dark:hover:shadow-sjtu-400/10 transition-all duration-300">
+    <!-- Logo with official SJTU colors -->
+    <div class="relative z-10">
+      <!-- Logo for light theme - using SJTU theme colors -->
+      <div class="h-8 w-auto dark:hidden opacity-90 group-hover:opacity-100 transition-opacity duration-300 relative overflow-hidden">
+        <img
+          src="/images/sjtu-logo.png"
+          alt="Shanghai Jiao Tong University"
+          class="h-8 w-auto filter brightness-0 opacity-0"
+        />
+        <div class="absolute inset-0 bg-sjtu-600" style="mask: url('/images/校标-标志中英文横版.png') no-repeat center/contain; -webkit-mask: url('/images/校标-标志中英文横版.png') no-repeat center/contain;"></div>
+      </div>
+      <!-- Logo for dark theme - using lighter SJTU theme colors -->
+      <div class="h-8 w-auto hidden dark:block opacity-85 group-hover:opacity-95 transition-all duration-300 relative overflow-hidden">
+        <img
+          src="/images/sjtu-logo.png"
+          alt="Shanghai Jiao Tong University"
+          class="h-8 w-auto filter brightness-0 invert opacity-0"
+        />
+        <div class="absolute inset-0 bg-sjtu-400" style="mask: url('/images/校标-标志中英文横版.png') no-repeat center/contain; -webkit-mask: url('/images/sjtu-logo.png') no-repeat center/contain;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Date positioned at bottom right with matching glassmorphism style -->
+<div class="absolute bottom-8 right-6 group">
+  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-lg px-3 py-1.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
+    <div text-xs class="text-on-surface-muted/80 font-medium tracking-wide">August 18, 2025</div>
+  </div>
 </div>
 
 ---
