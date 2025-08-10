@@ -354,46 +354,83 @@ This template includes several powerful components for presentations
 
 # Typography & Text Emphasis
 
-Different ways to highlight content
+Modern text styling and emphasis techniques
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-2xl mb-6">Standard Emphasis Classes</h3>
-
+<div class="grid grid-cols-2 gap-6 mt-6">
+  <GlassCard
+    title="Text Emphasis Classes"
+    subtitle="Built-in styling utilities"
+    variant="primary"
+    icon="i-ph-text-aa-duotone"
+    size="lg"
+  >
     <div class="space-y-4">
-      <div>
-        <div class="text-lg emphasis-primary">Primary Emphasis (SJTU Blue)</div>
-        <code class="text-sm opacity-60">.emphasis-primary</code>
+      <div class="space-y-2">
+        <div class="text-xl emphasis-primary">Primary Emphasis</div>
+        <div class="text-sm text-on-surface-variant">SJTU Blue gradient • <code class="text-xs">.emphasis-primary</code></div>
       </div>
 
-      <div>
-        <div class="text-lg emphasis-secondary">Secondary Emphasis (Academic Gold)</div>
-        <code class="text-sm opacity-60">.emphasis-secondary</code>
+      <div class="space-y-2">
+        <div class="text-xl emphasis-secondary">Secondary Emphasis</div>
+        <div class="text-sm text-on-surface-variant">Academic Gold gradient • <code class="text-xs">.emphasis-secondary</code></div>
       </div>
 
-      <div>
-        <div class="text-lg emphasis-tech">Tech Emphasis (Gradient)</div>
-        <code class="text-sm opacity-60">.emphasis-tech</code>
+      <div class="space-y-2">
+        <div class="text-xl emphasis-tech">Tech Emphasis</div>
+        <div class="text-sm text-on-surface-variant">Vibrant tech gradient • <code class="text-xs">.emphasis-tech</code></div>
       </div>
     </div>
-  </div>
+  </GlassCard>
 
-  <div>
-    <h3 class="text-2xl mb-6">Emphasis Component</h3>
-
+  <GlassCard
+    title="Emphasis Component"
+    subtitle="Inline text highlighting"
+    variant="tech"
+    icon="i-ph-highlighter-duotone"
+    size="lg"
+  >
     <div class="space-y-4">
-      <p>You can use the <Emphasis>Emphasis</Emphasis> component for inline highlighting.</p>
+      <div class="space-y-3 text-base">
+        <p>Use the <Emphasis>Emphasis component</Emphasis> for inline highlighting.</p>
 
-      <p>It creates a <Emphasis>modern pill-shaped highlight</Emphasis> effect.</p>
+        <p>Creates a <Emphasis>modern pill-shaped</Emphasis> highlight effect.</p>
 
-      <p>Perfect for <Emphasis>key terms</Emphasis> and <Emphasis>important concepts</Emphasis>.</p>
+        <p>Perfect for <Emphasis>key terms</Emphasis> and <Emphasis>important concepts</Emphasis>.</p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="text-sm text-on-surface-variant">Component usage:</div>
+        <div class="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-lg text-xs font-mono">
+          &lt;Emphasis&gt;highlighted text&lt;/Emphasis&gt;
+        </div>
+      </div>
     </div>
+  </GlassCard>
+</div>
 
-    <div mt-6>
-      <div class="text-sm opacity-60">Usage:</div>
-      <code class="text-sm bg-surface-2 p-2 rounded block mt-2">&lt;Emphasis&gt;highlighted text&lt;/Emphasis&gt;</code>
+<div class="mt-6">
+  <GlassCard
+    title="Advanced Typography Features"
+    subtitle="Professional text presentation"
+    variant="gradient-primary"
+    icon="i-ph-article-duotone"
+    size="sm"
+  >
+    <div class="grid grid-cols-3 gap-4 text-center">
+      <div class="space-y-2">
+        <div class="text-lg font-bold text-sjtu-600 dark:text-sjtu-400">Headlines</div>
+        <div class="text-sm text-on-surface-variant">Bold, clear titles</div>
+      </div>
+      <div class="space-y-2">
+        <div class="text-lg font-medium text-academic-600 dark:text-academic-400">Subtitles</div>
+        <div class="text-sm text-on-surface-variant">Supporting context</div>
+      </div>
+      <div class="space-y-2">
+        <div class="text-lg font-normal text-on-surface">Body Text</div>
+        <div class="text-sm text-on-surface-variant">Readable content</div>
+      </div>
     </div>
-  </div>
+  </GlassCard>
 </div>
 
 ---
@@ -405,20 +442,17 @@ Beautiful text gradients for modern presentations
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div>
     <h3 class="text-2xl mb-6">Available Gradients</h3>
-
     <div class="space-y-6">
       <div>
         <div class="text-3xl text-gradient-sjtu font-bold mb-2">SJTU Gradient</div>
         <div class="text-sm opacity-70 mb-1">Perfect for university presentations</div>
         <code class="text-xs">.text-gradient-sjtu</code>
       </div>
-
       <div>
         <div class="text-3xl text-gradient-academic font-bold mb-2">Academic Gradient</div>
         <div class="text-sm opacity-70 mb-1">Warm academic tones</div>
         <code class="text-xs">.text-gradient-academic</code>
       </div>
-
       <div>
         <div class="text-3xl text-gradient-tech font-bold mb-2">Tech Gradient</div>
         <div class="text-sm opacity-70 mb-1">Vibrant tech colors</div>
@@ -429,21 +463,17 @@ Beautiful text gradients for modern presentations
 
   <div>
     <h3 class="text-2xl mb-6">Background Gradients</h3>
-
     <div class="space-y-4">
       <div class="bg-gradient-sjtu h-16 rounded-lg flex items-center justify-center">
         <div class="text-white font-semibold">SJTU Background</div>
       </div>
-
       <div class="bg-gradient-academic h-16 rounded-lg flex items-center justify-center">
         <div class="text-white font-semibold">Academic Background</div>
       </div>
-
       <div class="bg-gradient-tech h-16 rounded-lg flex items-center justify-center">
         <div class="text-white font-semibold">Tech Background</div>
       </div>
     </div>
-
     <div mt-4 text-sm opacity-60>
       Use <code>.bg-gradient-sjtu</code>, <code>.bg-gradient-academic</code>, or <code>.bg-gradient-tech</code>
     </div>
@@ -459,18 +489,15 @@ Professional button designs with hover effects
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div>
     <h3 class="text-2xl mb-6">Button Variants</h3>
-
     <div class="space-y-4">
       <div>
         <button class="btn-primary">Primary Button</button>
         <div class="text-sm opacity-60 mt-1">Main actions</div>
       </div>
-
       <div>
         <button class="btn-secondary">Secondary Button</button>
         <div class="text-sm opacity-60 mt-1">Secondary actions</div>
       </div>
-
       <div>
         <button class="btn-outline">Outline Button</button>
         <div class="text-sm opacity-60 mt-1">Subtle actions</div>
@@ -480,19 +507,16 @@ Professional button designs with hover effects
 
   <div>
     <h3 class="text-2xl mb-6">Interactive States</h3>
-
     <div class="space-y-4">
       <div class="card-hover p-4">
         <div class="font-semibold mb-2">Hover Card</div>
         <div class="text-sm opacity-70">Smooth hover transitions</div>
       </div>
-
       <div class="card p-4">
         <div class="font-semibold mb-2">Standard Card</div>
         <div class="text-sm opacity-70">Glassmorphism effect</div>
       </div>
     </div>
-
     <div mt-6 text-sm opacity-60>
       All elements support both light and dark themes automatically
     </div>
@@ -506,7 +530,6 @@ Professional button designs with hover effects
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div>
     <h3 class="text-2xl mb-6">Phosphor Icons</h3>
-
     <div class="grid grid-cols-4 gap-4">
       <div class="text-center">
         <div class="i-ph-cube-transparent-duotone text-blue text-4xl mb-2" />
@@ -524,7 +547,6 @@ Professional button designs with hover effects
         <div class="i-ph-palette-duotone text-purple text-4xl mb-2" />
         <div class="text-sm">palette</div>
       </div>
-
       <div class="text-center">
         <div class="i-ph-brain text-red text-4xl mb-2" />
         <div class="text-sm">brain</div>
@@ -546,7 +568,6 @@ Professional button designs with hover effects
 
   <div>
     <h3 class="text-2xl mb-6">Usage in Components</h3>
-
     <GlassCard
       title="Icon in GlassCard"
       subtitle="Icons enhance visual hierarchy"
@@ -555,7 +576,6 @@ Professional button designs with hover effects
       :items="['Easy to add with icon prop', 'Supports all Phosphor icons', 'Automatic color theming', 'Scales with component size']"
       size="lg"
     />
-
     <div mt-6>
       <div class="text-sm mb-2">Example usage:</div>
       <div class="code-block p-3 text-sm font-mono">
@@ -574,18 +594,15 @@ Easy GitHub repository integration
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div>
     <h3 class="text-2xl mb-6">Repo Component</h3>
-
     <div class="space-y-6">
       <div>
         <div class="mb-2">Full repository name:</div>
         <Repo name="microsoft/vscode" />
       </div>
-
       <div>
         <div class="mb-2">Hide owner (show only repo name):</div>
         <Repo name="microsoft/vscode" :hide-owner="true" />
       </div>
-
       <div>
         <div class="mb-2">Multiple repositories:</div>
         <div class="space-y-2">
@@ -599,19 +616,16 @@ Easy GitHub repository integration
 
   <div>
     <h3 class="text-2xl mb-6">Usage Examples</h3>
-
     <div class="space-y-4">
       <div class="code-block p-4">
         <div class="text-sm font-mono mb-2">Basic usage:</div>
         <code class="text-xs">&lt;Repo name="owner/repo" /&gt;</code>
       </div>
-
       <div class="code-block p-4">
         <div class="text-sm font-mono mb-2">Hide owner:</div>
         <code class="text-xs">&lt;Repo name="owner/repo" :hide-owner="true" /&gt;</code>
       </div>
     </div>
-
     <GlassCard variant="primary" size="sm" mt-6>
       Perfect for referencing code repositories, open source projects, or related work in presentations
     </GlassCard>
@@ -627,7 +641,6 @@ Professional comparison tables
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div>
     <h3 class="text-2xl mb-6">Basic Usage</h3>
-
     <ProsCons
       :pros="[
         'Easy to implement',
@@ -645,7 +658,6 @@ Professional comparison tables
 
   <div>
     <h3 class="text-2xl mb-6">Usage Code</h3>
-
     <div class="code-block p-4 text-sm font-mono">
       <div class="mb-4">
         &lt;ProsCons<br>
@@ -661,7 +673,6 @@ Professional comparison tables
         /&gt;
       </div>
     </div>
-
     <GlassCard variant="secondary" size="sm" mt-6>
       Perfect for decision making, feature comparisons, or presenting balanced viewpoints
     </GlassCard>
@@ -677,7 +688,6 @@ Different use cases and scenarios
 <div class="space-y-8">
   <div>
     <h3 class="text-2xl mb-4">Technology Comparison</h3>
-
     <div class="grid grid-cols-2 gap-8">
       <div>
         <div class="text-lg mb-3 emphasis-tech">Machine Learning Approach</div>
@@ -696,7 +706,6 @@ Different use cases and scenarios
           ]"
         />
       </div>
-
       <div>
         <div class="text-lg mb-3 emphasis-primary">Traditional Methods</div>
         <ProsCons
@@ -718,40 +727,42 @@ Different use cases and scenarios
   </div>
 </div>
 
+---
+
 # SJTU Color System Deep Dive
 
 Comprehensive color palette for professional presentations
 
-<div class="grid grid-cols-3 gap-6 mt-8">
+<div class="grid grid-cols-3 gap-5 mt-7">
   <GlassCard
     title="SJTU Colors"
-    subtitle="University brand colors"
+    subtitle="University brand"
     variant="primary"
     icon="i-ph-graduation-cap-duotone"
-    size="lg"
+    size="md"
   >
     <div class="space-y-2">
       <div class="flex items-center gap-2">
         <div class="w-4 h-4 bg-sjtu-600 rounded"></div>
-        <span class="text-sm">Primary SJTU Blue</span>
+        <span class="text-sm">Primary Blue</span>
       </div>
       <div class="flex items-center gap-2">
         <div class="w-4 h-4 bg-sjtu-400 rounded"></div>
-        <span class="text-sm">Light SJTU Blue</span>
+        <span class="text-sm">Light Blue</span>
       </div>
       <div class="flex items-center gap-2">
         <div class="w-4 h-4 bg-sjtu-800 rounded"></div>
-        <span class="text-sm">Dark SJTU Blue</span>
+        <span class="text-sm">Dark Blue</span>
       </div>
     </div>
   </GlassCard>
 
   <GlassCard
     title="Academic Colors"
-    subtitle="Warm academic tones"
+    subtitle="Warm tones"
     variant="secondary"
     icon="i-ph-book-duotone"
-    size="lg"
+    size="md"
   >
     <div class="space-y-2">
       <div class="flex items-center gap-2">
@@ -771,10 +782,10 @@ Comprehensive color palette for professional presentations
 
   <GlassCard
     title="Tech Colors"
-    subtitle="Modern vibrant palette"
+    subtitle="Vibrant palette"
     variant="tech"
     icon="i-ph-cpu-duotone"
-    size="lg"
+    size="md"
   >
     <div class="space-y-2">
       <div class="flex items-center gap-2">
@@ -793,7 +804,7 @@ Comprehensive color palette for professional presentations
   </GlassCard>
 </div>
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-6">
   <GlassCard
     title="Accent Colors"
     variant="gradient-primary"
@@ -802,11 +813,11 @@ Comprehensive color palette for professional presentations
   >
     <div class="space-y-2">
       <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-[var(--accent-magenta-500)] rounded"></div>
+        <div class="w-4 h-4 bg-accent-magenta-500 rounded"></div>
         <span class="text-sm">Accent Magenta</span>
       </div>
       <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-[var(--accent-aqua-500)] rounded"></div>
+        <div class="w-4 h-4 bg-accent-aqua-500 rounded"></div>
         <span class="text-sm">Accent Aqua</span>
       </div>
     </div>
@@ -818,10 +829,10 @@ Comprehensive color palette for professional presentations
     icon="i-ph-layers-duotone"
     size="sm"
   >
-    <div class="space-y-2 text-sm">
-      <div>Automatic light/dark theme support</div>
+    <div class="space-y-1 text-sm">
+      <div>Auto light/dark theme</div>
       <div>Glassmorphism effects</div>
-      <div>Adaptive contrast ratios</div>
+      <div>Adaptive contrast</div>
     </div>
   </GlassCard>
 </div>
@@ -832,44 +843,34 @@ Comprehensive color palette for professional presentations
 
 Built-in Slidev enhancements
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-2xl mb-6">Layout Options</h3>
+<div class="grid grid-cols-2 gap-6 mt-6">
+  <GlassCard
+    title="Layout Options"
+    subtitle="Available slide layouts"
+    variant="primary"
+    icon="i-ph-layout-duotone"
+    :items="[
+      'cover - Title slides',
+      'center - Centered content',
+      'default - Standard slides',
+      'section - Section dividers'
+    ]"
+    size="md"
+  />
 
-    <GlassCard
-      title="Available Layouts"
-      variant="primary"
-      icon="i-ph-layout-duotone"
-      :items="[
-        'cover - Title slides with background',
-        'center - Centered content',
-        'default - Standard slides',
-        'section - Section dividers',
-        'image - Full image backgrounds',
-        'quote - Large quotations'
-      ]"
-      size="lg"
-    />
-  </div>
-
-  <div>
-    <h3 class="text-2xl mb-6">Animation & Transitions</h3>
-
-    <GlassCard
-      title="Built-in Features"
-      variant="tech"
-      icon="i-ph-magic-wand-duotone"
-      :items="[
-        'v-click for step-by-step reveals',
-        'Smooth fade transitions',
-        'Glow effects for highlighting',
-        'Hover animations on cards',
-        'Responsive grid layouts',
-        'Auto theme switching'
-      ]"
-      size="lg"
-    />
-  </div>
+  <GlassCard
+    title="Animation Features"
+    subtitle="Interactive enhancements"
+    variant="tech"
+    icon="i-ph-magic-wand-duotone"
+    :items="[
+      'v-click for step reveals',
+      'Smooth fade transitions',
+      'Hover animations on cards',
+      'Auto theme switching'
+    ]"
+    size="md"
+  />
 </div>
 
 <div class="mt-8">
@@ -885,65 +886,66 @@ Built-in Slidev enhancements
 
 How to adapt this template for your needs
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-6">
   <GlassCard
     title="Quick Start"
-    subtitle="Get started in minutes"
+    subtitle="Get started quickly"
     variant="success"
     icon="i-ph-rocket-launch-duotone"
     :items="[
-      '1. Copy the template folder',
+      '1. Copy template folder',
       '2. Edit slides.md content',
-      '3. Replace images in public/',
-      '4. Customize colors if needed',
-      '5. Run npm run dev'
+      '3. Replace images',
+      '4. Run bun run dev'
     ]"
-    size="lg"
+    size="md"
   />
 
   <GlassCard
-    title="Customization Options"
+    title="Customization"
     subtitle="Make it your own"
     variant="warning"
     icon="i-ph-gear-duotone"
     :items="[
-      'Modify preset-sjtu.ts colors',
+      'Modify colors in preset-sjtu.ts',
       'Add custom components',
-      'Update global-bottom.vue',
-      'Change fonts in style.css',
-      'Add custom CSS variables'
+      'Update fonts in style.css'
     ]"
-    size="lg"
+    size="md"
   />
 </div>
 
-<div class="mt-8">
-  <h3 class="text-xl mb-4">File Structure</h3>
-
-  <div class="grid grid-cols-3 gap-4">
-    <div class="code-block p-3 text-sm">
-      <div class="font-semibold mb-2">Core Files</div>
-      <div>slides.md</div>
-      <div>preset-sjtu.ts</div>
-      <div>style.css</div>
-      <div>vite.config.ts</div>
+<div class="mt-6">
+  <GlassCard
+    title="Essential Files"
+    variant="gradient-primary"
+    icon="i-ph-folder-duotone"
+    size="sm"
+  >
+    <div class="grid grid-cols-3 gap-4 text-center text-sm">
+      <div>
+        <div class="text-sjtu-600 dark:text-sjtu-400 font-medium mb-2">Core</div>
+        <div class="text-xs space-y-1">
+          <div>slides.md</div>
+          <div>preset-sjtu.ts</div>
+        </div>
+      </div>
+      <div>
+        <div class="text-academic-600 dark:text-academic-400 font-medium mb-2">Components</div>
+        <div class="text-xs space-y-1">
+          <div>GlassCard.vue</div>
+          <div>ProsCons.vue</div>
+        </div>
+      </div>
+      <div>
+        <div class="text-tech-electric-600 dark:text-tech-electric-400 font-medium mb-2">Assets</div>
+        <div class="text-xs space-y-1">
+          <div>public/images/</div>
+          <div>style.css</div>
+        </div>
+      </div>
     </div>
-
-    <div class="code-block p-3 text-sm">
-      <div class="font-semibold mb-2">Components</div>
-      <div>GlassCard.vue</div>
-      <div>ProsCons.vue</div>
-      <div>Repo.vue</div>
-      <div>Emphasis.vue</div>
-    </div>
-
-    <div class="code-block p-3 text-sm">
-      <div class="font-semibold mb-2">Assets</div>
-      <div>public/images/</div>
-      <div>public/fonts/</div>
-      <div>global-bottom.vue</div>
-    </div>
-  </div>
+  </GlassCard>
 </div>
 
 ---
@@ -952,82 +954,75 @@ How to adapt this template for your needs
 
 Making the most of this template
 
-<div class="space-y-8">
-  <div class="grid grid-cols-2 gap-8">
-    <GlassCard
-      title="Design Guidelines"
-      variant="primary"
-      icon="i-ph-paint-brush-duotone"
-      :items="[
-        'Use consistent spacing (mt-4, mt-8)',
-        'Stick to the color system',
-        'Maintain visual hierarchy',
-        'Keep slides uncluttered',
-        'Use icons consistently'
-      ]"
-      size="lg"
-    />
+<div class="grid grid-cols-2 gap-6 mt-6">
+  <GlassCard
+    title="Design Guidelines"
+    variant="primary"
+    icon="i-ph-paint-brush-duotone"
+    :items="[
+      'Use consistent spacing',
+      'Stick to the color system',
+      'Maintain visual hierarchy',
+      'Keep slides uncluttered'
+    ]"
+    size="lg"
+  />
 
-    <GlassCard
-      title="Performance Tips"
-      variant="tech"
-      icon="i-ph-lightning-duotone"
-      :items="[
-        'Optimize images before adding',
-        'Use web fonts for better loading',
-        'Minimize custom CSS',
-        'Test on different screen sizes',
-        'Keep slide count reasonable'
-      ]"
-      size="lg"
-    />
-  </div>
+  <GlassCard
+    title="Performance Tips"
+    variant="tech"
+    icon="i-ph-lightning-duotone"
+    :items="[
+      'Optimize images before adding',
+      'Use web fonts for loading',
+      'Test on different screens',
+      'Keep slide count reasonable'
+    ]"
+    size="lg"
+  />
+</div>
 
-  <div class="grid grid-cols-3 gap-6">
-    <GlassCard
-      title="Accessibility"
-      variant="success"
-      icon="i-ph-eye-duotone"
-      size="sm"
-      :items="[
-        'High contrast ratios',
-        'Readable font sizes',
-        'Meaningful alt texts',
-        'Keyboard navigation'
-      ]"
-    />
+<div class="grid grid-cols-3 gap-4 mt-6">
+  <GlassCard
+    title="Accessibility"
+    variant="success"
+    icon="i-ph-eye-duotone"
+    size="sm"
+    :items="[
+      'High contrast ratios',
+      'Readable font sizes',
+      'Meaningful alt texts'
+    ]"
+  />
 
-    <GlassCard
-      title="Responsiveness"
-      variant="warning"
-      icon="i-ph-device-mobile-duotone"
-      size="sm"
-      :items="[
-        'Mobile-friendly grids',
-        'Flexible image sizing',
-        'Touch-friendly buttons',
-        'Readable on all devices'
-      ]"
-    />
+  <GlassCard
+    title="Responsiveness"
+    variant="warning"
+    icon="i-ph-device-mobile-duotone"
+    size="sm"
+    :items="[
+      'Mobile-friendly grids',
+      'Flexible image sizing',
+      'Touch-friendly buttons'
+    ]"
+  />
 
-    <GlassCard
-      title="Maintenance"
-      variant="error"
-      icon="i-ph-wrench-duotone"
-      size="sm"
-      :items="[
-        'Regular dependency updates',
-        'Component documentation',
-        'Version control best practices',
-        'Backup important presentations'
-      ]"
-    />
-  </div>
+  <GlassCard
+    title="Maintenance"
+    variant="error"
+    icon="i-ph-wrench-duotone"
+    size="sm"
+    :items="[
+      'Regular updates',
+      'Documentation',
+      'Version control'
+    ]"
+  />
 </div>
 
 ---
 layout: center
-class: "text-center pb-5"
+class: "pb-5"
 ---
 
 # Start Creating! {.emphasis-tech.text-4xl}
@@ -1036,7 +1031,6 @@ class: "text-center pb-5"
   <div class="text-xl text-on-surface-variant">
     This template provides everything you need for professional presentations
   </div>
-
   <div class="grid grid-cols-3 gap-6 mt-12">
     <GlassCard
       title="Components"
@@ -1045,7 +1039,6 @@ class: "text-center pb-5"
       size="sm"
       :items="['Ready to use', 'Well documented', 'Highly customizable']"
     />
-
     <GlassCard
       title="Design System"
       variant="gradient-secondary"
@@ -1053,7 +1046,6 @@ class: "text-center pb-5"
       size="sm"
       :items="['SJTU inspired', 'Modern colors', 'Dark mode ready']"
     />
-
     <GlassCard
       title="Developer Experience"
       variant="tech"
@@ -1062,7 +1054,6 @@ class: "text-center pb-5"
       :items="['TypeScript support', 'Hot reload', 'Easy deployment']"
     />
   </div>
-
   <div class="mt-12">
     <div class="text-lg mb-4">Get started with:</div>
     <div class="code-block p-4 font-mono text-sm inline-block">
