@@ -5,7 +5,7 @@ css: unocss
 colorSchema: auto
 transition: fade-out
 mdc: true
-glowSeed: 4
+glowSeed: 1
 title: DeepRTE
 remoteAssets: true
 ---
@@ -62,138 +62,205 @@ glow: left
 
 # Introduction
 
-Radiative transfer are important in many areas
-
-<div grid="~ cols-2">
-  <div flex="~ col gap-1" items-center>
-    <div text-xl text-on-surface>ICF</div>
-    <img src="/icf.png" border-primary rounded-lg shadow-lg h-65 />
-  </div>
-  <div flex="~ col gap-1" items-center>
-    <div text-xl text-on-surface>Radiation Therapy</div>
-    <img src="/rad-therapy.jpg" border-primary rounded-lg shadow-lg h-65 />
+<div class="mb-6 text-center">
+  <div class="text-2xl text-on-surface">
+    <span class="emphasis-primary font-bold">Radiative Transfer</span> governs energy transport
   </div>
 </div>
 
-<br>
+<div grid="~ cols-2 gap-6" mt-6>
+  <GlassCard
+    title="Inertial Confinement Fusion"
+    subtitle="Clean energy generation"
+    variant="primary"
+    icon="i-ph-atom-duotone"
+    size="md"
+  >
+    <div class="flex flex-col items-center gap-3">
+      <img src="/icf.png" class="rounded-lg shadow-lg h-32 object-contain" />
+      <div class="text-xs text-on-surface-variant text-center">
+        Radiation transport drives implosion dynamics in fusion targets
+      </div>
+    </div>
+  </GlassCard>
 
-<GlassCard variant="tech" text-center>
-  Key problem: numerical simulation of <span emphasis-tech>radiative transfer equation (RTE)</span>
-</GlassCard>
+  <GlassCard
+    title="Radiation Therapy"
+    subtitle="Precision cancer treatment"
+    variant="secondary"
+    icon="i-ph-heart-duotone"
+    size="md"
+  >
+    <div class="flex flex-col items-center gap-3">
+      <img src="/rad-therapy.jpg" class="rounded-lg shadow-lg h-32 object-contain" />
+      <div class="text-xs text-on-surface-variant text-center">
+        Accurate dose calculation for effective treatment
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+<div mt-6>
+  <GlassCard variant="tech" text-center size="md">
+    <div class="text-lg mb-2">
+      <span class="emphasis-tech font-semibold">Central Challenge:</span>
+      Numerical simulation of the <span class="emphasis-primary font-semibold">radiative transfer equation</span>
+    </div>
+    <div class="text-sm text-on-surface-variant">
+      High-dimensional phase space • Complex collision operators • Multi-scale physics
+    </div>
+  </GlassCard>
+</div>
 
 ---
-glow: bottom
+glow: right
 ---
 
 # Radiative Transfer Equation
 
-<GlassCard variant="primary" size="sm">
-<GlassCard variant="secondary" text-on-surface size="sm">
+<div class="mb-4">
+  <GlassCard variant="primary" size="lg" py2>
+  <div class="text-center mb-4">
+  <div class="text-lg font-semibold text-on-surface mb-2">The governing equation</div>
+  <div class="bg-white/20 dark:bg-black/10 rounded-lg p-2 border border-white/10">
 
-$$
-\Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) =
-\frac{\mu_s(r)}{S_{d-1}}\int_{\mathbb{S}^{d-1}} p(\Omega, \Omega^*)
-I(r, \Omega^*)\,\mathrm{d}\Omega^*,
-$$
+  $$
+  \Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) = \frac{\mu_s(r)}{S_{d-1}}\int_{\mathbb{S}^{d-1}} p(\Omega, \Omega^*) I(r, \Omega^*)\,\mathrm{d}\Omega^*
+  $$
 
-</GlassCard>
-<div mt5 />
+  </div>
+  </div>
+  <div class="grid grid-cols-2 gap-6 text-sm">
+  <div>
+  <div flex="~ gap-2 items-center">
+  <strong>
 
-- $I(r,\Omega)$: radiation intensity at phase space $(r,\Omega)$
+  $I(r,\Omega)$:
 
-- $\mu_t(r)$: total cross section
+  </strong>
 
-- $\mu_s(r)$: scattering cross section
+  radiation intensity at phase space $(r,\Omega)$
 
-- $p(\Omega,\Omega^*)$: phase function or scattering function
+  </div>
+  <div flex="~ gap-2 items-center">
+  <strong>
 
-</GlassCard>
+  $\mu_t(r)$:
 
-<div mt4 />
+  </strong>
+  total cross section
+  </div>
+  </div>
+  <div>
+  <div flex="~ gap-2 items-center">
+  <strong>
 
-<GlassCard title="Boundary condition" variant="primary" size="sm">
-  <div flex="~ gap-2 items-center justify-center">
+  $\mu_s(r)$:
+
+  </strong>
+  scattering cross section
+  </div>
+  <div flex="~ gap-2 items-center"><strong>
+
+  $p(\Omega,\Omega^*)$:
+
+  </strong>
+  phase function
+  </div>
+  </div>
+  </div>
+  </GlassCard>
+</div>
+
+<div class="mt-0">
+  <GlassCard title="Boundary Conditions" variant="secondary" size="md">
+  <div class="text-center text-on-surface-variant">
+  <div class="bg-white/20 dark:bg-black/10 rounded-lg border border-white/10" flex="~ gap-2 items-center justify-center">
 
   $I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)$
 
-  with
+  where
 
-  $\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \},$
+  $\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \}$
 
   </div>
-</GlassCard>
-
----
-
-# Numerical Chanllenges
-
-Curse of dimensionality
-
-<div flex="~ gap-4 items-center" mt-10>
-  <GlassCard title="Dimension" variant="tech" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" />
-
-  <GlassCard title="Collision" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" variant="primary" />
-
-  <GlassCard title="Multiscale" :items="['Phase space + time: 6 + 1 = 7', 'Collision operator is a 5-fold integral', 'Need to evalute collision at every phase point']" size="lg" variant="secondary" />
+  </div>
+  </GlassCard>
 </div>
 
 ---
 
-# Numerical Chanllenges
+# Numerical Challenges
 
-Curse of dimensionality
-
-<div mt5 />
-
-<div grid="~ gap-4 cols-3">
-
-<div v-click flex="~ col gap-4" rounded-lg bg-red:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl>
-    <div i-ph-cube-transparent-duotone text-red text-4xl />
-    <div text-red>Dimension</div>
+<div class="mb-6 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Three Major Barriers</span> in Radiative Transfer Simulation
   </div>
-  <div text-red2>
-
-  - Phase space + time: 6 + 1 = 7
-
-  - Collision operator is a 5-fold integral
-
-  - Need to evalute collision at every phase point
-
+  <div class="text-base text-on-surface-variant">
+    Fundamental computational challenges that motivate machine learning approaches
   </div>
 </div>
 
-<div v-click flex="~ col gap-4" rounded-lg bg-green:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl>
-    <div i-ph-circles-three-duotone text-green text-4xl />
-    <div text-green>Collision</div>
-  </div>
-  <div text-green2>
+<div grid="~ gap-6 cols-3" mt-6>
 
-  - Hard to maintain conservation at discrete level
-
-  - Highly nonlinear for Boltzmann collision
-
-  - Ray effect
-
-  </div>
+<div v-click="1">
+  <GlassCard
+    title="High Dimensionality"
+    subtitle="The curse of dimensions"
+    variant="error"
+    icon="i-ph-cube-duotone"
+    size="md"
+    :items="[
+      '7D phase space: $(x,y,z,\\Omega_x,\\Omega_y,\\Omega_z,t)$',
+      'Grid points scale exponentially as $N^7$',
+      'Intractable memory and storage needs'
+    ]"
+    :enable-latex="true"
+  />
 </div>
 
-<div v-click flex="~ col gap-4" rounded-lg bg-amber:15 p6>
-  <div flex="~ gap-1 items-center" text-3xl>
-    <div i-ph-chart-bar-duotone text-amber text-4xl />
-    <div text-amber>Multiscale</div>
-  </div>
-  <div text-amber2>
-
-  - Stability issues for small $\varepsilon$ (stiffness)
-
-  - Consistency of the scheme with limiting model as $\varepsilon \to 0$
-
-  - Automatically capture the transition across regimes
-
-  </div>
+<div v-click="2">
+  <GlassCard
+    title="Complex Collisions"
+    subtitle="Nonlinear interactions"
+    variant="warning"
+    icon="i-ph-arrows-merge-duotone"
+    size="md"
+    :items="[
+      'Preserve conservation laws at discrete level',
+      'Handle nonlinear Boltzmann-type operators',
+      'Avoid spurious ray effects and diffusion'
+    ]"
+  />
 </div>
+
+<div v-click="3">
+  <GlassCard
+    title="Multi-scale Physics"
+    subtitle="Regime coupling"
+    variant="tech"
+    icon="i-ph-scales-duotone"
+    size="md"
+    :items="[
+      'Stiffness parameter: $\\varepsilon = \\ell/L \\ll 1$',
+      'Design asymptotic-preserving schemes',
+      'Couple transport ↔ diffusion transitions'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+</div>
+
+<div class="mt-6">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="text-base font-semibold mb-1">
+      <span class="emphasis-tech">Why Deep Learning?</span>
+    </div>
+    <div class="text-sm opacity-90">
+      Neural networks can potentially overcome dimensional scaling and learn complex multi-scale behavior
+    </div>
+  </GlassCard>
 </div>
 
 ---
