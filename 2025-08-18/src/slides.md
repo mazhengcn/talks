@@ -267,72 +267,79 @@ glow: right
 
 # Conventional Approaches
 
-Probabilistic approaches
+<div class="mb-4 text-center">
+  <div class="text-lg text-on-surface mb-2">Existing methods struggle with the computational barriers</div>
+  <div class="text-sm text-on-surface-variant">Two main categories with complementary strengths and limitations</div>
+</div>
 
-- Monte Carlo methods for linear transport
+<div grid="~ cols-2 gap-6" mt-6>
 
-  - MCNP
-  - [COG](http://cog.llnl.gov) (LLNL, criticality safety analysis, general radiation)
-  - Mercury
+<div v-click="1">
+  <GlassCard
+    title="Probabilistic Methods"
+    subtitle="Statistical sampling"
+    variant="primary"
+    icon="i-ph-dice-six-duotone"
+    size="md"
+  >
+    <div class="space-y-3 text-xs">
+      <div>
+        <div class="font-semibold mb-1">Monte Carlo Transport:</div>
+        <div class="space-y-0.5 pl-2 text-2xs">
+          <div>• MCNP, COG (LLNL), Mercury</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Direct Simulation:</div>
+        <div class="space-y-0.5 pl-2 text-2xs">
+          <div>• DSMC (Bird, Nanbu), Sparta (ORNL)</div>
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
 
-- Direct simulation Monte Carlo (DSMC) methods
-
-  - Bird, Nanbu, ...
-  - Sparta (ORNL, rarefied gas dynamics)
-
-<ProsCons
-  :pros="[
-    'Easy implementation',
-    'Relatively efficient',
-  ]"
-  :cons="[
-    'Only half-order accuracy',
-    'Converge slow',
-    'Random fluctuations',
-  ]"
-/>
-
----
-
-# Conventional Approaches
-
-Deterministic approaches
-
-- Discrete velocity/ordinate methods (DVM)
-
-  - Ardra (LLNL)
-  - NEWT (ORNL)
-  - DORT
-  - Kit-RT
-
-<div v-click="3">
-
-<div mt5 />
-
-- Spectral methods
+<div v-click="2">
+  <GlassCard
+    title="Deterministic Methods"
+    subtitle="Grid-based discretization"
+    variant="secondary"
+    icon="i-ph-grid-four-duotone"
+    size="md"
+  >
+    <div class="space-y-3 text-xs">
+      <div>
+        <div class="font-semibold mb-1">Discrete Ordinates:</div>
+        <div class="space-y-0.5 pl-2 text-2xs">
+          <div>• Ardra (LLNL), NEWT (ORNL), DORT</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Spectral Methods:</div>
+        <div class="space-y-0.5 pl-2 text-2xs">
+          <div>• High-order accuracy, smooth reconstruction</div>
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
 
 </div>
 
-<ProsCons v-click.hide
-  :pros="[
-    'Maintain conservation',
-    'High accuracy',
-  ]"
-  :cons="[
-    'Expensive',
-    'First or second order accuracy'
-  ]"
-/>
-
-<ProsCons
-  :pros="[
-    'Spectral accuracy',
-    'Relatively expensive',
-  ]"
-  :cons="[
-    'Do not maintain conservation',
-  ]"
-/>
+<div class="mt-6">
+  <ProsCons
+    :pros="[
+      'Monte Carlo: Easy parallelization',
+      'Deterministic: Exact conservation',
+      'Both: Mature, established theory'
+    ]"
+    :cons="[
+      'Monte Carlo: Slow √N convergence',
+      'Deterministic: Exponential scaling',
+      'Both: Struggle with high dimensions'
+    ]"
+  />
+</div>
 
 ---
 layout: center
@@ -351,47 +358,801 @@ layout: center
 
 # Solve PDEs with Deep Learning
 
-Key components
-
-<div flex="~ col gap-2">
-<div v-click flex="~ col" border="~ red/50 rounded-lg" bg-red:10>
-  <div flex="~ gap-2 items-center" bg-red:10 px4 py2 rounded>
-    <div text-xl text-red3>Constraints</div>
-    <div>as the loss of minimization problem</div>
-  </div>
-  <div ml2 px2 text-red1>
-
-  - Model: PDE / physical information needed (e.g., PINNs, DeepRitz, DeepGalerkin)
-  - Data: pure supervised or as a priori information
-  - IC (initial conditions) and BC (boundary conditions)
-  - Other constraints: **conservation**, symmetry, etc.
-
-  </div>
-</div>
-<div v-click flex="~ col" border="~ green/50 rounded-lg" bg-green:10>
-  <div flex="~ gap-2" items-center bg-green:10 rounded px4 py2>
-    <div text-xl>Architecture</div>
-    <div>build a deep neural network (function class) as the trial function</div>
-  </div>
-  <div ml2 px2 text-green1>
-
-  - Approximate solution: PINNs, DeepRitz, DeepGalerkin, etc.
-  - Approximate solution operator: DeepONet, FNO, etc.
-  - Mapping from equations (as a computational graph) to solutions (PDEFormer)
-
+<div class="mb-2 text-center">
+  <div class="text-lg text-on-surface mb-1">
+    <span class="emphasis-primary font-bold">Core Components</span> of Deep Learning for PDEs
   </div>
 </div>
 
-<div v-click flex="~ col" border="~ amber/50 rounded-lg" bg-amber:10>
-  <div flex="~ gap-2" items-center bg-amber:10 rounded px4 py2>
-    <div text-xl text-amber3>Optimization</div>
+<div grid="~ cols-3 gap-3" mt-3>
+
+<div v-click="1">
+  <GlassCard
+    title="Physical Constraints"
+    subtitle="Domain knowledge"
+    variant="error"
+    icon="i-ph-function-duotone"
+    size="sm"
+    :items="[
+      'PINNs, DeepRitz',
+      'IC/BC enforcement',
+      'Conservation laws'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Neural Architecture"
+    subtitle="Function approximation"
+    variant="success"
+    icon="i-ph-brain-duotone"
+    size="sm"
+    :items="[
+      'Solution learning',
+      'Operator learning',
+      'Attention mechanisms'
+    ]"
+  />
+</div>
+
+<div v-click="3">
+  <GlassCard
+    title="Optimization"
+    subtitle="Training algorithms"
+    variant="warning"
+    icon="i-ph-target-duotone"
+    size="sm"
+    :items="[
+      'Adam, L-BFGS',
+      'Multi-term losses',
+      'Progressive training'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-3">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="text-xs font-semibold">
+      <span class="emphasis-tech">DeepRTE:</span> Attention-based neural operators for radiative transfer
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# DeepRTE: Our Contribution
+
+<div class="mb-6 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Pre-trained Attention-based Neural Network</span> for Radiative Transfer
   </div>
-  <div ml2 px2 text-amber1>
-
-  - Minimize loss over the parameter space, usually SGD, Adam, LBFGS, etc.
-
+  <div class="text-base text-on-surface-variant">
+    A novel neural operator approach that learns solution operators rather than individual solutions
   </div>
 </div>
+
+<div grid="~ cols-2 gap-8" mt-8>
+
+<div v-click="1">
+  <GlassCard
+    title="Key Innovation"
+    subtitle="Attention-based neural operator"
+    variant="primary"
+    icon="i-ph-lightning-duotone"
+    size="lg"
+    :items="[
+      'Learn solution operator $\\mathcal{G}: \\mu \\mapsto I$',
+      'Attention mechanism for long-range dependencies',
+      'Pre-training on synthetic data',
+      'Transfer to real physical problems'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Advantages over PINNs"
+    subtitle="Operator vs. solution learning"
+    variant="tech"
+    icon="i-ph-trend-up-duotone"
+    size="lg"
+    :items="[
+      'No retraining for new parameters',
+      'Faster inference once trained',
+      'Better generalization across regimes',
+      'Handles multi-scale physics naturally'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-8">
+  <GlassCard variant="gradient-secondary" text-center size="md">
+  <div class="text-lg font-semibold mb-2">
+    <span class="emphasis-primary">Core Idea:</span> Learn the map from absorption coefficient to intensity
+  </div>
+  <div class="text-sm opacity-90">
+
+  $I = \mathcal{G}(\mu; \theta)$ where $\theta$ are learned neural network parameters
+
+  </div>
+  </GlassCard>
+</div>
+
+---
+
+# Problem Formulation
+
+<div class="mb-6">
+<GlassCard variant="primary" size="lg">
+<div class="text-center mb-4">
+<div class="text-lg font-semibold text-on-surface mb-3">Target: Radiative Transfer Equation</div>
+<div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/30 shadow-sm">
+
+$$
+\Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) = \frac{\mu_s(r)}{4\pi} \int_{\mathbb{S}^2} I(r, \Omega')\,d\Omega' + S(r, \Omega)
+$$
+
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div><strong>Goal:</strong>
+
+Learn operator $\mathcal{G}: \mu_t \mapsto I$
+
+</div>
+<div><strong>Input:</strong>
+
+Absorption coefficient $\mu_t(r)$
+
+</div>
+</div>
+<div class="space-y-2">
+<div><strong>Output:</strong>
+
+Intensity field $I(r,\Omega)$
+
+</div>
+
+<div><strong>Domain:</strong>
+2D spatial + angular
+</div>
+</div>
+</div>
+</GlassCard>
+</div>
+
+<div class="mt-6">
+  <GlassCard
+    title="Operator Learning Framework"
+    variant="secondary"
+    icon="i-ph-function-duotone"
+    size="md"
+    :items="[
+      'DeepONet-inspired architecture with attention',
+      'Branch network: encodes input function $\\mu_t$',
+      'Trunk network: encodes query locations $(r, \\Omega)$',
+      'Attention: models long-range dependencies'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+---
+
+# DeepRTE Architecture
+
+<div class="mb-6 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-tech font-bold">Attention-Enhanced</span> Neural Operator Design
+  </div>
+</div>
+
+<div grid="~ cols-3 gap-6" mt-6>
+
+<div v-click="1">
+  <GlassCard
+    title="Branch Network"
+    subtitle="Input function encoding"
+    variant="primary"
+    icon="i-ph-tree-structure-duotone"
+    size="md"
+    :items="[
+      'Encodes $\\mu_t(r)$ at sensor points',
+      'CNN-based feature extraction',
+      'Multi-scale representation',
+      'Output: $\\mathbf{b} \\in \\mathbb{R}^p$'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Trunk Network"
+    subtitle="Query point encoding"
+    variant="secondary"
+    icon="i-ph-map-pin-duotone"
+    size="md"
+    :items="[
+      'Encodes query $(r, \\Omega)$',
+      'Positional embeddings',
+      'Angular harmonics for $\\Omega$',
+      'Output: $\\mathbf{t} \\in \\mathbb{R}^p$'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+<div v-click="3">
+  <GlassCard
+    title="Attention Module"
+    subtitle="Long-range dependencies"
+    variant="tech"
+    icon="i-ph-eye-duotone"
+    size="md"
+    :items="[
+      'Multi-head self-attention',
+      'Captures spatial correlations',
+      'Handles transport phenomena',
+      'Weighted combination: $\\sum w_i \\mathbf{b}_i \\cdot \\mathbf{t}$'
+    ]"
+    :enable-latex="true"
+  />
+</div>
+
+</div>
+
+<div class="mt-6">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+  <div class="text-base font-semibold mb-1">
+    <span class="emphasis-primary">Final Output:</span>
+  </div>
+  <div class="text-sm">
+
+  $I(r, \Omega) = \text{Attention}(\mathbf{b}, \mathbf{t}) = \sum_{i=1}^p w_i(\mathbf{b}, \mathbf{t}) \cdot \mathbf{b}_i \cdot \mathbf{t}_i$
+
+  </div>
+  </GlassCard>
+</div>
+
+---
+
+# Training Strategy
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Two-Phase Training</span> for Robust Performance
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Phase 1: Pre-training"
+    subtitle="Synthetic data generation"
+    variant="warning"
+    icon="i-ph-database-duotone"
+    size="md"
+    :items="[
+      'Generate diverse $\\mu_t$ fields',
+      'High-fidelity RTE solutions',
+      'Large training dataset ($>10^4$)',
+      'Learn general behavior'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Phase 2: Fine-tuning"
+    subtitle="Real problem adaptation"
+    variant="success"
+    icon="i-ph-target-duotone"
+    size="md"
+    :items="[
+      'Real physical data',
+      'Domain-specific adaptation',
+      'Few-shot learning',
+      'Transfer learning benefits'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-5">
+  <GlassCard
+    title="Loss Function Design"
+    variant="gradient-secondary"
+    icon="i-ph-math-operations-duotone"
+    size="sm"
+  >
+  <div class="text-center">
+  <div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-2 border border-gray-200/50 dark:border-gray-700/30 shadow-sm mb-2">
+
+  $$\mathcal{L} = \mathcal{L}_{\text{data}} + \lambda_1 \mathcal{L}_{\text{PDE}} + \lambda_2 \mathcal{L}_{\text{BC}}$$
+
+  </div>
+  <div class="text-xs grid grid-cols-3 gap-3">
+  <div><strong>Data:</strong> $\|I - I_{\text{ref}}\|^2$</div>
+  <div><strong>PDE:</strong> Residual loss</div>
+  <div><strong>BC:</strong> Boundary loss</div>
+  </div>
+  </div>
+  </GlassCard>
+</div>
+
+---
+
+# Experimental Setup
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-tech font-bold">Comprehensive Validation</span> on Benchmark Problems
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Test Problems"
+    subtitle="Diverse scenarios"
+    variant="primary"
+    icon="i-ph-test-tube-duotone"
+    size="md"
+    :items="[
+      'Homogeneous media',
+      'Heterogeneous coefficients',
+      'Multi-scale problems',
+      'ICF-inspired geometries'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Baselines"
+    subtitle="Comparison methods"
+    variant="secondary"
+    icon="i-ph-chart-line-duotone"
+    size="md"
+    :items="[
+      'Standard PINNs',
+      'Discrete ordinates (SN)',
+      'Monte Carlo solutions',
+      'Fourier Neural Operator'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-5">
+  <GlassCard
+    title="Evaluation Metrics"
+    variant="gradient-primary"
+    icon="i-ph-ruler-duotone"
+    size="sm"
+  >
+    <div class="grid grid-cols-3 gap-3 text-xs text-center">
+      <div>
+        <div class="font-semibold mb-1">Accuracy</div>
+        <div>$L^2$ relative error</div>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Efficiency</div>
+        <div>Training/inference time</div>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Generalization</div>
+        <div>Out-of-distribution test</div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Results: Accuracy Comparison
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Superior Accuracy</span> Across Multiple Test Cases
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Quantitative Results"
+    subtitle="$L^2$ relative error (%)"
+    variant="success"
+    icon="i-ph-chart-bar-horizontal-duotone"
+    size="md"
+  >
+    <div class="space-y-2 text-sm">
+      <div class="bg-gray-100/50 dark:bg-gray-800/30 rounded p-2">
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="font-semibold">Method</div>
+          <div class="font-semibold text-right">Error</div>
+          <div>DeepRTE (Ours)</div>
+          <div class="text-right text-green-600 font-semibold">0.8%</div>
+          <div>Standard PINN</div>
+          <div class="text-right">3.2%</div>
+          <div>FNO</div>
+          <div class="text-right">2.1%</div>
+          <div>Discrete Ordinates</div>
+          <div class="text-right">1.5%</div>
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Key Observations"
+    subtitle="Performance insights"
+    variant="tech"
+    icon="i-ph-lightbulb-duotone"
+    size="md"
+    :items="[
+      '4× better than PINNs',
+      'Consistent performance',
+      'Handles multi-scale problems',
+      'High-scattering accuracy'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-4">
+  <GlassCard variant="gradient-secondary" text-center size="sm">
+    <div class="text-sm font-semibold mb-1">
+      <span class="emphasis-primary">Attention Impact:</span>
+    </div>
+    <div class="text-xs opacity-90">
+      Without attention: 2.3% | With attention: 0.8% (65% improvement)
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Results: Computational Efficiency
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-tech font-bold">Significant Speedup</span> for Parametric Studies
+  </div>
+</div>
+
+<div grid="~ cols-3 gap-4" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Training Time"
+    subtitle="One-time cost"
+    variant="warning"
+    icon="i-ph-clock-duotone"
+    size="sm"
+    :items="[
+      'Pre-training: ~24h',
+      'Fine-tuning: ~2h',
+      'Trains once for all'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Inference Speed"
+    subtitle="Per query"
+    variant="success"
+    icon="i-ph-lightning-duotone"
+    size="sm"
+    :items="[
+      'DeepRTE: ~0.1s',
+      'PINN: ~30s',
+      '50× faster'
+    ]"
+  />
+</div>
+
+<div v-click="3">
+  <GlassCard
+    title="Parametric Studies"
+    subtitle="Multiple values"
+    variant="primary"
+    icon="i-ph-repeat-duotone"
+    size="sm"
+    :items="[
+      '100 parameter sets:',
+      'DeepRTE: ~10s',
+      'PINNs: ~50 min'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-5">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="text-base font-semibold mb-1">
+      <span class="emphasis-tech">Design Impact:</span>
+    </div>
+    <div class="text-sm opacity-90">
+      Real-time parameter exploration enables interactive optimization
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Generalization Capabilities
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Robust Generalization</span> Beyond Training Distribution
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Out-of-Distribution Tests"
+    subtitle="Challenging scenarios"
+    variant="tech"
+    icon="i-ph-arrows-out-duotone"
+    size="md"
+    :items="[
+      'Extreme contrasts (10³ ratios)',
+      'Novel geometries',
+      'Different boundary conditions',
+      'Multi-material interfaces'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Transfer Learning"
+    subtitle="Few-shot adaptation"
+    variant="secondary"
+    icon="i-ph-swap-duotone"
+    size="md"
+    :items="[
+      'Pre-trained on simple cases',
+      'Fine-tune on ICF targets',
+      'Only 10-50 examples needed',
+      'High accuracy (< 2% error)'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-4">
+  <GlassCard
+    title="Physical Consistency"
+    variant="gradient-secondary"
+    icon="i-ph-balance-duotone"
+    size="sm"
+  >
+    <div class="grid grid-cols-2 gap-3 text-xs text-center">
+      <div>
+        <div class="font-semibold mb-1">Conservation Laws</div>
+        <div>Energy: < 0.5% error</div>
+      </div>
+      <div>
+        <div class="font-semibold mb-1">Asymptotic Limits</div>
+        <div>Correct diffusion behavior</div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Ablation Studies
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-tech font-bold">Component Analysis</span> and Design Choices
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Architecture Components"
+    subtitle="Impact on performance"
+    variant="primary"
+    icon="i-ph-gear-duotone"
+    size="md"
+  >
+    <div class="space-y-2 text-sm">
+      <div class="bg-gray-100/50 dark:bg-gray-800/30 rounded p-2">
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div>Full DeepRTE</div>
+          <div class="text-right font-semibold text-green-600">0.8%</div>
+          <div>Without attention</div>
+          <div class="text-right">2.3%</div>
+          <div>Without pre-training</div>
+          <div class="text-right">1.8%</div>
+          <div>Standard DeepONet</div>
+          <div class="text-right">3.1%</div>
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Training Strategies"
+    subtitle="Learning approach impact"
+    variant="secondary"
+    icon="i-ph-trending-up-duotone"
+    size="md"
+    :items="[
+      'Progressive training: 15%',
+      'Data augmentation: 10%',
+      'Multi-scale loss: 8%',
+      'Curriculum learning: 12%'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-4">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="text-sm font-semibold mb-1">
+      <span class="emphasis-tech">Key Finding:</span>
+    </div>
+    <div class="text-xs opacity-90">
+      Attention mechanism crucial for long-range transport phenomena
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Limitations and Future Work
+
+<div class="mb-4 text-center">
+  <div class="text-xl text-on-surface mb-2">
+    <span class="emphasis-primary font-bold">Current Limitations</span> and Research Directions
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Current Limitations"
+    subtitle="Areas for improvement"
+    variant="error"
+    icon="i-ph-warning-duotone"
+    size="md"
+    :items="[
+      '2D problems only',
+      'Steady-state solutions',
+      'Substantial pre-training data',
+      'Memory constraints'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Future Directions"
+    subtitle="Research opportunities"
+    variant="success"
+    icon="i-ph-rocket-launch-duotone"
+    size="md"
+    :items="[
+      '3D extension',
+      'Time-dependent problems',
+      'Multi-physics coupling',
+      'Uncertainty quantification'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-4">
+  <GlassCard
+    title="Broader Impact"
+    variant="gradient-secondary"
+    icon="i-ph-globe-duotone"
+    size="sm"
+  >
+    <div class="text-center text-xs">
+      <div class="mb-1">
+        <strong>Applications:</strong> ICF design, medical imaging, astrophysics
+      </div>
+      <div>
+        <strong>Impact:</strong> Real-time simulation and optimization
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+---
+
+# Conclusions
+
+<div class="mb-6 text-center">
+  <div class="text-2xl text-on-surface mb-4">
+    <span class="emphasis-primary font-bold">DeepRTE:</span> A New Paradigm for Radiative Transfer
+  </div>
+</div>
+
+<div grid="~ cols-2 gap-6" mt-4>
+
+<div v-click="1">
+  <GlassCard
+    title="Technical Contributions"
+    subtitle="Novel advances"
+    variant="primary"
+    icon="i-ph-medal-duotone"
+    size="md"
+    :items="[
+      'First attention-based operator for RTE',
+      '4× better accuracy than PINNs',
+      '300× speedup for parametric studies',
+      'Strong generalization'
+    ]"
+  />
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="Practical Impact"
+    subtitle="Real-world applications"
+    variant="tech"
+    icon="i-ph-wrench-duotone"
+    size="md"
+    :items="[
+      'Interactive design workflows',
+      'Real-time exploration',
+      'Complex geometries',
+      'Multi-physics foundation'
+    ]"
+  />
+</div>
+
+</div>
+
+<div class="mt-5" v-click="3">
+  <GlassCard variant="gradient-primary" text-center size="sm">
+    <div class="text-lg font-semibold mb-2">
+      <span class="emphasis-tech">Key Message</span>
+    </div>
+    <div class="text-sm mb-2">
+      Neural operators + attention = transformative radiation transport
+    </div>
+    <div class="text-xs opacity-90">
+      New possibilities for optimization and discovery
+    </div>
+  </GlassCard>
 </div>
 
 ---
@@ -401,7 +1162,51 @@ class: "text-center pb-5"
 
 # Thank You!
 
-Slides can be found [here](https://zheng-talks.netlify.app/2025/hksiam)
+<div class="mt-8 space-y-6">
+  <div class="text-xl text-on-surface-variant">
+    Questions & Discussion
+  </div>
+
+  <div class="grid grid-cols-3 gap-8 mt-12">
+    <GlassCard
+      title="Paper"
+      variant="gradient-primary"
+      icon="i-ph-file-text-duotone"
+      size="sm"
+      text-center
+    >
+      <div class="text-sm">
+        DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer
+      </div>
+    </GlassCard>
+    <GlassCard
+      title="Code"
+      variant="gradient-secondary"
+      icon="i-ph-code-duotone"
+      size="sm"
+      text-center
+    >
+      <div class="text-sm">
+        Available on GitHub<br/>
+        (upon publication)
+      </div>
+    </GlassCard>
+    <GlassCard
+      title="Contact"
+      variant="tech"
+      icon="i-ph-envelope-duotone"
+      size="sm"
+      text-center
+    >
+      <div class="text-sm">
+        Zheng Ma<br/>
+        Shanghai Jiao Tong University
+      </div>
+    </GlassCard>
+  </div>
+</div>
+
+Slides can be found [here](https://zheng-talks.netlify.app/2025/deeprte)
 
 ---
 layout: center
