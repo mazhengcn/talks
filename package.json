@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "rimraf dist && bun run --filter='*' build",
-    "dev": "bun scripts/picker.ts dev --open",
+    "dev": "bun scripts/picker.ts dev --open --remote",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
     "update": "bun scripts/redirects.ts"

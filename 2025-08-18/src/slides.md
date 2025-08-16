@@ -416,7 +416,7 @@ glow: left
   </div>
 </div>
 
-<div grid="~ cols-[max-content_min-content_max-content] items-center justify-around" mt-5>
+<div grid="~ cols-[1fr_min-content_1fr] items-center gap-15" mt-5 w-full>
 
 <div v-click="1">
   <GlassCard
@@ -447,7 +447,7 @@ glow: left
   </GlassCard>
 </div>
 
-<div v-click="2" i-ph:plus-duotone text-6xl op50 text-success />
+<div v-click="2" i-ph:plus-duotone text-6xl op50 />
 
 <div v-click="3">
   <GlassCard
@@ -483,7 +483,7 @@ glow: left
 </div>
 
 <div class="mt-5" v-click="3">
-  <GlassCard variant="gradient-primary" text-center size="md" ml-8 w-200>
+  <GlassCard variant="gradient-primary" text-center size="md" w-full>
     <div class="font-semibold text-lg">
       <span class="emphasis-tech">Key advantage:</span>
       Train once, solve many RTE problems
@@ -611,68 +611,118 @@ Fourier Neural Operator has structural limitations for radiative transfer
     </div>
   </GlassCard>
 </div>
+</div>
+
+---
+
+# Our goal
+
+End-to-end fashion
+
+<GlassCard title="Learn the solution operator" variant="primary">
+<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+
+$$
+\mathcal{A}: (I_-; \mu_t, \mu_s, p) \mapsto I
+$$
+
+</div>
+</GlassCard>
+
+<div grid="~ cols-[2fr_min-content_1fr] items-center gap-15" mt-8>
+
+<GlassCard
+  title="Inputs"
+  variant="warning"
+  enable-latex="true"
+  :items="[
+    '$I_{-}(r,\\Omega)$: incoming boundary function',
+    '$\\mu_t(r)$: total cross section',
+    '$\\mu_s(r)$: scattering cross section',
+    '$p(\\Omega,\\Omega^*)$: scattering kernel function'
+  ]"
+/>
+
+<div i-ph:arrow-right-duotone text-5xl op-50 />
+
+<GlassCard title="Output" variant="success">
+<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+
+$$
+I(r, \Omega)
+$$
+
+</div>
+</GlassCard>
 
 </div>
 
 ---
 
+# Idea
+
+Green's function:
+
+<GlassCard title="Green's function" variant="primary" size="lg">
+<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+
+$$
+I(r, \Omega)\approx \int_{\Gamma_-} G^{\text{NN}}(r, r', \Omega, \Omega'; \mu_t, \mu_s, p) I_-(r',\Omega') \, \mathrm{d}r' \mathrm{d}\Omega'
+$$
+
+</div>
+
+- Solution $I$ is linear in boundary function $I_{-}$
+
+- Green's function $G^{\text{NN}}$ is non-linear in $\mu_t$, $\mu_s$ and $p$
+
+- Dependency on $\mu_t$ and $\mu_s$ is non-local
+
+</GlassCard>
+
+---
+
 # Problem Formulation
 
-<div class="mb-6">
-<GlassCard variant="primary" size="lg">
-<div class="text-center mb-4">
-<div class="text-lg font-semibold text-on-surface mb-3">Target: Radiative Transfer Equation</div>
-<div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-4 border border-gray-200/50 dark:border-gray-700/30 shadow-sm">
+<div class="mb-4">
+<GlassCard variant="primary" size="md">
+<div class="text-center mb-3">
+<div class="text-base font-semibold text-on-surface mb-2">Target: Radiative Transfer Equation</div>
+<div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-3 border border-gray-200/50 dark:border-gray-700/30 shadow-sm">
 
 $$
-\Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) = \frac{\mu_s(r)}{4\pi} \int_{\mathbb{S}^2} I(r, \Omega')\,d\Omega' + S(r, \Omega)
+\Omega \cdot \nabla I + \mu_t I = \frac{\mu_s}{4\pi} \int_{\mathbb{S}^2} I\,d\Omega' + S
 $$
 
 </div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 text-sm">
-<div class="space-y-2">
-<div><strong>Goal:</strong>
-
-Learn operator $\mathcal{G}: \mu_t \mapsto I$
-
+<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="space-y-1">
+<div><strong>Goal:</strong> Learn operator $\mathcal{G}: \mu_t \mapsto I$</div>
+<div><strong>Input:</strong> Absorption coefficient $\mu_t(r)$</div>
 </div>
-<div><strong>Input:</strong>
-
-Absorption coefficient $\mu_t(r)$
-
-</div>
-</div>
-<div class="space-y-2">
-<div><strong>Output:</strong>
-
-Intensity field $I(r,\Omega)$
-
-</div>
-
-<div><strong>Domain:</strong>
-2D spatial + angular
-</div>
+<div class="space-y-1">
+<div><strong>Output:</strong> Intensity field $I(r,\Omega)$</div>
+<div><strong>Domain:</strong> 2D spatial + angular</div>
 </div>
 </div>
 </GlassCard>
 </div>
 
-<div class="mt-6">
+<div class="mt-4">
   <GlassCard
     title="Operator Learning Framework"
     variant="secondary"
     icon="i-ph-function-duotone"
-    size="md"
-    :items="[
-      'DeepONet-inspired architecture with attention',
-      'Branch network: encodes input function $\\mu_t$',
-      'Trunk network: encodes query locations $(r, \\Omega)$',
-      'Attention: models long-range dependencies'
-    ]"
-    :enable-latex="true"
-  />
+    size="sm"
+  >
+    <div class="text-xs space-y-1">
+      <div>• DeepONet-inspired architecture with attention</div>
+      <div>• Branch network: encodes input function $\mu_t$</div>
+      <div>• Trunk network: encodes query locations $(r, \Omega)$</div>
+      <div>• Attention: models long-range dependencies</div>
+    </div>
+  </GlassCard>
 </div>
 
 ---
