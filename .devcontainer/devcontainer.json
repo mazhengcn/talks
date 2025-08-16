@@ -3,9 +3,6 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "features": {
-    "ghcr.io/devcontainers-extra/features/starship:1": {}
-  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -22,7 +19,6 @@
     "type=volume,source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules"
   ],
   "postCreateCommand": {
-    "init-starship": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
     "install-dependencies": "sudo chown bun node_modules && bun install"
   },
   "remoteUser": "bun"

@@ -355,43 +355,37 @@ layout: center
 </div>
 
 ---
+glow: right
+---
 
 # Solve PDEs with Deep Learning
 
-<div class="mb-2 text-center">
-  <div class="text-lg text-on-surface mb-1">
-    <span class="emphasis-primary font-bold">Core Components</span> of Deep Learning for PDEs
-  </div>
-</div>
-
-<div grid="~ cols-3 gap-3" mt-3>
+<div flex="~ col gap-3">
 
 <div v-click="1">
   <GlassCard
-    title="Physical Constraints"
-    subtitle="Domain knowledge"
-    variant="error"
-    icon="i-ph-function-duotone"
-    size="sm"
+    title="Architecture: hypothesis space"
+    variant="success"
+    icon="i-ph-brain-duotone"
+    size="md"
     :items="[
-      'PINNs, DeepRitz',
-      'IC/BC enforcement',
-      'Conservation laws'
+      'Approximate solution: PINNs, DeepRitz, etc.',
+      'Approximate solution operator: DeepONet, FNO, etc.',
+      'Approximate PDE (from equations to solutions): PDEFormer-1/2'
     ]"
   />
 </div>
 
 <div v-click="2">
   <GlassCard
-    title="Neural Architecture"
-    subtitle="Function approximation"
-    variant="success"
-    icon="i-ph-brain-duotone"
-    size="sm"
+    title="Constraints: loss of minimization problem"
+    variant="error"
+    icon="i-ph-function-duotone"
+    size="md"
     :items="[
-      'Solution learning',
-      'Operator learning',
-      'Attention mechanisms'
+      'Data: pure supervised or as a priori information',
+      'Model: physical information (PDE) needed (e.g., PINNs, DeepRitz, DeepGalerkin)',
+      'Other: IC, BC, conservation, symmetry, etc.'
     ]"
   />
 </div>
@@ -399,89 +393,225 @@ layout: center
 <div v-click="3">
   <GlassCard
     title="Optimization"
-    subtitle="Training algorithms"
     variant="warning"
     icon="i-ph-target-duotone"
-    size="sm"
+    size="md"
     :items="[
-      'Adam, L-BFGS',
-      'Multi-term losses',
-      'Progressive training'
+      'Minimize loss over the parameter space, usually SGD, Adams, LBFGS, etc.',
     ]"
   />
 </div>
 
 </div>
 
-<div class="mt-3">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-xs font-semibold">
-      <span class="emphasis-tech">DeepRTE:</span> Attention-based neural operators for radiative transfer
+---
+glow: left
+---
+
+# DeepRTE
+
+<div class="mb-4 text-center">
+  <div class="text-lg text-on-surface mb-1">
+    <span class="emphasis-primary font-bold">Deep</span> learning for <span class="emphasis-primary font-bold">R</span>adiative <span class="emphasis-primary font-bold">T</span>ransfer <span class="emphasis-primary font-bold">E</span>quation
+  </div>
+</div>
+
+<div grid="~ cols-[max-content_min-content_max-content] items-center justify-around" mt-5>
+
+<div v-click="1">
+  <GlassCard
+    title="Neural Operator"
+    subtitle="Learn mapping to solution"
+    variant="primary"
+    icon="i-ph-function-duotone"
+    size="lg"
+  >
+  <div class="space-y-4">
+  <div class="text-center">
+  <div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+  <div class="text-sm">
+
+  $$
+  \mathcal{A}_\theta: (I_-; \mu_t, \mu_s, p) \mapsto I
+  $$
+
+  </div>
+  </div>
+  </div>
+  <div class="text-sm space-y-2">
+    <div>• Attention-based transformer</div>
+    <div>• Resolution-invariant</div>
+    <div>• Parameter-to-solution mapping</div>
+  </div>
+  </div>
+  </GlassCard>
+</div>
+
+<div v-click="2" i-ph:plus-duotone text-6xl op50 text-success />
+
+<div v-click="3">
+  <GlassCard
+    title="Pre-training"
+    subtitle="Curated dataset tailored for RTE"
+    variant="tech"
+    icon="i-ph-database-duotone"
+    size="lg"
+  >
+    <div class="space-y-4">
+      <div class="text-center">
+        <div class="grid grid-cols-3 gap-2 text-sm">
+          <div class="bg-error-100/50 dark:bg-error-900/30 rounded p-3">
+            Generate<br/>Data
+          </div>
+          <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded p-3">
+            Train<br/>Operator
+          </div>
+          <div class="bg-success-100/50 dark:bg-success-900/30 rounded p-3">
+            Transfer<br/>Learning
+          </div>
+        </div>
+      </div>
+      <div class="text-sm space-y-2">
+        <div>• Delta function data</div>
+        <div>• End-to-end pre-training</div>
+        <div>• Zero-shot generalization</div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+</div>
+
+<div class="mt-5" v-click="3">
+  <GlassCard variant="gradient-primary" text-center size="md" ml-8 w-200>
+    <div class="font-semibold text-lg">
+      <span class="emphasis-tech">Key advantage:</span>
+      Train once, solve many RTE problems
     </div>
   </GlassCard>
 </div>
 
 ---
+glow: right
+---
 
-# DeepRTE: Our Contribution
+# Why not DeepONet?
+DeepONet has fundamental limitations for radiative transfer problems
 
-<div class="mb-6 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-primary font-bold">Pre-trained Attention-based Neural Network</span> for Radiative Transfer
-  </div>
-  <div class="text-base text-on-surface-variant">
-    A novel neural operator approach that learns solution operators rather than individual solutions
-  </div>
-</div>
-
-<div grid="~ cols-2 gap-8" mt-8>
+<div grid="~ cols-2 gap-6" mt-6 items-stretch>
 
 <div v-click="1">
   <GlassCard
-    title="Key Innovation"
-    subtitle="Attention-based neural operator"
-    variant="primary"
-    icon="i-ph-lightning-duotone"
+    title="DeepONet Limitations"
+    variant="error"
+    icon="i-ph-x-circle-duotone"
     size="lg"
-    :items="[
-      'Learn solution operator $\\mathcal{G}: \\mu \\mapsto I$',
-      'Attention mechanism for long-range dependencies',
-      'Pre-training on synthetic data',
-      'Transfer to real physical problems'
-    ]"
-    :enable-latex="true"
-  />
+    class="h-full"
+  >
+    <div class="space-y-4" mt-8>
+      <div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">Fixed Discretization:</div>
+        <div class="text-2xs text-on-surface-variant">
+          Requires fixed grid points, limiting flexibility
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">Parameter Scaling:</div>
+        <div class="text-2xs text-on-surface-variant">
+          Network size grows with input dimension
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">Multi-Input Challenge:</div>
+        <div class="text-2xs text-on-surface-variant">
+          Difficulty with multiple input functions
+        </div>
+      </div>
+    </div>
+  </GlassCard>
 </div>
 
 <div v-click="2">
   <GlassCard
-    title="Advantages over PINNs"
-    subtitle="Operator vs. solution learning"
-    variant="tech"
-    icon="i-ph-trend-up-duotone"
+    title="DeepONet Structure"
+    variant="secondary"
+    icon="i-ph-tree-structure-duotone"
     size="lg"
-    :items="[
-      'No retraining for new parameters',
-      'Faster inference once trained',
-      'Better generalization across regimes',
-      'Handles multi-scale physics naturally'
-    ]"
-  />
-</div>
-
-</div>
-
-<div class="mt-8">
-  <GlassCard variant="gradient-secondary" text-center size="md">
-  <div class="text-lg font-semibold mb-2">
-    <span class="emphasis-primary">Core Idea:</span> Learn the map from absorption coefficient to intensity
-  </div>
-  <div class="text-sm opacity-90">
-
-  $I = \mathcal{G}(\mu; \theta)$ where $\theta$ are learned neural network parameters
-
-  </div>
+    class="h-full"
+  >
+    <div class="text-center space-y-4">
+      <img src="/deeponet.png" class="rounded shadow-sm mx-auto" alt="DeepONet"/>
+      <div class="text-2xs text-on-surface-variant">
+        Branch + Trunk architecture
+      </div>
+    </div>
   </GlassCard>
+</div>
+
+</div>
+
+---
+glow: left
+---
+
+# Why not FNO?
+Fourier Neural Operator has structural limitations for radiative transfer
+
+<div grid="~ cols-2 gap-6" mt-6 items-stretch>
+
+<div v-click="1">
+  <GlassCard
+    title="FNO Limitations"
+    variant="warning"
+    icon="i-ph-wave-sine-duotone"
+    size="lg"
+    class="h-full"
+  >
+    <div class="space-y-2">
+      <div>
+        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">Uniform Grid Requirement:</div>
+        <div class="text-2xs text-on-surface-variant">
+          Input functions must be on uniform grid, limiting geometric flexibility
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">FFT Computational Cost:</div>
+        <div class="text-2xs text-on-surface-variant">
+          FFT operations become slow as function dimension increases
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">Frequency Domain Assumption:</div>
+        <div class="text-2xs text-on-surface-variant">
+          Relies on spectral decay which may not hold for RTE
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
+<div v-click="2">
+  <GlassCard
+    title="FNO Structure"
+    variant="tech"
+    icon="i-ph-waveform-duotone"
+    size="lg"
+    class="h-full"
+  >
+    <div class="text-center space-y-4">
+      <img src="/fno.png" class="rounded shadow-sm mx-auto" alt="FNO Architecture"/>
+      <div class="text-2xs text-on-surface-variant">
+        Fourier layer-based neural operator
+      </div>
+      <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded p-1.5">
+        <div class="text-2xs font-semibold text-warning-600 dark:text-warning-400">
+          RTE Challenge: Irregular geometries & high dimensionality
+        </div>
+      </div>
+    </div>
+  </GlassCard>
+</div>
+
 </div>
 
 ---
