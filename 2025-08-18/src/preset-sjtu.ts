@@ -292,6 +292,8 @@ export function presetSJTU(): Preset {
       'code-syntax-string': 'text-gray-600 dark:text-gray-300',
       'code-syntax-comment': 'text-gray-500 dark:text-gray-400 italic',
 
+      // Equation styles - adaptive
+      'equation-block': 'bg-white/20 dark:bg-black/10 rounded-lg p-2 border border-white/10',
       // Emphasis styles for presentations - theme adaptive
       'emphasis-primary': 'text-gradient-sjtu font-semibold',
       'emphasis-secondary': 'text-gradient-academic font-semibold',

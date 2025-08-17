@@ -316,7 +316,7 @@ const dotClasses = {
     <!-- List Items -->
     <ul
       v-if="items && items.length"
-      class="space-y-2 -ml-2"
+      class="space-y-2 ml--4"
       :class="[
         size === 'lg' ? 'space-y-3' : size === 'sm' ? 'space-y-1' : 'space-y-2',
       ]"
@@ -324,24 +324,28 @@ const dotClasses = {
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="flex items-center"
+        class="flex flex-gap-4 items-center"
         :class="[
-          size === 'sm' ? 'text-xs' : 'text-sm',
+          size === 'sm' ? 'text-xs' : size === 'lg' ? 'text-base' : 'text-sm',
         ]"
       >
         <!-- Square bullet (Slidev style) -->
-        <span
+        <!-- <span
           v-if="listStyle === 'square'"
           class="inline-block w-1.5 h-1.5 mr-3 flex-shrink-0"
           :class="dotClasses[variant]"
-        />
+        /> -->
+        <div v-if="listStyle === 'square'" i-ph:square-duotone :class="dotClasses[variant]" />
         <!-- Round dot bullet -->
-        <span
+        <!-- <span
           v-else
           class="inline-block w-1.5 h-1.5 rounded-full mr-3 flex-shrink-0"
           :class="dotClasses[variant]"
-        />
-        <span class="text-on-surface flex-1">{{ item }}</span>
+        /> -->
+        <div v-else i-ph:circle-duotone :class="dotClasses[variant]" />
+        <div class="text-on-surface flex-1">
+          {{ item }}
+        </div>
       </li>
     </ul>
 

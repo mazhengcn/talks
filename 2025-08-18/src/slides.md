@@ -122,7 +122,7 @@ glow: right
   <GlassCard variant="primary" size="lg" py2>
   <div class="text-center mb-4">
   <div class="text-lg font-semibold text-on-surface mb-2">The governing equation</div>
-  <div class="bg-white/20 dark:bg-black/10 rounded-lg p-2 border border-white/10">
+  <div class="equation-block">
 
   $$
   \Omega \cdot \nabla I(r, \Omega) + \mu_t(r) I(r, \Omega) = \frac{\mu_s(r)}{S_{d-1}}\int_{\mathbb{S}^{d-1}} p(\Omega, \Omega^*) I(r, \Omega^*)\,\mathrm{d}\Omega^*
@@ -175,7 +175,7 @@ glow: right
 <div class="mt-0">
   <GlassCard title="Boundary Conditions" variant="secondary" size="md">
   <div class="text-center text-on-surface-variant">
-  <div class="bg-white/20 dark:bg-black/10 rounded-lg border border-white/10" flex="~ gap-2 items-center justify-center">
+  <div class="equation-block" flex="~ gap-2 items-center justify-center">
 
   $I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)$
 
@@ -427,21 +427,22 @@ glow: left
     size="lg"
   >
   <div class="space-y-4">
-  <div class="text-center">
-  <div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
-  <div class="text-sm">
+  <div class="text-center equation-block text-sm">
 
   $$
   \mathcal{A}_\theta: (I_-; \mu_t, \mu_s, p) \mapsto I
   $$
 
   </div>
-  </div>
-  </div>
   <div class="text-sm space-y-2">
-    <div>• Attention-based transformer</div>
-    <div>• Resolution-invariant</div>
-    <div>• Parameter-to-solution mapping</div>
+    <list
+      variant="primary"
+      :items="[
+        'Attention-based transformer',
+        'Resolution-invariant',
+        'Parameter-to-solution mapping'
+      ]"
+    />
   </div>
   </div>
   </GlassCard>
@@ -472,9 +473,14 @@ glow: left
         </div>
       </div>
       <div class="text-sm space-y-2">
-        <div>• Delta function data</div>
-        <div>• End-to-end pre-training</div>
-        <div>• Zero-shot generalization</div>
+        <List
+          variant="primary"
+          :items="[
+            'Delta function data',
+            'End-to-end pre-training',
+            'Zero-shot generalization'
+          ]"
+        />
       </div>
     </div>
   </GlassCard>
@@ -620,7 +626,7 @@ Fourier Neural Operator has structural limitations for radiative transfer
 End-to-end fashion
 
 <GlassCard title="Learn the solution operator" variant="primary">
-<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+<div class="equation-block">
 
 $$
 \mathcal{A}: (I_-; \mu_t, \mu_s, p) \mapsto I
@@ -629,10 +635,14 @@ $$
 </div>
 </GlassCard>
 
-<div grid="~ cols-[2fr_min-content_1fr] items-center gap-15" mt-8>
+<div grid="~ cols-[2fr_auto_1fr] items-center gap-20" mt-5>
 
 <GlassCard
   title="Inputs"
+  variant="warning"
+  size="md"
+>
+<List
   variant="warning"
   enable-latex="true"
   :items="[
@@ -642,11 +652,12 @@ $$
     '$p(\\Omega,\\Omega^*)$: scattering kernel function'
   ]"
 />
+</GlassCard>
 
 <div i-ph:arrow-right-duotone text-5xl op-50 />
 
-<GlassCard title="Output" variant="success">
-<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+<GlassCard title="Output" variant="success" size="md">
+<div class="equation-block">
 
 $$
 I(r, \Omega)
@@ -663,8 +674,8 @@ $$
 
 Green's function:
 
-<GlassCard title="Green's function" variant="primary" size="lg">
-<div class="bg-white/10 dark:bg-black/10 rounded-lg p-2">
+<GlassCard title="Approximate the integral kernel of solution by neural network" variant="secondary" size="md">
+<div class="equation-block">
 
 $$
 I(r, \Omega)\approx \int_{\Gamma_-} G^{\text{NN}}(r, r', \Omega, \Omega'; \mu_t, \mu_s, p) I_-(r',\Omega') \, \mathrm{d}r' \mathrm{d}\Omega'
@@ -672,13 +683,228 @@ $$
 
 </div>
 
-- Solution $I$ is linear in boundary function $I_{-}$
+<div class="text-on-surface-variant space-y--2">
+<div flex="~ gap-4 items-center">
+<div i-ph:square-duotone text="academic/70 sm" />
+<div>
 
-- Green's function $G^{\text{NN}}$ is non-linear in $\mu_t$, $\mu_s$ and $p$
+Solution $I$ is <span class="text-academic">linear</span> in boundary $I_{-}$
 
-- Dependency on $\mu_t$ and $\mu_s$ is non-local
+</div>
+</div>
+<div flex="~ gap-4 items-center">
+<div i-ph:square-duotone text="academic/70 sm" />
+<div>
 
+Green's function $G^{\text{NN}}$ is <span text-academic>non-linear</span> in $\mu_t$, $\mu_s$ and $p$
+
+</div>
+</div>
+<div flex="~ gap-4 items-center">
+<div i-ph:square-duotone text="academic/70 sm" />
+<div>
+
+Green's function $G^{\text{NN}}$'s dependency on $\mu_t$ and $\mu_s$ is <span text-academic>non-local</span>
+
+</div>
+</div>
+</div>
 </GlassCard>
+
+<GlassCard variant="success" mt-4 text="center xl success">
+Start by looking at the "analytical" structure of Green's function/solution operator
+</GlassCard>
+
+---
+
+# Structure of solution operator
+
+<div flex="~ col gap-2 items-center">
+<GlassCard title="Steady RTE" variant="primary" size="md">
+<div flex="~ gap-4 items-center">
+<div equation-block>
+
+$$
+\begin{aligned}
+\Omega \cdot \nabla I + \mu_t I & = \mu_s\mathcal{S}I, \\
+I|_{\Gamma_{-}} & = I_{-}.
+\end{aligned}
+$$
+
+</div>
+
+<div>where</div>
+
+<div equation-block text-xs>
+
+$$
+\mathcal{S}I:=\frac{1}{S_{d-1}}\int_{\mathbb{S}^{d-1}} p(\Omega, \Omega^*) I(r, \Omega^*)\,\mathrm{d}\Omega^*
+$$
+
+</div>
+</div>
+</GlassCard>
+
+<div i-ph:arrows-split-duotone op-50 text-5xl />
+
+<div grid="~ cols-[1fr_auto_1fr] items-center gap-8">
+
+<GlassCard title="Attenuation" size="md" variant="success">
+<div class="equation-block">
+
+$$
+\begin{aligned}
+\Omega \cdot \nabla I + \mu_t I & = 0, \\
+I|_{\Gamma_{-}} & = I_{-}.
+\end{aligned}
+$$
+
+</div>
+</GlassCard>
+
+<div i-ph:plus-duotone text-5xl />
+
+<GlassCard title="Scattering" size="md" variant="warning">
+<div class="equation-block">
+
+$$
+\begin{aligned}
+\Omega \cdot \nabla I + \mu_t I & = \mu_s\mathcal{S}I, \\
+I|_{\Gamma_{-}} & = 0.
+\end{aligned}
+$$
+
+</div>
+</GlassCard>
+</div>
+</div>
+
+---
+
+# Structure of solution operator
+
+<div grid="~ cols-[max-content_min-content_auto] gap-4 items-center" w-full>
+<GlassCard title="Attenuation" size="sm" variant="success">
+<div class="equation-block">
+
+$$
+\Omega \cdot \nabla I + \mu_t I = 0, \; I|_{\Gamma_{-}} = I_{-}.
+$$
+
+</div>
+</GlassCard>
+
+<div i-ph:arrow-right-duotone op-50 text-4xl />
+
+<GlassCard title="$\mathcal{J}$ operator" size="sm" variant="success" enable-latex="true">
+<div class="equation-block">
+
+$$
+I(r,\Omega) = \mathcal{J}I_{-}:=e^{-{\color{pink}\tau(0,s_{-})}}I_{-}(r-s_{-}\Omega,\Omega).
+$$
+
+</div>
+</GlassCard>
+
+<GlassCard title="Scattering" size="sm" variant="warning" h-34>
+<div class="equation-block">
+
+$$
+\Omega \cdot \nabla I + \mu_t I = \mu_s\mathcal{S}I, \; I|_{\Gamma_{-}} = 0.
+$$
+
+</div>
+</GlassCard>
+
+<div i-ph:arrow-right-duotone op-50 text-4xl />
+
+<GlassCard title="$\mathcal{L}$ and $\mathcal{S}$ operators" size="sm" variant="warning" enable-latex="true">
+<div class="equation-block">
+
+$$
+I(r,\Omega) = \mathcal{L}\mathcal{S}I:=\int_0^{s_{-}}e^{-{\color{pink}\tau(0,s)}}\mu_s(r-s\Omega)\mathcal{S}I(r-s\Omega,\Omega)\,\mathrm{d}s
+$$
+
+</div>
+</GlassCard>
+</div>
+
+<GlassCard title="Integral fomulation of steady RTE" variant="error" size="sm" mt-4>
+<div flex="~ gap-2 items-center justify-center">
+<div equation-block text-base>
+
+$$
+I = \mathcal{L}\mathcal{S}I + \mathcal{J}I_{-}
+$$
+
+</div>
+where the <span text-pink-3>optical depth</span> is defined as:
+<div equation-block text-pink-3>
+
+$$
+\tau(s_1,s_2):=\int_{s_1}^{s_2}\mu_t(r-s\Omega)\,\mathrm{d}s
+$$
+
+</div>
+</div>
+</GlassCard>
+
+---
+
+# DeepRTE
+
+Architecture overview
+
+<GlassCard
+  title="The Green's function also satisfy"
+  variant="primary"
+  size="md"
+>
+<div equation-block text-base>
+
+$$
+G(r,r',\Omega,\Omega') = \mathcal{L}\mathcal{S}G(r,r',\Omega,\Omega') + \mathcal{J}\left(\delta_{\{r'\}}(r)\delta(\Omega-\Omega')\right)
+$$
+
+</div>
+</GlassCard>
+
+<GlassCard
+  variant="secondary"
+  title="Iterate as the block composition of a neural network"
+  subtitle="Inspired by source iteration method"
+  size="md"
+  mt-5
+  >
+<div flex="~ gap-4 items-center justify-center" text-base>
+<div>
+
+$\ell$-th block:
+
+</div>
+<div equation-block>
+
+$$
+G^{\ell+1} = \mathcal{L}\mathcal{S}G^{\ell} + G^0
+$$
+
+</div>
+<div>with</div>
+<div equation-block>
+
+$$
+G^0 = \mathcal{J}\left(\delta_{\{r'\}}(r)\delta(\Omega-\Omega')\right).
+$$
+
+</div>
+</div>
+</GlassCard>
+
+---
+
+# Optical depth network
+
+Attention along characteristic
 
 ---
 
@@ -724,6 +950,10 @@ $$
     </div>
   </GlassCard>
 </div>
+
+---
+
+# Structure of Solution Operator
 
 ---
 
