@@ -196,59 +196,50 @@ glow: right
   <div class="text-xl text-on-surface mb-2">
     <span class="emphasis-primary font-bold">Three Major Barriers</span> in Radiative Transfer Simulation
   </div>
-  <div class="text-base text-on-surface-variant">
-    Fundamental computational challenges that motivate machine learning approaches
-  </div>
 </div>
 
 <div grid="~ gap-6 cols-3" mt-6>
 
-<div v-click="1">
-  <GlassCard
-    title="High Dimensionality"
-    subtitle="The curse of dimensions"
-    variant="error"
-    icon="i-ph-cube-duotone"
-    size="md"
-    :items="[
-      '7D phase space: $(x,y,z,\\Omega_x,\\Omega_y,\\Omega_z,t)$',
-      'Grid points scale exponentially as $N^7$',
-      'Intractable memory and storage needs'
-    ]"
-    :enable-latex="true"
-  />
-</div>
+<GlassCard
+  title="High Dimensionality"
+  subtitle="The curse of dimensions"
+  variant="error"
+  icon="i-ph-cube-duotone"
+  size="md"
+  :items="[
+    '6D phase space: $(x,y,z,\\Omega_x,\\Omega_y,\\Omega_z)$',
+    'Grid points scale exponentially as $N^6$',
+    'Intractable memory and storage needs'
+  ]"
+  :enable-latex="true"
+/>
 
-<div v-click="2">
-  <GlassCard
-    title="Complex Collisions"
-    subtitle="Nonlinear interactions"
-    variant="warning"
-    icon="i-ph-arrows-merge-duotone"
-    size="md"
-    :items="[
-      'Preserve conservation laws at discrete level',
-      'Handle nonlinear Boltzmann-type operators',
-      'Avoid spurious ray effects and diffusion'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Complex Collisions"
+  subtitle="Nonlinear interactions"
+  variant="warning"
+  icon="i-ph-arrows-merge-duotone"
+  size="md"
+  :items="[
+    'Preserve conservation laws at discrete level',
+    'Handle nonlinear Boltzmann-type operators',
+    'Avoid spurious ray effects and diffusion'
+  ]"
+/>
 
-<div v-click="3">
-  <GlassCard
-    title="Multi-scale Physics"
-    subtitle="Regime coupling"
-    variant="tech"
-    icon="i-ph-scales-duotone"
-    size="md"
-    :items="[
-      'Stiffness parameter: $\\varepsilon = \\ell/L \\ll 1$',
-      'Design asymptotic-preserving schemes',
-      'Couple transport ↔ diffusion transitions'
-    ]"
-    :enable-latex="true"
-  />
-</div>
+<GlassCard
+  title="Multi-scale Physics"
+  subtitle="Regime coupling"
+  variant="tech"
+  icon="i-ph-scales-duotone"
+  size="md"
+  :items="[
+    'Stiffness parameter: $\\varepsilon = \\ell/L \\ll 1$',
+    'Design asymptotic-preserving schemes',
+    'Couple transport ↔ diffusion transitions'
+  ]"
+  :enable-latex="true"
+/>
 
 </div>
 
@@ -448,9 +439,9 @@ glow: left
   </GlassCard>
 </div>
 
-<div v-click="2" i-ph:plus-duotone text-6xl op50 />
+<div v-click="1" i-ph:plus-duotone text-6xl op50 />
 
-<div v-click="3">
+<div v-click="1">
   <GlassCard
     title="Pre-training"
     subtitle="Curated dataset tailored for RTE"
@@ -488,7 +479,7 @@ glow: left
 
 </div>
 
-<div class="mt-5" v-click="3">
+<div class="mt-5" v-click="2">
   <GlassCard variant="gradient-primary" text-center size="md" w-full>
     <div class="font-semibold text-lg">
       <span class="emphasis-tech">Key advantage:</span>
