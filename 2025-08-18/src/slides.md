@@ -851,9 +851,9 @@ $$
 
 ---
 
-# DeepRTE
+# DeepRTE: architecture
 
-Architecture overview
+Overview
 
 <GlassCard
   title="The Green's function also satisfy"
@@ -898,87 +898,243 @@ $$
 
 </div>
 </div>
+
+<div text-base mt-4>
+<List
+  variant="secondary"
+  :items="[
+    '$\\mathcal{J}$, $\\mathcal{L}$: attenuation module (attention along characteristic)',
+    '$\\mathcal{S}$: scattering module'
+  ]"
+  enable-latex="true"
+/>
+</div>
+
+</GlassCard>
+
+---
+
+# Attenuation module
+
+$\mathcal{J}$ and $\mathcal{L}$
+
+<div flex="~ col gap-4 items-center">
+<GlassCard title="$\mathcal{J}$ operator for example" size="md" variant="success" enable-latex="true">
+<div class="equation-block">
+
+$$
+G^0(r,r',\Omega,\Omega';\mu_t)= \mathcal{J}\left(\delta_{\{r'\}}(r)\delta(\Omega-\Omega')\right)=e^{-{\color{pink}\tau(0,s_{-})}}\left(\delta_{\{r'\}}(r)\delta(\Omega-\Omega')\right)\approx \text{MLP}(r,r,\Omega,\Omega';\tau^{\text{NN}})
+$$
+
+</div>
+</GlassCard>
+
+<div i-ph:arrow-fat-lines-up-duotone text-4xl op-50 />
+
+<GlassCard title="Optical depth network" size="md" variant="error" enable-latex="true">
+<div class="equation-block">
+
+$$
+\tau^{\text{NN}}(r,\Omega)\approx\tau(0,s_{-})=\int_0^{s_{-}(r,\Omega)}\mu_t(r-s\Omega)\,\mathrm{d}s
+$$
+
+</div>
+</GlassCard>
+</div>
+
+---
+
+# Optical depth network
+
+<GlassCard title="Attention along the characteristic" variant="error">
+<div flex="~ col gap-2">
+<div equation-block>
+
+$$
+\tau^\text{NN} = \text{OpticalDepthNet}\left(r,\Omega; \{r^\text{mesh}_i\}, \{(\mu_t^{\text{mesh}})_i\}\right) = \text{MultiHead}(Q, K, V)
+$$
+
+</div>
+<div text-xs flex="~ gap-2 items-center" ml-28>
+<div>where</div>
+<div>
+
+$$
+Q = (r, \Omega)\in \mathbb{R}^{1\times 2d}, \quad
+K =
+\begin{pmatrix}
+  \vdots \\
+  {(r^\text{mesh}_{\text{local}})}_i \\
+  \vdots
+\end{pmatrix}\in\mathbb{R}^{N_\text{mesh} \times 2},
+\quad
+V =
+\begin{pmatrix}
+  \vdots \\
+  {(\mu_t^{\text{mesh}})}_i \\
+  \vdots
+\end{pmatrix}\in\mathbb{R}^{N_\text{mesh}\times 1}.
+$$
+
+</div>
+</div>
+</div>
+</GlassCard>
+
+<GlassCard variant="secondary" title="Relative position encoding" mt-4>
+<div equation-block>
+
+$$
+{(r^\text{mesh}_{\text{local}})}_i = \left({(r^\text{mesh}_\text{local})}_i, {(\theta^\text{mesh}_\text{local})}_i\right)
+= \left((r-r^{\text{mesh}}_i)\cdot\Omega, \frac{(r-r^{\text{mesh}}_i)}{
+\| r-r^{\text{mesh}}_i\|}\cdot \Omega\right)
+$$
+
+</div>
 </GlassCard>
 
 ---
 
 # Optical depth network
 
-Attention along characteristic
-
----
-
-# Problem Formulation
-
-<div class="mb-4">
-<GlassCard variant="primary" size="md">
-<div class="text-center mb-3">
-<div class="text-base font-semibold text-on-surface mb-2">Target: Radiative Transfer Equation</div>
-<div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-3 border border-gray-200/50 dark:border-gray-700/30 shadow-sm">
+<div flex="~ col gap-4 items-center">
+<div flex="~ gap-4 items-center">
+<GlassCard variant="success" size="sm">
+<div equation-block>
 
 $$
-\Omega \cdot \nabla I + \mu_t I = \frac{\mu_s}{4\pi} \int_{\mathbb{S}^2} I\,d\Omega' + S
+\tau(r,\Omega) \approx  \sum_{j}^{N\left(s_{-}(r,\Omega)\right)} w(r, \Omega;s_j)\mu_t(r-s_j \Omega),
 $$
 
 </div>
-</div>
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div class="space-y-1">
-<div><strong>Goal:</strong> Learn operator $\mathcal{G}: \mu_t \mapsto I$</div>
-<div><strong>Input:</strong> Absorption coefficient $\mu_t(r)$</div>
-</div>
-<div class="space-y-1">
-<div><strong>Output:</strong> Intensity field $I(r,\Omega)$</div>
-<div><strong>Domain:</strong> 2D spatial + angular</div>
-</div>
+</GlassCard>
+<div i-ph:arrow-fat-lines-left-duotone text-3xl op-50 />
+<GlassCard variant="secondary" size="sm">
+<div equation-block>
+
+$$
+\mu_t(r-s_j \Omega)\approx  \sum_{i}^{N_\text{mesh}} \bm{1}_{\mathcal{C}_{r,\Omega}}(r_i^{\text{mesh}}) c(r-s_j\Omega, r^{\text{mesh}}_i){(\mu_t^\text{mesh})}_i,
+$$
+
 </div>
 </GlassCard>
 </div>
 
-<div class="mt-4">
-  <GlassCard
-    title="Operator Learning Framework"
-    variant="secondary"
-    icon="i-ph-function-duotone"
-    size="sm"
-  >
-    <div class="text-xs space-y-1">
-      <div>• DeepONet-inspired architecture with attention</div>
-      <div>• Branch network: encodes input function $\mu_t$</div>
-      <div>• Trunk network: encodes query locations $(r, \Omega)$</div>
-      <div>• Attention: models long-range dependencies</div>
-    </div>
-  </GlassCard>
+<div i-ph:arrows-merge-duotone text-4xl op-50 ml--22 />
+
+<GlassCard variant="error" size="sm">
+<div equation-block text-xs>
+
+$$
+\begin{aligned}
+\tau(r,\Omega) & \approx \sum_j^{N\left(s_{-}(r,\Omega)\right)} w(r,\Omega;s_j)\sum_{i}^{N_\text{mesh}} \bm{1}_\mathcal{C}(r_i^{\text{mesh}})c\left(s_j; (r^\text{mesh}_\text{local})_i, (\theta^\text{mesh}_\text{local})_i\right)(\mu_t^\text{mesh})_i \\
+& =\sum_{i}^{N_\text{mesh}} \bm{1}_\mathcal{C}(r^{\text{mesh}}_i)\left(\sum_{j}^{N\left(s_{-}(r,\Omega)\right)} w(r,\Omega;s_j)c\left(s_j; (r^\text{mesh}_\text{local})_i, (\theta^\text{mesh}_\text{local})_i\right)\right)(\mu_t^\text{mesh})_i \\
+& =\sum_{i}^{N_\text{mesh}} \underbrace{\bm{1}_\mathcal{C}(r^{\text{mesh}}_i)W(r,\Omega; (r^\text{mesh}_\text{local})_i, (\theta^\text{mesh}_\text{local})_i)}_{\text{attention weights}}\underbrace{(\mu_t^\text{mesh})_i}_{\text{values}},
+\end{aligned}
+$$
+
+</div>
+</GlassCard>
 </div>
 
 ---
 
-# Structure of Solution Operator
+# Optical depth network
+
+<GlassCard title="Attention along characteristic" variant="primary">
+<div equation-block>
+
+$$
+W\left(r,\Omega; {\left(r^\text{mesh}_\text{local}\right)}_i, {\left(\theta^\text{mesh}_\text{local}\right)}_i\right) \approx \sum_{m}^{d_k} \underbrace{q_m(r,\Omega)}_{\text{query}:\;QW^Q_h}\underbrace{k_m({(r^\text{mesh}_\text{local})}_i, {(\theta^\text{mesh}_\text{local})}_i)}_{\text{keys}:\;KW^K_h},
+$$
+
+</div>
+<div flex="~ justify-center" mt-5>
+  <img src="/figs/mask.png" h-55 dark:invert />
+</div>
+</GlassCard>
+
+---
+
+# Attenuation
+
+Summary
+
+<GlassCard title="Diagram of attenuation module" variant="secondary" size="lg">
+<div bg-white:95 rounded-xl p-4 mt-5>
+  <img src="/figs/attenuation_module.png" />
+</div>
+</GlassCard>
+
+---
+
+# Scattering module
+
+<GlassCard title="Scattering as iteration" size="md" variant="primary">
+<div equation-block pb-0>
+
+$$
+\begin{aligned}
+  & G^{0} = G^{\text{NN}}(r,\Omega,r^{\prime},\Omega^{\prime}), \\
+  & G^{\ell}  = \text{ScatteringBlock}_s(G^{\ell-1}) + G^{0}, \quad \ell = 1,\dots,N_{\ell},
+\end{aligned}
+$$
+
+</div>
+<div bg-white:95 rounded-xl p-2 mt-4 flex="~ justify-center">
+  <img src="/figs/scattering_module.png" h-55 />
+</div>
+
+</GlassCard>
+
+---
+
+# Scattering block
+
+<GlassCard variant="primary" size="md">
+<div equation-block>
+
+$$
+\text{ScatteringBlock}_\ell(G) = \text{LayerNorm}\Big(\sigma\Big(W^{\ell} S^{\top} G + b^{\ell}\Big)\Big).
+$$
+
+</div>
+
+<div flex="~ gap-4 items-center justify-center" text-base>
+
+$$
+\mathcal{S} G^\ell(r-s' \Omega, \Omega) \approx \sum_{i=1}^{d_{\text{quad}}} w_i p(\Omega, \Omega_i^*) G^{\ell}(r-s' \Omega, \Omega_i^*),
+$$
+
+$$
+\mathcal{L}\mathcal{S} G^{\ell}(r, \Omega) \approx \sum_{j=1}^{d_{\text{model}}} \tilde{w}_j^{r, \Omega} \mu_s e^{-\tau(0,s'_j)} \mathcal{S} G^\ell(r-s'_j \Omega, \Omega).
+$$
+
+</div>
+<div bg-white:95 rounded-xl p-2 mt-4 flex="~ justify-center">
+  <img src="/figs/scattering_block.png" h-40 />
+</div>
+
+</GlassCard>
 
 ---
 
 # DeepRTE Architecture
 
-<div class="mb-6 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-tech font-bold">Attention-Enhanced</span> Neural Operator Design
-  </div>
-</div>
+Recap
 
-<div grid="~ cols-3 gap-6" mt-6>
+<div grid="~ cols-2 gap-6" mt-6>
 
 <div v-click="1">
   <GlassCard
-    title="Branch Network"
-    subtitle="Input function encoding"
+    title="Attenuation Module"
+    subtitle="Transport encoding"
     variant="primary"
     icon="i-ph-tree-structure-duotone"
     size="md"
     :items="[
-      'Encodes $\\mu_t(r)$ at sensor points',
-      'CNN-based feature extraction',
-      'Multi-scale representation',
-      'Output: $\\mathbf{b} \\in \\mathbb{R}^p$'
+      'Encodes $\\mu_t(r)$ and $\\mu_s(r)$ as optical depth network',
+      'Attention along characteristic',
     ]"
     :enable-latex="true"
   />
@@ -986,464 +1142,595 @@ $$
 
 <div v-click="2">
   <GlassCard
-    title="Trunk Network"
-    subtitle="Query point encoding"
+    title="Scattering Module"
+    subtitle="Scattering encoding"
     variant="secondary"
     icon="i-ph-map-pin-duotone"
     size="md"
     :items="[
-      'Encodes query $(r, \\Omega)$',
-      'Positional embeddings',
-      'Angular harmonics for $\\Omega$',
-      'Output: $\\mathbf{t} \\in \\mathbb{R}^p$'
+      'Encodes $p(\\Omega,\\Omega^*)$',
+      'Capture anisotropic scattering'
     ]"
     :enable-latex="true"
   />
 </div>
-
-<div v-click="3">
-  <GlassCard
-    title="Attention Module"
-    subtitle="Long-range dependencies"
-    variant="tech"
-    icon="i-ph-eye-duotone"
-    size="md"
-    :items="[
-      'Multi-head self-attention',
-      'Captures spatial correlations',
-      'Handles transport phenomena',
-      'Weighted combination: $\\sum w_i \\mathbf{b}_i \\cdot \\mathbf{t}$'
-    ]"
-    :enable-latex="true"
-  />
 </div>
 
-</div>
-
-<div class="mt-6">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-  <div class="text-base font-semibold mb-1">
-    <span class="emphasis-primary">Final Output:</span>
-  </div>
-  <div class="text-sm">
-
-  $I(r, \Omega) = \text{Attention}(\mathbf{b}, \mathbf{t}) = \sum_{i=1}^p w_i(\mathbf{b}, \mathbf{t}) \cdot \mathbf{b}_i \cdot \mathbf{t}_i$
-
-  </div>
-  </GlassCard>
+<div bg-white:95 rounded-xl p-2 mt-4 flex="~ justify-center">
+  <img src="/figs/architecture.png" h-50 />
 </div>
 
 ---
 
 # Training Strategy
 
-<div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-primary font-bold">Two-Phase Training</span> for Robust Performance
-  </div>
-</div>
+Trained with delta-like function
 
-<div grid="~ cols-2 gap-6" mt-4>
+<GlassCard
+  title="Dataset"
+  subtitle="In order to have zero-shot ability"
+  variant="warning"
+  icon="i-ph-database-duotone"
+  size="lg"
+>
 
-<div v-click="1">
-  <GlassCard
-    title="Phase 1: Pre-training"
-    subtitle="Synthetic data generation"
-    variant="warning"
-    icon="i-ph-database-duotone"
-    size="md"
-    :items="[
-      'Generate diverse $\\mu_t$ fields',
-      'High-fidelity RTE solutions',
-      'Large training dataset ($>10^4$)',
-      'Learn general behavior'
-    ]"
-  />
-</div>
+<div flex="~ col gap-2" ml--2>
 
-<div v-click="2">
-  <GlassCard
-    title="Phase 2: Fine-tuning"
-    subtitle="Real problem adaptation"
-    variant="success"
-    icon="i-ph-target-duotone"
-    size="md"
-    :items="[
-      'Real physical data',
-      'Domain-specific adaptation',
-      'Few-shot learning',
-      'Transfer learning benefits'
-    ]"
-  />
-</div>
+<List variant="secondary" :items="['we construct the training dataset consists of delta functions']" />
+<div text-on-surface>
+
+$$
+I^{\delta}_{-}(r, \Omega; r', \Omega') =
+\delta_{\{r'\}}(r)\delta(\Omega-\Omega'), \quad (r,\Omega) \in \Gamma_{-}.
+$$
 
 </div>
+<List variant="secondary" :items="['In practice, we use smoothed version of delta functions as the boundary functions']" />
+<div text-on-surface>
 
-<div class="mt-5">
-  <GlassCard
-    title="Loss Function Design"
-    variant="gradient-secondary"
-    icon="i-ph-math-operations-duotone"
-    size="sm"
-  >
-  <div class="text-center">
-  <div class="bg-gray-100/80 dark:bg-gray-800/40 rounded-lg p-2 border border-gray-200/50 dark:border-gray-700/30 shadow-sm mb-2">
+$$
+\delta_{\{r'\}}^{\sigma}(r) = \frac{1}{\sigma \sqrt{\pi}} \exp\left( -\frac{(r-r')^2}{\sigma^2} \right), \quad
+\delta^{\sigma}(\Omega-\Omega') = \frac{1}{\sigma \sqrt{\pi}} \exp\left( -\frac{(\Omega-\Omega')^2}{\sigma^2} \right),
+$$
 
-  $$\mathcal{L} = \mathcal{L}_{\text{data}} + \lambda_1 \mathcal{L}_{\text{PDE}} + \lambda_2 \mathcal{L}_{\text{BC}}$$
+</div>
+</div>
+</GlassCard>
 
-  </div>
-  <div class="text-xs grid grid-cols-3 gap-3">
-  <div><strong>Data:</strong> $\|I - I_{\text{ref}}\|^2$</div>
-  <div><strong>PDE:</strong> Residual loss</div>
-  <div><strong>BC:</strong> Boundary loss</div>
-  </div>
-  </div>
-  </GlassCard>
+---
+
+# Training Strategy
+
+<div grid="~ cols-[max-content_auto] gap-4">
+
+<GlassCard
+  title="RTE Features"
+  variant="warning"
+  icon="i-ph-database-duotone"
+  size="md"
+>
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden>
+
+| **Features & Shape** | **Description** |
+| ---------------- | ----------- |
+| phase_coords: $[N_{\text{coords}}, 2d]$ | Phase coordinates $(r,\Omega)$ |
+| boundary_coords: $[N_{\text{bc}}, 2d]$ | Boundary coordinates $(r',\Omega')$ |
+| position_coords: $[N_{\text{mesh}}, 2d]$ | Mesh points $(r^{\text{mesh}})$ |
+| velocity_coords: $[N_{\text{quad}}, 2d]$ | Angular quadrature points $\Omega^*$ |
+| boundary: $[N_{\text{bc}}]$ | Boundary $I(r',\Omega')$ |
+| mu: $[N_{\text{mesh}}, 2]$ | Cross sections $\mu_t$ and $\mu_s$ |
+| scattering_kernel: $[N_{\text{quad}}]$ | Scattering kernel $p(\Omega,\Omega^*)$ |
+
+</div>
+</GlassCard>
+
+<GlassCard
+  title="Training setup"
+  variant="success"
+  icon="i-ph-target-duotone"
+  size="md"
+>
+
+<div flex="~ col gap-2" ml--2 mt-3>
+
+<List variant="success" :items="['Adam optimizer', 'Cosine annealing learning rate schedule']" />
+<List variant="success" :items="['MSE loss']" />
+
+<div text-on-surface ml-2>
+<div equation-block>
+
+$$
+\mathcal{L}(\theta) = \frac{1}{N}\sum_{n=1}^N \ell(I^\text{NN}_{\theta,n}, I_n),
+$$
+
+</div>
+
+<div equation-block mt-3>
+
+$$
+\ell(I^\text{NN}_{\theta}, I)= \frac{1}{N_\text{col}}\sum_{i=1}^{N_{\text{col}}} \left| I^{\text{NN}}_{\theta}(r_i,\Omega_i) - I(r_i, \Omega_i) \right|^2
+$$
+
+</div>
+</div>
+</div>
+</GlassCard>
 </div>
 
 ---
 
 # Experimental Setup
 
-<div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-tech font-bold">Comprehensive Validation</span> on Benchmark Problems
-  </div>
-</div>
+<div mt-2 />
 
-<div grid="~ cols-2 gap-6" mt-4>
+Let
+$$
+\Omega=(c,s,\zeta), \quad c =
+{\left(1-\zeta^{2}\right)}^{\frac{1}{2}} \cos\theta, \quad s =
+{\left(1-\zeta^{2}\right)}^{\frac{1}{2}} \sin\theta, \quad \text{for }|\zeta| \leq 1.
+$$
 
-<div v-click="1">
-  <GlassCard
-    title="Test Problems"
-    subtitle="Diverse scenarios"
-    variant="primary"
-    icon="i-ph-test-tube-duotone"
-    size="md"
-    :items="[
-      'Homogeneous media',
-      'Heterogeneous coefficients',
-      'Multi-scale problems',
-      'ICF-inspired geometries'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Reduced 2-D RTE"
+  variant="primary"
+  icon="i-ph-test-tube-duotone"
+  size="md"
+>
+<div equation-block>
 
-<div v-click="2">
-  <GlassCard
-    title="Baselines"
-    subtitle="Comparison methods"
-    variant="secondary"
-    icon="i-ph-chart-line-duotone"
-    size="md"
-    :items="[
-      'Standard PINNs',
-      'Discrete ordinates (SN)',
-      'Monte Carlo solutions',
-      'Fourier Neural Operator'
-    ]"
-  />
-</div>
+$$
+\left(c\partial_x \tilde{I}(x,y,\zeta,\theta)+s\partial_y
+\tilde{I}(x,y,\zeta,\theta)\right)+\mu_t \tilde{I}(x,y,\zeta,\theta)=\frac{\mu_s}{2\pi}\int_{0}^{1}
+\int_0^{2\pi} \tilde{p}(\zeta, \theta, \zeta^*,\theta^*) \tilde{I}(x,y,\zeta^*,\theta^*) \mathrm{d}\theta^*\mathrm{d}{\zeta^*},
+$$
 
 </div>
+</GlassCard>
 
-<div class="mt-5">
-  <GlassCard
-    title="Evaluation Metrics"
-    variant="gradient-primary"
-    icon="i-ph-ruler-duotone"
-    size="sm"
-  >
-    <div class="grid grid-cols-3 gap-3 text-xs text-center">
-      <div>
-        <div class="font-semibold mb-1">Accuracy</div>
-        <div>$L^2$ relative error</div>
-      </div>
-      <div>
-        <div class="font-semibold mb-1">Efficiency</div>
-        <div>Training/inference time</div>
-      </div>
-      <div>
-        <div class="font-semibold mb-1">Generalization</div>
-        <div>Out-of-distribution test</div>
-      </div>
-    </div>
-  </GlassCard>
+<GlassCard
+  title="Henyey-Greenstein (H-G) scattering kernel"
+  variant="secondary"
+  size="sm"
+  mt-4
+>
+<div equation-block>
+
+$$
+p(\Omega,\Omega^*) = p(\Omega\cdot\Omega^*) = \frac{1-g^2}{\Bigl(1+g^2-2g\,(cc^*+ss^*+\zeta\zeta^*)\Bigr)^{\frac{3}{2}}}.
+$$
+
+</div>
+</GlassCard>
+
+---
+
+# Experimental Setup
+
+<GlassCard
+  title="Boundary conditions for training"
+  variant="primary"
+  size="sm"
+  mt-4
+>
+<div equation-block>
+
+$$
+\left \{
+\begin{aligned}
+  & I_-(x=0,y,c>0,s;x_l^{\prime}=0,
+  y_l^{\prime},c_l^{\prime},s_l^{\prime})
+  =\delta_{\{y_l^{\prime}\}}^{\sigma_{r}}(y)\delta^{\sigma_{\Omega}}(c - c_l')\delta^{\sigma_{\Omega}}(s - s_l'),
+  \\
+  & I_-(x=1,y,c<0,s;x_r^{\prime}=1,
+  y_r^{\prime},c_r^{\prime},s_r^{\prime})
+  =\delta_{\{y_r^{\prime}\}}^{\sigma_{r}}(y)\delta^{\sigma_{\Omega}}(c - c_r')\delta^{\sigma_{\Omega}}(s - s_r'),
+  \\
+  & I_-(x,y=0,c,s>0;x_b^{\prime},y_b^{\prime}=0, c_b^{\prime},
+  s_b^{\prime})
+  =\delta_{\{x_b^{\prime}\}}^{\sigma_{r}}(x)\delta^{\sigma_{\Omega}}(c - c_b')\delta^{\sigma_{\Omega}}(s - s_b'),
+  \\
+  & I_-(x,y=1,c,s<0;x_t^{\prime},y_t^{\prime}=1,c_t^{\prime},
+  s_t^{\prime})
+  =\delta_{\{x_t^{\prime}\}}^{\sigma_{r}}(x)\delta^{\sigma_{\Omega}}(c - c_t')\delta^{\sigma_{\Omega}}(s - s_t'),
+\end{aligned}
+\right.
+$$
+
+</div>
+</GlassCard>
+
+<div grid="~ cols-2 gap-4 items-stretch" mt-4>
+<GlassCard
+  title="Cross sections"
+  variant="secondary"
+  size="sm"
+>
+<div equation-block>
+
+$$
+\begin{aligned}
+\mu_t(x,y) &=
+\begin{cases}
+U_t, \quad \text{where } U_t \sim \mathcal{U}(5,7) & \text{if } (x,y) \in D_\mu \\
+10 & \text{if } (x,y) \notin D_\mu
+\end{cases} \\
+\mu_s(x,y) &=
+\begin{cases}
+U_s, \quad \text{where } U_s \sim \mathcal{U}(2,4) & \text{if } (x,y) \in D_\mu \\
+5 & \text{if } (x,y) \notin D_\mu
+\end{cases}
+\end{aligned}
+$$
+
+</div>
+</GlassCard>
+
+<GlassCard
+  title="Scattering kernel"
+  variant="success"
+  size="sm"
+>
+<div equation-block>
+<div py-3 text-base>
+
+$$
+g \sim
+\begin{cases}
+\mathcal{U}(0,0.2),  & \quad \text{near isotropy} \\
+\mathcal{U}(0.4,0.6), & \quad \text{moderate anisotropy} \\
+\mathcal{U}(0.7,0.9), & \quad \text{strong anisotropy} \\
+\end{cases}
+$$
+
+</div>
+</div>
+</GlassCard>
 </div>
 
 ---
 
-# Results: Accuracy Comparison
+# Dataset parameters
 
-<div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-primary font-bold">Superior Accuracy</span> Across Multiple Test Cases
-  </div>
-</div>
+<div bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt--2>
 
-<div grid="~ cols-2 gap-6" mt-4>
-
-<div v-click="1">
-  <GlassCard
-    title="Quantitative Results"
-    subtitle="$L^2$ relative error (%)"
-    variant="success"
-    icon="i-ph-chart-bar-horizontal-duotone"
-    size="md"
-  >
-    <div class="space-y-2 text-sm">
-      <div class="bg-gray-100/50 dark:bg-gray-800/30 rounded p-2">
-        <div class="grid grid-cols-2 gap-2 text-xs">
-          <div class="font-semibold">Method</div>
-          <div class="font-semibold text-right">Error</div>
-          <div>DeepRTE (Ours)</div>
-          <div class="text-right text-green-600 font-semibold">0.8%</div>
-          <div>Standard PINN</div>
-          <div class="text-right">3.2%</div>
-          <div>FNO</div>
-          <div class="text-right">2.1%</div>
-          <div>Discrete Ordinates</div>
-          <div class="text-right">1.5%</div>
-        </div>
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
-<div v-click="2">
-  <GlassCard
-    title="Key Observations"
-    subtitle="Performance insights"
-    variant="tech"
-    icon="i-ph-lightbulb-duotone"
-    size="md"
-    :items="[
-      '4× better than PINNs',
-      'Consistent performance',
-      'Handles multi-scale problems',
-      'High-scattering accuracy'
-    ]"
-  />
-</div>
+| Category | Parameters | Symbol | Value/Range |
+| -------- | ---------- | ------ | ----------- |
+| Spatial domain | Domain<br> Subdomain | $D$ <br>  $D_\mu$  | ${[0,1]}^2$ <br> ${[0.4,0.6]}^2$ |
+| Cross section | Total <br> Scattering | $\mu_t$ <br> $\mu_s$ | $\mathcal{U}(5,7)$ in $D_\mu$ and $10$ in $D\backslash D_\mu$ <br>  $\mathcal{U}(2,4)$ in $D_\mu$ and $5$ in $D\backslash D_\mu$ |
+| Discretization | # of mesh points <br> # of angular quadrature points | $N_{\text{mesh}}$ <br> $N_\text{quad}$  | $40$ <br> $24$ |
+| Boundary conditions | Beam spatial center coordinates <br><div mt-2 /> Beam angular quadrature points <br><div mt-3 /> Beam spatial std dev <br> Beam angular std dev | $y_l', y_r', x_b', x_t'$ <br> $c_l', c_r', c_b', c_t'$ <br> $s_l', s_r', s_b', s_t'$ <br> $\sigma_{r}$ <br> $\sigma_{\Omega}$ | Sampled from mesh points <br><div mt-2 /> Sampled from quadrature points <br><div mt-3 /> $\sqrt{2}\,\mathcal{U}(0.005, 0.02)$ <br> $\sqrt{2}\,\mathcal{U}(0.005, 0.01)$ |
+| Scattering | Asymmetry parameter | $g$ | $\mathcal{U}(0,0.2)$ <br> $\mathcal{U}(0.4,0.6)$ <br> $\mathcal{U}(0.7,0.9)$ |
 
 </div>
 
-<div class="mt-4">
-  <GlassCard variant="gradient-secondary" text-center size="sm">
-    <div class="text-sm font-semibold mb-1">
-      <span class="emphasis-primary">Attention Impact:</span>
-    </div>
-    <div class="text-xs opacity-90">
-      Without attention: 2.3% | With attention: 0.8% (65% improvement)
-    </div>
-  </GlassCard>
+---
+class: pt-4
+---
+
+# Hyperparameters
+
+<div grid="~ cols-2 gap-6" mt--2>
+
+<GlassCard
+  title="Neural Network"
+  variant="warning"
+  icon="i-ph-database-duotone"
+  size="md"
+>
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-10>
+
+| **Module Name** | **Hyperparameters** | **Value** |
+| ---------------- | ------------------ | --------- |
+| Attenuation | $\texttt{num\_layer}$: $N_{\text{mlp}}$ <br> $\texttt{hidden\_dim}$: $d_{\text{mlp}}$ <br> $\texttt{output\_dim}$: $d_{\text{model}}$ <br> $\texttt{num\_head}$: $N_{\text{head}}$ <br> $\texttt{key\_dim}$: $d_k$ <br> $\texttt{value\_dim}$: $d_v$ <br> $\texttt{output\_dim}$: $d_{\tau}$ | $4$ <br> $128$ <br> $16$ <br> $2$ <br> $32$ <br> $32$ <br> $2$ |
+| Scattering | $\texttt{num\_block}$: $N_{\ell}$ <br> $\texttt{latent\_dim}$: $d_{\text{model}}$ | $2$ <br> $16$ |
+
+</div>
+</GlassCard>
+
+<GlassCard
+  title="Training"
+  variant="success"
+  icon="i-ph-target-duotone"
+  size="md"
+>
+
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden>
+
+| **Hyperparameters** | **Value** |
+| --------------------| --------- |
+| Optimizer | Adam |
+| Learning rate schedule | Cosine annealing |
+| Initial learning rate | $1\times 10^{-3}$ |
+| Batch size | $8$ |
+| Epochs | $5000$ |
+| # of training data | $800$ |
+| # of validation data | $200$ |
+| # of collocation points | $128$ |
+
+</div>
+</GlassCard>
 </div>
 
 ---
 
-# Results: Computational Efficiency
+# Results: Accuracy
 
-<div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-tech font-bold">Significant Speedup</span> for Parametric Studies
-  </div>
-</div>
+Same distribution as training dataset
 
-<div grid="~ cols-3 gap-4" mt-4>
+<GlassCard
+  title="Accuracy validation"
+  subtitle="Delta-like functions"
+  variant="success"
+  icon="i-ph-target-duotone"
+  size="lg"
+  mt-10
+>
+<div bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text text-on-surface overflow-hidden text-lg>
 
-<div v-click="1">
-  <GlassCard
-    title="Training Time"
-    subtitle="One-time cost"
-    variant="warning"
-    icon="i-ph-clock-duotone"
-    size="sm"
-    :items="[
-      'Pre-training: ~24h',
-      'Fine-tuning: ~2h',
-      'Trains once for all'
-    ]"
-  />
-</div>
-
-<div v-click="2">
-  <GlassCard
-    title="Inference Speed"
-    subtitle="Per query"
-    variant="success"
-    icon="i-ph-lightning-duotone"
-    size="sm"
-    :items="[
-      'DeepRTE: ~0.1s',
-      'PINN: ~30s',
-      '50× faster'
-    ]"
-  />
-</div>
-
-<div v-click="3">
-  <GlassCard
-    title="Parametric Studies"
-    subtitle="Multiple values"
-    variant="primary"
-    icon="i-ph-repeat-duotone"
-    size="sm"
-    :items="[
-      '100 parameter sets:',
-      'DeepRTE: ~10s',
-      'PINNs: ~50 min'
-    ]"
-  />
-</div>
+| **Model** | **# of parameters** | **Scattering regime** | **$g$ range** | **MSE($\times 10^{-10}$)** | **RMSPE($\%$)** |
+| -------------------- | --------- | --------- | -------- | -------- | --------- |
+| DeepRTE | $37954$ | Near isotropy <br> Moderate anisotropy <br> Strong anisotropy | $(0, 0.2)$ <br> $(0.4,0.6)$ <br> $(0.7,0.9)$ | $5.630$ <br> $5.453$ <br> $7.223$ | $2.827$ <br> $2.759$ <br> $3.181$ |
 
 </div>
+</GlassCard>
 
-<div class="mt-5">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-base font-semibold mb-1">
-      <span class="emphasis-tech">Design Impact:</span>
-    </div>
-    <div class="text-sm opacity-90">
-      Real-time parameter exploration enables interactive optimization
-    </div>
-  </GlassCard>
+---
+
+# Results
+
+<div rounded-xl flex="~ justify-center" mt--1>
+<img src="/figs/accuracy.png" h-110 rounded-lg bg-white p-2 />
 </div>
 
 ---
 
 # Generalization Capabilities
 
-<div class="mb-4 text-center">
+<div class="mb-2 text-center">
   <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-primary font-bold">Robust Generalization</span> Beyond Training Distribution
+    <span class="emphasis-primary font-bold">Zero-shot Generalization</span> Beyond Training Distribution
   </div>
 </div>
 
 <div grid="~ cols-2 gap-6" mt-4>
 
-<div v-click="1">
-  <GlassCard
-    title="Out-of-Distribution Tests"
-    subtitle="Challenging scenarios"
-    variant="tech"
-    icon="i-ph-arrows-out-duotone"
-    size="md"
-    :items="[
-      'Extreme contrasts (10³ ratios)',
-      'Novel geometries',
-      'Different boundary conditions',
-      'Multi-material interfaces'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Out-of-Distribution Tests"
+  subtitle="Challenging scenarios"
+  variant="tech"
+  icon="i-ph-arrows-out-duotone"
+  size="md"
+  :items="[
+    'Different boundary conditions',
+    'Different cross-sections and scattering kernels'
+  ]"
+/>
 
-<div v-click="2">
-  <GlassCard
-    title="Transfer Learning"
-    subtitle="Few-shot adaptation"
-    variant="secondary"
-    icon="i-ph-swap-duotone"
-    size="md"
-    :items="[
-      'Pre-trained on simple cases',
-      'Fine-tune on ICF targets',
-      'Only 10-50 examples needed',
-      'High accuracy (< 2% error)'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Transfer Learning"
+  subtitle="Zero-shot adaptation"
+  variant="secondary"
+  icon="i-ph-swap-duotone"
+  size="md"
+  :items="[
+    'Pre-trained on delta boundary',
+    'High accuracy (< 5% error)'
+  ]"
+/>
 
 </div>
 
 <div class="mt-4">
-  <GlassCard
-    title="Physical Consistency"
-    variant="gradient-secondary"
-    icon="i-ph-balance-duotone"
-    size="sm"
-  >
-    <div class="grid grid-cols-2 gap-3 text-xs text-center">
-      <div>
-        <div class="font-semibold mb-1">Conservation Laws</div>
-        <div>Energy: < 0.5% error</div>
-      </div>
-      <div>
-        <div class="font-semibold mb-1">Asymptotic Limits</div>
-        <div>Correct diffusion behavior</div>
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Ablation Studies
-
-<div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-tech font-bold">Component Analysis</span> and Design Choices
+<GlassCard
+  title="3 Cases"
+  variant="gradient-secondary"
+  icon="i-ph:balance-duotone"
+  size="md"
+>
+<div flex="~ col items-center gap-2">
+<div equation-block>
+<div class="grid grid-cols-3 gap-3 text-sm text-center">
+  <div>
+    <div class="font-semibold mb-1">Case I</div>
+    <div>Constant boundary conditions</div>
+  </div>
+  <div>
+    <div class="font-semibold mb-1">Case II</div>
+    <div>Trigonometric boundary condition</div>
+  </div>
+  <div>
+    <div class="font-semibold mb-1">Case III</div>
+    <div>Velocity dependent boundary condition</div>
   </div>
 </div>
-
-<div grid="~ cols-2 gap-6" mt-4>
-
-<div v-click="1">
-  <GlassCard
-    title="Architecture Components"
-    subtitle="Impact on performance"
-    variant="primary"
-    icon="i-ph-gear-duotone"
-    size="md"
-  >
-    <div class="space-y-2 text-sm">
-      <div class="bg-gray-100/50 dark:bg-gray-800/30 rounded p-2">
-        <div class="grid grid-cols-2 gap-2 text-xs">
-          <div>Full DeepRTE</div>
-          <div class="text-right font-semibold text-green-600">0.8%</div>
-          <div>Without attention</div>
-          <div class="text-right">2.3%</div>
-          <div>Without pre-training</div>
-          <div class="text-right">1.8%</div>
-          <div>Standard DeepONet</div>
-          <div class="text-right">3.1%</div>
-        </div>
-      </div>
-    </div>
-  </GlassCard>
 </div>
+<div i-ph:x-duotone text-3xl op-50 />
+<div equation-block text-sm p0>
 
-<div v-click="2">
-  <GlassCard
-    title="Training Strategies"
-    subtitle="Learning approach impact"
-    variant="secondary"
-    icon="i-ph-trending-up-duotone"
-    size="md"
-    :items="[
-      'Progressive training: 15%',
-      'Data augmentation: 10%',
-      'Multi-scale loss: 8%',
-      'Curriculum learning: 12%'
-    ]"
-  />
-</div>
+$$
+g \sim (0, 0.2), (0.4, 0.6), (0.7, 0.9)
+$$
 
 </div>
-
-<div class="mt-4">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-sm font-semibold mb-1">
-      <span class="emphasis-tech">Key Finding:</span>
-    </div>
-    <div class="text-xs opacity-90">
-      Attention mechanism crucial for long-range transport phenomena
-    </div>
-  </GlassCard>
+</div>
+</GlassCard>
 </div>
 
 ---
 
-# Limitations and Future Work
+# Case I:
+
+Without further training
+
+<GlassCard title="Constant boundary conditions" variant="primary" size="sm">
+<div equation-block>
+
+$$
+\left \{
+  \begin{aligned}
+    & I_-(x=0,y,c>0,s) =1,  \\
+    & I_-(x=1,y,c<0,s) = 0, \\
+    & I_-(x,y=0,c,s>0) =0,  \\
+    & I_-(x,y=1,c,s<0) =0,
+  \end{aligned}
+  \right.
+$$
+
+</div>
+</GlassCard>
+
+<div rounded-xl flex="~ justify-center" h-50 mt-2 bg-white>
+<img src="/figs/case-1.png"/>
+</div>
+
+---
+
+# Case II:
+
+Without further training
+
+<GlassCard title="Trigonometric boundary conditions" variant="secondary" size="sm">
+<div flex="~ gap-6 items-center justify-center" text-on-surface>
+<div equation-block>
+
+$$
+\left \{
+  \begin{aligned}
+    & I_-(x=0,y,c>0,s) =a_L\sin{k_L y}+5,   \\
+    & I_-(x=1,y,c<0, s) = a_R\sin{k_R y}+5, \\
+    & I_-(x,y=0,c,s>0) =a_B\sin{k_B x}+5,   \\
+    & I_-(x,y=1,c,s<0) =a_T\sin{k_T x}+5,
+  \end{aligned}
+  \right.
+$$
+
+</div>
+with
+<div equation-block>
+
+$$
+a_L, a_R, a_B, a_T \sim \mathcal{U}(-5,5), \quad
+k_L, k_R, k_B, k_T \sim\mathcal{U}(-10, 10).
+$$
+
+</div>
+</div>
+</GlassCard>
+
+<div rounded-xl flex="~ justify-center" h-50 mt-2 bg-white>
+<img src="/figs/case-2.png"/>
+</div>
+
+---
+
+# Case III:
+
+Without further training
+
+<GlassCard title="Velocity dependent boundary conditions" variant="success" size="sm">
+<div flex="~ gap-6 items-center justify-center" text-on-surface>
+<div equation-block>
+
+$$
+\left \{
+  \begin{aligned}
+    & I_-(x=0,y,c>0,s) =(a_{Lr}\sin{k_{Lr} y}+5)(a_{Lv}\sin{k_{Lv} c}+1)(a_{Lv}\sin{k_{Lv} s}+1), \\
+    & I_-(x=1,y,c<0,s) = (a_{Rr}\sin{k_{Rr} y}+5)(a_{Rv}\sin{k_{Rv} c}+1)(a_{Rv}\sin{k_{Rv} s}+1),
+    \\
+    & I_-(x,y=0,c,s>0) =(a_{Br}\sin{k_{Br} x}+5)(a_{Bv}\sin{k_{Bv} c}+1)(a_{Bv}\sin{k_{Bv} s}+1),
+    \\
+    & I_-(x,y=1,c,s<0) =(a_{Tr}\sin{k_{Tr} x}+5)(a_{Tv}\sin{k_{Tv} c}+1)(a_{Tv}\sin{k_{Tv} s}+1),
+  \end{aligned}
+  \right.
+$$
+
+</div>
+with
+<div equation-block>
+
+$$
+\begin{aligned}
+a_{Lr}, a_{Rr}, a_{Br}, a_{Tr} &\sim \mathcal{U}(-5,5), \\
+a_{Lv}, a_{Rv}, a_{Bv}, a_{Tv} &\sim \mathcal{U}(-1,1), \\
+k_{Lr}, k_{Rr}, k_{Br}, k_{Tr} &\sim\mathcal{U}(-10, 10),\\
+k_{Lv}, k_{Rv}, k_{Bv}, k_{Tv} &\sim\mathcal{U}(-6, 6).
+\end{aligned}
+$$
+
+</div>
+</div>
+</GlassCard>
+
+<div rounded-xl flex="~ justify-center" h-50 mt-2 bg-white>
+<img src="/figs/case-3.png"/>
+</div>
+
+---
+
+# Results: Summary
+
+<div grid="~ cols-[1fr_1.2fr] gap-4" mt--2>
+
+<GlassCard
+  title="Zero-shot performance"
+  variant="warning"
+  icon="i-ph-database-duotone"
+  size="sm"
+>
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-10>
+
+|       | **Test Dataset** | **MSE** | **RMSPE($\%$)** |
+| ---------------- | ------------------ | --------- | ------ |
+| Case I | $g\in(0,0.2)$ <br> $g\in(0.4,0.6)$ <br> $g\in(0.7,0.9)$ | $4.390 \times 10^{-6}$ <br> $5.184 \times 10^{-6}$ <br> $1.474 \times 10^{-5}$ | $1.833$ <br> $1.994$ <br> $3.193$ |
+| Case II| $g\in(0,0.2)$ <br> $g\in(0.4,0.6)$ <br> $g\in(0.7,0.9)$ | $4.931 \times 10^{-4}$ <br> $5.798 \times 10^{-4}$ <br> $2.870 \times 10^{-3}$ | $1.653$ <br> $1.827$ <br> 3.572$ |
+| Case III | $g\in(0,0.2)$ <br> $g\in(0.4,0.6)$ <br> $g\in(0.7,0.9)$ | $1.065 \times 10^{-3}$ <br> $1.127 \times 10^{-3}$ <br> $1.853 \times 10^{-3}$ | $2.383$ <br> $2.452$ <br> 3.069$ |
+
+</div>
+</GlassCard>
+
+<GlassCard
+  title="Mesh dependency"
+  variant="success"
+  icon="i-ph-target-duotone"
+  size="sm"
+>
+
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden>
+
+| **Test Dataset** | **Mesh Resolution** | **MSE** | **RMSPE($\%$)** |
+| ---------------- | ------------------ | --------- | ------ |
+| Validation | $40\times 40$<br>$20\times 20$<br>$10\times 10$ | $5.453\times 10^{-10}$<br>$8.235\times 10^{-9}$<br>$9.476\times 10^{-8}$ | $2.759$<br>$10.006$<br>$34.346$ |
+| Case I | $40\times 40$<br>$20\times 20$<br>$10\times 10$ | $4.390 \times 10^{-6}$ <br> $1.876 \times 10^{-5}$ <br> $1.243 \times 10^{-4}$ | $1.833$ <br> $3.758$ <br> $9.276$ |
+| Case II| $40\times 40$<br>$20\times 20$<br>$10\times 10$ | $4.931 \times 10^{-4}$ <br> $1.792 \times 10^{-2}$ <br> $3.687 \times 10^{-2}$ | $1.653$ <br> $9.952$ <br> $13.798$ |
+| Case III | $40\times 40$<br>$20\times 20$<br>$10\times 10$ | $1.065 \times 10^{-3}$ <br> $1.175 \times 10^{-2}$ <br> $4.511 \times 10^{-2}$ | $2.383$ <br> $8.132$ <br> $15.477$ |
+
+</div>
+</GlassCard>
+</div>
+
+---
+
+# Comparision with MIO
+
+<GlassCard
+  title="Comparision with MIO"
+  variant="warning"
+  icon="i-ph-target-duotone"
+  size="lg"
+>
+
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden>
+<img src="/figs/vs-mio.png" />
+</div>
+
+<div strong text-center mt-4 text-xl equation-block>
+<span text-2xl text-accent font-semibold>Fewer</span> parameters but <span text-2xl text-accent font-semibolt>Better</span> generalization
+</div>
+</GlassCard>
+
+---
+
+# Conclusion
 
 <div class="mb-4 text-center">
   <div class="text-xl text-on-surface mb-2">
@@ -1453,37 +1740,33 @@ $$
 
 <div grid="~ cols-2 gap-6" mt-4>
 
-<div v-click="1">
-  <GlassCard
-    title="Current Limitations"
-    subtitle="Areas for improvement"
-    variant="error"
-    icon="i-ph-warning-duotone"
-    size="md"
-    :items="[
-      '2D problems only',
-      'Steady-state solutions',
-      'Substantial pre-training data',
-      'Memory constraints'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Current Limitations"
+  subtitle="Areas for improvement"
+  variant="error"
+  icon="i-ph-warning-duotone"
+  size="md"
+  :items="[
+    '2D problems only',
+    'Steady-state solutions',
+    'Substantial pre-training data',
+    'Memory constraints'
+  ]"
+/>
 
-<div v-click="2">
-  <GlassCard
-    title="Future Directions"
-    subtitle="Research opportunities"
-    variant="success"
-    icon="i-ph-rocket-launch-duotone"
-    size="md"
-    :items="[
-      '3D extension',
-      'Time-dependent problems',
-      'Multi-physics coupling',
-      'Uncertainty quantification'
-    ]"
-  />
-</div>
+<GlassCard
+  title="Future Directions"
+  subtitle="Research opportunities"
+  variant="success"
+  icon="i-ph-rocket-launch-duotone"
+  size="md"
+  :items="[
+    '3D extension',
+    'Time-dependent problems',
+    'Multi-physics coupling',
+    'Uncertainty quantification'
+  ]"
+/>
 
 </div>
 
@@ -1501,66 +1784,6 @@ $$
       <div>
         <strong>Impact:</strong> Real-time simulation and optimization
       </div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Conclusions
-
-<div class="mb-6 text-center">
-  <div class="text-2xl text-on-surface mb-4">
-    <span class="emphasis-primary font-bold">DeepRTE:</span> A New Paradigm for Radiative Transfer
-  </div>
-</div>
-
-<div grid="~ cols-2 gap-6" mt-4>
-
-<div v-click="1">
-  <GlassCard
-    title="Technical Contributions"
-    subtitle="Novel advances"
-    variant="primary"
-    icon="i-ph-medal-duotone"
-    size="md"
-    :items="[
-      'First attention-based operator for RTE',
-      '4× better accuracy than PINNs',
-      '300× speedup for parametric studies',
-      'Strong generalization'
-    ]"
-  />
-</div>
-
-<div v-click="2">
-  <GlassCard
-    title="Practical Impact"
-    subtitle="Real-world applications"
-    variant="tech"
-    icon="i-ph-wrench-duotone"
-    size="md"
-    :items="[
-      'Interactive design workflows',
-      'Real-time exploration',
-      'Complex geometries',
-      'Multi-physics foundation'
-    ]"
-  />
-</div>
-
-</div>
-
-<div class="mt-5" v-click="3">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-lg font-semibold mb-2">
-      <span class="emphasis-tech">Key Message</span>
-    </div>
-    <div class="text-sm mb-2">
-      Neural operators + attention = transformative radiation transport
-    </div>
-    <div class="text-xs opacity-90">
-      New possibilities for optimization and discovery
     </div>
   </GlassCard>
 </div>
@@ -1598,7 +1821,7 @@ class: "text-center pb-5"
     >
       <div class="text-sm">
         Available on GitHub<br/>
-        (upon publication)
+        <Repo name="mazhengnc/deeprte" />
       </div>
     </GlassCard>
     <GlassCard
@@ -1616,1098 +1839,4 @@ class: "text-center pb-5"
   </div>
 </div>
 
-Slides can be found [here](https://zheng-talks.netlify.app/2025/deeprte)
-
----
-layout: center
----
-
-# SJTU Design System Overview
-
-Complete color palette and component showcase
-
-<div class="grid grid-cols-3 gap-5 mt-7">
-  <GlassCard
-    title="SJTU Blue"
-    subtitle="University brand"
-    variant="primary"
-    size="md"
-    icon="i-ph-graduation-cap-duotone"
-  >
-    <div class="space-y-3">
-      <div class="bg-gradient-sjtu h-8 rounded"></div>
-      <div class="grid grid-cols-3 gap-1">
-        <div class="bg-sjtu-400 h-4 rounded"></div>
-        <div class="bg-sjtu-600 h-4 rounded"></div>
-        <div class="bg-sjtu-800 h-4 rounded"></div>
-      </div>
-      <div class="text-sm text-on-surface-variant">Primary university color</div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Academic Gold"
-    subtitle="Excellence tone"
-    variant="secondary"
-    size="md"
-    icon="i-ph-medal-duotone"
-  >
-    <div class="space-y-3">
-      <div class="bg-gradient-academic h-8 rounded"></div>
-      <div class="grid grid-cols-3 gap-1">
-        <div class="bg-academic-400 h-4 rounded"></div>
-        <div class="bg-academic-600 h-4 rounded"></div>
-        <div class="bg-academic-800 h-4 rounded"></div>
-      </div>
-      <div class="text-sm text-on-surface-variant">Warm academic tones</div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Tech Spectrum"
-    subtitle="Modern colors"
-    variant="tech"
-    size="md"
-    icon="i-ph-cpu-duotone"
-  >
-    <div class="space-y-3">
-      <div class="bg-gradient-tech h-8 rounded"></div>
-      <div class="grid grid-cols-3 gap-1">
-        <div class="bg-tech-electric-500 h-4 rounded"></div>
-        <div class="bg-tech-cyber-500 h-4 rounded"></div>
-        <div class="bg-tech-innovation-500 h-4 rounded"></div>
-      </div>
-      <div class="text-sm text-on-surface-variant">Vibrant tech colors</div>
-    </div>
-  </GlassCard>
-</div>
-
-<div class="grid grid-cols-2 gap-8 mt-7">
-  <GlassCard
-    title="Interactive Buttons"
-    subtitle="Glassmorphism effects"
-    variant="gradient-primary"
-    icon="i-ph-hand-tap-duotone"
-    size="md"
-  >
-    <div class="space-y-3">
-      <div class="flex gap-3 justify-center">
-        <button class="btn-primary text-sm">Primary</button>
-        <button class="btn-secondary text-sm">Secondary</button>
-        <button class="btn-outline text-sm">Outline</button>
-      </div>
-      <div class="text-sm text-on-surface-variant text-center">Modern glass design with hover effects</div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Accent Colors"
-    subtitle="Vibrant highlights"
-    variant="gradient-secondary"
-    icon="i-ph-palette-duotone"
-    size="md"
-  >
-    <div class="space-y-3">
-      <div class="grid grid-cols-2 gap-3">
-        <div class="bg-accent-magenta-700 h-8 rounded flex items-center justify-center">
-          <span class="text-white text-sm font-medium">Magenta</span>
-        </div>
-        <div class="bg-accent-aqua-700 h-8 rounded flex items-center justify-center">
-          <span class="text-white text-sm font-medium">Aqua</span>
-        </div>
-      </div>
-      <div class="text-sm text-on-surface-variant text-center">Special emphasis colors</div>
-    </div>
-  </GlassCard>
-</div>
-
----
-layout: center
----
-
-# Enhanced GlassCard Demo
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-    <GlassCard
-    title="Neural Networks"
-    subtitle="Deep learning fundamentals"
-    variant="primary"
-    icon="i-ph:cube-transparent-duotone"
-    :items="['Forward propagation', 'Backpropagation', 'Gradient descent', 'Activation functions']"
-  />
-
-  <GlassCard
-    title="Research Focus"
-    subtitle="Current projects"
-    variant="gradient-secondary"
-    icon="i-ph:circles-three-duotone"
-    :items="['Radiative Transfer', 'Neural Operators', 'Physics-Informed ML', 'Scientific Computing']"
-  />
-
-  <GlassCard
-    title="Development"
-    subtitle="Technical stack"
-    variant="tech"
-    icon="i-ph:chart-bar-duotone"
-    :items="['Python/JAX', 'Neural Networks', 'Scientific Computing', 'Open Source']"
-    />
-</div>
-
-<div class="grid grid-cols-4 gap-4 mt-8">
-  <GlassCard
-    title="Success"
-    variant="success"
-    icon="i-material-symbols:19mp-outline-rounded"
-    size="sm"
-    :items="['Completed', 'Validated', 'Published']"
-  />
-
-  <GlassCard
-    title="Warning"
-    variant="warning"
-    icon="i-ph:circles-three-duotone"
-    size="sm"
-    :items="['In Progress', 'Review Needed', 'Pending']"
-  />
-
-  <GlassCard
-    title="Error"
-    variant="error"
-    icon="i-ph:chart-bar-duotone"
-    size="sm"
-    :items="['Failed Tests', 'Bug Reports', 'Critical Issues']"
-  />
-
-  <GlassCard
-    title="Gradient Primary"
-    variant="gradient-primary"
-    icon="i-ph:cube-transparent-duotone"
-    size="sm"
-    :items="['Vibrant', 'Modern', 'Eye-catching']"
-  />
-</div>
-
----
-
-# Another demo
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <GlassCard
-    title="Large Card with Icon"
-    subtitle="Enhanced with Iconify icons"
-    variant="tech"
-    icon="i-ph:acorn"
-    size="lg"
-  >
-  <div class="text-on-surface">
-  This card demonstrates the <span class="emphasis-tech">enhanced features</span>:
-
-  - Icon support from Iconify
-
-  - Better text spacing without subtitles
-
-  - Reduced shadow for cleaner look
-
-  - New gradient border variants
-
-  </div>
-  </GlassCard>
-
-  <GlassCard variant="gradient-primary" size="lg">
-    <div class="text-gradient-tech text-xl font-bold mb-4">Gradient Borders</div>
-    <div class="text-on-surface mb-4">
-      The new gradient variants create beautiful colored borders that adapt to both themes.
-    </div>
-    <div class="flex flex-wrap gap-2">
-      <div class="bg-tech-electric/20 px-3 py-1 rounded text-sm">Electric</div>
-      <div class="bg-tech-innovation/20 px-3 py-1 rounded text-sm">Innovation</div>
-      <div class="bg-tech-cyber/20 px-3 py-1 rounded text-sm">Cyber</div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# List Style Options
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <GlassCard
-    title="Square Bullets (Default)"
-    subtitle="Matches Slidev's default style"
-    variant="primary"
-    :items="['Machine Learning', 'Deep Learning', 'Neural Networks', 'Scientific Computing']"
-    list-style="square"
-  />
-
-  <GlassCard
-    title="Round Dot Bullets"
-    subtitle="Classic circular bullet points"
-    variant="secondary"
-    :items="['Data Science', 'Python Programming', 'Research Papers', 'Open Source']"
-    list-style="dot"
-  />
-</div>
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-  <GlassCard
-    title="Tech Style"
-    variant="tech"
-    size="sm"
-    :items="['JAX Framework', 'GPU Computing', 'CUDA Support']"
-    list-style="square"
-  />
-
-  <GlassCard
-    title="Success Status"
-    variant="success"
-    size="sm"
-    :items="['Tests Passing', 'Code Review', 'Documentation']"
-    list-style="dot"
-  />
-
-  <GlassCard
-    title="Gradient Style"
-    variant="gradient-primary"
-    size="sm"
-    :items="['Modern Design', 'Vibrant Colors', 'Clean Layout']"
-    list-style="square"
-  />
-</div>
-
----
-
-# GlassCard with LaTeX Support
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <GlassCard
-    title="Mathematical Formulation with $\LaTeX$"
-    subtitle="The radiative transfer equation involves $I(r,\Omega)$"
-    variant="warning"
-    :enable-latex="true"
-    :items="[
-      'Radiation intensity: $I(r,\\Omega)$',
-      'Total cross section: $\\mu_t(r)$',
-      'Scattering cross section: $\\mu_s(r)$',
-      'Phase function: $p(\\Omega,\\Omega^*)$'
-    ]"
-    size="lg"
-  />
-
-  <GlassCard
-    title="Neural Network Notation"
-    subtitle="Deep learning with $\mathbb{R}^n$ spaces"
-    variant="gradient-primary"
-    icon="i-ph:dog-duotone"
-    :enable-latex="true"
-    :items="[
-      'Input layer: $x \\in \\mathbb{R}^{d_{\\text{in}}}$',
-      'Hidden layers: $h_i = \\sigma(W_i h_{i-1} + b_i)$',
-      'Output layer: $y \\in \\mathbb{R}^{d_\\text{out}}$',
-      'Loss function: $\\mathcal{L}(\\theta)$'
-    ]"
-    size="lg"
-  />
-</div>
-
-<div class="mt-6 text-center text-sm text-on-surface-variant">
-  Use <code>:enable-latex="true"</code> prop to render LaTeX in titles, subtitles, and list items
-</div>
-
----
-glow: left
----
-
-# Component Gallery
-
-This template includes several powerful components for presentations
-
-<div grid="~ cols-2 gap-8" mt-6>
-  <GlassCard
-    title="Available Components"
-    subtitle="Ready-to-use presentation elements"
-    variant="primary"
-    icon="i-ph-cube-transparent-duotone"
-    :items="['GlassCard - Main content container', 'ProsCons - Comparison tables', 'Repo - GitHub repository links', 'Emphasis - Text highlighting', 'IconTest - Icon compatibility checker']"
-    size="lg"
-  />
-
-  <GlassCard
-    title="SJTU Design System"
-    subtitle="University-inspired color palette"
-    variant="tech"
-    icon="i-ph-palette-duotone"
-    :items="['SJTU Blue gradients', 'Academic Gold themes', 'Tech vibrant colors', 'Modern glassmorphism effects', 'Light & dark mode support']"
-    size="lg"
-  />
-</div>
-
-<div mt-6 text-center>
-  <GlassCard variant="gradient-primary" size="sm" text-center>
-    Let's explore each component in detail!
-  </GlassCard>
-</div>
-
----
-
-# Typography & Text Emphasis
-
-Modern text styling and emphasis techniques
-
-<div class="grid grid-cols-2 gap-5 mt-5">
-  <GlassCard
-    title="Text Emphasis Classes"
-    subtitle="Built-in styling utilities"
-    variant="primary"
-    icon="i-ph-text-aa-duotone"
-    size="md"
-  >
-    <div class="space-y-3">
-      <div>
-        <div class="text-lg emphasis-primary">Primary Emphasis</div>
-        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-primary</code></div>
-      </div>
-      <div>
-        <div class="text-lg emphasis-secondary">Secondary Emphasis</div>
-        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-secondary</code></div>
-      </div>
-      <div>
-        <div class="text-lg emphasis-tech">Tech Emphasis</div>
-        <div class="text-xs opacity-70"><code class="text-xs">.emphasis-tech</code></div>
-      </div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Emphasis Component"
-    subtitle="Inline highlighting"
-    variant="tech"
-    icon="i-ph-highlighter-duotone"
-    size="md"
-  >
-    <div class="space-y-3">
-      <div class="text-sm space-y-2">
-        <p>Use the <Emphasis>Emphasis component</Emphasis> for highlighting.</p>
-        <p>Creates <Emphasis>pill-shaped</Emphasis> highlight effects.</p>
-      </div>
-      <div class="code-block-simple p-2 text-xs">
-        &lt;Emphasis&gt;text&lt;/Emphasis&gt;
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
-<div class="mt-4">
-  <GlassCard
-    title="Typography Features"
-    subtitle="Professional text presentation"
-    variant="gradient-primary"
-    icon="i-ph-article-duotone"
-    size="sm"
-  >
-    <div class="grid grid-cols-3 gap-3 text-center text-sm">
-      <div>
-        <div class="font-bold text-sjtu-600 dark:text-sjtu-400">Headlines</div>
-        <div class="text-xs opacity-70">Bold titles</div>
-      </div>
-      <div>
-        <div class="font-medium text-academic-600 dark:text-academic-400">Subtitles</div>
-        <div class="text-xs opacity-70">Context</div>
-      </div>
-      <div>
-        <div class="font-normal">Body Text</div>
-        <div class="text-xs opacity-70">Content</div>
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Gradient Text Effects
-
-Beautiful text gradients for modern presentations
-
-<div class="grid grid-cols-2 gap-4 mt-6">
-  <div>
-    <GlassCard
-      title="Text Gradients"
-      subtitle="Premium typography effects"
-      variant="primary"
-      icon="i-ph-text-aa-duotone"
-      size="sm"
-    >
-      <div class="py-1.5">
-        <div>
-          <div class="text-gradient-sjtu font-bold mb-1">SJTU Gradient</div>
-          <div class="text-xs opacity-70 mb-1">University presentations</div>
-          <code class="code-inline">.text-gradient-sjtu</code>
-        </div>
-        <div>
-          <div class="text-gradient-academic font-bold mb-1">Academic Gradient</div>
-          <div class="text-xs opacity-70 mb-1">Warm academic tones</div>
-          <code class="code-inline">.text-gradient-academic</code>
-        </div>
-        <div>
-          <div class="text-gradient-tech font-bold mb-1">Tech Gradient</div>
-          <div class="text-xs opacity-70 mb-1">Vibrant tech colors</div>
-          <code class="code-inline">.text-gradient-tech</code>
-        </div>
-      </div>
-    </GlassCard>
-  </div>
-
-  <div>
-    <GlassCard
-      title="Background Gradients"
-      subtitle="Stunning background effects"
-      variant="secondary"
-      icon="i-ph-palette-duotone"
-      size="sm"
-    >
-      <div class="space-y-3">
-        <div class="bg-gradient-sjtu h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
-          <div class="text-white font-semibold text-sm">SJTU Background</div>
-        </div>
-        <div class="bg-gradient-academic h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
-          <div class="text-white font-semibold text-sm">Academic Background</div>
-        </div>
-        <div class="bg-gradient-tech h-12 rounded-lg flex items-center justify-center backdrop-blur-sm">
-          <div class="text-white font-semibold text-sm">Tech Background</div>
-        </div>
-        <div class="text-xs opacity-70 pt-2">
-          Use <code class="code-inline">.bg-gradient-*</code> classes
-        </div>
-      </div>
-    </GlassCard>
-  </div>
-</div>
-
-<div class="mt-4">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="font-semibold mb-2">Pro Tip</div>
-    <div class="text-sm opacity-90">
-      Combine gradients with <code class="code-inline">backdrop-blur</code> for glassmorphism effects
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Button Styles & Interactive Elements
-
-Professional button designs with hover effects
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-2xl mb-6">Button Variants</h3>
-    <div class="space-y-4">
-      <div>
-        <button class="btn-primary">Primary Button</button>
-        <div class="text-sm opacity-60 mt-1">Main actions</div>
-      </div>
-      <div>
-        <button class="btn-secondary">Secondary Button</button>
-        <div class="text-sm opacity-60 mt-1">Secondary actions</div>
-      </div>
-      <div>
-        <button class="btn-outline">Outline Button</button>
-        <div class="text-sm opacity-60 mt-1">Subtle actions</div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <h3 class="text-2xl mb-6">Interactive States</h3>
-    <div class="space-y-4">
-      <div class="card-hover p-4">
-        <div class="font-semibold mb-2">Hover Card</div>
-        <div class="text-sm opacity-70">Smooth hover transitions</div>
-      </div>
-      <div class="card p-4">
-        <div class="font-semibold mb-2">Standard Card</div>
-        <div class="text-sm opacity-70">Glassmorphism effect</div>
-      </div>
-    </div>
-    <div mt-6 text-sm opacity-60>
-      All elements support both light and dark themes automatically
-    </div>
-  </div>
-</div>
-
----
-
-# Icon System Demo
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-2xl mb-6">Phosphor Icons</h3>
-    <div class="grid grid-cols-4 gap-4">
-      <div class="text-center">
-        <div class="i-ph-cube-transparent-duotone text-blue text-4xl mb-2" />
-        <div class="text-sm">cube</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-circles-three-duotone text-green text-4xl mb-2" />
-        <div class="text-sm">circles</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-chart-bar-duotone text-amber text-4xl mb-2" />
-        <div class="text-sm">chart</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-palette-duotone text-purple text-4xl mb-2" />
-        <div class="text-sm">palette</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-brain text-red text-4xl mb-2" />
-        <div class="text-sm">brain</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-flask text-blue text-4xl mb-2" />
-        <div class="text-sm">flask</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-code text-green text-4xl mb-2" />
-        <div class="text-sm">code</div>
-      </div>
-      <div class="text-center">
-        <div class="i-ph-heart text-red text-4xl mb-2" />
-        <div class="text-sm">heart</div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <h3 class="text-2xl mb-6">Usage in Components</h3>
-    <GlassCard
-      title="Icon in GlassCard"
-      subtitle="Icons enhance visual hierarchy"
-      variant="tech"
-      icon="i-ph-star-duotone"
-      :items="['Easy to add with icon prop', 'Supports all Phosphor icons', 'Automatic color theming', 'Scales with component size']"
-      size="lg"
-    />
-    <div mt-6>
-      <div class="text-sm mb-2">Example usage:</div>
-      <div class="code-block-simple p-3 text-sm">
-        <span class="code-syntax-attr">icon=</span><span class="code-syntax-string">"i-ph-star-duotone"</span>
-      </div>
-    </div>
-  </div>
-</div>
-
----
-
-# Repository Links
-
-Easy GitHub repository integration
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-2xl mb-6">Repo Component</h3>
-    <div class="space-y-6">
-      <div>
-        <div class="mb-2">Full repository name:</div>
-        <Repo name="microsoft/vscode" />
-      </div>
-      <div>
-        <div class="mb-2">Hide owner (show only repo name):</div>
-        <Repo name="microsoft/vscode" :hide-owner="true" />
-      </div>
-      <div>
-        <div class="mb-2">Multiple repositories:</div>
-        <div class="space-y-2">
-          <div><Repo name="slidevjs/slidev" /></div>
-          <div><Repo name="unocss/unocss" /></div>
-          <div><Repo name="vuejs/vue" /></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <h3 class="text-2xl mb-6">Usage Examples</h3>
-    <div class="space-y-4">
-      <div class="code-block-simple p-4">
-        <div class="text-sm font-mono mb-2 code-syntax-comment">Basic usage:</div>
-        <code class="text-xs code-syntax-tag">&lt;Repo name="owner/repo" /&gt;</code>
-      </div>
-      <div class="code-block-simple p-4">
-        <div class="text-sm font-mono mb-2 code-syntax-comment">Hide owner:</div>
-        <code class="text-xs code-syntax-tag">&lt;Repo name="owner/repo" :hide-owner="true" /&gt;</code>
-      </div>
-    </div>
-    <GlassCard variant="primary" size="sm" mt-6>
-      Perfect for referencing code repositories, open source projects, or related work in presentations
-    </GlassCard>
-  </div>
-</div>
-
----
-
-# ProsCons Component
-
-Professional comparison tables with glassmorphism design
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <div>
-    <GlassCard
-      title="Live Demo"
-      subtitle="Interactive comparison"
-      variant="primary"
-      icon="i-ph-presentation-chart-duotone"
-      size="sm"
-    >
-      <div>Glassmorphism design showcase</div>
-    </GlassCard>
-    <GlassCard variant="gradient-primary" size="sm" mt4>
-      <div class="text-center">
-        <div class="font-semibold mb-1 text-sm">Perfect For</div>
-        <div class="text-xs opacity-90">
-          Comparisons • Decisions • Evaluations
-        </div>
-      </div>
-    </GlassCard>
-    <ProsCons
-      :pros="[
-        'Beautiful glassmorphism effects',
-        'Smooth animations',
-        'Perfect light/dark mode support',
-        'Easy Vue.js integration'
-      ]"
-      :cons="[
-        'Requires Vue.js framework',
-        'Fixed comparison format',
-        'Not suitable for complex data'
-      ]"
-    />
-  </div>
-
-  <div>
-    <GlassCard
-      title="Implementation"
-      subtitle="Simple Vue.js component"
-      variant="secondary"
-      icon="i-ph-code-duotone"
-      size="sm"
-    >
-      <div class="code-block-simple p-2 text-sm">
-        <div class="code-syntax-tag">&lt;ProsCons</div>
-        <div class="ml-4 code-syntax-attr">:pros="[</div>
-        <div class="ml-8 code-syntax-string">'Easy to implement',</div>
-        <div class="ml-8 code-syntax-string">'Visually appealing'</div>
-        <div class="ml-4 code-syntax-attr">]"</div>
-        <div class="ml-4 code-syntax-attr">:cons="[<span class="code-syntax-string">'Limited scope'</span>]"</div>
-        <div class="code-syntax-tag">/&gt;</div>
-      </div>
-    </GlassCard>
-  </div>
-</div>
-
----
-
-# Advanced ProsCons Examples
-
-Real-world comparison scenarios
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-    <GlassCard
-      title="AI vs Traditional Methods"
-      subtitle="Technology comparison example"
-      variant="tech"
-      icon="i-ph-brain-duotone"
-      size="sm"
-    >
-      <div class="text-sm mb-3">Modern ML approaches vs. classical algorithms</div>
-    </GlassCard>
-    <ProsCons
-      :pros="[
-        'Handles complex patterns',
-        'Scales to large datasets',
-        'Continuous learning',
-        'Auto feature extraction'
-      ]"
-      :cons="[
-        'Needs large training data',
-        'Black box decisions',
-        'High computational cost',
-        'Potential overfitting'
-      ]"
-    />
-  </div>
-
-  <div>
-    <GlassCard
-      title="Cloud vs On-Premise"
-      subtitle="Infrastructure decision"
-      variant="secondary"
-      icon="i-ph-cloud-duotone"
-      size="sm"
-    >
-      <div class="text-sm mb-3">Deployment strategy comparison</div>
-    </GlassCard>
-    <ProsCons
-      :pros="[
-        'Infinite scalability',
-        'Managed services',
-        'Global distribution',
-        'Cost optimization'
-      ]"
-      :cons="[
-        'Data sovereignty concerns',
-        'Network dependency',
-        'Vendor lock-in risk',
-        'Less direct control'
-      ]"
-    />
-  </div>
-</div>
-
-<div class="mt-6">
-  <GlassCard
-    variant="gradient-secondary"
-    text-center
-    size="sm"
-  >
-    <div class="font-semibold mb-2">Component Features</div>
-    <div class="text-sm opacity-90">
-      Glassmorphism design • Smooth animations • v-click support • Responsive layout • Light/dark themes
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# SJTU Color System Deep Dive
-
-Comprehensive color palette for professional presentations
-
-<div class="grid grid-cols-3 gap-5 mt-7">
-  <GlassCard
-    title="SJTU Colors"
-    subtitle="University brand"
-    variant="primary"
-    icon="i-ph-graduation-cap-duotone"
-    size="md"
-  >
-    <div class="space-y-2">
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-sjtu-600 rounded"></div>
-        <span class="text-sm">Primary Blue</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-sjtu-400 rounded"></div>
-        <span class="text-sm">Light Blue</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-sjtu-800 rounded"></div>
-        <span class="text-sm">Dark Blue</span>
-      </div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Academic Colors"
-    subtitle="Warm tones"
-    variant="secondary"
-    icon="i-ph-book-duotone"
-    size="md"
-  >
-    <div class="space-y-2">
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-academic-600 rounded"></div>
-        <span class="text-sm">Academic Gold</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-academic-400 rounded"></div>
-        <span class="text-sm">Light Gold</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-academic-800 rounded"></div>
-        <span class="text-sm">Dark Gold</span>
-      </div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Tech Colors"
-    subtitle="Vibrant palette"
-    variant="tech"
-    icon="i-ph-cpu-duotone"
-    size="md"
-  >
-    <div class="space-y-2">
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-tech-electric-500 rounded"></div>
-        <span class="text-sm">Electric Blue</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-tech-cyber-500 rounded"></div>
-        <span class="text-sm">Cyber Green</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-tech-innovation-500 rounded"></div>
-        <span class="text-sm">Innovation Purple</span>
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <GlassCard
-    title="Accent Colors"
-    variant="gradient-primary"
-    icon="i-ph-sparkle-duotone"
-    size="sm"
-  >
-    <div class="space-y-2">
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-accent-magenta-500 rounded"></div>
-        <span class="text-sm">Accent Magenta</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-4 h-4 bg-accent-aqua-500 rounded"></div>
-        <span class="text-sm">Accent Aqua</span>
-      </div>
-    </div>
-  </GlassCard>
-
-  <GlassCard
-    title="Surface Colors"
-    variant="gradient-secondary"
-    icon="i-ph-layers-duotone"
-    size="sm"
-  >
-    <div class="space-y-1 text-sm">
-      <div>Auto light/dark theme</div>
-      <div>Glassmorphism effects</div>
-      <div>Adaptive contrast</div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Layout & Animation Features
-
-Built-in Slidev enhancements
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <GlassCard
-    title="Layout Options"
-    subtitle="Available slide layouts"
-    variant="primary"
-    icon="i-ph-layout-duotone"
-    :items="[
-      'cover - Title slides',
-      'center - Centered content',
-      'default - Standard slides',
-      'section - Section dividers'
-    ]"
-    size="md"
-  />
-
-  <GlassCard
-    title="Animation Features"
-    subtitle="Interactive enhancements"
-    variant="tech"
-    icon="i-ph-magic-wand-duotone"
-    :items="[
-      'v-click for step reveals',
-      'Smooth fade transitions',
-      'Hover animations on cards',
-      'Auto theme switching'
-    ]"
-    size="md"
-  />
-</div>
-
-<div class="mt-8">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-lg font-semibold mb-2">Pro Tip</div>
-    <div>Use <code>glow: left</code> or <code>glow: right</code> in slide frontmatter to add subtle glow effects</div>
-  </GlassCard>
-</div>
-
----
-
-# Template Customization Guide
-
-How to adapt this template for your needs
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <GlassCard
-    title="Quick Start"
-    subtitle="Get started quickly"
-    variant="success"
-    icon="i-ph-rocket-launch-duotone"
-    :items="[
-      '1. Copy template folder',
-      '2. Edit slides.md content',
-      '3. Replace images',
-      '4. Run bun run dev'
-    ]"
-    size="md"
-  />
-
-  <GlassCard
-    title="Customization"
-    subtitle="Make it your own"
-    variant="warning"
-    icon="i-ph-gear-duotone"
-    :items="[
-      'Modify colors in preset-sjtu.ts',
-      'Add custom components',
-      'Update fonts in style.css'
-    ]"
-    size="md"
-  />
-</div>
-
-<div class="mt-6">
-  <GlassCard
-    title="Essential Files"
-    variant="gradient-primary"
-    icon="i-ph-folder-duotone"
-    size="sm"
-  >
-    <div class="grid grid-cols-3 gap-4 text-center text-sm">
-      <div>
-        <div class="text-sjtu-600 dark:text-sjtu-400 font-medium mb-2">Core</div>
-        <div class="text-xs space-y-1">
-          <div>slides.md</div>
-          <div>preset-sjtu.ts</div>
-        </div>
-      </div>
-      <div>
-        <div class="text-academic-600 dark:text-academic-400 font-medium mb-2">Components</div>
-        <div class="text-xs space-y-1">
-          <div>GlassCard.vue</div>
-          <div>ProsCons.vue</div>
-        </div>
-      </div>
-      <div>
-        <div class="text-tech-electric-600 dark:text-tech-electric-400 font-medium mb-2">Assets</div>
-        <div class="text-xs space-y-1">
-          <div>public/images/</div>
-          <div>style.css</div>
-        </div>
-      </div>
-    </div>
-  </GlassCard>
-</div>
-
----
-
-# Best Practices & Tips
-
-Making the most of this template
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <GlassCard
-    title="Design Guidelines"
-    variant="primary"
-    icon="i-ph-paint-brush-duotone"
-    :items="[
-      'Use consistent spacing',
-      'Stick to the color system',
-      'Maintain visual hierarchy',
-      'Keep slides uncluttered'
-    ]"
-    size="lg"
-  />
-
-  <GlassCard
-    title="Performance Tips"
-    variant="tech"
-    icon="i-ph-lightning-duotone"
-    :items="[
-      'Optimize images before adding',
-      'Use web fonts for loading',
-      'Test on different screens',
-      'Keep slide count reasonable'
-    ]"
-    size="lg"
-  />
-</div>
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-  <GlassCard
-    title="Accessibility"
-    variant="success"
-    icon="i-ph-eye-duotone"
-    size="sm"
-    :items="[
-      'High contrast ratios',
-      'Readable font sizes',
-      'Meaningful alt texts'
-    ]"
-  />
-
-  <GlassCard
-    title="Responsiveness"
-    variant="warning"
-    icon="i-ph-device-mobile-duotone"
-    size="sm"
-    :items="[
-      'Mobile-friendly grids',
-      'Flexible image sizing',
-      'Touch-friendly buttons'
-    ]"
-  />
-
-  <GlassCard
-    title="Maintenance"
-    variant="error"
-    icon="i-ph-wrench-duotone"
-    size="sm"
-    :items="[
-      'Regular updates',
-      'Documentation',
-      'Version control'
-    ]"
-  />
-</div>
-
----
-layout: center
-class: "pb-5"
----
-
-# Start Creating! {.emphasis-tech.text-4xl}
-
-<div class="mt-8 space-y-6">
-  <div class="text-xl text-on-surface-variant">
-    This template provides everything you need for professional presentations
-  </div>
-  <div class="grid grid-cols-3 gap-6 mt-12">
-    <GlassCard
-      title="Components"
-      variant="gradient-primary"
-      icon="i-ph-puzzle-piece-duotone"
-      size="sm"
-      :items="['Ready to use', 'Well documented', 'Highly customizable']"
-    />
-    <GlassCard
-      title="Design System"
-      variant="gradient-secondary"
-      icon="i-ph-palette-duotone"
-      size="sm"
-      :items="['SJTU inspired', 'Modern colors', 'Dark mode ready']"
-    />
-    <GlassCard
-      title="Developer Experience"
-      variant="tech"
-      icon="i-ph-code-duotone"
-      size="sm"
-      :items="['TypeScript support', 'Hot reload', 'Easy deployment']"
-    />
-  </div>
-  <div class="mt-12">
-    <div class="text-lg mb-4">Get started with:</div>
-    <div class="code-block-simple p-4 text-sm inline-block">
-      <span class="code-syntax-tag">npm run dev</span>
-    </div>
-  </div>
-</div>
+Slides can be found [here](https://zheng-talks.netlify.app/2025/) -->
