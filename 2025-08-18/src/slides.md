@@ -371,7 +371,7 @@ glow: right
   <GlassCard
     title="Constraints: loss of minimization problem"
     variant="error"
-    icon="i-ph-function-duotone"
+    icon="i-carbon:constraint"
     size="md"
     :items="[
       'Data: pure supervised or as a priori information',
@@ -385,7 +385,7 @@ glow: right
   <GlassCard
     title="Optimization"
     variant="warning"
-    icon="i-ph-target-duotone"
+    icon="i-streamline:graph-arrow-decrease"
     size="md"
     :items="[
       'Minimize loss over the parameter space, usually SGD, Adams, LBFGS, etc.',
@@ -531,7 +531,7 @@ DeepONet has fundamental limitations for radiative transfer problems
 <div v-click="2">
   <GlassCard
     title="DeepONet Structure"
-    variant="secondary"
+    variant="warning"
     icon="i-ph-tree-structure-duotone"
     size="lg"
     class="h-full"
@@ -559,26 +559,26 @@ Fourier Neural Operator has structural limitations for radiative transfer
 <div v-click="1">
   <GlassCard
     title="FNO Limitations"
-    variant="warning"
-    icon="i-ph-wave-sine-duotone"
+    variant="error"
+    icon="i-ph:x-circle-duotone"
     size="lg"
     class="h-full"
   >
     <div class="space-y-2">
       <div>
-        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">Uniform Grid Requirement:</div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">Uniform Grid Requirement:</div>
         <div class="text-2xs text-on-surface-variant">
           Input functions must be on uniform grid, limiting geometric flexibility
         </div>
       </div>
       <div>
-        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">FFT Computational Cost:</div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">FFT Computational Cost:</div>
         <div class="text-2xs text-on-surface-variant">
           FFT operations become slow as function dimension increases
         </div>
       </div>
       <div>
-        <div class="font-semibold mb-0.5 text-warning-600 dark:text-warning-400">Frequency Domain Assumption:</div>
+        <div class="font-semibold mb-0.5 text-error-600 dark:text-error-400">Frequency Domain Assumption:</div>
         <div class="text-2xs text-on-surface-variant">
           Relies on spectral decay which may not hold for RTE
         </div>
@@ -590,8 +590,8 @@ Fourier Neural Operator has structural limitations for radiative transfer
 <div v-click="2">
   <GlassCard
     title="FNO Structure"
-    variant="tech"
-    icon="i-ph-waveform-duotone"
+    variant="warning"
+    icon="i-ph:tree-structure-duotone"
     size="lg"
     class="h-full"
   >
