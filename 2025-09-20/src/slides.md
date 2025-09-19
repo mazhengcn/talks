@@ -7,7 +7,7 @@ transition: fade-out
 mdc: true
 glowSeed: 1
 title: deeprte v1.0.1
-remoteAssets: true
+remoteAssets: false
 ---
 
 # DeepRTE {.emphasis-primary.text-4xl}
