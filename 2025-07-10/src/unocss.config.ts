@@ -1,4 +1,4 @@
-import config from '@slidev/client/uno.config.ts'
+import config from '@slidev/client/uno.config'
 import { mergeConfigs, presetWebFonts } from 'unocss'
 
 export default mergeConfigs([

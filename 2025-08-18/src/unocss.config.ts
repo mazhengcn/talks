@@ -1,4 +1,4 @@
-import config from '@slidev/client/uno.config.ts'
+import config from '@slidev/client/uno.config'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import { mergeConfigs, presetWebFonts } from 'unocss'
 import { presetSJTU } from './preset-sjtu'

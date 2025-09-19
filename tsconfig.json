@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "allowSyntheticDefaultImports": true,
-    "verbatimModuleSyntax": true
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "**/*.md"
+    "**/*.md",
+    "**/dist-stale/**",
+    "**/dist/**"
   ]
 }

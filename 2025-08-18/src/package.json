@@ -1,14 +1,10 @@
 {
-  "name": "2025-08-18",
   "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build --base /2025/cmcms/ --out ../../dist/2025/cmcms",
+    "build": "tsx ../../scripts/build.ts /2025/cmcms/",
     "export": "slidev export --per-slide --output ../2025-08-18-cmcms-en.pdf"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "catalog:"
   }
 }
