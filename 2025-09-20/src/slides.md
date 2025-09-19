@@ -52,7 +52,7 @@ remoteAssets: true
 <!-- Date positioned at bottom right with matching glassmorphism style -->
 <div class="absolute bottom-8 right-6 group">
   <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-lg px-3 py-1.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
-    <div text-xs class="text-on-surface-muted/80 font-medium tracking-wide">September 20, 2025</div>
+    <div text-xs class="text-on-surface-muted/80">September 20, 2025</div>
   </div>
 </div>
 
