@@ -6,7 +6,7 @@ colorSchema: light
 transition: fade-out
 mdc: true
 glowSeed: 4
-title: Kinetic Machine Learning
+title: kinetic machine learning v1.0.0
 remoteAssets: true
 addons:
   - slidev-addon-graph

@@ -6,7 +6,7 @@ colorSchema: auto
 transition: fade-out
 mdc: true
 glowSeed: 1
-title: DeepRTE
+title: deeprte v1.0.0
 remoteAssets: true
 ---
 

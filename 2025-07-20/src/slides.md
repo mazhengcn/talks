@@ -6,7 +6,7 @@ colorSchema: dark
 transition: fade-out
 mdc: true
 glowSeed: 4
-title: Kinetic Machine Learning
+title: kinetic maching learning v1.1.0
 remoteAssets: true
 ---
 

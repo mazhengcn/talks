@@ -6,7 +6,7 @@ colorSchema: auto
 transition: fade-out
 mdc: true
 glowSeed: 4
-title: SJTU Slidev Template
+title: sjtu template v1.0.0
 remoteAssets: true
 ---
 
