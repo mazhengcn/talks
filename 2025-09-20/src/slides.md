@@ -34,7 +34,7 @@ remoteAssets: false
           alt="Shanghai Jiao Tong University"
           class="h-8 w-auto filter brightness-0 opacity-0"
         />
-        <div class="absolute inset-0 bg-sjtu-600" style="mask: url('/images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('/images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
+        <div class="absolute inset-0 bg-sjtu-600" style="mask: url('./images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('./images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
       </div>
       <!-- Logo for dark theme - using lighter SJTU theme colors -->
       <div class="h-8 w-auto hidden dark:block opacity-85 group-hover:opacity-95 transition-all duration-300 relative overflow-hidden">
@@ -43,7 +43,7 @@ remoteAssets: false
           alt="Shanghai Jiao Tong University"
           class="h-8 w-auto filter brightness-0 invert opacity-0"
         />
-        <div class="absolute inset-0 bg-sjtu-400" style="mask: url('/images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('/images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
+        <div class="absolute inset-0 bg-sjtu-400" style="mask: url('./images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('./images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
       </div>
     </div>
   </div>
