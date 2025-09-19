@@ -8,11 +8,16 @@ to = "/2025/hksiam/index.html"
 status = 200
 
 [[redirects]]
-from = "/2025/csiam-bdai-1/*"
-to = "/2025/csiam-bdai-1/index.html"
+from = "/2025/csiam-bdai/*"
+to = "/2025/csiam-bdai/index.html"
 status = 200
 
 [[redirects]]
-from = "/2025/cscm/*"
-to = "/2025/cscm/index.html"
+from = "/2025/cmcms/*"
+to = "/2025/cmcms/index.html"
+status = 200
+
+[[redirects]]
+from = "/2025/shsiam/*"
+to = "/2025/shsiam/index.html"
 status = 200
