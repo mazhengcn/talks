@@ -709,25 +709,17 @@ Start by looking at the "analytical" structure of Green's function/solution oper
 
 # Structure of solution operator
 
-<div flex="~ col gap-2 items-center">
+<div flex="~ col gap-2">
 <GlassCard title="Steady RTE" variant="primary" size="md">
-<div flex="~ gap-4 items-center">
-<div equation-block>
+<div flex="~ gap-4 justify-center items-center">
+<div equation-block px32>
 
 $$
 \begin{aligned}
 \Omega \cdot \nabla I + \mu_t I & = \mu_s\mathcal{S}I, \\
-I|_{\Gamma_{-}} & = I_{-}.
+I|_{\Gamma_{-}} & = I_{-},
 \end{aligned}
-$$
-
-</div>
-
-<div>where</div>
-
-<div equation-block text-xs>
-
-$$
+\quad \text{where} \quad
 \mathcal{S}I:=\frac{1}{S_{d-1}}\int_{\mathbb{S}^{d-1}} p(\Omega, \Omega^*) I(r, \Omega^*)\,\mathrm{d}\Omega^*
 $$
 
@@ -735,7 +727,7 @@ $$
 </div>
 </GlassCard>
 
-<div i-ph:arrows-split-duotone op-50 text-5xl />
+<div i-ph:arrows-split-duotone op-50 text-5xl ml-102/>
 
 <div grid="~ cols-[1fr_auto_1fr] items-center gap-8">
 
