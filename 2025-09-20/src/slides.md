@@ -5,7 +5,6 @@ css: unocss
 colorSchema: auto
 transition: fade-out
 mdc: true
-glowSeed: 1
 title: deeprte v1.0.1
 remoteAssets: true
 ---
@@ -265,7 +264,7 @@ glow: right
 
 <div grid="~ cols-2 gap-6" mt-6>
 
-<div v-click="1">
+<div>
   <GlassCard
     title="Probabilistic Methods"
     subtitle="Statistical sampling"
@@ -290,7 +289,7 @@ glow: right
   </GlassCard>
 </div>
 
-<div v-click="2">
+<div>
   <GlassCard
     title="Deterministic Methods"
     subtitle="Grid-based discretization"
@@ -353,7 +352,7 @@ glow: right
 
 <div flex="~ col gap-3">
 
-<div v-click="1">
+<div>
   <GlassCard
     title="Architecture: hypothesis space"
     variant="success"
@@ -367,7 +366,7 @@ glow: right
   />
 </div>
 
-<div v-click="2">
+<div>
   <GlassCard
     title="Constraints: loss of minimization problem"
     variant="error"
@@ -381,7 +380,7 @@ glow: right
   />
 </div>
 
-<div v-click="3">
+<div>
   <GlassCard
     title="Optimization"
     variant="warning"
@@ -409,7 +408,7 @@ glow: left
 
 <div grid="~ cols-[1fr_min-content_1fr] items-center gap-15" mt-5 w-full>
 
-<div v-click="1">
+<div>
   <GlassCard
     title="Neural Operator"
     subtitle="Learn mapping to solution"
@@ -439,9 +438,9 @@ glow: left
   </GlassCard>
 </div>
 
-<div v-click="1" i-ph:plus-duotone text-6xl op50 />
+<div i-ph:plus-duotone text-6xl op50 />
 
-<div v-click="1">
+<div>
   <GlassCard
     title="Pre-training"
     subtitle="Curated dataset tailored for RTE"
@@ -479,7 +478,7 @@ glow: left
 
 </div>
 
-<div class="mt-5" v-click="2">
+<div class="mt-5">
   <GlassCard variant="gradient-primary" text-center size="md" w-full>
     <div class="font-semibold text-lg">
       <span class="emphasis-tech">Key advantage:</span>
@@ -497,7 +496,7 @@ DeepONet has fundamental limitations for radiative transfer problems
 
 <div grid="~ cols-2 gap-6" mt-6 items-stretch>
 
-<div v-click="1">
+<div>
   <GlassCard
     title="DeepONet Limitations"
     variant="error"
@@ -528,7 +527,7 @@ DeepONet has fundamental limitations for radiative transfer problems
   </GlassCard>
 </div>
 
-<div v-click="2">
+<div>
   <GlassCard
     title="DeepONet Structure"
     variant="warning"
@@ -556,7 +555,7 @@ Fourier Neural Operator has structural limitations for radiative transfer
 
 <div grid="~ cols-2 gap-6" mt-6 items-stretch>
 
-<div v-click="1">
+<div>
   <GlassCard
     title="FNO Limitations"
     variant="error"
@@ -587,7 +586,7 @@ Fourier Neural Operator has structural limitations for radiative transfer
   </GlassCard>
 </div>
 
-<div v-click="2">
+<div>
   <GlassCard
     title="FNO Structure"
     variant="warning"
@@ -1116,7 +1115,7 @@ Recap
 
 <div grid="~ cols-2 gap-6" mt-6>
 
-<div v-click="1">
+<div>
   <GlassCard
     title="Attenuation Module"
     subtitle="Transport encoding"
@@ -1131,7 +1130,7 @@ Recap
   />
 </div>
 
-<div v-click="2">
+<div>
   <GlassCard
     title="Scattering Module"
     subtitle="Scattering encoding"
@@ -1830,4 +1829,4 @@ class: "text-center pb-5"
   </div>
 </div>
 
-Slides can be found [here](https://zheng-talks.netlify.app/2025/) -->
+Slides can be found [here](https://zheng-talks.netlify.app/2025/hksiam) -->
