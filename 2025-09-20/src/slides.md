@@ -5,7 +5,7 @@ css: unocss
 colorSchema: auto
 transition: fade-out
 mdc: true
-title: deeprte v1.0.1
+title: deeprte v1.0.2
 remoteAssets: true
 ---
 
@@ -1803,7 +1803,7 @@ class: "text-center pb-5"
     >
       <div class="text-sm">
         Available on GitHub<br/>
-        <Repo name="mazhengnc/deeprte" />
+        <Repo name="mazhengcn/deeprte" />
       </div>
     </GlassCard>
     <GlassCard
