@@ -1,10 +1,10 @@
-import config from '@slidev/client/uno.config'
+import defaultConfig from '@slidev/client/uno.config.ts'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import { mergeConfigs, presetWebFonts } from 'unocss'
-import { presetSJTU } from './preset-sjtu'
+import { presetSJTU } from './styles/preset-sjtu'
 
 export default mergeConfigs([
-  config,
+  defaultConfig,
   {
     shortcuts: {
       'text-gradient': 'text-transparent bg-clip-text bg-gradient-to-tl from-green-400 via-teal-400 to-blue-500',

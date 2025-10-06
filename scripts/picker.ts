@@ -5,13 +5,13 @@ import { execa } from 'execa'
 import prompts from 'prompts'
 
 async function startPicker(args: string[]) {
-  const folders = await Promise.all((await fs.readdir(new URL('..', import.meta.url), { withFileTypes: true }))
+  const folders = await Promise.all((await fs.readdir(new URL('../talks', import.meta.url), { withFileTypes: true }))
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
     .filter(folder => folder.match(/^\d{4}-/))
     .sort((a, b) => -a.localeCompare(b))
     .map(async (folder) => {
-      const md = await fs.readFile(new URL(`../${folder}/README.md`, import.meta.url), 'utf-8')
+      const md = await fs.readFile(new URL(`../talks/${folder}/README.md`, import.meta.url), 'utf-8')
       const title = md.match(/^# (.*)/)?.[1].trim() || ''
       return {
         title: title ? `${folder} | ${title}` : folder,
@@ -34,9 +34,9 @@ async function startPicker(args: string[]) {
 
   if (result.folder) {
     if (args[0] === 'dev')
-      execa('code', [fileURLToPath(new URL(`../${result.folder}/src/slides.md`, import.meta.url))])
-    await execa('pnpm', ['run', ...args], {
-      cwd: new URL(`../${result.folder}/src`, import.meta.url),
+      execa('code', [fileURLToPath(new URL(`../talks/${result.folder}/slides.md`, import.meta.url))])
+    await execa('bun', ['run', ...args], {
+      cwd: new URL(`../talks/${result.folder}`, import.meta.url),
       stdio: 'inherit',
     })
   }
