@@ -2,6 +2,13 @@
   "name": "zheng-talks",
   "type": "module",
   "private": true,
+  "scripts": {
+    "build": "rimraf dist && bun --filter='*' run build",
+    "dev": "bun scripts/picker.ts dev --open",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "update": "tsx scripts/redirects.ts"
+  },
   "workspaces": {
     "packages": [
       "talks/*"
@@ -48,13 +55,6 @@
       "vue-router": "^4.5.1",
       "vue-tsc": "^3.0.6"
     }
-  },
-  "scripts": {
-    "build": "rimraf dist && pnpm -r run build",
-    "dev": "bun scripts/picker.ts dev --open",
-    "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint .",
-    "update": "tsx scripts/redirects.ts"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",

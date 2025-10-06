@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "bunx --bun slidev",
-    "build": "tsx ../../scripts/build.ts /2025/template/",
-    "export": "slidev export --per-slide --output ../2025-template-en.pdf"
+    "build": "bun --bun ../../scripts/build.ts /2025/template/",
+    "export": "bunx --bun slidev export --per-slide --output ./assets/2025-template-en.pdf"
   }
 }

@@ -39,7 +39,7 @@ else {
 
   console.log('Building', command.join(' '))
 
-  await x('npx', command, {
+  await x('bunx', command, {
     nodeOptions: {
       cwd,
       stdio: 'inherit',
