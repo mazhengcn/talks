@@ -3,22 +3,22 @@ import { dirname, resolve } from 'node:path'
 import process from 'node:process'
 import fg from 'fast-glob'
 
-const packageFiles = (await fg('*/src/package.json', {
+const packageFiles = (await fg('talks/*/package.json', {
   onlyFiles: true,
 })).sort()
 
 const bases = (await Promise.all(
   packageFiles.map(async (file) => {
-    const talkRoot = dirname(dirname(file))
+    const talkRoot = dirname(file)
     const json = JSON.parse(await fs.readFile(file, 'utf-8'))
-    const pdfFile = (await fg('*.pdf', {
-      cwd: resolve(process.cwd(), talkRoot),
+    const pdfFile = (await fg('assets/*.pdf', {
+      cwd: resolve(process.cwd(), `${talkRoot}/`),
       onlyFiles: true,
     }))[0]
     const command = json.scripts?.build
     if (!command)
       return
-    const base = command.match(/ --base (.*?)\s/)?.[1]
+    const base = command.split(' ').pop()
     if (!base)
       return
     return {
@@ -30,6 +30,8 @@ const bases = (await Promise.all(
 ))
   .filter(Boolean)
 
+console.log(bases)
+
 const redirects = bases
   .flatMap(({ base, pdfFile, dir }) => {
     const parts: string[] = []
@@ -38,25 +40,25 @@ const redirects = bases
       parts.push(`
 [[redirects]]
 from = "${base}pdf"
-to = "https://github.com/antfu/talks/blob/main/${dir}/${pdfFile}?raw=true"
+to = "https://github.com/mazhengcn/talks/blob/main/${dir}/${pdfFile}?raw=true"
 status = 302
 
 [[redirects]]
 from = "/${dir}/pdf"
-to = "https://github.com/antfu/talks/blob/main/${dir}/${pdfFile}?raw=true"
+to = "https://github.com/mazhengcn/talks/blob/main/${dir}/${pdfFile}?raw=true"
 status = 302`)
     }
 
     parts.push(`
 [[redirects]]
 from = "${base}src"
-to = "https://github.com/antfu/talks/tree/main/${dir}"
+to = "https://github.com/mazhengcn/talks/tree/main/${dir}"
 status = 302`)
 
     parts.push(`
 [[redirects]]
 from = "${dir}"
-to = "https://talks.antfu.me${base}"
+to = "https://zheng-talks.netlify.app${base}"
 status = 301
 
 [[redirects]]
@@ -71,17 +73,13 @@ status = 200`)
 const content = `
 [build]
 publish = "dist"
-command = "pnpm run build"
-
-[build.environment]
-NODE_VERSION = "22"
-PLAYWRIGHT_BROWSERS_PATH = "0"
+command = "bun run build"
 
 ${redirects}
 
 [[redirects]]
 from = "/"
-to = "https://antfu.me/talks"
+to = "https://zheng-talks.netlify.app"
 status = 302
 `
 
