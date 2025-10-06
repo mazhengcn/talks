@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1f28800a-bacd-4459-a831-34a441679e6e/deploy-status)](https://app.netlify.com/projects/zheng-talks/deploys)
+
 # talks
 
 Slides &amp; code for my talks, using [Slidev](https://sli.dev).

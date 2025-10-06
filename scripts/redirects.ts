@@ -30,8 +30,6 @@ const bases = (await Promise.all(
 ))
   .filter(Boolean)
 
-console.log(bases)
-
 const redirects = bases
   .flatMap(({ base, pdfFile, dir }) => {
     const parts: string[] = []
