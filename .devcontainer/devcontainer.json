@@ -3,6 +3,9 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainer-community/devcontainer-features/starship.rs:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,10 +19,16 @@
     }
   },
   "mounts": [
-    "type=volume,source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules"
+    {
+      "source": "${localWorkspaceFolderBasename}-node_modules",
+      "target": "${containerWorkspaceFolder}/node_modules",
+      "type": "volume"
+    }
   ],
   "postCreateCommand": {
-    "install-dependencies": "sudo chown bun node_modules && bun install"
+    "add-starship": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
+    "fix-permissions": "sudo chown bun node_modules",
+    "install-dependencies": "bun install"
   },
   "remoteUser": "bun"
 }
