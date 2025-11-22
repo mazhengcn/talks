@@ -1,11 +1,8 @@
 {
   "name": "Talks",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "features": {
-    "ghcr.io/devcontainer-community/devcontainer-features/starship.rs:1": {}
-  },
+  "dockerComposeFile": "compose.yaml",
+  "service": "talks",
+  "workspaceFolder": "/talks",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -18,15 +15,7 @@
       ]
     }
   },
-  "mounts": [
-    {
-      "source": "${localWorkspaceFolderBasename}-node_modules",
-      "target": "${containerWorkspaceFolder}/node_modules",
-      "type": "volume"
-    }
-  ],
   "postCreateCommand": {
-    "add-starship": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
     "fix-permissions": "sudo chown bun node_modules",
     "install-dependencies": "bun install"
   },
