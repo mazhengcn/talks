@@ -25,10 +25,9 @@
         "eslint-typegen": "catalog:",
         "execa": "catalog:",
         "fast-glob": "catalog:",
-        "katex": "^0.16.25",
+        "katex": "catalog:",
         "markdown-it-magic-link": "catalog:",
         "playwright-chromium": "catalog:",
-        "pnpm": "catalog:",
         "prettier-plugin-slidev": "catalog:",
         "prompts": "catalog:",
         "rimraf": "catalog:",
@@ -93,9 +92,9 @@
     "eslint-typegen": "^2.3.0",
     "execa": "^9.6.1",
     "fast-glob": "^3.3.3",
+    "katex": "^0.16.25",
     "markdown-it-magic-link": "^0.1.4",
     "playwright-chromium": "^1.57.0",
-    "pnpm": "^10.24.0",
     "prettier-plugin-slidev": "^1.0.5",
     "prompts": "^2.4.2",
     "rimraf": "^6.1.2",
@@ -1532,8 +1531,6 @@
     "playwright-core": ["playwright-core@1.57.0", "", { "bin": { "playwright-core": "cli.js" } }, "sha512-agTcKlMw/mjBWOnD6kFZttAAGHgi/Nw0CZ2o6JqWSbMlI219lAFLZZCyqByTsvVAJq5XA5H8cA6PrvBRpBWEuQ=="],
 
     "pluralize": ["pluralize@8.0.0", "", {}, "sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA=="],
-
-    "pnpm": ["pnpm@10.24.0", "", { "bin": { "pnpm": "bin/pnpm.cjs", "pnpx": "bin/pnpx.cjs" } }, "sha512-Af+K5xtEGZA7ZcYPstydNM+LtuBtA73hEu8496NNaQTEJLpmvqXNzxKJAjC/OflYBHMUDtnJRv7zKLblI4o0Wg=="],
 
     "pnpm-workspace-yaml": ["pnpm-workspace-yaml@1.4.1", "", { "dependencies": { "yaml": "^2.8.2" } }, "sha512-k3TFyIjKf4bJnZ/jnqTfdytcsZfoglnb26kTXP3E8pYYaPyvvqxTd7tL4aJ5Wotc8Oi/+YADYwdkOu3snFS+Hg=="],
 

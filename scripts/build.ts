@@ -2,13 +2,13 @@ import { existsSync } from 'node:fs'
 import fs from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
-import { findUp } from 'find-up'
+import findUp from 'find-up'
 import { x } from 'tinyexec'
 
 const [base, ...args] = process.argv.slice(2)
 
 const cwd = process.cwd()
-const root = dirname(await findUp('pnpm-workspace.yaml', { cwd }))
+const root = dirname(await findUp('bun.lock', { cwd }))
 
 const dirStale = join(root, 'dist-stale', `.${base}`)
 const dirDist = join(root, 'dist', `.${base}`)

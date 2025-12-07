@@ -21,3 +21,5 @@ function shuffle(array: any[]) {
 shuffle(icons)
 
 console.log(icons.slice(0, 100))
+
+export {}
