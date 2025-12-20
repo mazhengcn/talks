@@ -22,36 +22,25 @@ remoteAssets: true
 </div>
 
 <!-- SJTU Official Logo - Enhanced Glassmorphism with Theme Colors -->
-<div class="absolute top-6 right-6 group">
-  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-xl p-2.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 hover:shadow-sjtu-500/12 dark:hover:shadow-sjtu-400/10 transition-all duration-300">
-    <!-- Logo with official SJTU colors -->
-    <div class="relative z-10">
-      <!-- Logo for light theme - using SJTU theme colors -->
-      <div class="h-8 w-auto dark:hidden opacity-90 group-hover:opacity-100 transition-opacity duration-300 relative overflow-hidden">
-        <img
-          src="/images/sjtu-logo-zh.png"
-          alt="Shanghai Jiao Tong University"
-          class="h-8 w-auto filter brightness-0 opacity-0"
-        />
-        <div class="absolute inset-0 bg-sjtu-600" style="mask: url('/2025/shsiam/images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('/2025/shsiam/images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
-      </div>
-      <!-- Logo for dark theme - using lighter SJTU theme colors -->
-      <div class="h-8 w-auto hidden dark:block opacity-85 group-hover:opacity-95 transition-all duration-300 relative overflow-hidden">
-        <img
-          src="/images/sjtu-logo-zh.png"
-          alt="Shanghai Jiao Tong University"
-          class="h-8 w-auto filter brightness-0 invert opacity-0"
-        />
-        <div class="absolute inset-0 bg-sjtu-400" style="mask: url('/2025/shsiam/images/sjtu-logo-zh.png') no-repeat center/contain; -webkit-mask: url('/2025/shsiam/images/sjtu-logo-zh.png') no-repeat center/contain;"></div>
-      </div>
-    </div>
+<div class="absolute top-8 right-8 group">
+  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-xl px-4 py-3 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
+    <img src="/images/sjtu-logo-zh.png" class="h-12 object-contain transition-all duration-300 emphasis-primary-logo" alt="Shanghai Jiao Tong University" />
   </div>
 </div>
+
+<style>
+.emphasis-primary-logo {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(93%) saturate(4151%) hue-rotate(216deg) brightness(99%) contrast(92%);
+}
+.dark .emphasis-primary-logo {
+  filter: brightness(0) saturate(100%) invert(58%) sepia(55%) saturate(2750%) hue-rotate(190deg) brightness(102%) contrast(95%);
+}
+</style>
 
 <!-- Date positioned at bottom right with matching glassmorphism style -->
 <div class="absolute bottom-8 right-6 group">
   <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-lg px-3 py-1.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
-    <div text-xs class="text-on-surface-muted/80">September 20, 2025</div>
+    <div text-xs class="text-on-surface-muted/80">December 28, 2025</div>
   </div>
 </div>
 
@@ -1527,7 +1516,7 @@ Same distribution as training dataset
 </div>
 </div>
 <div i-ph:x-duotone text-3xl op-50 />
-<div equation-block text-sm p0>
+<div equation-block text-sm py-0 px-3>
 
 $$
 g \sim (0, 0.2), (0.4, 0.6), (0.7, 0.9)
