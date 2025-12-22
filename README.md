@@ -4,6 +4,22 @@
 
 Slides &amp; code for my talks, using [Slidev](https://sli.dev).
 
+## 📊 Metadata API
+
+All talks metadata is available as JSON for easy integration with other projects:
+
+**Endpoint**: [`https://zheng-talks.netlify.app/talks-metadata.json`](https://zheng-talks.netlify.app/talks-metadata.json)
+
+Perfect for:
+- Portfolio websites
+- Research pages
+- Next.js projects
+- Automated listings
+
+See [Quick Start Guide](./docs/QUICK_START.md) | [Full Documentation](./docs/METADATA_SYSTEM.md) | [Next.js Examples](./docs/NEXTJS_EXAMPLES.md)
+
+---
+
 ###### 2025
 
 - `en` [DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer](./2025-09-20) - SHSIAM 2025, Shanghai, China

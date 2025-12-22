@@ -1,0 +1,11 @@
+{
+  "conference": "CMCMS 2025",
+  "location": "Beijing, China",
+  "description": "Pre-trained Attention-based Neural Network for Radiative Transfer",
+  "tags": ["deep-learning", "radiative-transfer", "neural-network"],
+  "collaborators": ["Min Tang", "Yekun Zhu"],
+  "published": true,
+  "custom": {
+    "version": "v1.0.0"
+  }
+}

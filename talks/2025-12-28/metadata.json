@@ -1,0 +1,11 @@
+{
+  "conference": "Example Conference Name",
+  "location": "Shanghai, China",
+  "description": "Pre-trained Attention-based Neural Network for Radiative Transfer",
+  "tags": ["deep-learning", "radiative-transfer", "neural-network", "physics"],
+  "collaborators": ["Min Tang", "Yekun Zhu"],
+  "published": true,
+  "custom": {
+    "version": "v1.1.0"
+  }
+}

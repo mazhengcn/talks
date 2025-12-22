@@ -1,0 +1,57 @@
+name: Update Talks Metadata
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'talks/**'
+      - scripts/collect-metadata.ts
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write # Need write permission to commit back
+
+jobs:
+  update-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for proper git operations
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Collect talks metadata
+        run: bun run scripts/collect-metadata.ts
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code dist/talks-metadata.json public/talks-metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dist/talks-metadata.json public/talks-metadata.json
+          git commit -m "chore: update talks metadata [skip ci]"
+          git push
+
+      - name: Upload metadata artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: talks-metadata
+          path: |
+            dist/talks-metadata.json
+            public/talks-metadata.json
+          retention-days: 90
