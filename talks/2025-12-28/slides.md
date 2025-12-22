@@ -22,9 +22,9 @@ remoteAssets: true
 </div>
 
 <!-- SJTU Official Logo - Enhanced Glassmorphism with Theme Colors -->
-<div class="absolute top-8 right-8 group">
-  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-xl px-4 py-3 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
-    <img src="/images/sjtu-logo-zh.png" class="h-12 object-contain transition-all duration-300 emphasis-primary-logo" alt="Shanghai Jiao Tong University" />
+<div class="absolute top-8 right-6 group">
+  <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-xl px-2 py-2 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
+    <img src="/images/sjtu-logo-zh.png" class="h-10 object-contain transition-all duration-300 emphasis-primary-logo" alt="Shanghai Jiao Tong University" />
   </div>
 </div>
 
