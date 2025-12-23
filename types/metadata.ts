@@ -23,6 +23,9 @@ export interface TalkMetadata {
   /** Conference location (city, country) */
   location?: string
 
+  /** Conference URL */
+  conferenceUrl?: string
+
   /** Language of the presentation (e.g., "en", "zh-CN") */
   language?: string
 
@@ -61,6 +64,9 @@ export interface TalkMetadataConfig {
 
   /** Conference location */
   location?: string
+
+  /** Conference URL */
+  conference_url?: string
 
   /** Brief description */
   description?: string

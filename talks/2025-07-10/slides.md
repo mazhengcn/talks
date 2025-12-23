@@ -8,8 +8,6 @@ mdc: true
 glowSeed: 4
 title: kinetic machine learning v1.0.0
 remoteAssets: true
-addons:
-  - slidev-addon-graph
 ---
 
 # Solve Kinetic Equations with Deep Learning {.font-600!}

@@ -1,0 +1,10 @@
+{
+  "conference": "HKSIAM 2025",
+  "conference_url": "https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php",
+  "location": "Hong Kong, China",
+  "description": "How to solve kinetic equations with deep learning",
+  "published": true,
+  "custom": {
+    "version": "v1.0.0"
+  }
+}

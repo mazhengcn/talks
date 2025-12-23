@@ -1,0 +1,12 @@
+{
+  "conference": "CSIAM-BDAI 2025",
+  "location": "Shanghai, China",
+  "conference_url": "http://bdai2025.icrp.xjtu.edu.cn",
+  "description": "Solving kinetic equations with deep learning methods, covering neutron transport, radiative transfer, and rarefied gas dynamics",
+  "tags": ["deep-learning", "kinetic-equations", "scientific-computing", "neural-networks"],
+  "collaborators": ["Shi Jin", "Keke Wu", "Han Wang", "Jingrun Chen"],
+  "published": true,
+  "custom": {
+    "version": "v1.1.0"
+  }
+}

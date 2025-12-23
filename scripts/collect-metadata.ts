@@ -73,23 +73,6 @@ function parseDate(folderId: string, _frontmatter: Record<string, any>): string 
 }
 
 /**
- * Generate URL slug from folder name
- */
-function generateSlug(folderId: string): string {
-  // Map folder names to URL paths
-  const mapping: Record<string, string> = {
-    '2025-07-10': '2025/hksiam',
-    '2025-07-20': '2025/csiam-bdai',
-    '2025-08-18': '2025/cmcms',
-    '2025-09-20': '2025/shsiam',
-    '2025-12-28': '2025/deeprte',
-    'deep-pde': '2025/deep-pde',
-  }
-
-  return mapping[folderId] || folderId
-}
-
-/**
  * Extract speaker info from frontmatter or slides content
  */
 async function extractSpeakerInfo(filePath: string, frontmatter: Record<string, any>) {
@@ -123,7 +106,6 @@ async function collectTalkMetadata(talkDir: string): Promise<TalkMetadata | null
     const frontmatter = await extractFrontmatter(slidesPath)
     const config = await loadMetadataConfig(talkDir)
     const speakerInfo = await extractSpeakerInfo(slidesPath, frontmatter)
-    const slug = generateSlug(folderId)
     const date = parseDate(folderId, frontmatter)
 
     const metadata: TalkMetadata = {
@@ -134,8 +116,9 @@ async function collectTalkMetadata(talkDir: string): Promise<TalkMetadata | null
       affiliation: speakerInfo.affiliation,
       conference: config.conference,
       location: config.location,
+      conferenceUrl: config.conference_url,
       language: frontmatter.lang || 'en',
-      slidesUrl: `${BASE_URL}/${slug}/`,
+      slidesUrl: `${BASE_URL}/${folderId}/`,
       pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/assets/${folderId}-*.pdf?raw=true`,
       sourceUrl: `${REPO_URL}/tree/main/talks/${folderId}`,
       description: config.description,

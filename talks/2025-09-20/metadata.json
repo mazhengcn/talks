@@ -1,0 +1,11 @@
+{
+  "conference": "SHSIAM 2025",
+  "location": "Shanghai, China",
+  "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer, with applications in inertial confinement fusion and radiation therapy",
+  "tags": ["deep-learning", "radiative-transfer", "attention-mechanism", "physics", "neural-networks"],
+  "collaborators": ["Min Tang", "Yekun Zhu"],
+  "published": true,
+  "custom": {
+    "version": "v1.0.2"
+  }
+}
