@@ -2,11 +2,13 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: auto
+colorSchema: dark
 transition: fade
 mdc: true
 title: deeprte v1.1.0
 remoteAssets: true
+seoMeta:
+  ogImage: auto
 ---
 
 # DeepRTE {.emphasis-primary.text-4xl}

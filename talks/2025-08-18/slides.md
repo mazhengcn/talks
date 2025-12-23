@@ -2,12 +2,14 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: auto
+colorSchema: dark
 transition: fade-out
 mdc: true
 glowSeed: 1
 title: deeprte v1.0.0
 remoteAssets: true
+seoMeta:
+  ogImage: auto
 ---
 
 # DeepRTE {.emphasis-primary.text-4xl}

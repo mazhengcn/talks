@@ -9,6 +9,8 @@ glowSeed: 4
 glow: bottom
 lang: zh-CN
 title: 深度学习与微分方程
+seoMeta:
+  ogImage: auto
 ---
 
 # 深度学习与微分方程 {.font-600!} <span text-xl text-lime translate-y--10 bg-lime:10 px2 py2 rounded-lg inline-block>从入门到<span v-mark.orange>精通</span></span>

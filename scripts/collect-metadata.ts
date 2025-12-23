@@ -27,6 +27,9 @@ async function extractFrontmatter(filePath: string): Promise<Record<string, any>
     const match = line.match(/^([^:]+):[ \t]*([^ \t].*)?$/)
     if (match) {
       const [, key, value] = match
+      // Skip if value is undefined or empty
+      if (!value)
+        return
       // Parse boolean and string values
       if (value === 'true')
         parsed[key.trim()] = true
