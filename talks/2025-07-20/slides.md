@@ -6,7 +6,7 @@ colorSchema: dark
 transition: fade-out
 mdc: true
 glowSeed: 4
-title: kinetic maching learning v1.1.0
+title: Kinetic Maching Learning v1.1.0
 remoteAssets: true
 seoMeta:
   ogImage: auto

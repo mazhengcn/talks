@@ -122,7 +122,7 @@ async function collectTalkMetadata(talkDir: string): Promise<TalkMetadata | null
       conferenceUrl: config.conference_url,
       language: frontmatter.lang || 'en',
       slidesUrl: `${BASE_URL}/${folderId}/`,
-      pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/assets/${folderId}-*.pdf?raw=true`,
+      pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/assets/${folderId}.pdf?raw=true`,
       sourceUrl: `${REPO_URL}/tree/main/talks/${folderId}`,
       description: config.description,
       tags: config.tags,

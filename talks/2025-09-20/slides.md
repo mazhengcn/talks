@@ -5,7 +5,7 @@ css: unocss
 colorSchema: dark
 transition: fade-out
 mdc: true
-title: deeprte v1.0.2
+title: DeepRTE v1.0.2
 remoteAssets: true
 seoMeta:
   ogImage: auto

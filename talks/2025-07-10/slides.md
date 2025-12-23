@@ -6,7 +6,7 @@ colorSchema: light
 transition: fade-out
 mdc: true
 glowSeed: 4
-title: kinetic machine learning v1.0.0
+title: Kinetic Machine Learning v1.0.0
 remoteAssets: true
 seoMeta:
   ogImage: auto
