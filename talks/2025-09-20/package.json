@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "bunx --bun slidev",
-    "build": "bun --bun ../../scripts/build.ts /2025/shsiam/",
-    "export": "bunx --bun slidev export --per-slide --output ./assets/2025-09-20-shsiam-en.pdf"
+    "dev": "slidev",
+    "build": "bun ../../scripts/build.ts",
+    "export": "slidev export --per-slide --output ./assets/2025-09-20.pdf"
   }
 }

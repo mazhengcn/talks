@@ -3,7 +3,7 @@ layout: cover
 highlighter: shiki
 css: unocss
 colorSchema: auto
-transition: fade-out
+transition: fade
 mdc: true
 title: deeprte v1.1.0
 remoteAssets: true
