@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 import fs from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
-import findUp, { exists } from 'find-up'
+import findUp from 'find-up'
 import { x } from 'tinyexec'
 
 const cwd = process.cwd()
@@ -48,18 +48,17 @@ if (existsSync(pdfPath)) {
 else {
   if (!existsSync(assetsDir)) {
     console.log('Creating assets directory')
-    await fs.mkdir(dirname(assetsDir), { recursive: true })
+    await fs.mkdir(assetsDir, { recursive: true })
   }
 
-  console.log(assetsDir, existsSync(assetsDir))
-  // console.log('Exporting slides with per-slide PDF')
-  // const command = ['slidev', 'export', '--per-slide', '--output', `./assets/${base}.pdf`]
+  console.log('Exporting slides with per-slide PDF')
+  const command = ['slidev', 'export', '--per-slide', '--output', `./assets/${base}.pdf`]
 
-  // console.log('Exporting', command.join(' '))
-  // await x('bunx', command, {
-  //   nodeOptions: {
-  //     cwd,
-  //     stdio: 'inherit',
-  //   },
-  // })
+  console.log('Exporting', command.join(' '))
+  await x('bunx', command, {
+    nodeOptions: {
+      cwd,
+      stdio: 'inherit',
+    },
+  })
 }
