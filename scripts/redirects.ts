@@ -7,18 +7,16 @@ const packageFiles = (await fg('talks/*/package.json', {
   onlyFiles: true,
 })).sort()
 
+console.log(packageFiles)
+
 const bases = (await Promise.all(
   packageFiles.map(async (file) => {
     const talkRoot = dirname(file)
-    const json = JSON.parse(await fs.readFile(file, 'utf-8'))
     const pdfFile = (await fg('assets/*.pdf', {
       cwd: resolve(process.cwd(), `${talkRoot}/`),
       onlyFiles: true,
     }))[0]
-    const command = json.scripts?.build
-    if (!command)
-      return
-    const base = command.split(' ').pop()
+    const base = talkRoot.split('/').pop()
     if (!base)
       return
     return {
@@ -30,6 +28,7 @@ const bases = (await Promise.all(
 ))
   .filter(Boolean)
 
+console.log(bases)
 const redirects = bases
   .flatMap(({ base, pdfFile, dir }) => {
     const parts: string[] = []
@@ -37,31 +36,21 @@ const redirects = bases
     if (pdfFile) {
       parts.push(`
 [[redirects]]
-from = "${base}pdf"
-to = "https://github.com/mazhengcn/talks/blob/main/${dir}/${pdfFile}?raw=true"
-status = 302
-
-[[redirects]]
-from = "/${dir}/pdf"
+from = "/${base}/pdf"
 to = "https://github.com/mazhengcn/talks/blob/main/${dir}/${pdfFile}?raw=true"
 status = 302`)
     }
 
     parts.push(`
 [[redirects]]
-from = "${base}src"
+from = "/${base}/src"
 to = "https://github.com/mazhengcn/talks/tree/main/${dir}"
 status = 302`)
 
     parts.push(`
 [[redirects]]
-from = "${dir}"
-to = "https://zheng-talks.netlify.app${base}"
-status = 301
-
-[[redirects]]
-from = "${base}*"
-to = "${base}index.html"
+from = "/${base}/*"
+to = "/${base}/index.html"
 status = 200`)
 
     return parts
@@ -71,7 +60,16 @@ status = 200`)
 const content = `
 [build]
 publish = "dist"
-command = "bun run build"
+command = "bun --bun run build"
+
+# CORS headers for metadata API
+[[headers]]
+  for = "/talks-metadata.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+    Cache-Control = "public, max-age=3600"
 
 ${redirects}
 
