@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2025-12-23T14:50:41.819Z",
+  "generatedAt": "2025-12-23T15:07:03.852Z",
   "count": 6,
   "talks": [
     {
       "id": "2025-12-28",
-      "title": "deeprte v1.1.0",
+      "title": "DeepRTE v1.1.0",
       "date": "2025-12-28",
       "speaker": "Zheng Ma",
       "affiliation": "Shanghai Jiao Tong University",
@@ -12,7 +12,7 @@
       "location": "Shenzhen, China",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-12-28/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-12-28/assets/2025-12-28-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-12-28/assets/2025-12-28.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-12-28",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
       "tags": [
@@ -39,7 +39,7 @@
       "location": "上海, 中国",
       "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/deep-pde/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deep-pde/assets/deep-pde-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deep-pde/assets/deep-pde.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deep-pde",
       "description": "深度学习与微分方程：从入门到精通 - 介绍深度学习方法求解微分方程的基本概念、常见算法和实践应用",
       "tags": [
@@ -58,7 +58,7 @@
     },
     {
       "id": "2025-09-20",
-      "title": "deeprte v1.0.2",
+      "title": "DeepRTE v1.0.2",
       "date": "2025-09-20",
       "speaker": "Zheng Ma",
       "affiliation": "Shanghai Jiao Tong University",
@@ -66,7 +66,7 @@
       "location": "Shanghai, China",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-09-20/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-09-20/assets/2025-09-20-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-09-20/assets/2025-09-20.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-09-20",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer, with applications in inertial confinement fusion and radiation therapy",
       "tags": [
@@ -87,7 +87,7 @@
     },
     {
       "id": "2025-08-18",
-      "title": "deeprte v1.0.0",
+      "title": "DeepRTE v1.0.0",
       "date": "2025-08-18",
       "speaker": "Zheng Ma",
       "affiliation": "Shanghai Jiao Tong University",
@@ -96,7 +96,7 @@
       "conferenceUrl": "https://my.31huiyi.com/site/pages/index/index?pageId=dcfa0000-b665-5ae1-afd9-08dd553be668",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-08-18/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-08-18/assets/2025-08-18-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-08-18/assets/2025-08-18.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-08-18",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
       "tags": [
@@ -116,7 +116,7 @@
     },
     {
       "id": "2025-07-20",
-      "title": "kinetic maching learning v1.1.0",
+      "title": "Kinetic Maching Learning v1.1.0",
       "date": "2025-07-20",
       "speaker": "Zheng Ma",
       "affiliation": "Shanghai Jiao Tong University",
@@ -125,7 +125,7 @@
       "conferenceUrl": "http://bdai2025.icrp.xjtu.edu.cn",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-07-20/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-20/assets/2025-07-20-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-20/assets/2025-07-20.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-07-20",
       "description": "Solving kinetic equations with deep learning methods, covering neutron transport, radiative transfer, and rarefied gas dynamics",
       "tags": [
@@ -147,7 +147,7 @@
     },
     {
       "id": "2025-07-10",
-      "title": "kinetic machine learning v1.0.0",
+      "title": "Kinetic Machine Learning v1.0.0",
       "date": "2025-07-10",
       "speaker": "Zheng Ma",
       "affiliation": "Shanghai Jiao Tong University",
@@ -156,7 +156,7 @@
       "conferenceUrl": "https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-07-10/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-10/assets/2025-07-10-*.pdf?raw=true",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-10/assets/2025-07-10.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-07-10",
       "description": "How to solve kinetic equations with deep learning",
       "collaborators": [
