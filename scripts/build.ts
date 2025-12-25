@@ -16,6 +16,7 @@ const dirDist = join(root, 'dist', `${base}`)
 
 if (existsSync(dirStale)) {
   console.log('Stale directory found, copying to dist')
+  await fs.cp(`${root}/dist-stale/talks-metadata.json`, `${root}/dist/talks-metadata.json`)
   if (!existsSync(dirDist)) {
     await fs.mkdir(dirname(dirDist), { recursive: true })
   }
