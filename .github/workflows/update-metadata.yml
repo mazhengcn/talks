@@ -36,14 +36,14 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code dist/talks-metadata.json public/talks-metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code dist-stale/talks-metadata.json public/talks-metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
         if: steps.git-check.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add dist/talks-metadata.json public/talks-metadata.json
+          git add dist-stale/talks-metadata.json public/talks-metadata.json
           git commit -m "chore: update talks metadata [skip ci]"
           git push
 
@@ -52,6 +52,6 @@ jobs:
         with:
           name: talks-metadata
           path: |
-            dist/talks-metadata.json
+            dist-stale/talks-metadata.json
             public/talks-metadata.json
           retention-days: 90

@@ -176,7 +176,7 @@ async function collectAllMetadata(): Promise<void> {
   }
 
   // Ensure output directory exists
-  await fs.mkdir(join(process.cwd(), 'dist'), { recursive: true })
+  await fs.mkdir(join(process.cwd(), 'dist-stale'), { recursive: true })
 
   // Write to file
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(collection, null, 2), 'utf-8')
