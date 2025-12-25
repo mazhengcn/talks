@@ -310,14 +310,14 @@ glow: right
 <div class="mt-6">
   <ProsCons
     :pros="[
-      'Monte Carlo: Easy parallelization',
-      'Deterministic: Exact conservation',
+      'Monte Carlo: easy parallelization',
+      'Deterministic: exact conservation',
       'Both: Mature, established theory'
     ]"
     :cons="[
-      'Monte Carlo: Slow √N convergence',
-      'Deterministic: Exponential scaling',
-      'Both: Struggle with high dimensions'
+      'Monte Carlo: slow $\\sqrt{N}$ convergence',
+      'Deterministic: exponential scaling',
+      'Both: struggle with high dimensions'
     ]"
   />
 </div>
@@ -526,9 +526,9 @@ DeepONet has fundamental limitations for radiative transfer problems
     size="lg"
     class="h-full"
   >
-    <div class="text-center space-y-4">
-      <img src="/deeponet.png" class="rounded shadow-sm mx-auto" alt="DeepONet"/>
-      <div class="text-2xs text-on-surface-variant">
+    <div class="text-center">
+      <img src="/deeponet.png" class="rounded-lg shadow-sm mx-auto" alt="DeepONet"/>
+      <div class="text-2xs text-on-surface-variant py-3 mb--4">
         Branch + Trunk architecture
       </div>
     </div>
@@ -586,11 +586,11 @@ Fourier Neural Operator has structural limitations for radiative transfer
     class="h-full"
   >
     <div class="text-center space-y-4">
-      <img src="/fno.png" class="rounded shadow-sm mx-auto" alt="FNO Architecture"/>
-      <div class="text-2xs text-on-surface-variant">
+      <img src="/fno.png" class="rounded-lg shadow-sm mx-auto" alt="FNO Architecture"/>
+      <div class="text-2xs text-on-surface-variant py-3">
         Fourier layer-based neural operator
       </div>
-      <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded p-1.5">
+      <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded-lg p-2">
         <div class="text-2xs font-semibold text-warning-600 dark:text-warning-400">
           RTE Challenge: Irregular geometries & high dimensionality
         </div>
@@ -638,7 +638,7 @@ $$
 <div i-ph:arrow-right-duotone text-5xl op-50 />
 
 <GlassCard title="Output" variant="success" size="md">
-<div class="equation-block">
+<div class="equation-block py-6 mt-9 mb-4 mx-4">
 
 $$
 I(r, \Omega)
@@ -756,6 +756,8 @@ $$
 
 # Structure of solution operator
 
+<div class="mt-8" />
+
 <div grid="~ cols-[max-content_min-content_auto] gap-4 items-center" w-full>
 <GlassCard title="Attenuation" size="sm" variant="success">
 <div class="equation-block">
@@ -804,7 +806,7 @@ $$
 
 <GlassCard title="Integral fomulation of steady RTE" variant="error" size="sm" mt-4>
 <div flex="~ gap-2 items-center justify-center">
-<div equation-block text-base>
+<div equation-block text-base px-4>
 
 $$
 I = \mathcal{L}\mathcal{S}I + \mathcal{J}I_{-}
@@ -812,7 +814,7 @@ $$
 
 </div>
 where the <span text-pink-3>optical depth</span> is defined as:
-<div equation-block text-pink-3>
+<div equation-block text-pink-3 py--2 px-4>
 
 $$
 \tau(s_1,s_2):=\int_{s_1}^{s_2}\mu_t(r-s\Omega)\,\mathrm{d}s
@@ -970,10 +972,12 @@ $$
 
 # Optical depth network
 
+<!-- <div class="mt-8" /> -->
+
 <div flex="~ col gap-4 items-center">
 <div flex="~ gap-4 items-center">
-<GlassCard variant="success" size="sm">
-<div equation-block>
+<GlassCard variant="success" size="sm" class="p-4">
+<div equation-block class="px-4">
 
 $$
 \tau(r,\Omega) \approx  \sum_{j}^{N\left(s_{-}(r,\Omega)\right)} w(r, \Omega;s_j)\mu_t(r-s_j \Omega),
@@ -982,8 +986,8 @@ $$
 </div>
 </GlassCard>
 <div i-ph:arrow-fat-lines-left-duotone text-3xl op-50 />
-<GlassCard variant="secondary" size="sm">
-<div equation-block>
+<GlassCard variant="secondary" size="sm" class="p-4">
+<div equation-block class="px-4">
 
 $$
 \mu_t(r-s_j \Omega)\approx  \sum_{i}^{N_\text{mesh}} \bm{1}_{\mathcal{C}_{r,\Omega}}(r_i^{\text{mesh}}) c(r-s_j\Omega, r^{\text{mesh}}_i){(\mu_t^\text{mesh})}_i,
@@ -995,8 +999,8 @@ $$
 
 <div i-ph:arrows-merge-duotone text-4xl op-50 ml--22 />
 
-<GlassCard variant="error" size="sm">
-<div equation-block text-xs>
+<GlassCard variant="error" size="sm" class="p-5">
+<div equation-block text-xs class="px-4">
 
 $$
 \begin{aligned}
@@ -1096,7 +1100,7 @@ $$
 
 Recap
 
-<div grid="~ cols-2 gap-6" mt-6>
+<div grid="~ cols-2 gap-6" mt-4>
 
 <div>
   <GlassCard
@@ -1390,7 +1394,7 @@ class: pt-4
   icon="i-ph-database-duotone"
   size="md"
 >
-<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-10>
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-16>
 
 | **Module Name** | **Hyperparameters** | **Value** |
 | ---------------- | ------------------ | --------- |
@@ -1683,6 +1687,28 @@ $$
 
 ---
 
+# Efficiency
+
+<div class="mt-10" />
+
+<GlassCard
+  title="Comparision with classical methods"
+  variant="warning"
+  icon="i-ph-target-duotone"
+  size="lg"
+>
+
+<div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden>
+<img src="/figs/efficiency.png" />
+</div>
+
+<div strong text-center mt-4 text-xl equation-block>
+<span text-2xl text-accent font-semibold>10x</span> faster than classical methods even on multi <span text-2xl text-accent font-semibolt>GPUs</span>
+</div>
+</GlassCard>
+
+---
+
 # Comparision with MIO
 
 <GlassCard
@@ -1812,4 +1838,4 @@ class: "text-center pb-5"
   </div>
 </div>
 
-Slides can be found [here](https://zheng-talks.netlify.app/2025/hksiam) -->
+Slides can be found [here](https://zheng-home.netlify.app/talks) -->
