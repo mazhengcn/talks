@@ -6,7 +6,7 @@ import process from 'node:process'
 import fg from 'fast-glob'
 
 const TALKS_DIR = join(process.cwd(), 'talks')
-const OUTPUT_FILE = join(process.cwd(), 'dist/talks-metadata.json')
+const OUTPUT_FILE = join(process.cwd(), 'dist-stale/talks-metadata.json')
 const BASE_URL = process.env.BASE_URL || 'https://zheng-talks.netlify.app'
 const REPO_URL = 'https://github.com/mazhengcn/talks'
 

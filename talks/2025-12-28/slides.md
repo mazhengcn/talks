@@ -2,7 +2,7 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: dark
+colorSchema: auto
 transition: fade
 mdc: true
 title: DeepRTE v1.1.0
