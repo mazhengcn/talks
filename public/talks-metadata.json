@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-25T13:45:59.373Z",
+  "generatedAt": "2025-12-26T12:54:07.267Z",
   "count": 6,
   "talks": [
     {
@@ -34,7 +34,7 @@
     {
       "id": "deep-pde",
       "title": "深度学习与微分方程",
-      "date": "2025-12-25",
+      "date": "2025-12-26",
       "conference": "深度学习与科学计算暑期课程",
       "location": "上海, 中国",
       "language": "zh-CN",
