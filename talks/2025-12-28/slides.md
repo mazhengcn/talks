@@ -2,12 +2,12 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: auto
+colorSchema: dark
 transition: fade
 mdc: true
 title: DeepRTE v1.1.0
 remoteAssets: true
-date: 2026-7-24
+date: 2025-07-24
 seoMeta:
   ogImage: auto
 ---
@@ -757,7 +757,7 @@ $$
 
 # Structure of solution operator
 
-<div class="mt-8" />
+<div class="mt-5" />
 
 <div grid="~ cols-[max-content_min-content_auto] gap-4 items-center" w-full>
 <GlassCard title="Attenuation" size="sm" variant="success">
