@@ -7,6 +7,7 @@ transition: fade
 mdc: true
 title: DeepRTE v1.1.0
 remoteAssets: true
+date: 2026-7-24
 seoMeta:
   ogImage: auto
 ---
@@ -616,7 +617,7 @@ $$
 </div>
 </GlassCard>
 
-<div grid="~ cols-[2fr_auto_1fr] items-center gap-20" mt-5>
+<div grid="~ cols-[2fr_auto_1.3fr] items-center gap-15" mt-5>
 
 <GlassCard
   title="Inputs"
@@ -1157,7 +1158,7 @@ Trained with delta-like function
 <div text-on-surface>
 
 $$
-I^{\delta}_{-}(r, \Omega; r', \Omega') =
+I^\sigma_{-}(r, \Omega; r', \Omega') =
 \delta_{\{r'\}}(r)\delta(\Omega-\Omega'), \quad (r,\Omega) \in \Gamma_{-}.
 $$
 
@@ -1171,6 +1172,37 @@ $$
 $$
 
 </div>
+</div>
+</GlassCard>
+
+---
+
+# Training Strategy
+
+<GlassCard title="Theorem" variant="success" icon="i-arcticons:math-riddles" size="lg">
+<div class="text-on-surface">
+
+Let $\mathcal{A}$ and $\mathcal{A}^{\text{NN}}_{\theta^*}$ be the RTE and <span class="text-orange">learned</span> DeepRTE operators respectively, for any $I_-\in L^2(\Gamma_-)$ and $I_{-, h}^\sigma$ be the approximation of it. If there exists a parameter set $\theta^*$ of neural network such that:
+
+</div>
+<div class="equation-block">
+
+$$
+\|\mathcal{A}^{\text{NN}}_{\theta^*}I^\sigma_{-,h} - \mathcal{A}I^\sigma_{-,h}\|\leq \varepsilon, \quad \forall I^\sigma_{-,h} \in \text{delta function {\color{orange}testing dataset}},
+$$
+
+</div>
+
+then we have:
+
+<div class="equation-block">
+
+$$
+\begin{aligned}
+  \|\mathcal{A}^{\text{NN}}_{\theta^*} I_- - \mathcal{A} I_-\|_{L^2(D\times\mathbb{S}^{d-1})}\leq C\left\{ \sigma^k \|I_-\|_{H^k(\Gamma_-)} + \left(\frac{h}{\sigma}\right)^m \|I_-\|_{H^m(\Gamma_-)} + \varepsilon\right\}.
+\end{aligned}
+$$
+
 </div>
 </GlassCard>
 
