@@ -64,7 +64,7 @@ async function loadMetadataConfig(talkDir: string): Promise<TalkMetadataConfig> 
 /**
  * Parse date from folder name or frontmatter
  */
-function parseDate(folderId: string, _frontmatter: Record<string, any>): string {
+function parseDate(folderId: string, frontmatter: Record<string, any>): string {
   // Try to extract date from folder name (e.g., "2025-12-28")
   const dateMatch = folderId.match(/^(\d{4}-\d{2}-\d{2})/)
   if (dateMatch)
@@ -72,6 +72,8 @@ function parseDate(folderId: string, _frontmatter: Record<string, any>): string 
 
   // Try to extract from frontmatter or other sources
   // You can customize this based on your needs
+  if (frontmatter.date)
+    return new Date(frontmatter.date).toISOString().split('T')[0]
   return new Date().toISOString().split('T')[0]
 }
 

@@ -9,6 +9,7 @@ glowSeed: 4
 glow: bottom
 lang: zh-CN
 title: 深度学习与微分方程
+date: 2025-07-24
 seoMeta:
   ogImage: auto
 ---
