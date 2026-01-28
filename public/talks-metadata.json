@@ -1,7 +1,36 @@
 {
-  "generatedAt": "2025-12-27T05:33:44.721Z",
-  "count": 6,
+  "generatedAt": "2026-01-28T09:24:59.555Z",
+  "count": 7,
   "talks": [
+    {
+      "id": "2026-02-01",
+      "title": "DeepRTE v1.2.0-zh",
+      "date": "2026-02-01",
+      "speaker": "Zheng Ma",
+      "affiliation": "上海交通大学",
+      "conference": "稀薄气体与湍流的多尺度非平衡流动学术研讨会",
+      "location": "SUSTech, Shenzhen, China",
+      "language": "en",
+      "slidesUrl": "https://zheng-talks.netlify.app/2026-02-01/",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-02-01/assets/2026-02-01.pdf?raw=true",
+      "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-02-01",
+      "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
+      "tags": [
+        "deep-learning",
+        "radiative-transfer",
+        "neural-network",
+        "physics",
+        "attention-mechanism"
+      ],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
+      "published": true,
+      "custom": {
+        "version": "v1.1.0"
+      }
+    },
     {
       "id": "2025-12-28",
       "title": "DeepRTE v1.1.0",
