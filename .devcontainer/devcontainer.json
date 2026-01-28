@@ -1,8 +1,9 @@
 {
   "name": "Talks",
-  "dockerComposeFile": "compose.yaml",
-  "service": "talks",
-  "workspaceFolder": "/talks",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,6 +16,13 @@
       ]
     }
   },
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "${localWorkspaceFolderBasename}-node_modules",
+      "target": "${containerWorkspaceFolder}/node_modules"
+    }
+  ],
   "postCreateCommand": {
     "fix-permissions": "sudo chown bun node_modules",
     "install-dependencies": "bun install"
