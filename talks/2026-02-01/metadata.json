@@ -1,0 +1,11 @@
+{
+  "conference": "稀薄气体与湍流的多尺度非平衡流动学术研讨会",
+  "location": "SUSTech, Shenzhen, China",
+  "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
+  "tags": ["deep-learning", "radiative-transfer", "neural-network", "physics", "attention-mechanism"],
+  "collaborators": ["Min Tang", "Yekun Zhu"],
+  "published": true,
+  "custom": {
+    "version": "v1.1.0"
+  }
+}
