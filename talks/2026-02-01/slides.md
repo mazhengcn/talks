@@ -14,14 +14,14 @@ seoMeta:
 
 # DeepRTE {.emphasis-primary.text-4xl}
 
-<div text-2xl class="text-on-surface-variant">基于注意力的辐射输运预训练神经网络</div>
+<div text-2xl class="text-on-surface-variant">基于注意力机制的辐射输运预训练神经算子</div>
 
 <div mt15 />
 
 <div flex="~ col gap-2">
-  <div text-left text-2xl text-on-surface>Zheng Ma</div>
+  <div text-left text-2xl text-on-surface>马 征</div>
   <div text-left text-sm class="text-secondary">上海交通大学</div>
-  <div text-left text-sm class="text-on-surface-variant">与唐敏和朱叶坤合作</div>
+  <div text-left text-sm class="text-on-surface-variant">唐敏、竺烨锟</div>
 </div>
 
 <!-- SJTU Official Logo - Enhanced Glassmorphism with Theme Colors -->
@@ -43,7 +43,7 @@ seoMeta:
 <!-- Date positioned at bottom right with matching glassmorphism style -->
 <div class="absolute bottom-8 right-6 group">
   <div class="relative bg-gradient-to-br from-white/40 to-white/25 dark:from-neutral-900/30 dark:to-neutral-800/20 backdrop-blur-lg rounded-lg px-3 py-1.5 border border-sjtu-200/15 dark:border-sjtu-400/8 shadow-lg shadow-sjtu-500/8 dark:shadow-sjtu-400/5 hover:bg-white/50 dark:hover:bg-neutral-900/40 hover:border-sjtu-300/20 dark:hover:border-sjtu-400/12 transition-all duration-300">
-    <div text-xs class="text-on-surface-muted/80">December 28, 2025</div>
+    <div text-xs class="text-on-surface-muted/80">2026年2月1日</div>
   </div>
 </div>
 
@@ -51,24 +51,24 @@ seoMeta:
 glow: left
 ---
 
-# 简介
+# 背景
 
-<div class="mb-6 text-center">
+<!-- <div class="mb-6 text-center">
   <div class="text-2xl text-on-surface">
     <span class="emphasis-primary font-bold">辐射输运</span> 支配能量传输
   </div>
-</div>
+</div> -->
 
-<div grid="~ cols-2 gap-6" mt-6>
+<div grid="~ cols-2 gap-6">
   <GlassCard
     title="惯性约束聚变"
     subtitle="清洁能源产生"
     variant="primary"
     icon="i-ph-atom-duotone"
-    size="md"
+    size="lg"
   >
     <div class="flex flex-col items-center gap-3">
-      <img src="/icf.png" class="rounded-lg shadow-lg h-32 object-contain" />
+      <img src="/icf.png" class="rounded-lg shadow-lg h-42 object-contain" />
       <div class="text-xs text-on-surface-variant text-center">
         辐射输运驱动聚变靶丸的内爆动力学
       </div>
@@ -80,10 +80,10 @@ glow: left
     subtitle="精准癌症治疗"
     variant="secondary"
     icon="i-ph-heart-duotone"
-    size="md"
+    size="lg"
   >
     <div class="flex flex-col items-center gap-3">
-      <img src="/rad-therapy.jpg" class="rounded-lg shadow-lg h-32 object-contain" />
+      <img src="/rad-therapy.jpg" class="rounded-lg shadow-lg h-42 object-contain" />
       <div class="text-xs text-on-surface-variant text-center">
         精确的剂量计算以实现有效治疗
       </div>
@@ -91,7 +91,7 @@ glow: left
   </GlassCard>
 </div>
 
-<div mt-6>
+<div mt-4>
   <GlassCard variant="tech" text-center size="md">
     <div class="text-lg mb-2">
       <span class="emphasis-tech font-semibold">核心挑战：</span>
@@ -110,9 +110,9 @@ glow: right
 # 辐射输运方程
 
 <div class="mb-4">
-  <GlassCard variant="primary" size="lg" py2>
+  <GlassCard variant="primary" size="md" title="控制方程">
   <div class="text-center mb-4">
-  <div class="text-lg font-semibold text-on-surface mb-2">控制方程</div>
+  <!-- <div class="text-lg font-semibold text-on-surface mb-2">控制方程</div> -->
   <div class="equation-block">
 
   $$
@@ -121,8 +121,7 @@ glow: right
 
   </div>
   </div>
-  <div class="grid grid-cols-2 gap-6 text-sm">
-  <div>
+  <div class="flex justify-around items-center gap-6">
   <div flex="~ gap-2 items-center">
   <strong>
 
@@ -141,8 +140,6 @@ glow: right
   </strong>
   总截面
   </div>
-  </div>
-  <div>
   <div flex="~ gap-2 items-center">
   <strong>
 
@@ -156,47 +153,44 @@ glow: right
   $p(\Omega,\Omega^*)$:
 
   </strong>
-  相函数
-  </div>
-  </div>
-  </div>
-  </GlassCard>
-</div>
-
-<div class="mt-0">
-  <GlassCard title="边界条件" variant="secondary" size="md">
-  <div class="text-center text-on-surface-variant">
-  <div class="equation-block" flex="~ gap-2 items-center justify-center">
-
-  $I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)$
-
-  where
-
-  $\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \}$
-
+  散射核
   </div>
   </div>
   </GlassCard>
 </div>
+
+<GlassCard title="边界条件" variant="secondary" size="md">
+<div class="text-center text-on-surface-variant">
+<div class="equation-block" flex="~ gap-2 items-center justify-center">
+
+$I |_{\Gamma_{-}}(r,\Omega) = I_{-}(r,\Omega)$
+
+where
+
+$\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;\mp n(r)\cdot\Omega<0 \}$
+
+</div>
+</div>
+</GlassCard>
 
 ---
 
 # 数值挑战
 
-<div class="mb-6 text-center">
+<!-- <div class="mb-6 text-center">
   <div class="text-xl text-on-surface mb-2">
-    辐射输运模拟中的<span class="emphasis-primary font-bold">三大障碍</span>
+    辐射输运模拟中的<span class="emphasis-primary font-bold">主要困难</span>
   </div>
-</div>
+</div> -->
 
-<div grid="~ gap-6 cols-3" mt-6>
+<div grid="~ gap-4 cols-3" mt-6>
 
 <GlassCard
-  title="高维性"
+  title="高维"
   subtitle="维数灾难"
   variant="error"
   icon="i-ph-cube-duotone"
-  size="md"
+  size="lg"
   :items="[
     '6维相空间: $(x,y,z,\\Omega_x,\\Omega_y,\\Omega_z)$',
     '网格点数呈指数增长 $N^6$',
@@ -210,7 +204,7 @@ glow: right
   subtitle="非线性相互作用"
   variant="warning"
   icon="i-ph-arrows-merge-duotone"
-  size="md"
+  size="lg"
   :items="[
     '在离散层面保持守恒律',
     '处理非线性玻尔兹曼型算子',
@@ -223,7 +217,7 @@ glow: right
   subtitle="区域耦合"
   variant="tech"
   icon="i-ph-scales-duotone"
-  size="md"
+  size="lg"
   :items="[
     '刚性参数: $\\varepsilon = \\ell/L \\ll 1$',
     '设计渐近保持格式',
@@ -234,12 +228,12 @@ glow: right
 
 </div>
 
-<div class="mt-6">
-  <GlassCard variant="gradient-primary" text-center size="sm">
-    <div class="text-base font-semibold mb-1">
+<div class="mt-4">
+  <GlassCard variant="gradient-primary" text-center size="lg">
+    <div class="font-semibold mb-1">
       <span class="emphasis-tech">为什么使用深度学习？</span>
     </div>
-    <div class="text-sm opacity-90">
+    <div class="opacity-90">
       神经网络有望克服维数灾难并学习复杂的多尺度行为
     </div>
   </GlassCard>
@@ -249,10 +243,9 @@ glow: right
 
 # 传统方法
 
-<div class="mb-4 text-center">
+<!-- <div class="mb-4 text-center">
   <div class="text-lg text-on-surface mb-2">现有方法难以应对计算障碍</div>
-  <div class="text-sm text-on-surface-variant">两大类方法各具优势与局限</div>
-</div>
+</div> -->
 
 <div grid="~ cols-2 gap-6" mt-6>
 
@@ -264,16 +257,16 @@ glow: right
     icon="i-ph-dice-six-duotone"
     size="md"
   >
-    <div class="space-y-3 text-xs">
+    <div class="space-y-3 text-base">
       <div>
         <div class="font-semibold mb-1">蒙特卡洛输运:</div>
-        <div class="space-y-0.5 pl-2 text-2xs">
+        <div class="space-y-0.5 pl-2">
           <div>• MCNP, COG (LLNL), Mercury</div>
         </div>
       </div>
       <div>
         <div class="font-semibold mb-1">直接模拟:</div>
-        <div class="space-y-0.5 pl-2 text-2xs">
+        <div class="space-y-0.5 pl-2">
           <div>• DSMC (Bird, Nanbu), Sparta (ORNL)</div>
         </div>
       </div>
@@ -289,16 +282,16 @@ glow: right
     icon="i-ph-grid-four-duotone"
     size="md"
   >
-    <div class="space-y-3 text-xs">
+    <div class="space-y-3 text-base">
       <div>
         <div class="font-semibold mb-1">离散纵标法:</div>
-        <div class="space-y-0.5 pl-2 text-2xs">
+        <div class="space-y-0.5 pl-2">
           <div>• Ardra (LLNL), NEWT (ORNL), DORT</div>
         </div>
       </div>
       <div>
         <div class="font-semibold mb-1">谱方法:</div>
-        <div class="space-y-0.5 pl-2 text-2xs">
+        <div class="space-y-0.5 pl-2">
           <div>• 高阶精度，光滑重构</div>
         </div>
       </div>
@@ -308,7 +301,7 @@ glow: right
 
 </div>
 
-<div class="mt-6">
+<div class="mt-6 text-base">
   <ProsCons
     :pros="[
       '蒙特卡洛：易于并行',
@@ -392,11 +385,13 @@ glow: left
 
 # DeepRTE
 
-<div class="mb-4 text-center">
+<!-- <div class="mb-4 text-center">
   <div class="text-lg text-on-surface mb-1">
     用于<span class="emphasis-primary font-bold">辐射输运方程</span>的<span class="emphasis-primary font-bold">深度</span>学习
   </div>
-</div>
+</div> -->
+
+<div class="mt-10" />
 
 <div grid="~ cols-[1fr_min-content_1fr] items-center gap-15" mt-5 w-full>
 
@@ -443,13 +438,13 @@ glow: left
     <div class="space-y-4">
       <div class="text-center">
         <div class="grid grid-cols-3 gap-2 text-sm">
-          <div class="bg-error-100/50 dark:bg-error-900/30 rounded p-3">
+          <div class="bg-error-100/50 dark:bg-error-900/30 rounded-lg p-3">
             生成<br/>数据
           </div>
-          <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded p-3">
+          <div class="bg-warning-100/50 dark:bg-warning-900/30 rounded-lg p-3">
             训练<br/>算子
           </div>
-          <div class="bg-success-100/50 dark:bg-success-900/30 rounded p-3">
+          <div class="bg-success-100/50 dark:bg-success-900/30 rounded-lg p-3">
             迁移<br/>学习
           </div>
         </div>
@@ -470,8 +465,8 @@ glow: left
 
 </div>
 
-<div class="mt-5">
-  <GlassCard variant="gradient-primary" text-center size="md" w-full>
+<div class="mt-6">
+  <GlassCard variant="gradient-primary" text-center size="lg" w-full>
     <div class="font-semibold text-lg">
       <span class="emphasis-tech">关键优势：</span>
       一次训练，解决各类 RTE 问题
@@ -1763,11 +1758,11 @@ $$
 
 # 结论
 
-<div class="mb-4 text-center">
+<!-- <div class="mb-4 text-center">
   <div class="text-xl text-on-surface mb-2">
     <span class="emphasis-primary font-bold">当前局限</span>与研究方向
   </div>
-</div>
+</div> -->
 
 <div grid="~ cols-2 gap-6" mt-4>
 
@@ -1776,7 +1771,7 @@ $$
   subtitle="待改进领域"
   variant="error"
   icon="i-ph-warning-duotone"
-  size="md"
+  size="lg"
   :items="[
     '仅限 2D 问题',
     '稳态解',
@@ -1790,7 +1785,7 @@ $$
   subtitle="研究机遇"
   variant="success"
   icon="i-ph-rocket-launch-duotone"
-  size="md"
+  size="lg"
   :items="[
     '3D 扩展',
     '时间依赖问题',
@@ -1806,9 +1801,9 @@ $$
     title="广泛影响"
     variant="gradient-secondary"
     icon="i-ph-globe-duotone"
-    size="sm"
+    size="lg"
   >
-    <div class="text-center text-xs">
+    <div class="text-center">
       <div class="mb-1">
         <strong>应用：</strong> ICF 设计、医学成像、天体物理
       </div>
@@ -1863,7 +1858,7 @@ class: "text-center pb-5"
       text-center
     >
       <div class="text-sm">
-        Zheng Ma<br/>
+        马征<br/>
         上海交通大学
       </div>
     </GlassCard>
