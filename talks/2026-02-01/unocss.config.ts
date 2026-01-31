@@ -12,10 +12,8 @@ export default mergeConfigs([
       presetSJTU(),
       presetWebFonts({
         fonts: {
-          sans: 'Inter',
+          sans: ['Inter', 'Noto Sans SC'],
           mono: 'JetBrains Mono',
-          fast: 'Ubuntu',
-          hand: 'Caveat',
         },
       }),
     ],

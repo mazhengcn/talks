@@ -2,7 +2,7 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: dark
+colorSchema: auto
 transition: fade
 mdc: true
 title: DeepRTE v1.2.0-zh
@@ -48,16 +48,8 @@ seoMeta:
 </div>
 
 ---
-glow: left
----
 
 # 背景
-
-<!-- <div class="mb-6 text-center">
-  <div class="text-2xl text-on-surface">
-    <span class="emphasis-primary font-bold">辐射输运</span> 支配能量传输
-  </div>
-</div> -->
 
 <div grid="~ cols-2 gap-6">
   <GlassCard
@@ -103,8 +95,6 @@ glow: left
   </GlassCard>
 </div>
 
----
-glow: right
 ---
 
 # 辐射输运方程
@@ -176,12 +166,6 @@ $\Gamma_{\pm} := \{(r,\Omega) \mid r\in\partial D,\;\Omega\in\mathbb{S}^{d-1},\;
 ---
 
 # 数值挑战
-
-<!-- <div class="mb-6 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    辐射输运模拟中的<span class="emphasis-primary font-bold">主要困难</span>
-  </div>
-</div> -->
 
 <div grid="~ gap-4 cols-3" mt-6>
 
@@ -330,12 +314,10 @@ layout: center
 </div>
 
 ---
-glow: right
----
 
 # 用深度学习求解 PDEs
 
-<div flex="~ col gap-3">
+<div flex="~ col gap-2">
 
 <div>
   <GlassCard
@@ -890,7 +872,7 @@ $$
 $\mathcal{J}$ 和 $\mathcal{L}$
 
 <div flex="~ col gap-4 items-center">
-<GlassCard title="例如 $\mathcal{J}$ 算子" size="md" variant="success" enable-latex="true">
+<GlassCard title="$\mathcal{J}$ 算子为例" size="md" variant="success" enable-latex="true">
 <div class="equation-block">
 
 $$
@@ -966,7 +948,7 @@ $$
 
 ---
 
-# 光学深度网络
+# Optical Depth 网络
 
 <!-- <div class="mt-8" /> -->
 
@@ -1029,7 +1011,7 @@ $$
 
 ---
 
-# 衰减
+# 衰减模块
 
 总结
 
@@ -1118,7 +1100,7 @@ $$
     title="散射模块"
     subtitle="散射编码"
     variant="secondary"
-    icon="i-ph-map-pin-duotone"
+    icon="i-ph-tree-structure-duotone"
     size="md"
     :items="[
       '编码 $p(\\Omega,\\Omega^*)$',
@@ -1695,7 +1677,7 @@ $$
 <GlassCard
   title="网格依赖性"
   variant="success"
-  icon="i-ph-target-duotone"
+  icon="i-ph-checkerboard-duotone"
   size="sm"
 >
 
@@ -1721,7 +1703,7 @@ $$
 <GlassCard
   title="与经典方法的比较"
   variant="warning"
-  icon="i-ph-target-duotone"
+  icon="i-ph-caret-double-right-duotone"
   size="lg"
 >
 
@@ -1741,7 +1723,7 @@ $$
 <GlassCard
   title="与 MIO 的比较"
   variant="warning"
-  icon="i-ph-target-duotone"
+  icon="i-ph-caret-double-right-duotone"
   size="lg"
 >
 
@@ -1773,7 +1755,7 @@ $$
   icon="i-ph-warning-duotone"
   size="lg"
   :items="[
-    '仅限 2D 问题',
+    '无能量(频率)依赖',
     '稳态解',
     '大量预训练数据',
     '内存限制'
@@ -1835,7 +1817,7 @@ class: "text-center pb-5"
       text-center
     >
       <div class="text-sm">
-        DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer
+      DeepRTE: Pre-trained attention-based neural network for radiative transfer, <span class="font-italic text-pin">Comput. Methods Appl. Mech. Eng.</span>, 2026
       </div>
     </GlassCard>
     <GlassCard
@@ -1865,4 +1847,4 @@ class: "text-center pb-5"
   </div>
 </div>
 
-Slides can be found [here](https://zheng-home.netlify.app/talks)
+可以访问 [这里](https://zheng-home.netlify.app/talks) 获取幻灯片

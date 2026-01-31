@@ -110,10 +110,6 @@ h6 {
 }
 
 /* SJTU Theme Enhancements */
-.slidev-layout {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
 .slidev-layout h1,
 .slidev-layout h2,
 .slidev-layout h3 {
