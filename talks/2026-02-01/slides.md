@@ -323,7 +323,7 @@ layout: center
   <GlassCard
     title="架构：假设空间"
     variant="success"
-    icon="i-ph-brain-duotone"
+    icon="i-ph-fediverse-logo-duotone"
     size="md"
     :items="[
       '近似解: PINNs, DeepRitz, 等',
@@ -948,7 +948,7 @@ $$
 
 ---
 
-# Optical Depth 网络
+# 光学深度网络
 
 <!-- <div class="mt-8" /> -->
 
@@ -1213,7 +1213,7 @@ $$
 <GlassCard
   title="训练设置"
   variant="success"
-  icon="i-ph-target-duotone"
+  icon="i-ph-gear-duotone"
   size="md"
 >
 
@@ -1259,7 +1259,6 @@ $$
 <GlassCard
   title="降维 2-D RTE"
   variant="primary"
-  icon="i-ph-test-tube-duotone"
   size="md"
 >
 <div equation-block>
@@ -1400,7 +1399,7 @@ class: pt-4
 <GlassCard
   title="神经网络"
   variant="warning"
-  icon="i-ph-database-duotone"
+  icon="i-ph-fediverse-logo-duotone"
   size="md"
 >
 <div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-16>
@@ -1416,7 +1415,7 @@ class: pt-4
 <GlassCard
   title="训练"
   variant="success"
-  icon="i-ph-target-duotone"
+  icon="i-streamline:graph-arrow-decrease"
   size="md"
 >
 
@@ -1447,7 +1446,7 @@ class: pt-4
   title="精度验证"
   subtitle="类 Delta 函数"
   variant="success"
-  icon="i-ph-target-duotone"
+  icon="i-ph-check-duotone"
   size="lg"
   mt-10
 >
@@ -1660,7 +1659,7 @@ $$
 <GlassCard
   title="零样本性能"
   variant="warning"
-  icon="i-ph-database-duotone"
+  icon="i-ph-arrows-out-duotone"
   size="sm"
 >
 <div  bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt-10>
@@ -1808,26 +1807,26 @@ class: "text-center pb-5"
     提问与讨论
   </div>
 
-  <div class="grid grid-cols-3 gap-8 mt-12">
+  <div class="grid grid-cols-3 gap-4 mt-12">
     <GlassCard
       title="论文"
       variant="gradient-primary"
       icon="i-ph-file-text-duotone"
-      size="sm"
+      size="md"
       text-center
     >
       <div class="text-sm">
-      DeepRTE: Pre-trained attention-based neural network for radiative transfer, <span class="font-italic text-pin">Comput. Methods Appl. Mech. Eng.</span>, 2026
+      DeepRTE: Pre-trained attention-based neural network for radiative transfer, <span class="font-italic text-pink">Comput. Methods Appl. Mech. Eng.</span>, 2026
       </div>
     </GlassCard>
     <GlassCard
       title="代码"
       variant="gradient-secondary"
       icon="i-ph-code-duotone"
-      size="sm"
+      size="md"
       text-center
     >
-      <div class="text-sm">
+      <div class="text-sm mt-6">
         GitHub 上可用<br/>
         <Repo name="mazhengcn/deeprte" />
       </div>
@@ -1836,10 +1835,10 @@ class: "text-center pb-5"
       title="联系方式"
       variant="tech"
       icon="i-ph-envelope-duotone"
-      size="sm"
+      size="md"
       text-center
     >
-      <div class="text-sm">
+      <div class="text-sm mt-6">
         马征<br/>
         上海交通大学
       </div>
@@ -1847,4 +1846,6 @@ class: "text-center pb-5"
   </div>
 </div>
 
-可以访问 [这里](https://zheng-home.netlify.app/talks) 获取幻灯片
+<div class="mt-10 text-lg">
+  可以访问 <a href="https://zheng-home.netlify.app/talks">https://zheng-home-netlify.app/talks</a> 获取幻灯片
+</div>
