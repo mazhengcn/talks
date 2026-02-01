@@ -326,8 +326,8 @@ layout: center
     icon="i-ph-fediverse-logo-duotone"
     size="md"
     :items="[
-      '近似解: PINNs, DeepRitz, 等',
-      '近似解算子: DeepONet, FNO, 等',
+      '近似解: PINNs, DeepRitz 等',
+      '近似解算子: DeepONet, FNO 等',
       '近似 PDE (从方程到解): PDEFormer-1/2'
     ]"
   />
