@@ -21,7 +21,7 @@ seoMeta:
 <div flex="~ col gap-2">
   <div text-left text-2xl text-on-surface>马 征</div>
   <div text-left text-sm class="text-secondary">上海交通大学</div>
-  <div text-left text-sm class="text-on-surface-variant">唐敏、竺烨锟</div>
+  <div text-left text-sm class="text-on-surface-variant">唐敏、竺烨锟，项目负责人：王涵、谌稳固</div>
 </div>
 
 <!-- SJTU Official Logo - Enhanced Glassmorphism with Theme Colors -->
