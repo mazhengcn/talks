@@ -7,5 +7,12 @@
     "dev": "bunx --bun slidev",
     "build": "bun --bun ../../scripts/build.ts /2025/template/",
     "export": "bunx --bun slidev export --per-slide --output ./assets/2025-template-en.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "catalog:",
+    "@slidev/client": "catalog:",
+    "@slidev/theme-default": "catalog:",
+    "vite": "catalog:",
+    "unocss": "catalog:"
   }
 }
