@@ -30,6 +30,7 @@
     "eslint": "^10.0.3",
     "execa": "^9.6.1",
     "fast-glob": "^3.3.3",
+    "find-up": "^8.0.0",
     "katex": "^0.16.38",
     "prettier-plugin-slidev": "^1.0.5",
     "prompts": "^2.4.2",

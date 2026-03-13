@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 import fs from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
-import findUp from 'find-up'
+import { findUp } from 'find-up'
 import { x } from 'tinyexec'
 
 const cwd = process.cwd()
