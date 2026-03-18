@@ -1,7 +1,33 @@
 {
-  "generatedAt": "2026-03-13T07:31:55.708Z",
-  "count": 7,
+  "generatedAt": "2026-03-18T06:56:21.927Z",
+  "count": 8,
   "talks": [
+    {
+      "id": "2026-03-18",
+      "title": "OpenClaw v1.0.0-zh",
+      "date": "2026-03-18",
+      "speaker": "马 征",
+      "affiliation": "上海交通大学",
+      "conference": "技术分享",
+      "location": "上海，中国",
+      "language": "en",
+      "slidesUrl": "https://zheng-talks.netlify.app/2026-03-18/",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-03-18/assets/2026-03-18.pdf?raw=true",
+      "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-03-18",
+      "description": "OpenClaw：运行在你自己设备上的个人 AI 助手",
+      "tags": [
+        "AI",
+        "个人助手",
+        "开源",
+        "多渠道",
+        "Gateway"
+      ],
+      "collaborators": [],
+      "published": true,
+      "custom": {
+        "version": "v1.0.0"
+      }
+    },
     {
       "id": "2026-02-01",
       "title": "DeepRTE v1.2.0-zh",
