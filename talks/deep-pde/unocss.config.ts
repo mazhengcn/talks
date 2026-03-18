@@ -1,5 +1,4 @@
 import config from '@slidev/client/uno.config.ts'
-import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 import { mergeConfigs, presetWebFonts } from 'unocss'
 
 export default mergeConfigs([
@@ -14,7 +13,6 @@ export default mergeConfigs([
           mono: 'JetBrains Mono',
           sans: ['Inter', 'Noto Sans SC'],
         },
-        processors: createLocalFontProcessor(),
       }),
     ],
   },
