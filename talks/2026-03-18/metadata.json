@@ -1,0 +1,11 @@
+{
+  "conference": "技术分享",
+  "location": "上海，中国",
+  "description": "OpenClaw：运行在你自己设备上的个人 AI 助手",
+  "tags": ["AI", "个人助手", "开源", "多渠道", "Gateway"],
+  "collaborators": [],
+  "published": true,
+  "custom": {
+    "version": "v1.0.0"
+  }
+}

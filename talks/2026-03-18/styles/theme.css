@@ -1,0 +1,248 @@
+:root {
+  --slidev-code-padding: 8px 10px;
+  --slidev-code-background: #f8f9fa !important;
+
+  /* SJTU Color System CSS Variables - Light Mode */
+  --sjtu-primary: #0066cc;
+  --sjtu-primary-light: #36acff;
+  --sjtu-primary-dark: #0052a3;
+  --sjtu-secondary: #e29a28;
+  --sjtu-secondary-light: #f5c968;
+  --sjtu-secondary-dark: #bc7a1d;
+  --tech-electric: #0ea5e9;
+  --tech-cyber: #22c55e;
+  --tech-innovation: #a855f7;
+  --tech-energy: #f97316;
+
+  /* Surface colors for light mode */
+  --surface-bg: #ffffff;
+  --surface-bg-2: #f8f9fa;
+  --surface-bg-3: #f1f3f4;
+  --text-on-surface: #212529;
+  --text-on-surface-variant: #6c757d;
+  --text-on-surface-muted: #adb5bd;
+  --border-color: #dee2e6;
+}
+
+.dark {
+  --slidev-code-background: #16161680 !important;
+
+  /* SJTU Color System CSS Variables - Dark Mode */
+  --sjtu-primary: #36acff;
+  --sjtu-primary-light: #7cc8ff;
+  --sjtu-primary-dark: #0c8ce9;
+  --sjtu-secondary: #f5c968;
+  --sjtu-secondary-light: #f9dd95;
+  --sjtu-secondary-dark: #e29a28;
+
+  /* Surface colors for dark mode */
+  --surface-bg: #1a1a1a;
+  --surface-bg-2: #2d2d2d;
+  --surface-bg-3: #404040;
+  --text-on-surface: #ffffff;
+  --text-on-surface-variant: #a3a3a3;
+  --text-on-surface-muted: #737373;
+  --border-color: #404040;
+}
+
+.slidev-layout a {
+  border-color: #8888;
+}
+
+a:has(> code) {
+  text-decoration: none;
+  border: 0px !important;
+}
+
+.monaco-editor {
+  --slidev-code-background: transparent !important;
+  --vscode-editorSuggestWidget-border: #e5e7eb !important;
+  --vscode-editorHoverWidget-border: #e5e7eb !important;
+}
+
+.dark .monaco-editor {
+  --vscode-editorSuggestWidget-border: #374151 !important;
+  --vscode-editorHoverWidget-border: #374151 !important;
+}
+
+.slidev-monaco-container-inner {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.monaco-editor .suggest-widget,
+.monaco-editor .suggest-details {
+  background: rgba(248, 249, 250, 0.95) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color) !important;
+}
+
+.monaco-editor .monaco-hover {
+  background: rgba(248, 249, 250, 0.95) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color) !important;
+}
+
+.dark .monaco-editor .suggest-widget,
+.dark .monaco-editor .suggest-details {
+  background: rgba(26, 26, 26, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+
+.dark .monaco-editor .monaco-hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+
+h6 {
+  text-transform: initial !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+#slide-content {
+  background-color: var(--surface-bg) !important;
+  color: var(--text-on-surface) !important;
+}
+
+.dark #slide-content {
+  background-color: #000000 !important;
+}
+
+/* SJTU Theme Enhancements */
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Enhanced code styling with SJTU colors */
+.slidev-code {
+  background: rgba(248, 249, 250, 0.95) !important;
+  border: 1px solid rgba(0, 102, 204, 0.15);
+  border-radius: 8px;
+  color: var(--text-on-surface);
+}
+
+.dark .slidev-code {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border-color: rgba(54, 172, 255, 0.3);
+  color: var(--text-on-surface);
+}
+
+/* Math equation styling */
+.katex {
+  font-size: 1.1em !important;
+}
+
+/* Improved link styling */
+.slidev-layout a {
+  color: var(--sjtu-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.slidev-layout a:hover {
+  color: var(--tech-electric);
+  border-bottom-color: var(--tech-electric);
+}
+
+.dark .slidev-layout a {
+  color: var(--sjtu-primary);
+}
+
+.dark .slidev-layout a:hover {
+  color: var(--tech-electric);
+}
+
+/* Transitions */
+.slidev-vclick-target {
+  transition:
+    opacity 500ms ease,
+    filter 200ms ease,
+    color 300ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+.fade-out-leave-active {
+  transition:
+    opacity calc(var(--slidev-transition-duration) * 0.6) ease-out,
+    filter 200ms ease;
+}
+
+.fade-out-enter-active {
+  transition:
+    opacity calc(var(--slidev-transition-duration) * 0.8) ease-in,
+    filter 200ms ease;
+  transition-delay: calc(var(--slidev-transition-duration) * 0.6);
+}
+
+.fade-out-enter-from,
+.fade-out-leave-to {
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.slidev-code .line {
+  transition: opacity 200ms ease;
+}
+
+/* Magic Links */
+.markdown-magic-link {
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(5px);
+  line-height: 100%;
+  color: #000b;
+  --uno: gap-1 transition rounded px1 py1 mx--0.5 important-border-0 font-condensed;
+}
+
+.dark .markdown-magic-link {
+  color: #fffc;
+}
+
+.markdown-magic-link:hover {
+  background: #8883;
+}
+
+.markdown-magic-link-image {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2px;
+}
+
+.markdown-magic-link.markdown-magic-link-github-at {
+  transform: translateY(6px);
+  --uno: pl-0 py-0 pr2 uppercase text-sm gap-1.2 rounded-full;
+}
+
+.markdown-magic-link.markdown-magic-link-github-at .markdown-magic-link-image {
+  height: 1.6em;
+  width: 1.6em;
+  border-radius: 50%;
+}
+
+.slidev-code {
+  backdrop-filter: blur(10px);
+  border: 1px solid #eee1;
+}
+
+.rough-annotation > path[stroke-width='2'] {
+  stroke-width: calc(2px * var(--slidev-slide-scale));
+}
+
+.slidev-layout :not(pre) > code {
+  color: rgb(201, 158, 251);
+  background: #161616ee;
+}
