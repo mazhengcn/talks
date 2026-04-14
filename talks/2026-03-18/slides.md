@@ -2,7 +2,6 @@
 layout: cover
 highlighter: shiki
 css: unocss
-colorSchema: auto
 transition: fade
 mdc: true
 title: OpenClaw v1.0.0-zh
