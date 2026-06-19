@@ -3,6 +3,7 @@
 ## Overview
 
 A fully automated metadata collection and distribution system for your Slidev talks that:
+
 1. ✅ Collects metadata from all talks automatically
 2. ✅ Stores and updates on every git push via GitHub Actions
 3. ✅ Provides easy access for Next.js and other web projects
@@ -10,6 +11,7 @@ A fully automated metadata collection and distribution system for your Slidev ta
 ## 📦 What's Included
 
 ### Core System
+
 - **TypeScript Schema** - Type-safe metadata definitions
 - **Collection Script** - Automated metadata extraction
 - **GitHub Actions** - Auto-update on push to main
@@ -17,6 +19,7 @@ A fully automated metadata collection and distribution system for your Slidev ta
 - **Build Integration** - Runs on every build
 
 ### Documentation
+
 - **Quick Start** - Get going in 5 minutes
 - **System Guide** - Complete technical documentation
 - **Next.js Examples** - Ready-to-use components
@@ -65,6 +68,7 @@ bun run build
 ### 4. Auto-update on Push
 
 Just push to main - GitHub Actions will:
+
 1. Run the collection script
 2. Generate updated metadata
 3. Commit back to repo
@@ -204,33 +208,37 @@ Available at /talks-metadata.json
 
 ## 📚 Documentation
 
-| Document | Description |
-|----------|-------------|
-| [QUICK_START.md](./QUICK_START.md) | Get started in 5 minutes |
-| [METADATA_SYSTEM.md](./METADATA_SYSTEM.md) | Complete system documentation |
-| [NEXTJS_EXAMPLES.md](./NEXTJS_EXAMPLES.md) | Ready-to-use Next.js components |
-| [METADATA_JSON_TEMPLATE.md](./METADATA_JSON_TEMPLATE.md) | Field reference and examples |
-| [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) | What was implemented |
+| Document                                                 | Description                     |
+| -------------------------------------------------------- | ------------------------------- |
+| [QUICK_START.md](./QUICK_START.md)                       | Get started in 5 minutes        |
+| [METADATA_SYSTEM.md](./METADATA_SYSTEM.md)               | Complete system documentation   |
+| [NEXTJS_EXAMPLES.md](./NEXTJS_EXAMPLES.md)               | Ready-to-use Next.js components |
+| [METADATA_JSON_TEMPLATE.md](./METADATA_JSON_TEMPLATE.md) | Field reference and examples    |
+| [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) | What was implemented            |
 
 ## 🎯 Key Features
 
 ### 1. Automatic Extraction
+
 - Title, speaker, affiliation from slides.md
 - Date from folder name (2025-12-28)
 - Language from frontmatter
 
 ### 2. Manual Configuration
+
 - Optional metadata.json per talk
 - Override auto-extracted values
 - Add conference, location, tags
 
 ### 3. Production Ready
+
 - CORS enabled for cross-origin access
 - Cached responses (1 hour)
 - GitHub Actions automation
 - TypeScript support
 
 ### 4. Easy Integration
+
 - Simple JSON endpoint
 - Next.js examples included
 - API route examples
@@ -257,6 +265,7 @@ bun run typecheck
 **Production**: `https://zheng-talks.netlify.app/talks-metadata.json`
 
 **Response Format**:
+
 ```json
 {
   "generatedAt": "2025-12-22T09:33:39.209Z",
@@ -309,16 +318,19 @@ bun run typecheck
 ## 🆘 Troubleshooting
 
 **Metadata not updating?**
+
 - Check GitHub Actions tab for errors
 - Run `bun run metadata` locally to test
 - Verify metadata.json is valid JSON
 
 **Missing fields?**
+
 - Check slides.md frontmatter
 - Add to metadata.json
 - Rebuild metadata
 
 **CORS issues?**
+
 - Endpoint has CORS enabled
 - Use server-side fetch in Next.js
 - Or create API route proxy
@@ -326,6 +338,7 @@ bun run typecheck
 ## 🎉 Success!
 
 You now have a fully automated metadata system that:
+
 - ✅ Automatically collects talk metadata
 - ✅ Updates on every git push
 - ✅ Provides easy JSON API access

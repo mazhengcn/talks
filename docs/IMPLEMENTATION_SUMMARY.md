@@ -3,51 +3,58 @@
 ## ✅ What Was Implemented
 
 ### 1. **Metadata Schema** ([types/metadata.ts](../types/metadata.ts))
-   - Comprehensive TypeScript interfaces for talk metadata
-   - Support for:
-     - Basic info: title, date, speaker, affiliation
-     - Event details: conference, location
-     - URLs: slides, PDF, source code
-     - Content: description, tags, collaborators
-     - Status: published flag
-     - Custom fields: extensible metadata
+
+- Comprehensive TypeScript interfaces for talk metadata
+- Support for:
+  - Basic info: title, date, speaker, affiliation
+  - Event details: conference, location
+  - URLs: slides, PDF, source code
+  - Content: description, tags, collaborators
+  - Status: published flag
+  - Custom fields: extensible metadata
 
 ### 2. **Metadata Collection Script** ([scripts/collect-metadata.ts](../scripts/collect-metadata.ts))
-   - Automatically scans all talk directories
-   - Extracts metadata from:
-     - `slides.md` frontmatter (title, language, speaker)
-     - Optional `metadata.json` files (conference, tags, description)
-   - Generates clean JSON output
-   - Creates both public and dist versions
+
+- Automatically scans all talk directories
+- Extracts metadata from:
+  - `slides.md` frontmatter (title, language, speaker)
+  - Optional `metadata.json` files (conference, tags, description)
+- Generates clean JSON output
+- Creates both public and dist versions
 
 ### 3. **GitHub Actions Workflow** ([.github/workflows/update-metadata.yml](../.github/workflows/update-metadata.yml))
-   - Triggers on push to main
-   - Automatically runs metadata collection
-   - Commits updated metadata back to repo
-   - Uploads artifacts for backup
+
+- Triggers on push to main
+- Automatically runs metadata collection
+- Commits updated metadata back to repo
+- Uploads artifacts for backup
 
 ### 4. **Integration with Build Process**
-   - Added `metadata` script to [package.json](../package.json)
-   - Integrated into build pipeline
-   - Metadata generated on every build
+
+- Added `metadata` script to [package.json](../package.json)
+- Integrated into build pipeline
+- Metadata generated on every build
 
 ### 5. **Deployment Configuration**
-   - Updated [netlify.toml](../netlify.toml) with CORS headers
-   - Metadata served at `/talks-metadata.json`
-   - 1-hour cache for optimal performance
-   - Full CORS support for external consumption
+
+- Updated [netlify.toml](../netlify.toml) with CORS headers
+- Metadata served at `/talks-metadata.json`
+- 1-hour cache for optimal performance
+- Full CORS support for external consumption
 
 ### 6. **Documentation**
-   - [Quick Start Guide](./QUICK_START.md) - Get started in 5 minutes
-   - [Metadata System Guide](./METADATA_SYSTEM.md) - Complete documentation
-   - [Next.js Examples](./NEXTJS_EXAMPLES.md) - Ready-to-use code
-   - [metadata.json Template](./METADATA_JSON_TEMPLATE.md) - Field reference
+
+- [Quick Start Guide](./QUICK_START.md) - Get started in 5 minutes
+- [Metadata System Guide](./METADATA_SYSTEM.md) - Complete documentation
+- [Next.js Examples](./NEXTJS_EXAMPLES.md) - Ready-to-use code
+- [metadata.json Template](./METADATA_JSON_TEMPLATE.md) - Field reference
 
 ### 7. **Example Configurations**
-   - Created sample `metadata.json` for existing talks:
-     - [talks/2025-12-28/metadata.json](../talks/2025-12-28/metadata.json)
-     - [talks/2025-08-18/metadata.json](../talks/2025-08-18/metadata.json)
-   - Template file for new talks: [template/metadata.json](../template/metadata.json)
+
+- Created sample `metadata.json` for existing talks:
+  - [talks/2025-12-28/metadata.json](../talks/2025-12-28/metadata.json)
+  - [talks/2025-08-18/metadata.json](../talks/2025-08-18/metadata.json)
+- Template file for new talks: [template/metadata.json](../template/metadata.json)
 
 ## 📊 Generated Output
 
@@ -70,7 +77,12 @@ The system generates `talks-metadata.json` with this structure:
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-12-28/assets/...",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-12-28",
       "description": "Pre-trained Attention-based Neural Network for Radiative Transfer",
-      "tags": ["deep-learning", "radiative-transfer", "neural-network", "physics"],
+      "tags": [
+        "deep-learning",
+        "radiative-transfer",
+        "neural-network",
+        "physics"
+      ],
       "collaborators": ["Min Tang", "Yekun Zhu"],
       "published": true,
       "custom": {
@@ -155,9 +167,11 @@ export function TalksList() {
 ```typescript
 // app/api/talks/route.ts
 export async function GET() {
-  const res = await fetch('https://zheng-talks.netlify.app/talks-metadata.json')
-  const data = await res.json()
-  return NextResponse.json(data)
+  const res = await fetch(
+    "https://zheng-talks.netlify.app/talks-metadata.json",
+  );
+  const data = await res.json();
+  return NextResponse.json(data);
 }
 ```
 
@@ -194,31 +208,36 @@ talks/
 ## 🎯 Key Features
 
 ### 1. **Automatic Extraction**
-   - Title, speaker, affiliation from slides frontmatter
-   - Date from folder naming convention
-   - Language from frontmatter
+
+- Title, speaker, affiliation from slides frontmatter
+- Date from folder naming convention
+- Language from frontmatter
 
 ### 2. **Manual Configuration**
-   - Optional `metadata.json` per talk
-   - Override auto-extracted values
-   - Add conference, location, tags, etc.
+
+- Optional `metadata.json` per talk
+- Override auto-extracted values
+- Add conference, location, tags, etc.
 
 ### 3. **Flexible & Extensible**
-   - Custom fields via `custom` object
-   - Easy to add new metadata types
-   - TypeScript support for type safety
+
+- Custom fields via `custom` object
+- Easy to add new metadata types
+- TypeScript support for type safety
 
 ### 4. **Production Ready**
-   - CORS enabled for cross-origin access
-   - Cached for performance (1 hour)
-   - GitHub Actions for automation
-   - Netlify deployment
+
+- CORS enabled for cross-origin access
+- Cached for performance (1 hour)
+- GitHub Actions for automation
+- Netlify deployment
 
 ### 5. **Developer Friendly**
-   - TypeScript types included
-   - Comprehensive documentation
-   - Ready-to-use examples
-   - Easy local testing
+
+- TypeScript types included
+- Comprehensive documentation
+- Ready-to-use examples
+- Easy local testing
 
 ## 🚀 Usage Instructions
 
@@ -268,9 +287,9 @@ Edit `scripts/collect-metadata.ts`:
 
 ```typescript
 const mapping: Record<string, string> = {
-  '2025-12-28': '2025/deeprte',
+  "2025-12-28": "2025/deeprte",
   // Add your mappings here
-}
+};
 ```
 
 ### Change Base URL
@@ -288,8 +307,8 @@ Edit `types/metadata.ts` to add new fields:
 ```typescript
 export interface TalkMetadata {
   // ... existing fields
-  videoUrl?: string // Add new field
-  duration?: number // Add another field
+  videoUrl?: string; // Add new field
+  duration?: number; // Add another field
 }
 ```
 

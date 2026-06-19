@@ -32,6 +32,7 @@ Modern vibrant colors for contemporary presentations:
 ### 3. Semantic Colors
 
 Standard semantic colors for UI feedback:
+
 - **Success**: Green tones
 - **Warning**: Gold/yellow tones
 - **Error**: Red tones

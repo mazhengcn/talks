@@ -3,55 +3,55 @@
  */
 export interface TalkMetadata {
   /** Unique identifier based on folder name (e.g., "2025-12-28") */
-  id: string
+  id: string;
 
   /** Title of the talk/presentation */
-  title: string
+  title: string;
 
   /** Presentation date in ISO 8601 format (YYYY-MM-DD) */
-  date: string
+  date: string;
 
   /** Speaker name */
-  speaker?: string
+  speaker?: string;
 
   /** Speaker affiliation/organization */
-  affiliation?: string
+  affiliation?: string;
 
   /** Conference or event name */
-  conference?: string
+  conference?: string;
 
   /** Conference location (city, country) */
-  location?: string
+  location?: string;
 
   /** Conference URL */
-  conferenceUrl?: string
+  conferenceUrl?: string;
 
   /** Language of the presentation (e.g., "en", "zh-CN") */
-  language?: string
+  language?: string;
 
   /** Final URL where the slides are hosted */
-  slidesUrl?: string
+  slidesUrl?: string;
 
   /** URL to the PDF version of the slides */
-  pdfUrl?: string
+  pdfUrl?: string;
 
   /** URL to the source code/repository */
-  sourceUrl?: string
+  sourceUrl?: string;
 
   /** Brief description of the talk */
-  description?: string
+  description?: string;
 
   /** Tags/topics covered in the talk */
-  tags?: string[]
+  tags?: string[];
 
   /** Collaborators or co-authors */
-  collaborators?: string[]
+  collaborators?: string[];
 
   /** Whether the talk is published/public */
-  published?: boolean
+  published?: boolean;
 
   /** Custom metadata fields */
-  custom?: Record<string, any>
+  custom?: Record<string, any>;
 }
 
 /**
@@ -60,28 +60,28 @@ export interface TalkMetadata {
  */
 export interface TalkMetadataConfig {
   /** Conference or event name */
-  conference?: string
+  conference?: string;
 
   /** Conference location */
-  location?: string
+  location?: string;
 
   /** Conference URL */
-  conference_url?: string
+  conference_url?: string;
 
   /** Brief description */
-  description?: string
+  description?: string;
 
   /** Tags */
-  tags?: string[]
+  tags?: string[];
 
   /** Collaborators */
-  collaborators?: string[]
+  collaborators?: string[];
 
   /** Whether published */
-  published?: boolean
+  published?: boolean;
 
   /** Custom fields */
-  custom?: Record<string, any>
+  custom?: Record<string, any>;
 }
 
 /**
@@ -89,11 +89,11 @@ export interface TalkMetadataConfig {
  */
 export interface TalksCollection {
   /** Timestamp of when the collection was generated */
-  generatedAt: string
+  generatedAt: string;
 
   /** Total number of talks */
-  count: number
+  count: number;
 
   /** Array of all talk metadata */
-  talks: TalkMetadata[]
+  talks: TalkMetadata[];
 }

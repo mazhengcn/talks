@@ -6,7 +6,9 @@ This file demonstrates practical usage of the SJTU color system in Slidev presen
 
 ```markdown
 # Main Title {.emphasis-primary.text-4xl}
+
 # Section Title {.text-primary.font-semibold}
+
 # Subsection {.text-secondary.font-medium}
 ```
 
@@ -14,6 +16,7 @@ This file demonstrates practical usage of the SJTU color system in Slidev presen
 
 ```markdown
 <!-- Key concepts -->
+
 <span class="emphasis-tech">neural operators</span>
 <span class="emphasis-primary">SJTU research</span>
 <span class="emphasis-secondary">academic excellence</span>
@@ -33,6 +36,7 @@ This file demonstrates practical usage of the SJTU color system in Slidev presen
 
 ```markdown
 <!-- Buttons for navigation or emphasis -->
+
 <button class="btn-primary">Learn More</button>
 <button class="btn-secondary">Download Paper</button>
 <button class="btn-outline">View Code</button>

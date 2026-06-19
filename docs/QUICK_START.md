@@ -23,6 +23,7 @@ bun run metadata
 ```
 
 This creates:
+
 - `dist/talks-metadata.json`
 - `public/talks-metadata.json`
 
@@ -33,6 +34,7 @@ Metadata automatically updates on every push to `main` via GitHub Actions.
 ## 📊 Metadata Structure
 
 Each talk has:
+
 - **Automatically extracted**: title, date, speaker, language (from `slides.md`)
 - **Manually configured**: conference, location, description, tags (from `metadata.json`)
 - **Auto-generated**: URLs for slides, PDF, source code
@@ -43,10 +45,13 @@ Each talk has:
 
 ```typescript
 async function getTalks() {
-  const res = await fetch('https://zheng-talks.netlify.app/talks-metadata.json', {
-    next: { revalidate: 3600 }
-  })
-  return res.json()
+  const res = await fetch(
+    "https://zheng-talks.netlify.app/talks-metadata.json",
+    {
+      next: { revalidate: 3600 },
+    },
+  );
+  return res.json();
 }
 ```
 
@@ -54,18 +59,18 @@ async function getTalks() {
 
 ```tsx
 export default async function TalksPage() {
-  const { talks } = await getTalks()
+  const { talks } = await getTalks();
 
   return (
     <div>
-      {talks.map(talk => (
+      {talks.map((talk) => (
         <div key={talk.id}>
           <h2>{talk.title}</h2>
           <a href={talk.slidesUrl}>View Slides</a>
         </div>
       ))}
     </div>
-  )
+  );
 }
 ```
 
@@ -73,21 +78,21 @@ export default async function TalksPage() {
 
 ```typescript
 interface TalkMetadata {
-  id: string // "2025-12-28"
-  title: string // "DeepRTE v1.1.0"
-  date: string // "2025-12-28"
-  speaker?: string // "Zheng Ma"
-  affiliation?: string // "Shanghai Jiao Tong University"
-  conference?: string // "ICML 2025"
-  location?: string // "Vienna, Austria"
-  slidesUrl?: string // "https://..."
-  pdfUrl?: string // "https://..."
-  sourceUrl?: string // "https://github.com/..."
-  description?: string // Brief description
-  tags?: string[] // ["ml", "optimization"]
-  collaborators?: string[] // ["Jane Doe"]
-  published?: boolean // true/false
-  custom?: object // Any custom fields
+  id: string; // "2025-12-28"
+  title: string; // "DeepRTE v1.1.0"
+  date: string; // "2025-12-28"
+  speaker?: string; // "Zheng Ma"
+  affiliation?: string; // "Shanghai Jiao Tong University"
+  conference?: string; // "ICML 2025"
+  location?: string; // "Vienna, Austria"
+  slidesUrl?: string; // "https://..."
+  pdfUrl?: string; // "https://..."
+  sourceUrl?: string; // "https://github.com/..."
+  description?: string; // Brief description
+  tags?: string[]; // ["ml", "optimization"]
+  collaborators?: string[]; // ["Jane Doe"]
+  published?: boolean; // true/false
+  custom?: object; // Any custom fields
 }
 ```
 
@@ -133,6 +138,7 @@ bun run dev
 **Production**: `https://zheng-talks.netlify.app/talks-metadata.json`
 
 Returns:
+
 ```json
 {
   "generatedAt": "2025-12-22T...",
@@ -151,6 +157,7 @@ Returns:
 ## ⚙️ Configuration
 
 Edit [`scripts/collect-metadata.ts`](../scripts/collect-metadata.ts) to:
+
 - Change URL mappings
 - Modify extraction logic
 - Add custom fields
@@ -158,16 +165,19 @@ Edit [`scripts/collect-metadata.ts`](../scripts/collect-metadata.ts) to:
 ## 🚨 Troubleshooting
 
 **Metadata not updating?**
+
 1. Check GitHub Actions tab
 2. Run `bun run metadata` locally
 3. Verify `metadata.json` is valid JSON
 
 **Missing fields?**
+
 1. Check frontmatter in `slides.md`
 2. Add to `metadata.json`
 3. Rebuild metadata
 
 **CORS issues in Next.js?**
+
 - The endpoint has CORS enabled
 - Use server-side fetch (recommended)
 - Or add proxy API route

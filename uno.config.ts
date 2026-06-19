@@ -1,1 +1,1 @@
-export { default } from '@slidev/client/uno.config.ts'
+export { default } from "@slidev/client/uno.config.ts";

@@ -111,7 +111,13 @@ h6 {
 
 /* SJTU Theme Enhancements */
 .slidev-layout {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
 .slidev-layout h1,
@@ -205,7 +211,8 @@ h6 {
   transform: translateY(5px);
   line-height: 100%;
   color: #000b;
-  --uno: gap-1 transition rounded px1 py1 mx--0.5 important-border-0 font-condensed;
+  --uno: gap-1 transition rounded px1 py1 mx--0.5 important-border-0
+    font-condensed;
 }
 
 .dark .markdown-magic-link {
@@ -242,7 +249,7 @@ h6 {
   border: 1px solid #eee1;
 }
 
-.rough-annotation > path[stroke-width='2'] {
+.rough-annotation > path[stroke-width="2"] {
   stroke-width: calc(2px * var(--slidev-slide-scale));
 }
 

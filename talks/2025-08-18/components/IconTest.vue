@@ -1,19 +1,23 @@
 <script setup>
-const iconClass = 'i-ph-star text-yellow text-2xl'
+const iconClass = "i-ph-star text-yellow text-2xl";
 </script>
 
 <template>
   <div class="p-4 border rounded">
-    <h3 class="mb-4">
-      Icon Test
-    </h3>
+    <h3 class="mb-4">Icon Test</h3>
 
     <!-- Test working icons from slides -->
     <div class="mb-4">
       <p>Working icons from slides:</p>
-      <div class="i-ph-cube-transparent-duotone text-red text-4xl inline-block mr-2" />
-      <div class="i-ph-circles-three-duotone text-green text-4xl inline-block mr-2" />
-      <div class="i-ph-chart-bar-duotone text-amber text-4xl inline-block mr-2" />
+      <div
+        class="i-ph-cube-transparent-duotone text-red text-4xl inline-block mr-2"
+      />
+      <div
+        class="i-ph-circles-three-duotone text-green text-4xl inline-block mr-2"
+      />
+      <div
+        class="i-ph-chart-bar-duotone text-amber text-4xl inline-block mr-2"
+      />
     </div>
 
     <!-- Test basic ph icons -->

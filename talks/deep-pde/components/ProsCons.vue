@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  pros: string[]
-  cons: string[]
-}>()
+  pros: string[];
+  cons: string[];
+}>();
 </script>
 
 <template>
@@ -14,14 +14,31 @@ defineProps<{
       </div>
 
       <div
-        text-green1 border="~ green/20 rounded" px3 py3 pb-12 mb--10 relative
-        from-green:20 to-teal:15 bg-gradient-to-br flex="~ col gap-2"
+        text-green1
+        border="~ green/20 rounded"
+        px3
+        py3
+        pb-12
+        mb--10
+        relative
+        from-green:20
+        to-teal:15
+        bg-gradient-to-br
+        flex="~ col gap-2"
       >
         <div v-for="pro in pros" :key="pro" flex="~ gap-2 items-center">
           <div i-ph-check-circle-duotone text-green text-xl />
           {{ pro }}
         </div>
-        <div absolute top--4px right-4px left-4px h-3px bg-green:10 border="t x green/15 rounded-t-lg" />
+        <div
+          absolute
+          top--4px
+          right-4px
+          left-4px
+          h-3px
+          bg-green:10
+          border="t x green/15 rounded-t-lg"
+        />
       </div>
     </div>
 
@@ -32,14 +49,31 @@ defineProps<{
       </div>
 
       <div
-        text-red1 border="~ red/20 rounded" px3 py3 pb-12 mb--10 relative
-        from-red:20 to-rose:15 bg-gradient-to-br flex="~ col gap-2"
+        text-red1
+        border="~ red/20 rounded"
+        px3
+        py3
+        pb-12
+        mb--10
+        relative
+        from-red:20
+        to-rose:15
+        bg-gradient-to-br
+        flex="~ col gap-2"
       >
         <div v-for="con in cons" :key="con" flex="~ gap-2 items-center">
           <div i-ph-warning-duotone text-orange text-xl />
           {{ con }}
         </div>
-        <div absolute top--4px right-4px left-4px h-3px bg-red:10 border="t x red/15 rounded-t-lg" />
+        <div
+          absolute
+          top--4px
+          right-4px
+          left-4px
+          h-3px
+          bg-red:10
+          border="t x red/15 rounded-t-lg"
+        />
       </div>
     </div>
   </div>

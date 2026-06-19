@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useNav } from '@slidev/client'
+import { useNav } from "@slidev/client";
 
-const { currentPage, currentLayout, total } = useNav()
+const { currentPage, currentLayout, total } = useNav();
 </script>
 
 <!-- an example footer for pages -->

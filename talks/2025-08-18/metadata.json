@@ -3,7 +3,12 @@
   "conference_url": "https://my.31huiyi.com/site/pages/index/index?pageId=dcfa0000-b665-5ae1-afd9-08dd553be668",
   "location": "Beijing, China",
   "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
-  "tags": ["deep-learning", "radiative-transfer", "neural-network", "attention-mechanism"],
+  "tags": [
+    "deep-learning",
+    "radiative-transfer",
+    "neural-network",
+    "attention-mechanism"
+  ],
   "collaborators": ["Min Tang", "Yekun Zhu"],
   "published": true,
   "custom": {

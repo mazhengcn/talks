@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'talks/**'
+      - "talks/**"
       - scripts/collect-metadata.ts
   workflow_dispatch: # Allow manual trigger
 

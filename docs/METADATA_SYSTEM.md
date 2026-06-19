@@ -17,28 +17,29 @@ Defined in [`types/metadata.ts`](../types/metadata.ts):
 
 ```typescript
 interface TalkMetadata {
-  id: string // Unique identifier (folder name)
-  title: string // Talk title
-  date: string // ISO 8601 date
-  speaker?: string // Speaker name
-  affiliation?: string // Speaker organization
-  conference?: string // Conference/event name
-  location?: string // Conference location
-  language?: string // Presentation language
-  slidesUrl?: string // Hosted slides URL
-  pdfUrl?: string // PDF download URL
-  sourceUrl?: string // Source code URL
-  description?: string // Brief description
-  tags?: string[] // Topics/tags
-  collaborators?: string[] // Co-authors
-  published?: boolean // Publication status
-  custom?: Record<string, any> // Custom fields
+  id: string; // Unique identifier (folder name)
+  title: string; // Talk title
+  date: string; // ISO 8601 date
+  speaker?: string; // Speaker name
+  affiliation?: string; // Speaker organization
+  conference?: string; // Conference/event name
+  location?: string; // Conference location
+  language?: string; // Presentation language
+  slidesUrl?: string; // Hosted slides URL
+  pdfUrl?: string; // PDF download URL
+  sourceUrl?: string; // Source code URL
+  description?: string; // Brief description
+  tags?: string[]; // Topics/tags
+  collaborators?: string[]; // Co-authors
+  published?: boolean; // Publication status
+  custom?: Record<string, any>; // Custom fields
 }
 ```
 
 ### 2. Collection Script
 
 [`scripts/collect-metadata.ts`](../scripts/collect-metadata.ts) scans all talk directories and:
+
 - Extracts frontmatter from `slides.md`
 - Loads optional `metadata.json` config
 - Generates URLs based on deployment structure
@@ -47,6 +48,7 @@ interface TalkMetadata {
 ### 3. Auto-update Workflow
 
 [`.github/workflows/update-metadata.yml`](../.github/workflows/update-metadata.yml):
+
 - Triggers on push to `main` when talks change
 - Runs collection script
 - Commits updated metadata back to repo
@@ -82,6 +84,7 @@ bun run scripts/collect-metadata.ts
 ### Accessing Metadata
 
 The metadata is available at:
+
 - **Static JSON**: `https://zheng-talks.netlify.app/talks-metadata.json`
 - **Repository**: `dist/talks-metadata.json` and `public/talks-metadata.json`
 
@@ -157,22 +160,25 @@ Create a Next.js API route as proxy:
 
 ```typescript
 // app/api/talks/route.ts
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function GET() {
-  const res = await fetch('https://zheng-talks.netlify.app/talks-metadata.json', {
-    next: { revalidate: 3600 }
-  })
-  const data = await res.json()
+  const res = await fetch(
+    "https://zheng-talks.netlify.app/talks-metadata.json",
+    {
+      next: { revalidate: 3600 },
+    },
+  );
+  const data = await res.json();
 
-  return NextResponse.json(data)
+  return NextResponse.json(data);
 }
 ```
 
 Then use in your components:
 
 ```typescript
-const talks = await fetch('/api/talks').then(r => r.json())
+const talks = await fetch("/api/talks").then((r) => r.json());
 ```
 
 ## TypeScript Support
@@ -204,39 +210,43 @@ Example utilities for your Next.js app:
 
 ```typescript
 // utils/talks.ts
-import type { TalkMetadata, TalksCollection } from '@/types/metadata'
+import type { TalkMetadata, TalksCollection } from "@/types/metadata";
 
 export function filterByTag(talks: TalkMetadata[], tag: string) {
-  return talks.filter(talk => talk.tags?.includes(tag))
+  return talks.filter((talk) => talk.tags?.includes(tag));
 }
 
 export function filterByYear(talks: TalkMetadata[], year: number) {
-  return talks.filter(talk => talk.date.startsWith(String(year)))
+  return talks.filter((talk) => talk.date.startsWith(String(year)));
 }
 
 export function searchTalks(talks: TalkMetadata[], query: string) {
-  const lowerQuery = query.toLowerCase()
-  return talks.filter(talk =>
-    talk.title.toLowerCase().includes(lowerQuery)
-    || talk.description?.toLowerCase().includes(lowerQuery)
-    || talk.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))
-  )
+  const lowerQuery = query.toLowerCase();
+  return talks.filter(
+    (talk) =>
+      talk.title.toLowerCase().includes(lowerQuery) ||
+      talk.description?.toLowerCase().includes(lowerQuery) ||
+      talk.tags?.some((tag) => tag.toLowerCase().includes(lowerQuery)),
+  );
 }
 
 export function groupByYear(talks: TalkMetadata[]) {
-  return talks.reduce((acc, talk) => {
-    const year = talk.date.split('-')[0]
-    if (!acc[year])
-      acc[year] = []
-    acc[year].push(talk)
-    return acc
-  }, {} as Record<string, TalkMetadata[]>)
+  return talks.reduce(
+    (acc, talk) => {
+      const year = talk.date.split("-")[0];
+      if (!acc[year]) acc[year] = [];
+      acc[year].push(talk);
+      return acc;
+    },
+    {} as Record<string, TalkMetadata[]>,
+  );
 }
 ```
 
 ## Deployment
 
 The metadata is automatically:
+
 1. Generated during build (`bun run build`)
 2. Deployed to Netlify in the `dist` folder
 3. Accessible at the base URL + `/talks-metadata.json`
@@ -247,9 +257,9 @@ Modify the URL mappings in `scripts/collect-metadata.ts`:
 
 ```typescript
 const mapping: Record<string, string> = {
-  '2025-07-10': '2025/hksiam',
+  "2025-07-10": "2025/hksiam",
   // Add new mappings here
-}
+};
 ```
 
 ## Environment Variables

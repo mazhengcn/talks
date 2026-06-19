@@ -1,0 +1,10 @@
+{
+  "printWidth": 80,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "**/slides.md",
+    "**/pages/*.md",
+    "dist-stale/**",
+    "dist/**"
+  ]
+}

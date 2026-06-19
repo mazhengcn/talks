@@ -11,6 +11,7 @@ All talks metadata is available as JSON for easy integration with other projects
 **Endpoint**: [`https://zheng-talks.netlify.app/talks-metadata.json`](https://zheng-talks.netlify.app/talks-metadata.json)
 
 Perfect for:
+
 - Portfolio websites
 - Research pages
 - Next.js projects

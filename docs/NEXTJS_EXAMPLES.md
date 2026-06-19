@@ -363,26 +363,25 @@ export function TalksTimeline({ talks }: TalksTimelineProps) {
 ### Get All Talks
 
 ```typescript
-import type { TalksCollection } from '@/types/talks-metadata'
+import type { TalksCollection } from "@/types/talks-metadata";
 // app/api/talks/route.ts
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     const res = await fetch(
-      'https://zheng-talks.netlify.app/talks-metadata.json',
-      { next: { revalidate: 3600 } }
-    )
+      "https://zheng-talks.netlify.app/talks-metadata.json",
+      { next: { revalidate: 3600 } },
+    );
 
-    const data: TalksCollection = await res.json()
+    const data: TalksCollection = await res.json();
 
-    return NextResponse.json(data)
-  }
-  catch (error) {
+    return NextResponse.json(data);
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to fetch talks' },
-      { status: 500 }
-    )
+      { error: "Failed to fetch talks" },
+      { status: 500 },
+    );
   }
 }
 ```
@@ -390,30 +389,29 @@ export async function GET() {
 ### Get Recent Talks
 
 ```typescript
-import type { TalksCollection } from '@/types/talks-metadata'
+import type { TalksCollection } from "@/types/talks-metadata";
 // app/api/talks/recent/route.ts
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const limit = Number.parseInt(searchParams.get('limit') || '5')
+  const { searchParams } = new URL(request.url);
+  const limit = Number.parseInt(searchParams.get("limit") || "5");
 
   try {
     const res = await fetch(
-      'https://zheng-talks.netlify.app/talks-metadata.json',
-      { next: { revalidate: 3600 } }
-    )
+      "https://zheng-talks.netlify.app/talks-metadata.json",
+      { next: { revalidate: 3600 } },
+    );
 
-    const data: TalksCollection = await res.json()
-    const recent = data.talks.slice(0, limit)
+    const data: TalksCollection = await res.json();
+    const recent = data.talks.slice(0, limit);
 
-    return NextResponse.json({ talks: recent, count: recent.length })
-  }
-  catch (error) {
+    return NextResponse.json({ talks: recent, count: recent.length });
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to fetch talks' },
-      { status: 500 }
-    )
+      { error: "Failed to fetch talks" },
+      { status: 500 },
+    );
   }
 }
 ```
@@ -421,46 +419,44 @@ export async function GET(request: Request) {
 ### Search Endpoint
 
 ```typescript
-import type { TalksCollection } from '@/types/talks-metadata'
+import type { TalksCollection } from "@/types/talks-metadata";
 // app/api/talks/search/route.ts
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const query = searchParams.get('q')?.toLowerCase() || ''
-  const tag = searchParams.get('tag')
+  const { searchParams } = new URL(request.url);
+  const query = searchParams.get("q")?.toLowerCase() || "";
+  const tag = searchParams.get("tag");
 
   try {
     const res = await fetch(
-      'https://zheng-talks.netlify.app/talks-metadata.json',
-      { next: { revalidate: 3600 } }
-    )
+      "https://zheng-talks.netlify.app/talks-metadata.json",
+      { next: { revalidate: 3600 } },
+    );
 
-    const data: TalksCollection = await res.json()
+    const data: TalksCollection = await res.json();
 
-    let filtered = data.talks
+    let filtered = data.talks;
 
     if (query) {
-      filtered = filtered.filter(talk =>
-        talk.title.toLowerCase().includes(query)
-        || talk.description?.toLowerCase().includes(query)
-        || talk.conference?.toLowerCase().includes(query)
-      )
+      filtered = filtered.filter(
+        (talk) =>
+          talk.title.toLowerCase().includes(query) ||
+          talk.description?.toLowerCase().includes(query) ||
+          talk.conference?.toLowerCase().includes(query),
+      );
     }
 
     if (tag) {
-      filtered = filtered.filter(talk =>
-        talk.tags?.includes(tag)
-      )
+      filtered = filtered.filter((talk) => talk.tags?.includes(tag));
     }
 
-    return NextResponse.json({ talks: filtered, count: filtered.length })
-  }
-  catch (error) {
+    return NextResponse.json({ talks: filtered, count: filtered.length });
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to search talks' },
-      { status: 500 }
-    )
+      { error: "Failed to search talks" },
+      { status: 500 },
+    );
   }
 }
 ```
@@ -468,17 +464,17 @@ export async function GET(request: Request) {
 ## RSS Feed Generation
 
 ```typescript
-import type { TalksCollection } from '@/types/talks-metadata'
+import type { TalksCollection } from "@/types/talks-metadata";
 // app/talks/rss.xml/route.ts
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function GET() {
   const res = await fetch(
-    'https://zheng-talks.netlify.app/talks-metadata.json',
-    { next: { revalidate: 3600 } }
-  )
+    "https://zheng-talks.netlify.app/talks-metadata.json",
+    { next: { revalidate: 3600 } },
+  );
 
-  const data: TalksCollection = await res.json()
+  const data: TalksCollection = await res.json();
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -486,35 +482,45 @@ export async function GET() {
     <title>Zheng's Talks</title>
     <link>https://your-site.com/talks</link>
     <description>Talks and presentations</description>
-    ${data.talks.map(talk => `
+    ${data.talks
+      .map(
+        (talk) => `
     <item>
       <title>${escapeXml(talk.title)}</title>
       <link>${talk.slidesUrl}</link>
-      <description>${escapeXml(talk.description || '')}</description>
+      <description>${escapeXml(talk.description || "")}</description>
       <pubDate>${new Date(talk.date).toUTCString()}</pubDate>
       <guid>${talk.id}</guid>
     </item>
-    `).join('')}
+    `,
+      )
+      .join("")}
   </channel>
-</rss>`
+</rss>`;
 
   return new NextResponse(rss, {
     headers: {
-      'Content-Type': 'application/xml',
+      "Content-Type": "application/xml",
     },
-  })
+  });
 }
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&'"]/g, (c) => {
     switch (c) {
-      case '<': return '&lt;'
-      case '>': return '&gt;'
-      case '&': return '&amp;'
-      case '\'': return '&apos;'
-      case '"': return '&quot;'
-      default: return c
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case "&":
+        return "&amp;";
+      case "'":
+        return "&apos;";
+      case '"':
+        return "&quot;";
+      default:
+        return c;
     }
-  })
+  });
 }
 ```

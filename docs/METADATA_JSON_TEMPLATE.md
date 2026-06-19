@@ -38,41 +38,54 @@ This `metadata.json` file provides additional information about this talk that c
 ## Field Details
 
 ### conference
+
 The official name of the conference or event. Examples:
+
 - "International Conference on Machine Learning (ICML) 2025"
 - "NeurIPS 2025"
 - "Shanghai University Seminar Series"
 
 ### location
+
 Physical location where the talk was given. Format: "City, Country"
+
 - "Vienna, Austria"
 - "Shanghai, China"
 - "Virtual" (for online talks)
 
 ### description
+
 A concise summary (1-3 sentences) of what the talk covers. This will be displayed in listings and search results.
 
 ### tags
+
 Keywords for categorization and search. Use lowercase, hyphen-separated words:
+
 - "deep-learning"
 - "neural-networks"
 - "scientific-computing"
 - "radiative-transfer"
 
 ### collaborators
+
 Names of people who contributed to this work. Format as array of strings:
+
 ```json
 ["Jane Doe", "John Smith", "Alice Wang"]
 ```
 
 ### published
+
 Set to `false` if you want to hide this talk from public listings:
+
 ```json
 "published": false
 ```
 
 ### custom
+
 Any additional metadata specific to this talk:
+
 ```json
 {
   "award": "Best Presentation",

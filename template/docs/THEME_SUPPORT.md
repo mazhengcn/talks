@@ -20,9 +20,7 @@ colorSchema: auto # Automatically detects system preference
 ---
 colorSchema: light # Force light mode
 ---
-
 # OR
-
 ---
 colorSchema: dark # Force dark mode
 ---
@@ -31,6 +29,7 @@ colorSchema: dark # Force dark mode
 ## Color Adaptations
 
 ### Primary Colors
+
 - **Light Mode**: Darker variants for better contrast on white backgrounds
   - SJTU Blue: `#0066cc` → `#0052a3` (darker)
   - Academic Gold: `#e29a28` → `#bc7a1d` (darker)
@@ -40,6 +39,7 @@ colorSchema: dark # Force dark mode
   - Academic Gold: `#e29a28` → `#f5c968` (lighter)
 
 ### Surface Colors
+
 - **Light Mode**: White and light grays
   - Background: `#ffffff`
   - Surface 2: `#f8f9fa`
@@ -51,6 +51,7 @@ colorSchema: dark # Force dark mode
   - Surface 3: `#404040`
 
 ### Text Colors
+
 - **Light Mode**: Dark text on light backgrounds
   - Primary text: `#212529`
   - Secondary text: `#6c757d`
@@ -107,6 +108,7 @@ var(--border-color)          /* Border color */
 ## Best Practices
 
 ### 1. Use Semantic Classes
+
 ```html
 <!-- Good: Semantic, theme-aware -->
 <p class="text-on-surface">Main content</p>
@@ -117,9 +119,11 @@ var(--border-color)          /* Border color */
 ```
 
 ### 2. Test Both Themes
+
 Always test your slides in both light and dark modes to ensure proper contrast and readability.
 
 ### 3. Use Adaptive Effects
+
 ```html
 <!-- Adaptive glow that works in both themes -->
 <div class="glow-adaptive">Content</div>
@@ -129,6 +133,7 @@ Always test your slides in both light and dark modes to ensure proper contrast a
 ```
 
 ### 4. Proper Card Styling
+
 ```html
 <!-- Cards with proper theme support -->
 <div class="card p-4">
@@ -148,6 +153,7 @@ Always test your slides in both light and dark modes to ensure proper contrast a
 ## Debugging Theme Issues
 
 ### Check Current Theme
+
 The body element will have `dark` class in dark mode:
 
 ```css
@@ -158,6 +164,7 @@ The body element will have `dark` class in dark mode:
 ```
 
 ### Browser Developer Tools
+
 1. Open DevTools
 2. Check if `<html class="dark">` is present
 3. Toggle system theme to test switching
