@@ -1,0 +1,138 @@
+/* ── Code blocks ──────────────────────────────── */
+.slidev-code {
+  background: #f5f0e8 !important;
+  border: 1px solid #e8e0d2;
+  border-radius: 8px;
+}
+
+.dark .slidev-code {
+  background: #1f1e1b !important;
+  border-color: #3d3a2f;
+}
+
+/* ── Inline code — warm coral tint ────────────── */
+.slidev-layout :not(pre) > code {
+  background: #fdf0ec;
+  color: #a9583e;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid #f6c1b3;
+}
+
+.dark .slidev-layout :not(pre) > code {
+  background: #2d1410;
+  color: #e68367;
+  border-color: #6b3225;
+}
+
+/* ── Links ────────────────────────────────────── */
+.slidev-layout a {
+  color: #a9583e;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.dark .slidev-layout a {
+  color: #e68367;
+}
+
+.slidev-layout a:hover {
+  border-bottom-color: currentColor;
+  color: #8a4230;
+}
+
+.dark .slidev-layout a:hover {
+  color: #f0a28d;
+}
+
+/* ── Math ─────────────────────────────────────── */
+.katex {
+  font-size: 1.05em !important;
+}
+
+/* ── Click transitions ────────────────────────── */
+.slidev-vclick-target {
+  transition:
+    opacity 500ms ease,
+    filter 350ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+/* ── Fade transitions ─────────────────────────── */
+.fade-out-leave-active {
+  transition: opacity calc(var(--slidev-transition-duration) * 0.6) ease-out;
+}
+
+.fade-out-enter-active {
+  transition: opacity calc(var(--slidev-transition-duration) * 0.8) ease-in;
+  transition-delay: calc(var(--slidev-transition-duration) * 0.6);
+}
+
+.fade-out-enter-from,
+.fade-out-leave-to {
+  opacity: 0;
+}
+
+/* ── Slide content base ───────────────────────── */
+#slide-content {
+  background-color: #faf9f5 !important;
+  color: #141413 !important;
+}
+
+.dark #slide-content {
+  background-color: #181715 !important;
+  color: #faf9f5 !important;
+}
+
+/* ── Table styling ────────────────────────────── */
+.slidev-layout table {
+  border-collapse: collapse;
+}
+
+.slidev-layout th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.slidev-layout td,
+.slidev-layout th {
+  padding: 0.625rem 0.75rem;
+}
+
+/* ── Selection ────────────────────────────────── */
+::selection {
+  background: #f6c1b3;
+  color: #141413;
+}
+
+.dark ::selection {
+  background: #8a4230;
+  color: #faf9f5;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9cfbb;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #545041;
+}

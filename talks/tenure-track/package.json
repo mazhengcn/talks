@@ -1,0 +1,18 @@
+{
+  "name": "tenure-track",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "bun ../../scripts/build.ts",
+    "export": "slidev export --per-slide --output ./assets/tenure-track.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "catalog:",
+    "@slidev/client": "catalog:",
+    "@slidev/theme-default": "catalog:",
+    "vite": "catalog:",
+    "unocss": "catalog:"
+  }
+}
