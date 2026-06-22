@@ -210,7 +210,6 @@ layout: center
 </div>
 
 ---
----
 
 # 为什么动理学方程至关重要
 
@@ -218,7 +217,7 @@ layout: center
   <div class="space-y-4" v-click>
     <div class="card p-5">
       <h3 class="!text-base !font-bold mb-2">计算挑战</h3>
-      <ul class="text-sm text-body space-y-2">
+      <ul class="text-base text-body space-y-2">
         <li>动理学方程描述<strong>介观尺度</strong>的物质行为——连接量子力学与流体动力学</li>
         <li>相空间维度：$2d$（三维时为 6D）——<strong>维度灾难</strong></li>
         <li>单次 RTE 模拟：$10^8$–$10^{12}$ 个未知量，超级计算机需数小时</li>
@@ -229,7 +228,7 @@ layout: center
   <div class="space-y-4" v-click>
     <div class="card p-5">
       <h3 class="!text-base !font-bold mb-2">多尺度难题</h3>
-      <ul class="text-sm text-body space-y-2">
+      <ul class="text-base text-body space-y-2">
         <li>Knudsen 数 $\varepsilon \ll 1$：动理学方程退化为扩散/流体极限</li>
         <li>经典求解器出现<strong>刚性问题</strong>：$\Delta t = O(\varepsilon)$</li>
         <li>标准神经网络（PINNs）在此区域<strong>严重失效</strong></li>
@@ -240,7 +239,7 @@ layout: center
 </div>
 
 <div class="card p-4 mt-6 text-center" v-click>
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     <strong>核心洞察：</strong>物理结构（渐近极限、守恒律）必须作为
     <span class="text-primary font-medium">硬架构约束</span>，
     而非软正则化惩罚
@@ -248,12 +247,11 @@ layout: center
 </div>
 
 ---
----
 
 # DeepRTE：辐射输运的基础模型
 
 <div class="space-y-4 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     <em>我最重要的近期工作。</em> 针对稳态辐射输运方程（RTE）的高效神经算子。
     RTE 是控制辐射在参与性介质中传播的微分-积分方程，应用涵盖中子输运、
     大气辐射、传热和光学成像。
@@ -301,12 +299,11 @@ layout: center
 </div>
 
 ---
----
 
 # APNNs：渐近保持神经网络
 
 <div class="space-y-5 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     一种<strong>全新方法论</strong>来解决多尺度问题。使用神经网络求解 PDE 时，
     经典求解器的硬约束被松弛化。在极端多尺度区域（$\varepsilon \to 0$），
     这种松弛因谱偏差而失效。
@@ -314,7 +311,7 @@ layout: center
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">APNN 原理</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       将微观-宏观分解代数地嵌入网络架构。每个分支受正确的极限方程
       <strong>硬约束</strong>。保证在所有 Knudsen 数下的一致精度——
       即使数据有限且优化存在不准确性。
@@ -342,14 +339,13 @@ layout: center
 </div>
 
 ---
----
 
 # APNNs：框架实践
 
 <div class="space-y-4 mt-4">
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-3">AP 交换图</h3>
-    <p class="text-sm text-body mb-3">
+    <p class="text-base text-body mb-3">
       在有限 $\varepsilon$ 下极小化残差 $\mathcal{R} \to 0$，
       自动给出正确的 $\varepsilon \to 0$ 极限。
     </p>
@@ -376,19 +372,18 @@ layout: center
 </div>
 
 ---
----
 
 # 超越神经网络：AP-RFM
 
 <div class="space-y-5 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     与中国科学技术大学陈景润教授合作，我们证明了 AP 设计原则
     <strong>是一个普适的数学框架</strong>——不依赖于任何特定的机器学习架构。
   </p>
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">渐近保持随机特征方法</h3>
-    <ul class="text-sm text-body space-y-2">
+    <ul class="text-base text-body space-y-2">
       <li>用固定随机权重的随机基函数 $\sigma(\omega_j \cdot x + b_j)$ 展开解</li>
       <li>无网格逼近，误差可控，复杂度仅 $O(N)$</li>
       <li>微观-宏观分解编码进基函数构造和最小二乘拟合</li>
@@ -413,7 +408,6 @@ layout: center
 </div>
 
 ---
----
 
 # 反问题的挑战
 
@@ -421,7 +415,7 @@ layout: center
   <div class="space-y-4">
     <h3 class="!text-lg !font-bold">问题陈述</h3>
     <div class="card p-5">
-      <ul class="text-sm text-body space-y-3">
+      <ul class="text-base text-body space-y-3">
         <li>从<strong>间接含噪观测</strong>中恢复未知场（速度、源项、初值）</li>
         <li>应用：地球物理、医学成像、材料科学</li>
         <li>根本困难：<strong>不适定性</strong>——无穷多参数场可解释同一组观测数据</li>
@@ -441,7 +435,7 @@ layout: center
     <h3 class="!text-lg !font-bold">我们的方案</h3>
     <div class="card p-5">
       <h4 class="!text-sm !font-bold mb-2">基于分数扩散模型的学习先验</h4>
-      <ul class="text-sm text-body space-y-2">
+      <ul class="text-base text-body space-y-2">
         <li>扩散模型学习 $\nabla_u \log p(u)$ —— 真实先验分布的<strong>分数函数</strong></li>
         <li>使用<strong>无配对</strong>的未知场样本训练——无需昂贵配对数据</li>
         <li>推理时：学习到的分数引导重建趋向<strong>物理合理的解</strong></li>
@@ -449,7 +443,7 @@ layout: center
     </div>
     <div class="card p-5">
       <h4 class="!text-sm !font-bold mb-2">核心优势</h4>
-      <p class="text-sm text-body">
+      <p class="text-base text-body">
         物理场存在于名义高维参数空间中的<strong>低维流形</strong>上。
         分数函数隐式编码了这一流形几何——提供了无需手工设计的、
         有原则的数据驱动正则化信号。
@@ -459,12 +453,11 @@ layout: center
 </div>
 
 ---
----
 
 # ODE-DPS：PDE 反问题的扩散后验采样
 
 <div class="space-y-5 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     一个适用于一般 PDE 反问题的全扩散框架。将 PDE 反演视为
     <strong>贝叶斯后验采样</strong>：给定含噪观测 $y^{\delta} = \mathcal{F}(\bar{u}) + \xi$，
     后验分布 $p(\bar{u}\,|\,y^{\delta})$ 集中于物理一致的解。
@@ -497,12 +490,11 @@ layout: center
 </div>
 
 ---
----
 
 # 鲁棒物理引导扩散全波形反演
 
 <div class="space-y-4 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     <em>本方向最新工作。</em> 全波形反演（FWI）——从地震记录恢复地下波速
     $v(\mathbf{x})$——是 PDE 反问题的典型试验场。
   </p>
@@ -546,19 +538,18 @@ layout: center
 </div>
 
 ---
----
 
 # 快速谱方法
 
 <div class="space-y-5 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     经典快速算法具有<strong>双重角色</strong>：生成训练 ML 模型的基准真值数据的参考求解器，
     以及拓展动理学理论计算边界的独立科学贡献。
   </p>
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">非弹性 Boltzmann 碰撞算子</h3>
-    <p class="text-sm text-body mb-3">
+    <p class="text-base text-body mb-3">
       在 $N^3$ 分辨率下直接评估需要每时间步 $O(N^6)$ 运算。
       快速谱方法将弹性碰撞降至 $O(N^4 \log N)$——但<strong>非弹性</strong>
       算子在我们的工作之前没有任何次立方算法。
@@ -579,14 +570,13 @@ layout: center
 </div>
 
 ---
----
 
 # AP-UQ：严格的不确定性量化
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">渐近保持不确定性量化</h3>
-    <p class="text-sm text-body mb-3">
+    <p class="text-base text-body mb-3">
       通过随机 Galerkin 离散化，为含不确定性的输运方程和双曲方程开发了
       严格的 AP-UQ 方法。这为 APNN 架构提供了<strong>数学框架和设计直觉</strong>。
     </p>
@@ -615,7 +605,7 @@ layout: center
 
   <div class="card p-6">
     <h3 class="!text-lg !font-bold mb-3">频率原则（F-Principle）</h3>
-    <p class="text-sm text-body leading-relaxed">
+    <p class="text-base text-body leading-relaxed">
       神经网络损失函数上的梯度下降<strong>最先拟合低频分量</strong>，
       逐步捕捉高频分量。这一谱偏差解释了为何朴素 PINN 公式在多尺度 PDE 上失效——
       并直接启发了 APNN 架构的设计。
@@ -623,7 +613,6 @@ layout: center
   </div>
 </div>
 
----
 ---
 
 # 频率原则：理论成果
@@ -670,7 +659,6 @@ layout: center
 </div>
 
 ---
----
 
 # 教学理念
 
@@ -700,12 +688,11 @@ layout: center
 </div>
 
 ---
----
 
 # 教学经历
 
 <div class="space-y-4 mt-4">
-  <p class="text-sm text-body">
+  <p class="text-base text-body">
     2020 年加入上海交通大学以来：<strong>13 门不同课程</strong>，涵盖本科和研究生层次，
     涉及计算数学、数值分析和人工智能。
   </p>
@@ -756,14 +743,13 @@ layout: center
 </div>
 
 ---
----
 
 # 课程建设
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">动手学深度学习（Python）—— MATH2806</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       2025 年新开设的数学专业本科生必修课。基于 <em>动手学深度学习</em>（d2l.ai）。
       学生从零实现 MLP、CNN、RNN 和 Transformer（PyTorch）。
       每个概念立即配以可执行代码——<strong>动手不是锦上添花，而是学习的主要模式。</strong>
@@ -772,7 +758,7 @@ layout: center
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">科学计算 —— MATH2802</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       从 MATLAB 迁移至 Python/NumPy/SciPy 工作流。增设开放式模拟项目：
       传染病动力学建模、不规则区域 PDE 模拟、稀疏系统迭代求解器基准测试。
       学生需要融合数学分析、算法思维和软件工程能力。
@@ -781,7 +767,7 @@ layout: center
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">未来规划：科学机器学习新课程</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       统一经典数值分析与现代深度学习的研究生课程——涵盖 PINNs、神经算子、
       生成模型——着重理论保证与实际计算项目的结合。
     </p>
@@ -831,7 +817,7 @@ layout: center
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">实验室合作项目</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       基于机器学习的 ICF 数值模拟建模与计算方法（负责人，2023–至今）·
       机器学习求解输运方程（负责人，2021–2023）
     </p>
@@ -885,14 +871,13 @@ layout: center
 </div>
 
 ---
----
 
 # 等离子体与聚变基础模型
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
     <h3 class="!text-lg !font-bold mb-2">下一个前沿</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       基于 DeepRTE 范式：开发描述聚变等离子体动力学的
       <strong>Vlasov–Maxwell 系统</strong>的算子学习基础模型。
     </p>
@@ -921,14 +906,13 @@ layout: center
 </div>
 
 ---
----
 
 # 收敛理论与保结构算子
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">扩散模型反演的严格误差分析</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       当前方法（ODE-DPS）对后验分数近似依赖启发性论证。
       我们旨在给出学习后验与真实贝叶斯后验之间 Wasserstein 距离的界限，
       作为分数近似误差、ODE 离散化步长和正演模型精度的函数。
@@ -938,7 +922,7 @@ layout: center
 
   <div class="card p-5">
     <h3 class="!text-base !font-bold mb-2">保结构算子学习</h3>
-    <p class="text-sm text-body">
+    <p class="text-base text-body">
       推广 APNN 设计原则：构建<strong>可证明保持非线性守恒律</strong>
       （质量、能量、熵）的算子学习架构，适用于 Hamiltonian 和耗散 PDE 系统。
       硬约束方法至关重要——基于惩罚的方法在刚性多尺度极限下必然退化。

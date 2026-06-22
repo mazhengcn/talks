@@ -14,5 +14,8 @@
     "@slidev/theme-default": "catalog:",
     "vite": "catalog:",
     "unocss": "catalog:"
+  },
+  "devDependencies": {
+    "@unocss/preset-web-fonts": "66.6.6"
   }
 }
