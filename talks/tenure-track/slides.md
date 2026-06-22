@@ -15,7 +15,7 @@ remoteAssets: true
     <h1 class="!text-5xl !font-bold">
       全栈 AI for Science
     </h1>
-    <p class="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+    <p class="text-xl text-muted-foreground max-w-2xl leading-relaxed tracking-wide">
       从多尺度动理学方程到扩散模型反问题
     </p>
   </div>
@@ -36,20 +36,20 @@ layout: center
 ---
 
 <div class="space-y-10 text-center">
-  <h2 class="!text-3xl !font-bold text-foreground-soft">汇报提纲</h2>
+  <h2 class="!text-4xl !font-bold text-foreground-soft">汇报提纲</h2>
   <div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
     <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold">1</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
       <h3 class="!text-lg !font-bold text-foreground-soft">科研工作</h3>
       <p class="text-sm text-muted-foreground">三个相互关联的计算科学研究方向</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold">2</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
       <h3 class="!text-lg !font-bold text-foreground-soft">教学工作</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold">3</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
       <h3 class="!text-lg !font-bold text-foreground-soft">未来规划</h3>
       <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
     </div>
@@ -127,7 +127,7 @@ layout: center
   </p>
 
   <div class="card p-6">
-    <p class="text-lg font-medium text-primary mb-2">我的回答</p>
+    <p class="text-lg font-semibold text-primary mb-2">我的回答</p>
     <p class="text-lg leading-relaxed text-body">
       <strong>全栈 AI for Science</strong> —— 垂直整合的方法论：
       严格的数学分析 → 嵌入物理硬约束的神经网络架构
@@ -173,24 +173,24 @@ layout: center
     <h3 class="!text-lg !font-bold">方向一：多尺度 AI</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">动理学方程的基础模型与保结构神经网络</p>
     <div class="pt-3 space-y-1">
-      <p class="text-xs font-medium text-muted-foreground">DeepRTE · APNNs · AP-CON</p>
-      <p class="text-xs font-medium text-muted-foreground">RT-APNN · AP-RFM</p>
+      <p class="text-sm font-medium text-muted-foreground">DeepRTE · APNNs · AP-CON</p>
+      <p class="text-sm font-medium text-muted-foreground">RT-APNN · AP-RFM</p>
     </div>
   </div>
   <div class="card p-6 space-y-3 border-t-3 border-t-coral-500" v-click>
     <h3 class="!text-lg !font-bold">方向二：反问题</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">基于分数的扩散模型作为 PDE 反问题的学习先验</p>
     <div class="pt-3 space-y-1">
-      <p class="text-xs font-medium text-muted-foreground">ODE-DPS · 无监督 FWI</p>
-      <p class="text-xs font-medium text-muted-foreground">Wasserstein-2 引导</p>
+      <p class="text-sm font-medium text-muted-foreground">ODE-DPS · 无监督 FWI</p>
+      <p class="text-sm font-medium text-muted-foreground">Wasserstein-2 引导</p>
     </div>
   </div>
   <div class="card p-6 space-y-3 border-t-3 border-t-coral-500" v-click>
     <h3 class="!text-lg !font-bold">方向三：快速谱算法</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">经典算法作为理论基础与基准黄金标准</p>
     <div class="pt-3 space-y-1">
-      <p class="text-xs font-medium text-muted-foreground">非弹性 Boltzmann · AP-UQ</p>
-      <p class="text-xs font-medium text-muted-foreground">kipack · fsm-inelastic</p>
+      <p class="text-sm font-medium text-muted-foreground">非弹性 Boltzmann · AP-UQ</p>
+      <p class="text-sm font-medium text-muted-foreground">kipack · fsm-inelastic</p>
     </div>
   </div>
 </div>
@@ -205,7 +205,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向一</span>
-  <h2 class="!text-3xl !font-bold mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
+  <h2 class="!text-4xl !font-bold mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
   <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -408,7 +408,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向二</span>
-  <h2 class="!text-3xl !font-bold mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
+  <h2 class="!text-4xl !font-bold mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
   <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -541,7 +541,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向三</span>
-  <h2 class="!text-3xl !font-bold mt-2">动理学方程的<br>快速谱算法</h2>
+  <h2 class="!text-4xl !font-bold mt-2">动理学方程的<br>快速谱算法</h2>
   <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -609,7 +609,7 @@ layout: center
 # 深度神经网络训练的数学理论
 
 <div class="max-w-3xl mx-auto mt-8">
-  <p class="text-sm text-muted-foreground text-center mb-6">
+  <p class="text-sm text-subtle text-center mb-6">
     在安全关键的科学计算中部署神经网络，需要严格的数学理解——而非仅仅经验验证。
   </p>
 
@@ -665,7 +665,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第二部分</span>
-  <h2 class="!text-3xl !font-bold mt-2">教学与人才培养</h2>
+  <h2 class="!text-4xl !font-bold mt-2">教学与人才培养</h2>
   <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -847,19 +847,19 @@ layout: center
 <div class="max-w-3xl mx-auto mt-8 space-y-4">
   <div class="grid grid-cols-4 gap-4">
     <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight">30+</p>
+      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">30+</p>
       <p class="text-xs text-muted-foreground mt-2">同行评审论文</p>
     </div>
     <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight">5</p>
+      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">5</p>
       <p class="text-xs text-muted-foreground mt-2">预印本</p>
     </div>
     <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight">1</p>
+      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">1</p>
       <p class="text-xs text-muted-foreground mt-2">专著章节</p>
     </div>
     <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight">1</p>
+      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">1</p>
       <p class="text-xs text-muted-foreground mt-2">最佳论文奖 (2019)</p>
     </div>
   </div>
@@ -880,7 +880,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第三部分</span>
-  <h2 class="!text-3xl !font-bold mt-2">未来研究规划</h2>
+  <h2 class="!text-4xl !font-bold mt-2">未来研究规划</h2>
   <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -960,14 +960,14 @@ layout: center
   </p>
 
   <div class="card p-6 text-left">
-    <p class="text-base text-foreground-soft leading-relaxed">
+    <p class="text-lg text-foreground-soft leading-relaxed">
       统一洞察：<strong>物理结构必须编码为硬约束，而非可选的软正则化。</strong>
       这一哲学确保方法不仅在经验上成功，而且在经典离散化失效的
       刚性和高维区域中可证明鲁棒。
     </p>
   </div>
 
-  <p class="text-base text-muted-foreground">
+  <p class="text-lg text-muted-foreground">
     我期待在上海交通大学推进这一研究计划，培养国际合作，
     并培育能够在严格分析与前沿人工智能之间架起桥梁的下一代计算数学家。
   </p>

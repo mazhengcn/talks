@@ -66,18 +66,34 @@ export default mergeConfigs([
           }
           .slidev-layout {
             font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
           }
-          .slidev-layout h1, .slidev-layout h2, .slidev-layout h3 {
+          /* ── Headings: serif for gravitas ──────────── */
+          .slidev-layout h1, .slidev-layout h2, .slidev-layout h3,
+          .slidev-layout h4, .slidev-layout h5, .slidev-layout h6 {
             font-family: 'Noto Serif SC', 'Source Serif 4', 'Noto Sans SC', serif;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.25;
             letter-spacing: -0.015em;
+            text-wrap: pretty;
           }
-          .slidev-layout h1 {
-            letter-spacing: -0.025em;
-          }
+          .slidev-layout h1 { letter-spacing: -0.025em; }
+          .slidev-layout h2 { letter-spacing: -0.02em; }
+          /* ── Body: comfortable reading for mixed CJK/Latin ── */
           .slidev-layout p, .slidev-layout li {
-            line-height: 1.625;
+            line-height: 1.65;
+            text-wrap: pretty;
+          }
+          /* ── Tables ────────────────────────────────── */
+          .slidev-layout th {
+            font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+          }
+          .slidev-layout td {
+            font-feature-settings: "tnum", "lnum";
           }
         `,
       },
