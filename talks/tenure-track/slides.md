@@ -241,8 +241,7 @@ layout: center
   </div>
 </div>
 
-<hr class="divider my-5" v-click>
-<div class="text-center" v-click>
+<div class="mt-8 text-center" v-click>
   <p class="text-base text-body">
     <strong>核心洞察：</strong>物理结构（渐近极限、守恒律）必须作为
     <span class="text-primary font-medium">硬架构约束</span>，
@@ -607,14 +606,12 @@ layout: center
     在安全关键的科学计算中部署神经网络，需要严格的数学理解——而非仅仅经验验证。
   </p>
 
-  <div class="card p-6">
-    <h3 class="!text-lg !font-bold mb-3">频率原则（F-Principle）</h3>
-    <p class="text-base text-body leading-relaxed">
-      神经网络损失函数上的梯度下降<strong>最先拟合低频分量</strong>，
-      逐步捕捉高频分量。这一谱偏差解释了为何朴素 PINN 公式在多尺度 PDE 上失效——
-      并直接启发了 APNN 架构的设计。
-    </p>
-  </div>
+  <h3 class="!text-2xl !font-bold mb-4">频率原则（F-Principle）</h3>
+  <p class="text-lg text-body leading-relaxed max-w-2xl">
+    神经网络损失函数上的梯度下降<strong>最先拟合低频分量</strong>，
+    逐步捕捉高频分量。这一谱偏差解释了为何朴素 PINN 公式在多尺度 PDE 上失效——
+    并直接启发了 APNN 架构的设计。
+  </p>
 </div>
 
 ---
@@ -667,9 +664,8 @@ layout: center
 # 教学理念
 
 <div class="space-y-6 mt-4">
-  <div class="card p-5">
-    <h3 class="!text-lg !font-bold mb-2">核心理念</h3>
-    <p class="text-lg text-body">
+  <div class="border-l-3 border-coral-400/60 pl-5 py-1">
+    <p class="text-xl text-foreground-soft leading-relaxed">
       教师能给学生最持久的礼物不是知识体系，而是一种<strong>思维方式</strong>。
       内容会过时；方法永存。
     </p>
@@ -947,9 +943,9 @@ layout: center
     新型神经架构和生产级软件的全栈方法论。
   </p>
 
-  <div class="card p-6 text-left">
+  <div class="border-l-3 border-coral-400/60 pl-5 py-1 text-left">
     <p class="text-lg text-foreground-soft leading-relaxed">
-      统一洞察：<strong>物理结构必须编码为硬约束，而非可选的软正则化。</strong>
+      <strong>统一洞察：</strong>物理结构必须编码为硬约束，而非可选的软正则化。
       这一哲学确保方法不仅在经验上成功，而且在经典离散化失效的
       刚性和高维区域中可证明鲁棒。
     </p>
