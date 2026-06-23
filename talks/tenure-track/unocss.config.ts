@@ -127,27 +127,23 @@ export default mergeConfigs([
           /* ── Code blocks ──────────────────────────── */
           .slidev-code {
             background: #f5f0e8 !important;
-            border: 1px solid #e8e0d2;
             border-radius: 8px;
           }
           .dark .slidev-code {
             background: #1f1e1b !important;
-            border-color: #3d3a2f;
           }
 
-          /* ── Inline code — warm coral tint ────────── */
+          /* ── Inline code — warm coral tint, no border ── */
           .slidev-layout :not(pre) > code {
             background: #fdf0ec;
             color: #a9583e;
             padding: 0.15em 0.4em;
             border-radius: 4px;
             font-size: 0.9em;
-            border: 1px solid #f6c1b3;
           }
           .dark .slidev-layout :not(pre) > code {
             background: #2d1410;
             color: #e68367;
-            border-color: #6b3225;
           }
 
           /* ── Links ────────────────────────────────── */
@@ -285,45 +281,35 @@ export default mergeConfigs([
       "bg-background": "bg-warm-50 dark:bg-warm-1000",
       "text-foreground": "text-warm-1000 dark:text-warm-50",
       "text-foreground-soft": "text-warm-900 dark:text-warm-200",
-      "bg-muted": "bg-warm-100 dark:bg-warm-975",
+      "bg-muted": "bg-warm-200 dark:bg-warm-900",
       "text-muted-foreground": "text-warm-700 dark:text-warm-400",
       "border-border": "border-warm-300 dark:border-warm-800",
-      "text-body": "text-warm-900/80 dark:text-warm-200/80",
+      "text-body": "text-warm-900 dark:text-warm-300",
       "text-subtle": "text-warm-600 dark:text-warm-500",
 
-      card:
-        "rounded-xl " +
-        "border border-warm-300/60 dark:border-warm-800/60 " +
-        "bg-warm-100/60 dark:bg-warm-950/60 " +
-        "backdrop-blur-sm " +
-        "shadow-sm ring-1 ring-warm-1000/3 dark:ring-warm-50/3",
+      // ── Cards: color-block depth, no borders, no shadows ──
+      card: "rounded-xl bg-warm-100 dark:bg-warm-975",
 
       "card-elevated":
-        "rounded-xl " +
-        "border border-warm-300/80 dark:border-warm-700/60 " +
-        "bg-warm-100/80 dark:bg-warm-950/80 " +
-        "backdrop-blur-md " +
-        "shadow-md ring-1 ring-warm-1000/5 dark:ring-warm-50/5",
+        "rounded-xl bg-warm-200 dark:bg-warm-950",
 
+      // ── Badges: solid fills, no borders ──
       badge:
         "inline-flex items-center rounded-full " +
-        "border border-warm-300/70 dark:border-warm-700/50 " +
-        "bg-warm-200/60 dark:bg-warm-900/50 " +
         "px-2.5 py-0.5 text-xs font-medium " +
+        "bg-warm-200 dark:bg-warm-800 " +
         "text-warm-700 dark:text-warm-300",
 
       "badge-primary":
         "inline-flex items-center rounded-full " +
-        "border border-coral-300/60 dark:border-coral-700/40 " +
-        "bg-coral-50/80 dark:bg-coral-950/50 " +
         "px-2.5 py-0.5 text-xs font-medium " +
+        "bg-coral-100 dark:bg-coral-900 " +
         "text-coral-600 dark:text-coral-300",
 
       "badge-accent":
         "inline-flex items-center rounded-full " +
-        "border border-amber-300/60 dark:border-amber-700/40 " +
-        "bg-amber-50/80 dark:bg-amber-950/50 " +
         "px-2.5 py-0.5 text-xs font-medium " +
+        "bg-amber-100 dark:bg-amber-900 " +
         "text-amber-600 dark:text-amber-300",
 
       "text-primary": "text-coral-500 dark:text-coral-400",
@@ -331,19 +317,32 @@ export default mergeConfigs([
       "bg-primary": "bg-coral-500 dark:bg-coral-400",
       "bg-accent": "bg-amber-500 dark:bg-amber-400",
 
+      // ── Callouts: tinted solid bg, no borders ──
       callout:
         "rounded-lg " +
-        "border border-coral-200/60 dark:border-coral-800/40 " +
-        "bg-coral-50/70 dark:bg-coral-950/30 " +
+        "bg-coral-50 dark:bg-coral-950/40 " +
         "p-3 text-sm text-coral-700 dark:text-coral-300",
 
       "callout-accent":
         "rounded-lg " +
-        "border border-amber-200/60 dark:border-amber-800/40 " +
-        "bg-amber-50/70 dark:bg-amber-950/30 " +
+        "bg-amber-50 dark:bg-amber-950/40 " +
         "p-3 text-sm text-amber-700 dark:text-amber-300",
 
       separator: "border-b border-warm-300/70 dark:border-warm-800/50",
+
+      // ── Simple utility components ──
+      // Horizontal rule — subtle warm line for within-slide separation
+      divider:
+        "border-0 h-px bg-gradient-to-r " +
+        "from-transparent via-warm-400/60 dark:via-warm-700/60 to-transparent",
+
+      // Caption — for metadata, sources, footnotes
+      caption: "text-xs text-warm-500 dark:text-warm-500 leading-relaxed",
+
+      // Stat — large number + tiny label, lighter than a card
+      stat: "text-center",
+      "stat-num": "text-4xl font-bold text-primary tracking-tight tabular-nums",
+      "stat-label": "text-xs text-muted-foreground mt-1",
     },
     presets: [
       presetWebFonts({

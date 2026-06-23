@@ -9,7 +9,7 @@ const title =
 
 <template>
   <div
-    class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-3 text-xs bg-warm-50/85 dark:bg-warm-1000/85 backdrop-blur-sm"
+    class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-3 text-xs bg-warm-50 dark:bg-warm-1000"
   >
     <!-- Subtle warm accent line at top of footer -->
     <div

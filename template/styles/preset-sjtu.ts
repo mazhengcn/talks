@@ -291,10 +291,10 @@ export function presetSJTU(): Preset {
         "hover:bg-academic-700 dark:hover:bg-academic-300 hover:text-white dark:hover:text-neutral-900",
       "hover-surface": "hover:bg-neutral-100 dark:hover:bg-neutral-800",
 
-      // Card styles - glassmorphism, transparency, adaptive borders and shadows
-      card: "bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg dark:shadow-2xl",
+      // Card styles — color-block depth, no borders, no shadows
+      card: "bg-white dark:bg-neutral-900 rounded-xl",
       "card-hover":
-        "bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md border border-neutral-300 dark:border-neutral-600 rounded-lg shadow-lg dark:shadow-2xl hover-surface transition-colors duration-200",
+        "bg-white dark:bg-neutral-900 rounded-xl hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200",
 
       // Code blocks - better contrast
       "code-block":

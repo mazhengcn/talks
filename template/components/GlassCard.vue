@@ -206,19 +206,18 @@ watch([() => props.title, () => props.subtitle, () => props.items], () => {
   processMath();
 });
 
-// Style configuration objects
+// Style configuration — tinted backgrounds, no borders
 const variantClasses = {
-  primary: "border-sjtu-400/30 dark:border-sjtu-300/40",
-  secondary: "border-academic-400/30 dark:border-academic-300/40",
-  tech: "border-tech-electric-400/30 dark:border-tech-electric-300/40",
-  neutral: "border-neutral-300/40 dark:border-neutral-600/50",
-  "gradient-primary": "border-sjtu-400/30 dark:border-sjtu-300/40",
-  "gradient-secondary": "border-academic-400/30 dark:border-academic-300/40",
-  "gradient-tech":
-    "border-tech-electric-400/30 dark:border-tech-electric-300/40",
-  success: "border-success-400/30 dark:border-success-300/40",
-  warning: "border-warning-400/30 dark:border-warning-300/40",
-  error: "border-error-400/30 dark:border-error-300/40",
+  primary: "bg-sjtu-50 dark:bg-sjtu-950/30",
+  secondary: "bg-academic-50 dark:bg-academic-950/30",
+  tech: "bg-tech-electric-50 dark:bg-tech-electric-950/30",
+  neutral: "",
+  "gradient-primary": "bg-sjtu-50 dark:bg-sjtu-950/30",
+  "gradient-secondary": "bg-academic-50 dark:bg-academic-950/30",
+  "gradient-tech": "bg-tech-electric-50 dark:bg-tech-electric-950/30",
+  success: "bg-success-50 dark:bg-success-950/30",
+  warning: "bg-warning-50 dark:bg-warning-950/30",
+  error: "bg-error-50 dark:bg-error-950/30",
 };
 
 const sizeClasses = {
@@ -283,7 +282,7 @@ const dotClasses = {
 <template>
   <div
     ref="cardRef"
-    class="glass-card backdrop-blur-xl rounded-xl border transition-all duration-300 hover:backdrop-blur-2xl hover:shadow-lg bg-white/10 dark:bg-white/5"
+    class="rounded-xl transition-all duration-200 bg-white dark:bg-neutral-900"
     :class="[variantClasses[variant], sizeClasses[size]]"
   >
     <!-- Title with optional icon -->
@@ -384,52 +383,7 @@ const dotClasses = {
 
 <style scoped>
 /**
- * Enhanced glassmorphism effect for the glass card component
- * Provides backdrop blur, subtle shadows, and smooth transitions
+ * Solid color-block card — depth through background contrast, not borders or shadows.
+ * Variant backgrounds are applied via variantClasses above.
  */
-.glass-card {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.06),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass-card {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.2),
-    0 2px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.glass-card:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.08),
-    0 3px 10px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-.dark .glass-card:hover {
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.25),
-    0 3px 10px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-/* Smooth transitions for all elements */
-.glass-card * {
-  transition: all 0.2s ease;
-}
 </style>

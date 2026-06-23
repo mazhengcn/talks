@@ -68,15 +68,15 @@ layout: center
     <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-warm-300 dark:bg-warm-800"></div>
     <div class="relative flex justify-between w-full">
       <!-- dot 1 -->
-      <div class="w-3.5 h-3.5 rounded-full border-2 border-coral-500 bg-white dark:bg-warm-1000 z-10"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <!-- dot 2 -->
-      <div class="w-3.5 h-3.5 rounded-full border-2 border-coral-500 bg-white dark:bg-warm-1000 z-10"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <!-- dot 3 -->
-      <div class="w-3.5 h-3.5 rounded-full border-2 border-coral-500 bg-white dark:bg-warm-1000 z-10"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <!-- dot 4 -->
-      <div class="w-3.5 h-3.5 rounded-full border-2 border-coral-500 bg-white dark:bg-warm-1000 z-10"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <!-- dot 5 -->
-      <div class="w-3.5 h-3.5 rounded-full border-2 border-coral-500 bg-white dark:bg-warm-1000 z-10"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
     </div>
   </div>
 
@@ -169,7 +169,8 @@ layout: center
 # 三个研究方向
 
 <div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
-  <div class="card p-6 space-y-3 border-t-3 border-t-coral-500" v-click>
+  <div class="card p-6 space-y-3" v-click>
+    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
     <h3 class="!text-lg !font-bold">方向一：多尺度 AI</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">动理学方程的基础模型与保结构神经网络</p>
     <div class="pt-3 space-y-1">
@@ -177,7 +178,8 @@ layout: center
       <p class="text-sm font-medium text-muted-foreground">RT-APNN · AP-RFM</p>
     </div>
   </div>
-  <div class="card p-6 space-y-3 border-t-3 border-t-coral-500" v-click>
+  <div class="card p-6 space-y-3" v-click>
+    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
     <h3 class="!text-lg !font-bold">方向二：反问题</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">基于分数的扩散模型作为 PDE 反问题的学习先验</p>
     <div class="pt-3 space-y-1">
@@ -185,7 +187,8 @@ layout: center
       <p class="text-sm font-medium text-muted-foreground">Wasserstein-2 引导</p>
     </div>
   </div>
-  <div class="card p-6 space-y-3 border-t-3 border-t-coral-500" v-click>
+  <div class="card p-6 space-y-3" v-click>
+    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
     <h3 class="!text-lg !font-bold">方向三：快速谱算法</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">经典算法作为理论基础与基准黄金标准</p>
     <div class="pt-3 space-y-1">
@@ -195,7 +198,7 @@ layout: center
   </div>
 </div>
 
-<p class="text-center mt-8 text-sm text-subtle">
+<p class="caption text-center mt-8">
   30+ 篇同行评审论文 · 系列开源软件包 · NSFC 资助超 400 万元
 </p>
 
@@ -206,14 +209,14 @@ layout: center
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向一</span>
   <h2 class="!text-4xl !font-bold mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
-  <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
+  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
 ---
 
 # 为什么动理学方程至关重要
 
-<div class="grid grid-cols-2 gap-8 mt-6">
+<div class="grid grid-cols-2 gap-8 mt-2">
   <div class="space-y-4" v-click>
     <div class="card p-5">
       <h3 class="!text-base !font-bold mb-2">计算挑战</h3>
@@ -238,7 +241,8 @@ layout: center
   </div>
 </div>
 
-<div class="card p-4 mt-6 text-center" v-click>
+<hr class="divider my-5" v-click>
+<div class="text-center" v-click>
   <p class="text-base text-body">
     <strong>核心洞察：</strong>物理结构（渐近极限、守恒律）必须作为
     <span class="text-primary font-medium">硬架构约束</span>，
@@ -349,7 +353,7 @@ layout: center
       在有限 $\varepsilon$ 下极小化残差 $\mathcal{R} \to 0$，
       自动给出正确的 $\varepsilon \to 0$ 极限。
     </p>
-    <div class="rounded-lg border border-dashed border-warm-300 dark:border-warm-700 bg-warm-100/50 dark:bg-warm-900/50 px-4 py-3 text-center">
+    <div class="rounded-lg bg-warm-100/70 dark:bg-warm-900/60 px-4 py-3 text-center">
       <p class="text-sm text-muted-foreground">
         $\mathcal{R}_{\varepsilon}(u_{\theta}) \to 0 \;\Longrightarrow\; u_{\theta} \to u_{\text{true}}$ 对 $\varepsilon$ 一致成立
       </p>
@@ -404,7 +408,7 @@ layout: center
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向二</span>
   <h2 class="!text-4xl !font-bold mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
-  <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
+  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
 ---
@@ -534,7 +538,7 @@ layout: center
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向三</span>
   <h2 class="!text-4xl !font-bold mt-2">动理学方程的<br>快速谱算法</h2>
-  <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
+  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
 ---
@@ -655,7 +659,7 @@ layout: center
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第二部分</span>
   <h2 class="!text-4xl !font-bold mt-2">教学与人才培养</h2>
-  <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
+  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
 ---
@@ -831,22 +835,22 @@ layout: center
 # 论文发表与学术影响
 
 <div class="max-w-3xl mx-auto mt-8 space-y-4">
-  <div class="grid grid-cols-4 gap-4">
-    <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">30+</p>
-      <p class="text-xs text-muted-foreground mt-2">同行评审论文</p>
+<div class="grid grid-cols-4 gap-4">
+    <div class="stat">
+      <p class="stat-num">30+</p>
+      <p class="stat-label">同行评审论文</p>
     </div>
-    <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">5</p>
-      <p class="text-xs text-muted-foreground mt-2">预印本</p>
+    <div class="stat">
+      <p class="stat-num">5</p>
+      <p class="stat-label">预印本</p>
     </div>
-    <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">1</p>
-      <p class="text-xs text-muted-foreground mt-2">专著章节</p>
+    <div class="stat">
+      <p class="stat-num">1</p>
+      <p class="stat-label">专著章节</p>
     </div>
-    <div class="card p-5 text-center">
-      <p class="text-4xl font-bold text-primary tracking-tight tabular-nums">1</p>
-      <p class="text-xs text-muted-foreground mt-2">最佳论文奖 (2019)</p>
+    <div class="stat">
+      <p class="stat-num">1</p>
+      <p class="stat-label">最佳论文奖 (2019)</p>
     </div>
   </div>
 
@@ -867,7 +871,7 @@ layout: center
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第三部分</span>
   <h2 class="!text-4xl !font-bold mt-2">未来研究规划</h2>
-  <div class="w-20 h-0.5 bg-coral-500/60 rounded-full mx-auto mt-4"></div>
+  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
 ---
