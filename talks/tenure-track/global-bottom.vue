@@ -4,7 +4,7 @@ import { useNav } from "@slidev/client";
 const { currentPage, currentSlideRoute } = useNav();
 const title =
   (currentSlideRoute.value.meta?.slide as any)?.frontmatter?.title ||
-  "Tenure Track Defense";
+  "长聘教职答辩";
 </script>
 
 <template>
