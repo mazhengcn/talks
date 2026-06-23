@@ -41,6 +41,7 @@
     "tinyexec": "^1.2.4"
   },
   "dependencies": {
-    "node-source-han-sans-sc": "^1.1.0-2.001R"
+    "node-source-han-sans-sc": "^1.1.0-2.001R",
+    "vue": "^3.5.38"
   }
 }

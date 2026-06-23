@@ -27,10 +27,6 @@ remoteAssets: true
   </div>
 </div>
 
-<div class="absolute bottom-8 right-8 text-sm text-subtle">
-  长聘教职答辩 · 2026
-</div>
-
 ---
 layout: center
 ---
@@ -57,61 +53,45 @@ layout: center
 </div>
 
 ---
-layout: center
----
 
 # 学术经历
 
-<div class="mt-10 mx-4">
-  <!-- horizontal rule -->
-  <div class="relative flex items-center mb-2">
-    <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-warm-300 dark:bg-warm-800"></div>
-    <div class="relative flex justify-between w-full">
-      <!-- dot 1 -->
+<div class="h-full flex items-center -mt-8">
+  <div class="w-full">
+    <!-- timeline: dot + label columns, centered -->
+    <div class="flex justify-between w-full mx-auto">
+    <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <!-- dot 2 -->
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <span class="badge-primary text-xs">2008 – 2012</span>
+      <h3 class="!text-sm leading-tight mt-1">数学与应用数学学士</h3>
+      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</p>
+    </div>
+    <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <!-- dot 3 -->
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <span class="badge-primary text-xs">2012 – 2017</span>
+      <h3 class="!text-sm leading-tight mt-1">计算数学博士</h3>
+      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学<br>导师：金石教授</p>
+    </div>
+    <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <!-- dot 4 -->
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <span class="badge-primary text-xs">2017 – 2020</span>
+      <h3 class="!text-sm leading-tight mt-1">Golomb 访问助理教授</h3>
+      <p class="text-xs text-muted-foreground leading-snug text-center">普渡大学数学系<br>合作导师：Jingwei Hu</p>
+    </div>
+    <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <!-- dot 5 -->
-      <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <span class="badge-primary text-xs">2020 至今</span>
+      <h3 class="!text-sm leading-tight mt-1">长聘教轨副教授</h3>
+      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学数学科学学院<br>自然科学研究院</p>
     </div>
   </div>
-
-  <!-- labels below the line -->
-  <div class="flex justify-between w-full mt-5">
-    <div class="flex flex-col items-center text-center w-1/5 px-1 space-y-1">
-      <span class="badge-primary text-xs">2008 – 2012</span>
-      <h3 class="!text-sm leading-tight">数学与应用数学学士</h3>
-      <p class="text-xs text-muted-foreground leading-snug">上海交通大学致远学院<br>辅修：应用物理</p>
-    </div>
-    <div class="flex flex-col items-center text-center w-1/5 px-1 space-y-1">
-      <span class="badge-primary text-xs">2012 – 2017</span>
-      <h3 class="!text-sm leading-tight">计算数学博士</h3>
-      <p class="text-xs text-muted-foreground leading-snug">上海交通大学<br>导师：金石教授</p>
-    </div>
-    <div class="flex flex-col items-center text-center w-1/5 px-1 space-y-1">
-      <span class="badge-primary text-xs">2015</span>
-      <h3 class="!text-sm leading-tight">访问学者</h3>
-      <p class="text-xs text-muted-foreground leading-snug">威斯康星大学麦迪逊分校<br>合作者：金石</p>
-    </div>
-    <div class="flex flex-col items-center text-center w-1/5 px-1 space-y-1">
-      <span class="badge-primary text-xs">2017 – 2020</span>
-      <h3 class="!text-sm leading-tight">Golomb 访问助理教授</h3>
-      <p class="text-xs text-muted-foreground leading-snug">普渡大学数学系<br>合作导师：Jingwei Hu</p>
-    </div>
-    <div class="flex flex-col items-center text-center w-1/5 px-1 space-y-1">
-      <span class="badge-primary text-xs">2020 至今</span>
-      <h3 class="!text-sm leading-tight">长聘教轨副教授</h3>
-      <p class="text-xs text-muted-foreground leading-snug">上海交通大学数学科学学院<br>自然科学研究院</p>
-    </div>
   </div>
 </div>
 
----
-layout: center
 ---
 
 # 科研愿景
@@ -217,36 +197,41 @@ layout: center
 # 为什么动理学方程至关重要
 
 <div class="grid grid-cols-2 gap-8 mt-2">
-  <div class="space-y-4" v-click>
-    <div class="card p-5">
-      <h3 class="!text-base mb-2">计算挑战</h3>
-      <ul class="text-base text-body space-y-2">
-        <li>动理学方程描述<strong>介观尺度</strong>的物质行为——连接量子力学与流体动力学</li>
-        <li>相空间维度：$2d$（三维时为 6D）——<strong>维度灾难</strong></li>
-        <li>单次 RTE 模拟：$10^8$–$10^{12}$ 个未知量，超级计算机需数小时</li>
-        <li>聚变等离子体：需<strong>每秒数百万次 Vlasov–Maxwell 求解</strong>以实现实时控制</li>
-      </ul>
-    </div>
-  </div>
-  <div class="space-y-4" v-click>
-    <div class="card p-5">
-      <h3 class="!text-base mb-2">多尺度难题</h3>
-      <ul class="text-base text-body space-y-2">
-        <li>Knudsen 数 $\varepsilon \ll 1$：动理学方程退化为扩散/流体极限</li>
-        <li>经典求解器出现<strong>刚性问题</strong>：$\Delta t = O(\varepsilon)$</li>
-        <li>标准神经网络（PINNs）在此区域<strong>严重失效</strong></li>
-        <li>需求：在所有尺度上<strong>一致精确</strong>的方法</li>
-      </ul>
-    </div>
-  </div>
+
+<div v-click>
+
+<Card title="计算挑战" size="md"
+  :items="[
+    '动理学方程描述**介观尺度**的物质行为——连接量子力学与流体动力学',
+    '相空间维度：$2d$（三维时为 6D）——**维度灾难**',
+    '单次 RTE 模拟：$10^8$–$10^{12}$ 个未知量，超级计算机需数小时',
+    '聚变等离子体：需**每秒数百万次 Vlasov–Maxwell 求解**以实现实时控制',
+  ]"
+  :enable-latex="true"
+/>
+
+</div>
+
+<div v-click>
+
+<Card title="多尺度难题" size="md"
+  :items="[
+    'Knudsen 数 $\\varepsilon \\ll 1$：动理学方程退化为扩散/流体极限',
+    '经典求解器出现 **刚性问题**：$\\Delta t = O(\\varepsilon)$',
+    '标准神经网络（PINNs）在此区域**严重失效**',
+    '需求：在所有尺度上**一致精确**的方法',
+  ]"
+  :enable-latex="true"
+/>
+
+</div>
+
 </div>
 
 <div class="mt-8 text-center" v-click>
-  <p class="text-base text-body">
-    <strong>核心洞察：</strong>物理结构（渐近极限、守恒律）必须作为
-    <span class="text-primary font-medium">硬架构约束</span>，
-    而非软正则化惩罚
-  </p>
+
+**核心洞察：**物理结构（渐近极限、守恒律）必须作为<span class="text-primary font-medium">硬架构约束</span>，而非软正则化惩罚
+
 </div>
 
 ---
@@ -322,22 +307,20 @@ layout: center
   </div>
 
   <div class="grid grid-cols-2 gap-4">
-    <div class="card p-4">
-      <h4 class="!text-sm mb-1">线性输运方程</h4>
-      <p class="text-xs text-muted-foreground">证明了从动理学到扩散极限的一致精度。在 $\varepsilon < 10^{-3}$ 下 PINNs 完全失效时仍然有效。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="!text-sm mb-1">非线性 VPFP 系统</h4>
-      <p class="text-xs text-muted-foreground">推广到具有长程电磁自相互作用的 Vlasov–Poisson–Fokker–Planck 系统。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="!text-sm mb-1">算子学习（AP-CON）</h4>
-      <p class="text-xs text-muted-foreground">卷积 DeepONets 在 $10^4$ 种光学配置上泛化，推理加速 $10^3\times$。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="!text-sm mb-1">时序推广（RT-APNN）</h4>
-      <p class="text-xs text-muted-foreground">基于 GRU 的架构融合物理先验，在不同时间尺度上稳定捕捉长时间动力学。</p>
-    </div>
+    <Card title="线性输运方程" size="sm"
+      subtitle="证明了从动理学到扩散极限的一致精度。在 $\\varepsilon < 10^{-3}$ 下 PINNs 完全失效时仍然有效。"
+      :enable-latex="true"
+    />
+    <Card title="非线性 VPFP 系统" size="sm"
+      subtitle="推广到具有长程电磁自相互作用的 Vlasov–Poisson–Fokker–Planck 系统。"
+    />
+    <Card title="算子学习（AP-CON）" size="sm"
+      subtitle="卷积 DeepONets 在 $10^4$ 种光学配置上泛化，推理加速 $10^3\\times$。"
+      :enable-latex="true"
+    />
+    <Card title="时序推广（RT-APNN）" size="sm"
+      subtitle="基于 GRU 的架构融合物理先验，在不同时间尺度上稳定捕捉长时间动力学。"
+    />
   </div>
 </div>
 
@@ -384,15 +367,15 @@ layout: center
     <strong>是一个普适的数学框架</strong>——不依赖于任何特定的机器学习架构。
   </p>
 
-  <div class="card p-5">
-    <h3 class="!text-base mb-2">渐近保持随机特征方法</h3>
-    <ul class="text-base text-body space-y-2">
-      <li>用固定随机权重的随机基函数 $\sigma(\omega_j \cdot x + b_j)$ 展开解</li>
-      <li>无网格逼近，误差可控，复杂度仅 $O(N)$</li>
-      <li>微观-宏观分解编码进基函数构造和最小二乘拟合</li>
-      <li>在<strong>所有 Knudsen 数下一致精确</strong>，成本远低于神经网络训练</li>
-    </ul>
-  </div>
+  <Card title="渐近保持随机特征方法" size="md"
+    :items="[
+      '用固定随机权重的随机基函数 $\\sigma(\\omega_j \\cdot x + b_j)$ 展开解',
+      '无网格逼近，误差可控，复杂度仅 $O(N)$',
+      '微观-宏观分解编码进基函数构造和最小二乘拟合',
+      '在**所有 Knudsen 数下一致精确**，成本远低于神经网络训练',
+    ]"
+    :enable-latex="true"
+  />
 
   <p class="text-xs text-subtle">
     这一结果验证了<strong>渐近保持</strong>是科学机器学习的普适设计原则——
@@ -437,12 +420,14 @@ layout: center
   <div class="space-y-4" v-click>
     <h3 class="!text-lg">我们的方案</h3>
     <div class="card p-5">
-      <h4 class="!text-sm mb-2">基于分数扩散模型的学习先验</h4>
-      <ul class="text-base text-body space-y-2">
-        <li>扩散模型学习 $\nabla_u \log p(u)$ —— 真实先验分布的<strong>分数函数</strong></li>
-        <li>使用<strong>无配对</strong>的未知场样本训练——无需昂贵配对数据</li>
-        <li>推理时：学习到的分数引导重建趋向<strong>物理合理的解</strong></li>
-      </ul>
+      <Card title="基于分数扩散模型的学习先验" size="sm"
+        :items="[
+          '扩散模型学习 $\\nabla_u \\log p(u)$ —— 真实先验分布的**分数函数**',
+          '使用**无配对**的未知场样本训练——无需昂贵配对数据',
+          '推理时：学习到的分数引导重建趋向**物理合理的解**',
+        ]"
+        :enable-latex="true"
+      />
     </div>
     <div class="card p-5">
       <h4 class="!text-sm mb-2">核心优势</h4>
