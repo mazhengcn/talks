@@ -71,35 +71,36 @@ export default mergeConfigs([
           /* ── Typographic defaults ────────────────── */
           .slidev-layout {
             font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-            font-weight: 500;
+            font-weight: 400;
             font-optical-sizing: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
           }
 
-          /* ── Headings: weight hierarchy ──────────── */
+          /* ── Display headings: Cormorant Garamond (DESIGN.md substitute: weight 500, -0.02em) ── */
           .slidev-layout h1, .slidev-layout h2 {
-            font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.015em;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', 'Lora', serif !important;
+            font-weight: 500 !important;
+            letter-spacing: -0.02em;
             text-wrap: pretty;
           }
+          .slidev-layout h1 { line-height: 1.1 !important; }
+          .slidev-layout h2 { line-height: 1.15 !important; }
+          /* ── Utility headings: sans, DESIGN.md title-md (18px, 500, 1.4, 0) ── */
           .slidev-layout h3, .slidev-layout h4,
           .slidev-layout h5, .slidev-layout h6 {
-            font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
-            letter-spacing: -0.005em;
+            font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif !important;
+            font-weight: 500 !important;
+            line-height: 1.4 !important;
+            letter-spacing: 0;
             text-wrap: pretty;
           }
-          .slidev-layout h1 { letter-spacing: -0.025em; }
-          .slidev-layout h2 { letter-spacing: -0.02em; }
 
-          /* ── Body: comfortable reading for mixed CJK/Latin ── */
+          /* ── Body: DESIGN.md body-md (16px, 400, 1.55, 0) ── */
           .slidev-layout p, .slidev-layout li {
-            line-height: 1.7;
+            font-weight: 400;
+            line-height: 1.55;
             text-wrap: pretty;
           }
 
@@ -124,10 +125,14 @@ export default mergeConfigs([
             color: #e68367;
           }
 
-          /* ── Code blocks ──────────────────────────── */
+          /* ── Code blocks: DESIGN.md code-window-card (dark surface, 12px radius) ── */
           .slidev-code {
-            background: #f5f0e8 !important;
-            border-radius: 8px;
+            background: #181715 !important;
+            color: #faf9f5 !important;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 14px;
+            line-height: 1.6;
           }
           .dark .slidev-code {
             background: #1f1e1b !important;
@@ -168,28 +173,14 @@ export default mergeConfigs([
           .katex {
             font-size: 1.05em !important;
             font-weight: 400 !important;
-            display: inline-block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            color: #cc0000 !important;
-            background: rgba(255,255,0,0.15) !important;
-            outline: 1px dashed red !important;
-          }
-          .katex .katex-html {
-            font-weight: 400;
-            visibility: visible !important;
-            opacity: 1 !important;
           }
           .katex-display {
             margin: 0.75em 0 !important;
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
           }
 
           /* ── Strong / emphasis ────────────────────── */
           .slidev-layout strong {
-            font-weight: 600;
+            font-weight: 600 !important;
             color: inherit;
           }
           .dark .slidev-layout strong {
@@ -280,37 +271,41 @@ export default mergeConfigs([
     shortcuts: {
       "bg-background": "bg-warm-50 dark:bg-warm-1000",
       "text-foreground": "text-warm-1000 dark:text-warm-50",
-      "text-foreground-soft": "text-warm-900 dark:text-warm-200",
-      "bg-muted": "bg-warm-200 dark:bg-warm-900",
-      "text-muted-foreground": "text-warm-700 dark:text-warm-400",
+      "bg-muted": "bg-warm-100 dark:bg-warm-900",
+      // DESIGN.md text tokens: body-strong=#252523, muted=#6c6a64, body=#3d3d3a, muted-soft=#8e8b82
+      "text-foreground-soft": "text-[#252523] dark:text-warm-100",
+      "text-muted-foreground": "text-[#6c6a64] dark:text-warm-400",
       "border-border": "border-warm-300 dark:border-warm-800",
-      "text-body": "text-warm-900 dark:text-warm-300",
-      "text-subtle": "text-warm-600 dark:text-warm-500",
+      "text-body": "text-[#3d3d3a] dark:text-warm-300",
+      "text-subtle": "text-[#8e8b82] dark:text-warm-500",
 
-      // ── Cards: color-block depth, no borders, no shadows ──
-      card: "rounded-xl bg-warm-100 dark:bg-warm-975",
+      // ── Cards: DESIGN.md feature-card = surface-card #efe9de, 12px radius ──
+      card:
+        "rounded-xl bg-warm-200 dark:bg-warm-975 " +
+        "ring-1 ring-[#e6dfd8]/60 dark:ring-warm-800/20",
 
       "card-elevated":
-        "rounded-xl bg-warm-200 dark:bg-warm-950",
+        "rounded-xl bg-warm-300 dark:bg-warm-950 " +
+        "ring-1 ring-[#e6dfd8]/70 dark:ring-warm-800/25",
 
-      // ── Badges: solid fills, no borders ──
+      // ── Badges: DESIGN.md badge-pill = surface-card bg, ink #141413 text ──
       badge:
         "inline-flex items-center rounded-full " +
-        "px-2.5 py-0.5 text-xs font-medium " +
+        "px-3 py-1 text-xs font-medium " +
         "bg-warm-200 dark:bg-warm-800 " +
-        "text-warm-700 dark:text-warm-300",
+        "text-[#141413] dark:text-warm-100",
 
+      // DESIGN.md badge-coral: solid primary bg, white text, 12px/500/1.5px tracking
       "badge-primary":
         "inline-flex items-center rounded-full " +
-        "px-2.5 py-0.5 text-xs font-medium " +
-        "bg-coral-100 dark:bg-coral-900 " +
-        "text-coral-600 dark:text-coral-300",
+        "px-3 py-1 text-xs font-medium tracking-widest uppercase " +
+        "bg-coral-500 text-white",
 
+      // DESIGN.md accent-amber #e8a55a — solid fill, matching badge-coral pattern
       "badge-accent":
         "inline-flex items-center rounded-full " +
-        "px-2.5 py-0.5 text-xs font-medium " +
-        "bg-amber-100 dark:bg-amber-900 " +
-        "text-amber-600 dark:text-amber-300",
+        "px-3 py-1 text-xs font-medium tracking-widest uppercase " +
+        "bg-amber-500 text-[#141413]",
 
       "text-primary": "text-coral-500 dark:text-coral-400",
       "text-accent": "text-amber-500 dark:text-amber-400",
@@ -336,8 +331,8 @@ export default mergeConfigs([
         "border-0 h-px bg-gradient-to-r " +
         "from-transparent via-warm-400/60 dark:via-warm-700/60 to-transparent",
 
-      // Caption — for metadata, sources, footnotes
-      caption: "text-xs text-warm-500 dark:text-warm-500 leading-relaxed",
+      // Caption — DESIGN.md: 13px, weight 500, line-height 1.4
+      caption: "text-[13px] leading-[1.4] font-medium text-[#8e8b82] dark:text-warm-500",
 
       // Stat — large number + tiny label, lighter than a card
       stat: "text-center",
@@ -348,6 +343,7 @@ export default mergeConfigs([
       presetWebFonts({
         fonts: {
           sans: ["Geist", "Noto Sans SC"],
+          serif: ["Cormorant Garamond", "Lora", "Noto Serif SC"],
           mono: "JetBrains Mono"
         },
         processors: createLocalFontProcessor(),
