@@ -70,7 +70,7 @@ export default mergeConfigs([
 
           /* ── Typographic defaults ────────────────── */
           .slidev-layout {
-            font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
             font-weight: 400;
             font-optical-sizing: auto;
             -webkit-font-smoothing: antialiased;
@@ -90,7 +90,7 @@ export default mergeConfigs([
           /* ── Utility headings: sans, DESIGN.md title-md (18px, 500, 1.4, 0) ── */
           .slidev-layout h3, .slidev-layout h4,
           .slidev-layout h5, .slidev-layout h6 {
-            font-family: 'Geist', 'Noto Sans SC', system-ui, -apple-system, sans-serif !important;
+            font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif !important;
             font-weight: 500 !important;
             line-height: 1.4 !important;
             letter-spacing: 0;
@@ -219,7 +219,7 @@ export default mergeConfigs([
             font-feature-settings: "tnum", "lnum";
           }
           .slidev-layout th {
-            font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -260,7 +260,7 @@ export default mergeConfigs([
 
           /* ── Slide number ─────────────────────────── */
           #slide-container .slidev-page-number {
-            font-family: "Geist", system-ui, sans-serif;
+            font-family: "Inter", system-ui, sans-serif;
             font-feature-settings: "tnum";
             font-size: 0.7rem;
             opacity: 0.45;
@@ -342,7 +342,7 @@ export default mergeConfigs([
     presets: [
       presetWebFonts({
         fonts: {
-          sans: ["Geist", "Noto Sans SC"],
+          sans: ["Inter", "Noto Sans SC"],
           serif: ["Cormorant Garamond", "Lora", "Noto Serif SC"],
           mono: "JetBrains Mono"
         },
