@@ -17,11 +17,11 @@
       "talks/*"
     ],
     "catalog": {
-      "@slidev/cli": "^52.12.0",
-      "@slidev/client": "^52.12.0",
+      "@slidev/cli": "^52.16.0",
+      "@slidev/client": "^52.16.0",
       "@slidev/theme-default": "^0.25.0",
-      "unocss": "^66.6.6",
-      "vite": "^8.0.0"
+      "unocss": "^66.7.2",
+      "vite": "^8.0.16"
     }
   },
   "devDependencies": {

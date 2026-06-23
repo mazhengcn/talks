@@ -16,6 +16,6 @@
     "unocss": "catalog:"
   },
   "devDependencies": {
-    "@unocss/preset-web-fonts": "66.6.6"
+    "@unocss/preset-web-fonts": "66.7.2"
   }
 }
