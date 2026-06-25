@@ -78,21 +78,22 @@ export default mergeConfigs([
             text-rendering: optimizeLegibility;
           }
 
-          /* ── Display headings: Cormorant Garamond (DESIGN.md substitute: weight 500, -0.02em) ── */
+          /* ── Display headings: EB Garamond serif (weight 500).                                  ── */
+          /* ── Flat -0.02em is fallback; use text-display-{xl,lg,md,sm} for progressive tracking ── */
           .slidev-layout h1, .slidev-layout h2 {
-            font-family: 'Cormorant Garamond', 'Noto Serif SC', 'Lora', serif !important;
+            font-family: 'EB Garamond', 'Noto Serif SC', serif !important;
             font-weight: 500 !important;
             letter-spacing: -0.02em;
             text-wrap: pretty;
           }
-          .slidev-layout h1 { line-height: 1.1 !important; }
-          .slidev-layout h2 { line-height: 1.15 !important; }
+          .slidev-layout h1 { line-height: 1.1; }
+          .slidev-layout h2 { line-height: 1.15; }
           /* ── Utility headings: sans, DESIGN.md title-md (18px, 500, 1.4, 0) ── */
           .slidev-layout h3, .slidev-layout h4,
           .slidev-layout h5, .slidev-layout h6 {
             font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif !important;
             font-weight: 500 !important;
-            line-height: 1.4 !important;
+            line-height: 1.4;
             letter-spacing: 0;
             text-wrap: pretty;
           }
@@ -279,6 +280,50 @@ export default mergeConfigs([
       "text-body": "text-[#3d3d3a] dark:text-warm-300",
       "text-subtle": "text-[#8e8b82] dark:text-warm-500",
 
+      // DESIGN.md on-dark text tokens — for text on code blocks and dark surfaces
+      "text-ink": "text-[#141413] dark:text-warm-50",
+      "text-on-dark": "text-[#faf9f5]",
+      "text-on-dark-soft": "text-[#a09d96]",
+
+      // ══════════════════════════════════════════════════════════════
+      // TYPE SCALE TOKENS  (Claude DESIGN.md)
+      //
+      // Font families are inherited from preflight rules:
+      //   Display (h1,h2) — EB Garamond serif, weight 500
+      //   Title  (h3-h6) — Inter sans, weight 500
+      //   Body   (p,li)  — Inter sans, weight 400
+      //   Code   (pre)   — JetBrains Mono, weight 400
+      //
+      // Weight discipline:
+      //   400 running text, code
+      //   500 headings, labels, captions
+      //   600 strong emphasis (sparing use)
+      //   700 display numerals only (stat counters)
+      //
+      // Progressive negative tracking on display sizes
+      // (Claude DESIGN.md Copernicus pattern)
+      // ══════════════════════════════════════════════════════════════
+
+      // Display: EB Garamond serif — progressive negative tracking
+      "text-display-xl": "text-[64px] leading-[1.05] tracking-[-1.5px]",
+      "text-display-lg": "text-[48px] leading-[1.10] tracking-[-1px]",
+      "text-display-md": "text-[36px] leading-[1.15] tracking-[-0.5px]",
+      "text-display-sm": "text-[28px] leading-[1.20] tracking-[-0.3px]",
+
+      // Title: Inter sans — clean, tight
+      "text-title-lg": "text-[22px] leading-[1.3]",
+      "text-title-md": "text-[18px] leading-[1.4]",
+      "text-title-sm": "text-[16px] leading-[1.4]",
+
+      // Body: Inter sans — comfortable reading
+      "text-body-md": "text-[16px] leading-[1.55]",
+      "text-body-sm": "text-[14px] leading-[1.55]",
+
+      // Supporting — self-contained weights and tracking
+      "text-caption-token": "text-[13px] leading-[1.4] font-500",
+      "text-caption-caps":
+        "text-[12px] leading-[1.4] font-500 tracking-[1.5px] uppercase",
+
       // ── Cards: DESIGN.md feature-card = surface-card #efe9de, 12px radius ──
       card:
         "rounded-xl bg-warm-200 dark:bg-warm-975 " +
@@ -343,7 +388,7 @@ export default mergeConfigs([
       presetWebFonts({
         fonts: {
           sans: ["Inter", "Noto Sans SC"],
-          serif: ["Cormorant Garamond", "Lora", "Noto Serif SC"],
+          serif: ["EB Garamond", "Noto Serif SC"],
           mono: "JetBrains Mono"
         },
         processors: createLocalFontProcessor(),

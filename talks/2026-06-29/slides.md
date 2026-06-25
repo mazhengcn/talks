@@ -12,7 +12,7 @@ remoteAssets: true
 <div class="space-y-10">
   <div class="space-y-4">
     <div class="w-16 h-1 bg-primary rounded-full mb-6"></div>
-    <h1 class="!text-5xl">
+    <h1 class="text-display-lg">
       全栈 AI for Science
     </h1>
     <p class="text-xl text-muted-foreground max-w-2xl leading-relaxed tracking-wide">
@@ -32,21 +32,21 @@ layout: center
 ---
 
 <div class="space-y-10 text-center">
-  <h2 class="!text-4xl text-foreground-soft">汇报提纲</h2>
+  <h2 class="text-display-md text-foreground-soft">汇报提纲</h2>
   <div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
-      <h3 class="!text-lg text-foreground-soft">科研工作</h3>
+      <h3 class="text-title-md text-foreground-soft">科研工作</h3>
       <p class="text-sm text-muted-foreground">三个相互关联的计算科学研究方向</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
-      <h3 class="!text-lg text-foreground-soft">教学工作</h3>
+      <h3 class="text-title-md text-foreground-soft">教学工作</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
-      <h3 class="!text-lg text-foreground-soft">未来规划</h3>
+      <h3 class="text-title-md text-foreground-soft">未来规划</h3>
       <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
     </div>
   </div>
@@ -94,7 +94,7 @@ layout: center
 
 ---
 
-# 科研愿景
+# 科研愿景 Think fast, build faster
 
 <div class="max-w-3xl mx-auto mt-8 space-y-6">
   <p class="text-xl leading-relaxed text-body">
@@ -131,12 +131,12 @@ layout: center
   <div class="grid grid-cols-2 gap-6">
     <div class="card p-5 space-y-2">
       <div class="text-2xl">🏛️</div>
-      <h3 class="!text-base">领域专用求解器</h3>
+      <h3 class="text-title-sm">领域专用求解器</h3>
       <p class="text-sm text-muted-foreground">为 RTE、Boltzmann、Vlasov–Maxwell 等方程定制专用架构——物理结构嵌入网络设计</p>
     </div>
     <div class="card p-5 space-y-2">
       <div class="text-2xl">🤖</div>
-      <h3 class="!text-base">大语言模型作为调度器</h3>
+      <h3 class="text-title-sm">大语言模型作为调度器</h3>
       <p class="text-sm text-muted-foreground">LLM 协调物理感知求解器的集成体——不是通用的 PDE 求解器，而是智能调度中心</p>
     </div>
   </div>
@@ -151,7 +151,7 @@ layout: center
 <div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
   <div class="card p-6 space-y-3" v-click>
     <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="!text-lg">方向一：多尺度 AI</h3>
+    <h3 class="text-title-md">方向一：多尺度 AI</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">动理学方程的基础模型与保结构神经网络</p>
     <div class="pt-3 space-y-1">
       <p class="text-sm font-medium text-muted-foreground">DeepRTE · APNNs · AP-CON</p>
@@ -160,7 +160,7 @@ layout: center
   </div>
   <div class="card p-6 space-y-3" v-click>
     <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="!text-lg">方向二：反问题</h3>
+    <h3 class="text-title-md">方向二：反问题</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">基于分数的扩散模型作为 PDE 反问题的学习先验</p>
     <div class="pt-3 space-y-1">
       <p class="text-sm font-medium text-muted-foreground">ODE-DPS · 无监督 FWI</p>
@@ -169,7 +169,7 @@ layout: center
   </div>
   <div class="card p-6 space-y-3" v-click>
     <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="!text-lg">方向三：快速谱算法</h3>
+    <h3 class="text-title-md">方向三：快速谱算法</h3>
     <p class="text-sm text-muted-foreground leading-relaxed">经典算法作为理论基础与基准黄金标准</p>
     <div class="pt-3 space-y-1">
       <p class="text-sm font-medium text-muted-foreground">非弹性 Boltzmann · AP-UQ</p>
@@ -188,7 +188,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向一</span>
-  <h2 class="!text-4xl mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
+  <h2 class="text-display-md mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
   <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -298,7 +298,7 @@ layout: center
   </p>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">APNN 原理</h3>
+    <h3 class="text-title-sm mb-2">APNN 原理</h3>
     <p class="text-base text-body">
       将微观-宏观分解代数地嵌入网络架构。每个分支受正确的极限方程
       <strong>硬约束</strong>。保证在所有 Knudsen 数下的一致精度——
@@ -330,7 +330,7 @@ layout: center
 
 <div class="space-y-4 mt-4">
   <div class="card p-5">
-    <h3 class="!text-base mb-3">AP 交换图</h3>
+    <h3 class="text-title-sm mb-3">AP 交换图</h3>
     <p class="text-base text-body mb-3">
       在有限 $\varepsilon$ 下极小化残差 $\mathcal{R} \to 0$，
       自动给出正确的 $\varepsilon \to 0$ 极限。
@@ -343,7 +343,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">架构：解耦分支</h3>
+    <h3 class="text-title-sm mb-2">架构：解耦分支</h3>
     <div class="grid grid-cols-2 gap-4">
       <div class="callout text-center">
         <p class="text-sm font-medium">宏观分支（密度 $\rho$）</p>
@@ -372,7 +372,7 @@ layout: center
       '用固定随机权重的随机基函数 $\\sigma(\\omega_j \\cdot x + b_j)$ 展开解',
       '无网格逼近，误差可控，复杂度仅 $O(N)$',
       '微观-宏观分解编码进基函数构造和最小二乘拟合',
-      '在**所有 Knudsen 数下一致精确**，成本远低于神经网络训练',
+      '在所有<strong>Knudsen 数下一致精确</strong>，成本远低于神经网络训练',
     ]"
     :enable-latex="true"
   />
@@ -389,7 +389,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向二</span>
-  <h2 class="!text-4xl mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
+  <h2 class="text-display-md mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
   <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -399,7 +399,7 @@ layout: center
 
 <div class="grid grid-cols-2 gap-8 mt-6">
   <div class="space-y-4">
-    <h3 class="!text-lg">问题陈述</h3>
+    <h3 class="text-title-md">问题陈述</h3>
     <div class="card p-5">
       <ul class="text-base text-body space-y-3">
         <li>从<strong>间接含噪观测</strong>中恢复未知场（速度、源项、初值）</li>
@@ -408,7 +408,7 @@ layout: center
       </ul>
     </div>
     <div class="card p-5">
-      <h4 class="!text-sm mb-2">经典方法：手工设计正则化</h4>
+      <h4 class="text-title-sm mb-2">经典方法：手工设计正则化</h4>
       <p class="text-sm text-muted-foreground">
         $\min_{u}\; \mathcal{L}_{\text{data}}(u) + \lambda\,\mathcal{R}(u)$
       </p>
@@ -418,7 +418,7 @@ layout: center
     </div>
   </div>
   <div class="space-y-4" v-click>
-    <h3 class="!text-lg">我们的方案</h3>
+    <h3 class="text-title-md">我们的方案</h3>
     <div class="card p-5">
       <Card title="基于分数扩散模型的学习先验" size="sm"
         :items="[
@@ -430,7 +430,7 @@ layout: center
       />
     </div>
     <div class="card p-5">
-      <h4 class="!text-sm mb-2">核心优势</h4>
+      <h4 class="text-title-sm mb-2">核心优势</h4>
       <p class="text-base text-body">
         物理场存在于名义高维参数空间中的<strong>低维流形</strong>上。
         分数函数隐式编码了这一流形几何——提供了无需手工设计的、
@@ -452,10 +452,10 @@ layout: center
   </p>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">核心算法贡献</h3>
+    <h3 class="text-title-sm mb-2">核心算法贡献</h3>
     <div class="grid grid-cols-2 gap-4">
       <div class="space-y-2">
-        <h4 class="!text-sm">ODE 逆向采样器</h4>
+        <h4 class=text-title-sm>ODE 逆向采样器</h4>
         <p class="text-xs text-muted-foreground">
           用确定性概率流 ODE 替代随机 SDE 动力学。
           两个具有相同 Fokker–Planck 边缘分布的正向过程
@@ -463,7 +463,7 @@ layout: center
         </p>
       </div>
       <div class="space-y-2">
-        <h4 class="!text-sm">自适应范数修正</h4>
+        <h4 class=text-title-sm>自适应范数修正</h4>
         <p class="text-xs text-muted-foreground">
           用空间加权范数替换 $\ell_2$ 数据残差——
           减少边界附近的重建误差。
@@ -488,17 +488,17 @@ layout: center
   </p>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">两项核心创新</h3>
+    <h3 class="text-title-sm mb-2">两项核心创新</h3>
     <div class="space-y-4">
       <div>
-        <h4 class="!text-sm">1. Wasserstein-2 数据一致性势函数</h4>
+        <h4 class=text-title-sm>1. Wasserstein-2 数据一致性势函数</h4>
         <p class="text-xs text-muted-foreground mt-1">
           用逐道 1D Wasserstein-2 距离替代点态 $\ell_2$ 失配。
           $W_2$ 对比分位函数 → 对相位偏移和振幅不平衡保持不变性，缓解周期跳跃问题。
         </p>
       </div>
       <div>
-        <h4 class="!text-sm">2. 预条件引导逆向扩散</h4>
+        <h4 class=text-title-sm>2. 预条件引导逆向扩散</h4>
         <p class="text-xs text-muted-foreground mt-1">
           对角预条件子 $P_i = \rho_i D_i$ 跨扩散步和空间位置自适应调整引导强度。
           早期保守引导，后期逐步增强。
@@ -521,7 +521,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">研究方向三</span>
-  <h2 class="!text-4xl mt-2">动理学方程的<br>快速谱算法</h2>
+  <h2 class="text-display-md mt-2">动理学方程的<br>快速谱算法</h2>
   <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -536,7 +536,7 @@ layout: center
   </p>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">非弹性 Boltzmann 碰撞算子</h3>
+    <h3 class="text-title-sm mb-2">非弹性 Boltzmann 碰撞算子</h3>
     <p class="text-base text-body mb-3">
       在 $N^3$ 分辨率下直接评估需要每时间步 $O(N^6)$ 运算。
       快速谱方法将弹性碰撞降至 $O(N^4 \log N)$——但<strong>非弹性</strong>
@@ -563,7 +563,7 @@ layout: center
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
-    <h3 class="!text-base mb-2">渐近保持不确定性量化</h3>
+    <h3 class="text-title-sm mb-2">渐近保持不确定性量化</h3>
     <p class="text-base text-body mb-3">
       通过随机 Galerkin 离散化，为含不确定性的输运方程和双曲方程开发了
       严格的 AP-UQ 方法。这为 APNN 架构提供了<strong>数学框架和设计直觉</strong>。
@@ -605,28 +605,28 @@ layout: center
 
 <div class="grid grid-cols-2 gap-6 mt-6">
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">一般理论</h3>
+    <h3 class="text-title-sm">一般理论</h3>
     <p class="text-sm text-muted-foreground">
       任意宽度和深度网络的无限宽神经正切核的谱动力学——
       训练收敛速率的闭式预测。
     </p>
   </div>
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">精确可解模型</h3>
+    <h3 class="text-title-sm">精确可解模型</h3>
     <p class="text-sm text-muted-foreground">
       复现两层网络 F-Principle 动力学的线性 ODE 模型——
       收敛性作为架构和学习率函数的解析预测。
     </p>
   </div>
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">相图</h3>
+    <h3 class="text-title-sm">相图</h3>
     <p class="text-sm text-muted-foreground">
       无限宽极限下两层 ReLU 网络泛化相的完整刻画——
       从初始化和架构到隐式偏差和测试误差的严格映射。
     </p>
   </div>
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">工程影响</h3>
+    <h3 class="text-title-sm">工程影响</h3>
     <p class="text-sm text-muted-foreground">
       ODE 模型提供了<strong>定量指导</strong>：网络深度和宽度应如何
       随目标 PDE 解的正则性缩放——将启发式设计转化为有原则的决策。
@@ -640,7 +640,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第二部分</span>
-  <h2 class="!text-4xl mt-2">教学与人才培养</h2>
+  <h2 class="text-display-md mt-2">教学与人才培养</h2>
   <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -658,15 +658,15 @@ layout: center
 
   <div class="grid grid-cols-3 gap-4">
     <div class="card p-4">
-      <h4 class="!text-sm mb-2">教方法而非内容</h4>
+      <h4 class="text-title-sm mb-2">教方法而非内容</h4>
       <p class="text-xs text-muted-foreground">要求学生在使用库函数之前从零实现算法——只有经历困难，才能真正内化方法为何有效、何处可能失败。</p>
     </div>
     <div class="card p-4">
-      <h4 class="!text-sm mb-2">教学相长</h4>
+      <h4 class="text-title-sm mb-2">教学相长</h4>
       <p class="text-xs text-muted-foreground">每堂课都是学习机会。学生的问题促使我修正推导、发现更简洁的证明，甚至重新审视自己的研究。</p>
     </div>
     <div class="card p-4">
-      <h4 class="!text-sm mb-2">AI 时代三项元技能</h4>
+      <h4 class="text-title-sm mb-2">AI 时代三项元技能</h4>
       <p class="text-xs text-muted-foreground">学会如何学习 · 区分基础与技巧 · 先广度后深度 —— 培养跨领域创造力。</p>
     </div>
   </div>
@@ -733,7 +733,7 @@ layout: center
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
-    <h3 class="!text-base mb-2">动手学深度学习（Python）—— MATH2806</h3>
+    <h3 class="text-title-sm mb-2">动手学深度学习（Python）—— MATH2806</h3>
     <p class="text-base text-body">
       2025 年新开设的数学专业本科生必修课。基于 <em>动手学深度学习</em>（d2l.ai）。
       学生从零实现 MLP、CNN、RNN 和 Transformer（PyTorch）。
@@ -742,7 +742,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">科学计算 —— MATH2802</h3>
+    <h3 class="text-title-sm mb-2">科学计算 —— MATH2802</h3>
     <p class="text-base text-body">
       从 MATLAB 迁移至 Python/NumPy/SciPy 工作流。增设开放式模拟项目：
       传染病动力学建模、不规则区域 PDE 模拟、稀疏系统迭代求解器基准测试。
@@ -751,7 +751,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">未来规划：科学机器学习新课程</h3>
+    <h3 class="text-title-sm mb-2">未来规划：科学机器学习新课程</h3>
     <p class="text-base text-body">
       统一经典数值分析与现代深度学习的研究生课程——涵盖 PINNs、神经算子、
       生成模型——着重理论保证与实际计算项目的结合。
@@ -767,7 +767,7 @@ layout: center
 
 <div class="max-w-3xl mx-auto mt-8 space-y-4">
   <div class="card p-5">
-    <h3 class="!text-base mb-3">国家自然科学基金</h3>
+    <h3 class="text-title-sm mb-3">国家自然科学基金</h3>
     <div class="space-y-3 text-sm">
       <div class="flex justify-between items-center border-b border-warm-300/60 dark:border-warm-800/50 pb-2">
         <div>
@@ -801,7 +801,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">实验室合作项目</h3>
+    <h3 class="text-title-sm mb-2">实验室合作项目</h3>
     <p class="text-base text-body">
       基于机器学习的 ICF 数值模拟建模与计算方法（负责人，2023–至今）·
       机器学习求解输运方程（负责人，2021–2023）
@@ -836,7 +836,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">开源软件</h3>
+    <h3 class="text-title-sm mb-2">开源软件</h3>
     <div class="text-sm text-body space-y-1">
       <p><strong>DeepRTE</strong> —— 辐射输运基础模型（JAX/Flax，Hugging Face 分发）</p>
       <p><strong>kipack</strong> —— GPU 加速 Boltzmann 求解器（JAX/CuPy，NumPy 接口）</p>
@@ -851,7 +851,7 @@ layout: center
 
 <div class="text-center space-y-4">
   <span class="badge-primary text-sm">第三部分</span>
-  <h2 class="!text-4xl mt-2">未来研究规划</h2>
+  <h2 class="text-display-md mt-2">未来研究规划</h2>
   <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
 </div>
 
@@ -861,7 +861,7 @@ layout: center
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
-    <h3 class="!text-lg mb-2">下一个前沿</h3>
+    <h3 class="text-title-md mb-2">下一个前沿</h3>
     <p class="text-base text-body">
       基于 DeepRTE 范式：开发描述聚变等离子体动力学的
       <strong>Vlasov–Maxwell 系统</strong>的算子学习基础模型。
@@ -870,14 +870,14 @@ layout: center
 
   <div class="grid grid-cols-2 gap-4">
     <div class="card p-4">
-      <h4 class="!text-sm mb-2">科学目标</h4>
+      <h4 class="text-title-sm mb-2">科学目标</h4>
       <p class="text-xs text-muted-foreground">
         替代托卡马克输运计算的 PIC 模拟的代理模型——在全动理学到流体谱上精确，
         可在<strong>毫秒级</strong>内评估，用于等离子体形状和稳定性的实时反馈控制。
       </p>
     </div>
     <div class="card p-4">
-      <h4 class="!text-sm mb-2">核心挑战</h4>
+      <h4 class="text-title-sm mb-2">核心挑战</h4>
       <p class="text-xs text-muted-foreground">
         在算子学习架构中作为<strong>硬架构约束</strong>保持物理不变量
         （总能量、$L^2$ 范数、熵不等式）。
@@ -896,7 +896,7 @@ layout: center
 
 <div class="space-y-5 mt-4">
   <div class="card p-5">
-    <h3 class="!text-base mb-2">扩散模型反演的严格误差分析</h3>
+    <h3 class="text-title-sm mb-2">扩散模型反演的严格误差分析</h3>
     <p class="text-base text-body">
       当前方法（ODE-DPS）对后验分数近似依赖启发性论证。
       我们旨在给出学习后验与真实贝叶斯后验之间 Wasserstein 距离的界限，
@@ -906,7 +906,7 @@ layout: center
   </div>
 
   <div class="card p-5">
-    <h3 class="!text-base mb-2">保结构算子学习</h3>
+    <h3 class="text-title-sm mb-2">保结构算子学习</h3>
     <p class="text-base text-body">
       推广 APNN 设计原则：构建<strong>可证明保持非线性守恒律</strong>
       （质量、能量、熵）的算子学习架构，适用于 Hamiltonian 和耗散 PDE 系统。
@@ -948,7 +948,7 @@ layout: center
 
 <div class="text-center space-y-10">
   <div class="w-16 h-1 bg-primary rounded-full mx-auto mb-6"></div>
-  <h1 class="!text-5xl">谢谢</h1>
+  <h1 class="text-display-xl">谢谢</h1>
   <div class="space-y-2 text-muted-foreground">
     <p class="text-xl font-medium text-foreground-soft">马征</p>
     <p class="text-base">zhengma@sjtu.edu.cn</p>
@@ -962,7 +962,7 @@ layout: center
 
 # 附录：代表性论文
 
-<div class="text-xs text-muted-foreground space-y-1 mt-6 max-w-3xl mx-auto leading-relaxed">
+<div class="text-xs text-muted-foreground space-y-2 mt-6 max-w-3xl mx-auto leading-relaxed">
   <p><strong>DeepRTE (2026).</strong> 稳态辐射输运方程的高效神经算子方法. <em>J. Comput. Phys.</em></p>
   <p><strong>ODE-DPS (2025).</strong> 基于分数的扩散后验采样求解 PDE 反问题.</p>
   <p><strong>APNN (2023, 2024).</strong> 多尺度动理学方程的渐近保持神经网络. <em>J. Comput. Phys.</em>, <em>SIAM J. Sci. Comput.</em></p>
@@ -985,7 +985,7 @@ layout: center
 
 <div class="grid grid-cols-2 gap-6 max-w-3xl mx-auto mt-8">
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">获奖与荣誉</h3>
+    <h3 class="text-title-sm">获奖与荣誉</h3>
     <ul class="text-sm text-body space-y-2">
       <li>Best Article Award, <em>Research in the Mathematical Sciences</em> (2019)</li>
       <li>上海交通大学优秀博士毕业生 (2017)</li>
@@ -993,7 +993,7 @@ layout: center
     </ul>
   </div>
   <div class="card p-5 space-y-3">
-    <h3 class="!text-base">学术服务</h3>
+    <h3 class="text-title-sm">学术服务</h3>
     <ul class="text-sm text-body space-y-2">
       <li>审稿人：J. Comput. Phys., SIAM J. Sci. Comput., Commun. Comput. Phys. 等</li>
       <li>NSFC 项目评审专家</li>

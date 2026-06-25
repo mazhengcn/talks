@@ -230,7 +230,7 @@ const dotClasses = {
       />
       <!-- Round dot bullet -->
       <div v-else i-ph:circle-duotone :class="dotClasses[variant]" />
-      <div class="text-on-surface flex-1">
+      <div class="text-body flex-1">
         {{ item }}
       </div>
     </li>
