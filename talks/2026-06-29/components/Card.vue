@@ -3,11 +3,13 @@
  * Card — structured content block for slides.
  *
  * ## Visual styling
- * Rendered as a `<div class="card">` which picks up the `card` UnoCSS shortcut
- * defined in unocss.config.ts. That shortcut handles background, border-radius,
- * and ring — it is the single source of truth for the card's visual appearance.
+ * Rendered as a `<div>` with a surface class controlled by the `variant` prop.
+ * Each variant maps to an UnoCSS shortcut defined in unocss.config.ts:
  *
- *   card: "rounded-xl bg-warm-200 dark:bg-warm-950 ring-1 ring-warm-300/60 dark:ring-warm-800/40"
+ *   variant="default"        → card           (rounded-xl, warm bg, subtle ring)
+ *   variant="elevated"       → card-elevated  (lighter bg, more visible ring)
+ *   variant="callout"        → callout        (coral-tinted bg, coral text)
+ *   variant="callout-accent" → callout-accent (amber-tinted bg, amber text)
  *
  * Raw `<div class="card">` in slides.md gives you the same visual shell without
  * the structural features (title, subtitle, items, LaTeX) that this component adds.
@@ -18,6 +20,7 @@
  * - `icon` — optional Iconify icon next to the title
  * - `enableLatex` — runtime KaTeX rendering for $...$ math in title/subtitle/items
  * - `size` — controls padding and font scale (sm | md | lg)
+ * - `variant` — which UnoCSS surface shortcut to use (default | elevated | callout | callout-accent)
  * - Default slot — fallback for custom content when no items are provided
  */
 import { nextTick, onMounted, ref, watch } from "vue";
@@ -27,12 +30,14 @@ interface Props {
   subtitle?: string;
   items?: string[];
   size?: "sm" | "md" | "lg";
+  variant?: "default" | "elevated" | "callout" | "callout-accent";
   icon?: string;
   enableLatex?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
+  variant: "default",
   enableLatex: false,
 });
 
@@ -227,6 +232,14 @@ watch([() => props.title, () => props.subtitle, () => props.items], () => {
   processMath();
 });
 
+// Surface variant → UnoCSS shortcut (defined in unocss.config.ts)
+const surfaceVariantClasses: Record<string, string> = {
+  default: "card",
+  elevated: "card-elevated",
+  callout: "callout",
+  "callout-accent": "callout-accent",
+};
+
 // Size presets — padding + font scale
 const sizeClasses: Record<string, string> = {
   sm: "p-3 text-sm",
@@ -238,8 +251,7 @@ const sizeClasses: Record<string, string> = {
 <template>
   <div
     ref="cardRef"
-    class="card"
-    :class="sizeClasses[size]"
+    :class="[surfaceVariantClasses[variant], sizeClasses[size]]"
   >
     <!-- Title with optional icon -->
     <div

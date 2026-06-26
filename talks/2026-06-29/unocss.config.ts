@@ -324,14 +324,25 @@ export default mergeConfigs([
       "text-caption-caps":
         "text-[12px] leading-[1.4] font-500 tracking-[1.5px] uppercase",
 
-      // ── Cards: DESIGN.md feature-card = surface-card #efe9de, 12px radius ──
+      // ── Cards ──────────────────────────────────────────────────────────
+      // `card` is the visual foundation: background, rounding, ring.
+      // Used by both raw <div class="card"> in slides.md AND the <Card>
+      // Vue component (which adds structural features: title, subtitle,
+      // items, LaTeX rendering). When styling cards, edit HERE — the
+      // component picks up these styles automatically via class="card".
+      //
+      // Light: warm-200 (#efe9de) on warm-50 (#faf9f5) — visible step
+      // Dark:  warm-950 (#252320) on warm-1000 (#181715) — visible step
       card:
-        "rounded-xl bg-warm-200 dark:bg-warm-975 " +
-        "ring-1 ring-[#e6dfd8]/60 dark:ring-warm-800/20",
+        "rounded-xl bg-warm-200 dark:bg-warm-950 " +
+        "ring-1 ring-warm-300/60 dark:ring-warm-800/40",
 
+      // Elevated variant for nested or emphasized cards.
+      // Light: warm-300 (#e8e0d2) — one step above base card
+      // Dark:  warm-900 (#3d3a2f) — one step above base card
       "card-elevated":
-        "rounded-xl bg-warm-300 dark:bg-warm-950 " +
-        "ring-1 ring-[#e6dfd8]/70 dark:ring-warm-800/25",
+        "rounded-xl bg-warm-300 dark:bg-warm-900 " +
+        "ring-1 ring-warm-400/50 dark:ring-warm-700/40",
 
       // ── Badges: DESIGN.md badge-pill = surface-card bg, ink #141413 text ──
       badge:

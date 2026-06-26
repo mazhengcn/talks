@@ -186,11 +186,7 @@ layout: center
 layout: center
 ---
 
-<div class="text-center space-y-4">
-  <span class="badge-primary text-sm">研究方向一</span>
-  <h2 class="text-display-md mt-2">动理学方程的基础模型<br>与保结构 AI 方法</h2>
-  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
-</div>
+<SectionDivider badge="研究方向一" heading="动理学方程的基础模型<br>与保结构 AI 方法" />
 
 ---
 
@@ -387,11 +383,7 @@ layout: center
 layout: center
 ---
 
-<div class="text-center space-y-4">
-  <span class="badge-primary text-sm">研究方向二</span>
-  <h2 class="text-display-md mt-2">学习先验与扩散模型<br>驱动的 PDE 反问题</h2>
-  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
-</div>
+<SectionDivider badge="研究方向二" heading="学习先验与扩散模型<br>驱动的 PDE 反问题" />
 
 ---
 
@@ -519,11 +511,7 @@ layout: center
 layout: center
 ---
 
-<div class="text-center space-y-4">
-  <span class="badge-primary text-sm">研究方向三</span>
-  <h2 class="text-display-md mt-2">动理学方程的<br>快速谱算法</h2>
-  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
-</div>
+<SectionDivider badge="研究方向三" heading="动理学方程的<br>快速谱算法" />
 
 ---
 
@@ -638,11 +626,7 @@ layout: center
 layout: center
 ---
 
-<div class="text-center space-y-4">
-  <span class="badge-primary text-sm">第二部分</span>
-  <h2 class="text-display-md mt-2">教学与人才培养</h2>
-  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
-</div>
+<SectionDivider badge="第二部分" heading="教学与人才培养" />
 
 ---
 
@@ -849,11 +833,7 @@ layout: center
 layout: center
 ---
 
-<div class="text-center space-y-4">
-  <span class="badge-primary text-sm">第三部分</span>
-  <h2 class="text-display-md mt-2">未来研究规划</h2>
-  <div class="w-12 h-0.5 bg-coral-400/40 rounded-full mx-auto mt-4"></div>
-</div>
+<SectionDivider badge="第三部分" heading="未来研究规划" />
 
 ---
 
