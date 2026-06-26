@@ -66,7 +66,7 @@ function isLastRow(rowIndex: number): boolean {
 </script>
 
 <template>
-  <div ref="tableRef" class="card p-4">
+  <div ref="tableRef" class="card p-0 overflow-auto">
     <table class="w-full text-sm">
       <thead>
         <tr class="border-b border-warm-300 dark:border-warm-800 bg-muted">

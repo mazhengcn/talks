@@ -19,7 +19,7 @@ const title =
     <div class="flex items-center gap-4 text-warm-600 dark:text-warm-400">
       <span class="font-medium text-warm-800 dark:text-warm-200"> 马 征 </span>
       <span class="text-warm-400 dark:text-warm-700">|</span>
-      <span>数学科学学院 · 自然科学研究院</span>
+      <span>数学科学学院</span>
     </div>
 
     <div class="flex items-center gap-3 text-warm-500 dark:text-warm-500">

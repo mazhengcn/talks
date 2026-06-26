@@ -23,7 +23,7 @@ remoteAssets: true
   <div class="space-y-1.5">
     <p class="text-2xl font-semibold text-foreground-soft">马征</p>
     <p class="text-base text-muted-foreground">长聘教轨副教授 · 上海交通大学</p>
-    <p class="text-sm text-subtle">数学科学学院 · 自然科学研究院</p>
+    <p class="text-sm text-subtle">数学科学学院</p>
   </div>
 </div>
 
@@ -36,21 +36,21 @@ layout: center
   <div class="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
+      <h3 class="text-title-md text-foreground-soft">个人简介</h3>
+      <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
+    </div>
+    <div class="card p-6 text-left space-y-2" v-click>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
       <h3 class="text-title-md text-foreground-soft">科研工作</h3>
       <p class="text-sm text-muted-foreground">三个相互关联的计算科学研究方向</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
       <h3 class="text-title-md text-foreground-soft">教学工作</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
-      <h3 class="text-title-md text-foreground-soft">未来规划</h3>
-      <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
-    </div>
-    <div class="card p-6 text-left space-y-2" v-click>
-      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">4</div>
       <h3 class="text-title-md text-foreground-soft">未来规划</h3>
       <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
     </div>
@@ -289,23 +289,17 @@ layout: center
 
 # 为什么动理学方程至关重要
 
-<div class="grid grid-cols-2 gap-8 mt-2">
-
-<div v-click>
+<div class="grid grid-cols-2 gap-8 mt-4">
 
 <Card title="计算挑战" size="md"
   :items="[
     '动理学方程描述**介观尺度**的物质行为——连接量子力学与流体动力学',
-    '相空间维度：$2d$（三维时为 6D）——**维度灾难**',
+    '相空间维度：$2\\times d$（三维时为 6）——**维度灾难**',
     '单次 RTE 模拟：$10^8$–$10^{12}$ 个未知量，超级计算机需数小时',
     '聚变等离子体：需**每秒数百万次 Vlasov–Maxwell 求解**以实现实时控制',
   ]"
   :enable-latex="true"
 />
-
-</div>
-
-<div v-click>
 
 <Card title="多尺度难题" size="md"
   :items="[
@@ -319,11 +313,9 @@ layout: center
 
 </div>
 
-</div>
+<div class="card p-4 mt-4 text-center">
 
-<div class="mt-8 text-center" v-click>
-
-**核心洞察：**物理结构（渐近极限、守恒律）必须作为<span class="text-primary font-medium">硬架构约束</span>，而非软正则化惩罚
+**物理结构（渐近极限、守恒律）** 必须作为<span class="text-primary font-medium">硬架构约束</span>，而非软正则化惩罚
 
 </div>
 
@@ -333,7 +325,7 @@ layout: center
 
 <div class="space-y-4 mt-4">
   <p class="text-base text-body">
-    <em>我最重要的近期工作。</em> 针对稳态辐射输运方程（RTE）的高效神经算子。
+    针对稳态辐射输运方程（RTE）的高效神经算子。
     RTE 是控制辐射在参与性介质中传播的微分-积分方程，应用涵盖中子输运、
     大气辐射、传热和光学成像。
   </p>
