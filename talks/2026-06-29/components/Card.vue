@@ -1,32 +1,39 @@
 <script setup lang="ts">
+/**
+ * Card — structured content block for slides.
+ *
+ * ## Visual styling
+ * Rendered as a `<div class="card">` which picks up the `card` UnoCSS shortcut
+ * defined in unocss.config.ts. That shortcut handles background, border-radius,
+ * and ring — it is the single source of truth for the card's visual appearance.
+ *
+ *   card: "rounded-xl bg-warm-200 dark:bg-warm-950 ring-1 ring-warm-300/60 dark:ring-warm-800/40"
+ *
+ * Raw `<div class="card">` in slides.md gives you the same visual shell without
+ * the structural features (title, subtitle, items, LaTeX) that this component adds.
+ *
+ * ## Structural features
+ * - `title` / `subtitle` — rendered with inline markdown support
+ * - `items` — list with square bullets
+ * - `icon` — optional Iconify icon next to the title
+ * - `enableLatex` — runtime KaTeX rendering for $...$ math in title/subtitle/items
+ * - `size` — controls padding and font scale (sm | md | lg)
+ * - Default slot — fallback for custom content when no items are provided
+ */
 import { nextTick, onMounted, ref, watch } from "vue";
 
 interface Props {
   title?: string;
   subtitle?: string;
   items?: string[];
-  variant?:
-    | "primary"
-    | "secondary"
-    | "tech"
-    | "neutral"
-    | "gradient-primary"
-    | "gradient-secondary"
-    | "gradient-tech"
-    | "success"
-    | "warning"
-    | "error";
   size?: "sm" | "md" | "lg";
   icon?: string;
   enableLatex?: boolean;
-  listStyle?: "dot" | "square";
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: "neutral",
   size: "md",
   enableLatex: false,
-  listStyle: "square",
 });
 
 // Refs for DOM elements
@@ -36,20 +43,17 @@ const cardRef = ref<HTMLElement>();
 let katex: any = null;
 
 /**
- * Load KaTeX library dynamically
- * First tries window.katex (if loaded by Slidev), then dynamic import
+ * Load KaTeX library dynamically.
+ * First tries window.katex (if loaded by Slidev), then dynamic import.
  */
 async function loadKaTeX() {
   if (katex) return katex;
 
   try {
-    // Try window.katex first (if already loaded by Slidev)
     if ((window as any).katex) {
       katex = (window as any).katex;
       return katex;
     }
-
-    // Try dynamic import
     const katexModule = await import("katex");
     katex = katexModule.default || katexModule;
     return katex;
@@ -60,8 +64,8 @@ async function loadKaTeX() {
 }
 
 /**
- * Process LaTeX math expressions in the component
- * Finds text nodes with $...$ patterns and renders them using KaTeX
+ * Process LaTeX math expressions in the component.
+ * Finds text nodes with $...$ patterns and renders them using KaTeX.
  */
 async function processMath() {
   if (!props.enableLatex || !cardRef.value) return;
@@ -75,7 +79,6 @@ async function processMath() {
       return;
     }
 
-    // Find all text nodes that contain LaTeX
     const walker = document.createTreeWalker(
       cardRef.value,
       NodeFilter.SHOW_TEXT,
@@ -91,7 +94,6 @@ async function processMath() {
       node = walker.nextNode();
     }
 
-    // Process each text node
     textNodes.forEach((textNode) => {
       const text = textNode.textContent!;
       const parts = text.split(/(\$[^$]+\$)/g);
@@ -99,7 +101,6 @@ async function processMath() {
       if (parts.length > 1) {
         const fragment = document.createDocumentFragment();
 
-        // Get computed styles from parent element to preserve styling
         const parentElement = textNode.parentElement;
         let inheritedStyles = "";
 
@@ -133,8 +134,7 @@ async function processMath() {
 
         parts.forEach((part) => {
           if (part.startsWith("$") && part.endsWith("$") && part.length > 2) {
-            // Render math expression
-            const math = part.slice(1, -1); // Remove $ delimiters
+            const math = part.slice(1, -1);
             const span = document.createElement("span");
 
             try {
@@ -143,12 +143,10 @@ async function processMath() {
                 displayMode: false,
               });
 
-              // Apply inherited styles to the KaTeX span
               if (inheritedStyles) {
                 span.style.cssText = inheritedStyles;
               }
 
-              // Apply styles to nested KaTeX elements
               const katexElements = span.querySelectorAll(".katex, .katex *");
               katexElements.forEach((elem: Element) => {
                 if (elem instanceof HTMLElement && inheritedStyles) {
@@ -183,7 +181,6 @@ async function processMath() {
               fragment.appendChild(document.createTextNode(part));
             }
           } else if (part) {
-            // Regular text
             fragment.appendChild(document.createTextNode(part));
           }
         });
@@ -230,76 +227,11 @@ watch([() => props.title, () => props.subtitle, () => props.items], () => {
   processMath();
 });
 
-// Style configuration — matches Anthropic warm design tokens
-const variantClasses = {
-  primary: "",
-  secondary: "",
-  tech: "",
-  neutral: "",
-  "gradient-primary": "",
-  "gradient-secondary": "",
-  "gradient-tech": "",
-  success: "",
-  warning: "",
-  error: "",
-};
-
-const sizeClasses = {
+// Size presets — padding + font scale
+const sizeClasses: Record<string, string> = {
   sm: "p-3 text-sm",
   md: "p-5",
   lg: "p-6 text-lg",
-};
-
-const titleClasses = {
-  primary: "text-primary",
-  secondary: "text-primary",
-  tech: "text-primary",
-  neutral: "text-foreground-soft",
-  "gradient-primary": "text-primary",
-  "gradient-secondary": "text-primary",
-  "gradient-tech": "text-primary",
-  success: "text-primary",
-  warning: "text-primary",
-  error: "text-primary",
-};
-
-const subtitleClasses = {
-  primary: "text-muted-foreground",
-  secondary: "text-muted-foreground",
-  tech: "text-muted-foreground",
-  neutral: "text-muted-foreground",
-  "gradient-primary": "text-muted-foreground",
-  "gradient-secondary": "text-muted-foreground",
-  "gradient-tech": "text-muted-foreground",
-  success: "text-muted-foreground",
-  warning: "text-muted-foreground",
-  error: "text-muted-foreground",
-};
-
-const iconClasses = {
-  primary: "text-primary",
-  secondary: "text-primary",
-  tech: "text-primary",
-  neutral: "text-primary",
-  "gradient-primary": "text-primary",
-  "gradient-secondary": "text-primary",
-  "gradient-tech": "text-primary",
-  success: "text-primary",
-  warning: "text-primary",
-  error: "text-primary",
-};
-
-const dotClasses = {
-  primary: "bg-coral-500",
-  secondary: "bg-coral-500",
-  tech: "bg-coral-500",
-  neutral: "bg-coral-500",
-  "gradient-primary": "bg-coral-500",
-  "gradient-secondary": "bg-coral-500",
-  "gradient-tech": "bg-coral-500",
-  success: "bg-coral-500",
-  warning: "bg-coral-500",
-  error: "bg-coral-500",
 };
 </script>
 
@@ -382,10 +314,3 @@ const dotClasses = {
     </div>
   </div>
 </template>
-
-<style scoped>
-/**
- * Solid color-block card — depth through background contrast, not borders or shadows.
- * Variant backgrounds are applied via variantClasses above.
- */
-</style>

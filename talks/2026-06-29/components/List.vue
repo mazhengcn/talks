@@ -225,17 +225,17 @@ watch([() => props.items], () => {
   processMath();
 });
 
-const dotClasses = {
-  primary: "bg-sjtu-400",
-  secondary: "bg-academic-400",
-  tech: "bg-tech-electric-400",
-  neutral: "bg-neutral-400",
-  "gradient-primary": "bg-sjtu-400",
-  "gradient-secondary": "bg-academic-400",
-  "gradient-tech": "bg-tech-electric-400",
-  success: "bg-success-400",
-  warning: "bg-warning-400",
-  error: "bg-error-400",
+const dotClasses: Record<string, string> = {
+  primary: "text-coral-500",
+  secondary: "text-coral-400",
+  tech: "text-amber-500",
+  neutral: "text-coral-500",
+  "gradient-primary": "text-coral-500",
+  "gradient-secondary": "text-coral-400",
+  "gradient-tech": "text-amber-500",
+  success: "text-coral-500",
+  warning: "text-amber-500",
+  error: "text-coral-600",
 };
 </script>
 
