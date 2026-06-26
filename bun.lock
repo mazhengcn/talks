@@ -102,11 +102,7 @@
         "vite": "catalog:",
       },
     },
-    "talks/deep-pde": {
-      "name": "deep-pde",
-      "version": "0.0.0",
-    },
-    "talks/tenure-track": {
+    "talks/2026-06-29": {
       "name": "tenure-track",
       "version": "0.0.0",
       "dependencies": {
@@ -119,6 +115,10 @@
       "devDependencies": {
         "@unocss/preset-web-fonts": "66.7.2",
       },
+    },
+    "talks/deep-pde": {
+      "name": "deep-pde",
+      "version": "0.0.0",
     },
   },
   "catalog": {
@@ -1441,7 +1441,7 @@
 
     "super-regex": ["super-regex@0.2.0", "", { "dependencies": { "clone-regexp": "^3.0.0", "function-timeout": "^0.1.0", "time-span": "^5.1.0" } }, "sha512-WZzIx3rC1CvbMDloLsVw0lkZVKJWbrkJ0k1ghKFmcnPrW1+jWbgTkTEWVtD9lMdmI4jZEz40+naBxl1dCUhXXw=="],
 
-    "tenure-track": ["tenure-track@workspace:talks/tenure-track"],
+    "tenure-track": ["tenure-track@workspace:talks/2026-06-29"],
 
     "time-span": ["time-span@5.1.0", "", { "dependencies": { "convert-hrtime": "^5.0.0" } }, "sha512-75voc/9G4rDIJleOo4jPvN4/YC4GRZrY8yy1uU4lwrB3XEQbWve8zXoO5No4eFrGcTAMYyoY67p8jRQdtA1HbA=="],
 

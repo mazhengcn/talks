@@ -33,7 +33,7 @@ layout: center
 
 <div class="space-y-10 text-center">
   <h2 class="text-display-md text-foreground-soft">汇报提纲</h2>
-  <div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
+  <div class="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
       <h3 class="text-title-md text-foreground-soft">科研工作</h3>
@@ -43,6 +43,11 @@ layout: center
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
       <h3 class="text-title-md text-foreground-soft">教学工作</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
+    </div>
+    <div class="card p-6 text-left space-y-2" v-click>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
+      <h3 class="text-title-md text-foreground-soft">未来规划</h3>
+      <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
     </div>
     <div class="card p-6 text-left space-y-2" v-click>
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
@@ -64,8 +69,8 @@ layout: center
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
       <span class="badge-primary text-xs">2008 – 2012</span>
-      <h3 class="!text-sm leading-tight mt-1">数学与应用数学学士</h3>
-      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</p>
+      <h3 class="!text-sm leading-tight mt-4">数学与应用数学学士</h3>
+      <div class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</div>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
@@ -94,7 +99,7 @@ layout: center
 
 ---
 
-# 科研愿景 Think fast, build faster
+# 科研愿景
 
 <div class="max-w-3xl mx-auto mt-8 space-y-6">
   <p class="text-xl leading-relaxed text-body">
@@ -139,6 +144,98 @@ layout: center
       <h3 class="text-title-sm">大语言模型作为调度器</h3>
       <p class="text-sm text-muted-foreground">LLM 协调物理感知求解器的集成体——不是通用的 PDE 求解器，而是智能调度中心</p>
     </div>
+  </div>
+</div>
+
+
+---
+layout: center
+---
+
+# AI4S：三要素与 Scaling Law
+
+<div class="w-full px-8 mt-12 space-y-8">
+
+  <div class="flex items-stretch justify-center gap-4">
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">数据</p>
+      <p class="text-title-md text-foreground-soft">物理规律</p>
+      <p class="text-body-md text-subtle">理论无限，高效利用</p>
+      <span class="badge-primary text-sm px-4 py-1.5">APNN 框架</span>
+    </div>
+    <div class="flex items-center">
+      <span class="text-3xl text-subtle font-light">×</span>
+    </div>
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">模型</p>
+      <p class="text-title-md text-foreground-soft">PDE 解算子</p>
+      <p class="text-body-md text-subtle">特定问题 → 特定数学结构</p>
+      <span class="badge-primary text-sm px-4 py-1.5">DeepRTE</span>
+    </div>
+    <div class="flex items-center">
+      <span class="text-3xl text-subtle font-light">×</span>
+    </div>
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">算力 / 算法</p>
+      <p class="text-title-md text-foreground-soft">GPU 集群</p>
+      <p class="text-body-md text-subtle">Scaling Law 驱动三者</p>
+      <span class="badge-primary text-sm px-4 py-1.5">Diffusion Inversion</span>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <p class="text-title-md text-foreground-soft">
+      数据与模型，本质上都是 <strong class="text-primary">约束 (Harness)</strong>
+    </p>
+  </div>
+
+</div>
+
+---
+layout: center
+---
+
+# LLM Agent 驱动的闭环
+
+<div class="w-full px-8 mt-12 space-y-8">
+
+  <div class="flex items-center justify-center gap-3 flex-wrap">
+    <span class="badge text-body-md px-4 py-1.5">物理规律</span>
+    <span class="text-subtle text-xl">→</span>
+    <span class="badge text-body-md px-4 py-1.5">PDE 算子</span>
+    <span class="text-subtle text-xl">→</span>
+    <span class="badge text-body-md px-4 py-1.5">数值求解</span>
+    <span class="text-subtle text-xl">→</span>
+    <span class="badge text-body-md px-4 py-1.5">验证迭代</span>
+    <span class="text-subtle text-xl">→</span>
+    <span class="badge text-body-md px-4 py-1.5">物理规律</span>
+  </div>
+
+  <div class="card p-8 space-y-5">
+    <div class="text-center space-y-1.5">
+      <p class="text-caption-caps text-subtle">大脑 · 调度中心</p>
+      <p class="text-display-md text-primary">LLM Agent</p>
+    </div>
+
+  <div class="separator"></div>
+
+  <div class="grid grid-cols-2 gap-8">
+    <div>
+      <p class="text-title-md">数据 + 模型 = 约束</p>
+      <p class="text-body-md text-muted-foreground mt-1.5">物理规律与 PDE 结构<br/>共同构成解空间的 Harness</p>
+    </div>
+    <div>
+      <p class="text-title-md">Agent = 闭环大脑</p>
+      <p class="text-body-md text-muted-foreground mt-1.5">调度生成、选择架构、<br/>分配算力、验证迭代</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="text-center">
+    <span class="badge-primary text-sm px-4 py-1.5">🔄 Loop Engineer</span>
   </div>
 </div>
 
@@ -241,39 +338,16 @@ layout: center
     大气辐射、传热和光学成像。
   </p>
 
-  <div class="card p-4">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="border-b border-warm-300 dark:border-warm-800 bg-muted">
-          <th class="text-left py-2 text-muted-foreground font-medium">方面</th>
-          <th class="text-left py-2 text-muted-foreground font-medium">经典 $S_N$ 求解器</th>
-          <th class="text-left py-2 text-primary font-medium">DeepRTE</th>
-        </tr>
-      </thead>
-      <tbody class="text-body">
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-2 font-medium">推理时间</td>
-          <td class="py-2">$10^4$–$10^6$ 秒/几何体</td>
-          <td class="py-2 font-medium">~2.3 秒（$83.9\times$ 加速）</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-2 font-medium">数学范畴</td>
-          <td class="py-2">方程离散化</td>
-          <td class="py-2 font-medium">算子映射 $\mathcal{A}: (I^{-}, \mu_t, \mu_s, p) \mapsto I$</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-2 font-medium">复用性</td>
-          <td class="py-2">无原生复用能力</td>
-          <td class="py-2 font-medium">零样本泛化，无需重新训练</td>
-        </tr>
-        <tr>
-          <td class="py-2 font-medium">分发方式</td>
-          <td class="py-2">专用 Fortran/C++ 库</td>
-          <td class="py-2 font-medium">Hugging Face + JAX/Flax API</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <DataTable
+    :headers="['方面', '经典 $S_N$ 求解器', 'DeepRTE']"
+    :rows="[
+      ['推理时间', '$10^4$–$10^6$ 秒/几何体', '~2.3 秒（$83.9\\times$ 加速）'],
+      ['数学范畴', '方程离散化', '算子映射 $\\mathcal{A}: (I^{-},\\mu_t,p)\\to I$'],
+      ['复用性', '无原生复用能力', '零样本泛化，无需重新训练'],
+      ['分发方式', '专用 Fortran/C++ 库', 'Hugging Face + JAX/Flax API'],
+    ]"
+    :highlight-col="2"
+  />
 
   <p class="text-xs text-subtle">
     DeepRTE 是<strong>可复用的计算资产</strong>——巨大的初始训练成本被均摊到数千个下游任务中。
@@ -666,49 +740,18 @@ layout: center
     涉及计算数学、数值分析和人工智能。
   </p>
 
-  <div class="card p-4">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="border-b border-warm-300 dark:border-warm-800 bg-muted">
-          <th class="text-left py-2 text-muted-foreground font-medium">课程</th>
-          <th class="text-left py-2 text-muted-foreground font-medium">层次</th>
-          <th class="text-left py-2 text-muted-foreground font-medium">课时（个人）</th>
-        </tr>
-      </thead>
-      <tbody class="text-body">
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-1.5 font-medium">科学计算</td>
-          <td class="py-1.5">本科</td>
-          <td class="py-1.5">48 × 5 轮次</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-1.5 font-medium">计算方法</td>
-          <td class="py-1.5">研究生（中/英）</td>
-          <td class="py-1.5">48 × 5 轮次</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-1.5 font-medium">数值分析</td>
-          <td class="py-1.5">本科</td>
-          <td class="py-1.5">48</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-1.5 font-medium">动手学深度学习（Python）</td>
-          <td class="py-1.5">本科（新课）</td>
-          <td class="py-1.5">32</td>
-        </tr>
-        <tr class="border-b border-warm-300/60 dark:border-warm-800/50">
-          <td class="py-1.5 font-medium">人工智能基础</td>
-          <td class="py-1.5">本科（新课）</td>
-          <td class="py-1.5">32</td>
-        </tr>
-        <tr>
-          <td class="py-1.5 font-medium">微分方程高性能计算</td>
-          <td class="py-1.5">研究生</td>
-          <td class="py-1.5">32 × 2 轮次 + 16</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <DataTable
+    :headers="['课程', '层次', '课时（个人）']"
+    :rows="[
+      ['科学计算', '本科', '48 × 5 轮次'],
+      ['计算方法', '研究生（中/英）', '48 × 5 轮次'],
+      ['数值分析', '本科', '48'],
+      ['动手学深度学习（Python）', '本科（新课）', '32'],
+      ['人工智能基础', '本科（新课）', '32'],
+      ['微分方程高性能计算', '研究生', '32 × 2 轮次 + 16'],
+    ]"
+    :enable-latex="false"
+  />
 </div>
 
 ---
