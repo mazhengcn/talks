@@ -191,6 +191,30 @@ async function processMath() {
   }
 }
 
+/**
+ * Render basic inline markdown to HTML.
+ * Supports: **bold**, *italic*, `code`, ~~strikethrough~~
+ * HTML is escaped first; only known-safe tags are produced.
+ * LaTeX $...$ is left untouched — processMath() handles it post-render.
+ */
+function renderInlineMarkdown(text: string): string {
+  let html = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  // Inline code — before bold/italic to avoid conflict
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  // Bold
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+  // Italic
+  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  html = html.replace(/_([^_]+)_/g, "<em>$1</em>");
+  // Strikethrough
+  html = html.replace(/~~([^~]+)~~/g, "<del>$1</del>");
+  return html;
+}
+
 // Lifecycle hooks
 onMounted(() => {
   processMath();
@@ -230,9 +254,7 @@ const dotClasses = {
       />
       <!-- Round dot bullet -->
       <div v-else i-ph:circle-duotone :class="dotClasses[variant]" />
-      <div class="text-body flex-1">
-        {{ item }}
-      </div>
+      <div class="text-body flex-1" v-html="renderInlineMarkdown(item)" />
     </li>
   </ul>
 
