@@ -99,147 +99,163 @@ layout: center
 
 ---
 
-# 科研愿景
+# 论文发表与学术影响
 
-<div class="max-w-3xl mx-auto mt-8 space-y-6">
-  <p class="text-xl leading-relaxed text-body">
-    我们正处于计算科学的转折点。从
-    <span class="font-medium text-foreground-soft">可控核聚变</span>、
-    <span class="font-medium text-foreground-soft">地震成像</span>到
-    <span class="font-medium text-foreground-soft">放射治疗</span>，
-    这些重大挑战最终都归结为在经典数值方法无法企及的规模上求解
-    <em>动理学方程与反问题</em>。
-  </p>
+<div class="max-w-5xl mx-auto mt-10 space-y-8">
 
-  <div class="card p-6">
-    <p class="text-lg font-semibold text-primary mb-2">我的回答</p>
-    <p class="text-lg leading-relaxed text-body">
-      <strong>全栈 AI for Science</strong> —— 垂直整合的方法论：
-      严格的数学分析 → 嵌入物理硬约束的神经网络架构
-      → 可扩展算法 → 生产级开源软件。
-    </p>
+  <div class="grid grid-cols-4 gap-5">
+    <div class="stat">
+      <p class="stat-num">30+</p>
+      <p class="stat-label">同行评审论文</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">5</p>
+      <p class="stat-label">预印本</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">1</p>
+      <p class="stat-label">专著章节</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">1</p>
+      <p class="stat-label">最佳论文奖 (2019)</p>
+    </div>
   </div>
+
+  <div>
+
+<h3 class="text-title-md mb-5">开源软件</h3>
+
+<div class="grid grid-cols-3 gap-5">
+
+<div class="card p-6 space-y-2">
+  <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+  <p class="text-body-md font-semibold text-foreground-soft">DeepRTE</p>
+  <p class="text-body-sm text-muted-foreground">辐射输运基础模型<br/>JAX/Flax · Hugging Face 分发</p>
 </div>
 
----
-
-# 真实物理科学的智能体
-
-<br>
-
-<br>
-
-<div class="max-w-3xl mx-auto mt-8 space-y-6">
-  <p class="text-lg leading-relaxed text-body">
-    我的理念与主流的<em>"一个模型解决一切"</em>范式截然不同。
-    我主张为特定控制方程开发<strong>紧凑的、注入物理信息的专用模型</strong>。
-  </p>
-
-  <div class="grid grid-cols-2 gap-6">
-    <div class="card p-5 space-y-2">
-      <div class="text-2xl">🏛️</div>
-      <h3 class="text-title-sm">领域专用求解器</h3>
-      <p class="text-sm text-muted-foreground">为 RTE、Boltzmann、Vlasov–Maxwell 等方程定制专用架构——物理结构嵌入网络设计</p>
-    </div>
-    <div class="card p-5 space-y-2">
-      <div class="text-2xl">🤖</div>
-      <h3 class="text-title-sm">大语言模型作为调度器</h3>
-      <p class="text-sm text-muted-foreground">LLM 协调物理感知求解器的集成体——不是通用的 PDE 求解器，而是智能调度中心</p>
-    </div>
-  </div>
+<div class="card p-6 space-y-2">
+  <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+  <p class="text-body-md font-semibold text-foreground-soft">kipack</p>
+  <p class="text-body-sm text-muted-foreground">GPU 加速 Boltzmann 求解器<br/>JAX/CuPy · NumPy 接口</p>
 </div>
 
+<div class="card p-6 space-y-2">
+  <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+  <p class="text-body-md font-semibold text-foreground-soft">fsm-inelastic</p>
+  <p class="text-body-sm text-muted-foreground">首个次立方非弹性<br/>Boltzmann 碰撞算子求解器</p>
+</div>
 
----
-layout: center
----
+</div>
 
-# AI4S：三要素与 Scaling Law
-
-<div class="w-full px-8 mt-12 space-y-8">
-
-  <div class="flex items-stretch justify-center gap-4">
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
-      <p class="text-display-sm">数据</p>
-      <p class="text-title-md text-foreground-soft">物理规律</p>
-      <p class="text-body-md text-subtle">理论无限，高效利用</p>
-      <span class="badge-primary text-sm px-4 py-1.5">APNN 框架</span>
-    </div>
-    <div class="flex items-center">
-      <span class="text-3xl text-subtle font-light">×</span>
-    </div>
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
-      <p class="text-display-sm">模型</p>
-      <p class="text-title-md text-foreground-soft">PDE 解算子</p>
-      <p class="text-body-md text-subtle">特定问题 → 特定数学结构</p>
-      <span class="badge-primary text-sm px-4 py-1.5">DeepRTE</span>
-    </div>
-    <div class="flex items-center">
-      <span class="text-3xl text-subtle font-light">×</span>
-    </div>
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
-      <p class="text-display-sm">算法</p>
-      <p class="text-title-md text-foreground-soft">GPU 集群</p>
-      <p class="text-body-md text-subtle">Scaling Law 驱动三者</p>
-      <span class="badge-primary text-sm px-4 py-1.5">Diffusion Inversion</span>
-    </div>
-  </div>
-
-  <div class="text-center">
-    <p class="text-title-md text-foreground-soft">
-      数据与模型，本质上都是 <strong class="text-primary">约束 (Harness)</strong>
-    </p>
   </div>
 
 </div>
 
 ---
-layout: center
----
 
-# LLM Agent 驱动的闭环
+# 科研基金
 
-<div class="w-full px-8 mt-12 space-y-8">
+<div class="max-w-4xl mx-auto -mt-2 space-y-3">
 
-  <div class="flex items-center justify-center gap-3 flex-wrap">
-    <span class="badge text-body-md px-4 py-1.5">物理规律</span>
-    <span class="text-subtle text-xl">→</span>
-    <span class="badge text-body-md px-4 py-1.5">PDE 算子</span>
-    <span class="text-subtle text-xl">→</span>
-    <span class="badge text-body-md px-4 py-1.5">数值求解</span>
-    <span class="text-subtle text-xl">→</span>
-    <span class="badge text-body-md px-4 py-1.5">验证迭代</span>
-    <span class="text-subtle text-xl">→</span>
-    <span class="badge text-body-md px-4 py-1.5">物理规律</span>
+  <div class="card p-5 space-y-3">
+
+<div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">国家自然科学基金</h3>
+
+<div class="space-y-1.5">
+
+<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge text-xs shrink-0">参与</span>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">重点项目</span>
+    <span class="text-body-md text-foreground-soft truncate">大规模相互作用粒子系统的不确定性量化与计算</span>
   </div>
-
-  <div class="card p-8 space-y-5">
-    <div class="text-center space-y-1.5">
-      <p class="text-caption-caps text-subtle">大脑 · 调度中心</p>
-      <p class="text-display-md text-primary">LLM Agent</p>
-    </div>
-
-  <div class="separator"></div>
-
-  <div class="grid grid-cols-2 gap-8">
-    <div>
-      <p class="text-title-md">数据 + 模型 = 约束</p>
-      <p class="text-body-md text-muted-foreground mt-1.5">物理规律与 PDE 结构<br/>共同构成解空间的 Harness</p>
-    </div>
-    <div>
-      <p class="text-title-md">Agent = 闭环大脑</p>
-      <p class="text-body-md text-muted-foreground mt-1.5">调度生成、选择架构、<br/>分配算力、验证迭代</p>
-    </div>
-  </div>
-  </div>
-
-  <div class="text-center">
-    <span class="badge-primary text-sm px-4 py-1.5">🔄 Loop Engineer</span>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2026–2030</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
   </div>
 </div>
+
+<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge-primary text-xs shrink-0">主持</span>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 shrink-0">重大研究计划培育</span>
+    <span class="text-body-md text-foreground-soft truncate">利用机器学习方法快速求解辐射输运方程</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2023–2025</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+  </div>
+</div>
+
+<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge-primary text-xs shrink-0">主持</span>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
+    <span class="text-body-md text-foreground-soft truncate">多尺度动理学方程的渐近保持神经网络方法</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2023–2025</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+  </div>
+</div>
+
+<div class="flex justify-between items-center">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge text-xs shrink-0">参与</span>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">重点项目</span>
+    <span class="text-body-md text-foreground-soft truncate">多尺度动理学方程不确定性量化的计算方法与理论</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2021–2025</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  <div class="card p-5 space-y-3">
+
+<div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">实验室合作项目</h3>
+
+<div class="space-y-1.5">
+
+<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge-primary text-xs shrink-0">主持</span>
+    <span class="text-xs text-foreground-soft truncate">基于机器学习的 ICF 数值模拟建模与计算方法</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2023–至今</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+  </div>
+</div>
+
+<div class="flex justify-between items-center">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge-primary text-xs shrink-0">主持</span>
+    <span class="text-xs text-foreground-soft truncate">机器学习求解输运方程</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2021–2023</span>
+    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+</div>
+
+
+
 
 ---
 
@@ -291,36 +307,40 @@ layout: center
 layout: center
 ---
 
-# 三个研究方向
+# 三个系列工作
 
 <div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
-  <div class="card p-6 space-y-3" v-click>
-    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="text-title-md">方向一：多尺度 AI</h3>
-    <p class="text-sm text-muted-foreground leading-relaxed">动理学方程的基础模型与保结构神经网络</p>
-    <div class="pt-3 space-y-1">
-      <p class="text-sm font-medium text-muted-foreground">DeepRTE · APNNs · AP-CON</p>
-      <p class="text-sm font-medium text-muted-foreground">RT-APNN · AP-RFM</p>
-    </div>
+
+<div class="card p-8 space-y-4">
+  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+  <h3 class="text-title-lg">DeepRTE</h3>
+  <p class="text-body-md text-muted-foreground leading-relaxed">辐射输运的高效神经算子基础模型</p>
+  <div class="space-y-1.5 pt-2">
+    <p class="text-body-sm text-muted-foreground">零样本泛化 · 推理加速 80×</p>
+    <p class="text-body-sm text-muted-foreground">HuggingFace 开源分发</p>
   </div>
-  <div class="card p-6 space-y-3" v-click>
-    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="text-title-md">方向二：反问题</h3>
-    <p class="text-sm text-muted-foreground leading-relaxed">基于分数的扩散模型作为 PDE 反问题的学习先验</p>
-    <div class="pt-3 space-y-1">
-      <p class="text-sm font-medium text-muted-foreground">ODE-DPS · 无监督 FWI</p>
-      <p class="text-sm font-medium text-muted-foreground">Wasserstein-2 引导</p>
-    </div>
+</div>
+
+<div class="card p-8 space-y-4">
+  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+  <h3 class="text-title-lg">APNNs</h3>
+  <p class="text-body-md text-muted-foreground leading-relaxed">渐近保持神经网络与多尺度保结构方法</p>
+  <div class="space-y-1.5 pt-2">
+    <p class="text-body-sm text-muted-foreground">AP-CON · RT-APNN · AP-RFM</p>
+    <p class="text-body-sm text-muted-foreground">AP-UQ · 非弹性 Boltzmann</p>
   </div>
-  <div class="card p-6 space-y-3" v-click>
-    <div class="w-8 h-0.5 bg-coral-500/60 rounded-full"></div>
-    <h3 class="text-title-md">方向三：快速谱算法</h3>
-    <p class="text-sm text-muted-foreground leading-relaxed">经典算法作为理论基础与基准黄金标准</p>
-    <div class="pt-3 space-y-1">
-      <p class="text-sm font-medium text-muted-foreground">非弹性 Boltzmann · AP-UQ</p>
-      <p class="text-sm font-medium text-muted-foreground">kipack · fsm-inelastic</p>
-    </div>
+</div>
+
+<div class="card p-8 space-y-4">
+  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+  <h3 class="text-title-lg">扩散模型反问题</h3>
+  <p class="text-body-md text-muted-foreground leading-relaxed">扩散模型驱动的 PDE 反问题学习先验</p>
+  <div class="space-y-1.5 pt-2">
+    <p class="text-body-sm text-muted-foreground">ODE-DPS · 无监督 FWI</p>
+    <p class="text-body-sm text-muted-foreground">Wasserstein-2 引导</p>
   </div>
+</div>
+
 </div>
 
 <p class="caption text-center mt-8">
@@ -331,7 +351,7 @@ layout: center
 layout: center
 ---
 
-<SectionDivider badge="研究方向一" heading="动理学方程的基础模型<br>与保结构 AI 方法" />
+<SectionDivider badge="研究方向一" heading="辐射输运的高效<br>神经算子基础模型" />
 
 ---
 
@@ -497,7 +517,7 @@ layout: center
 layout: center
 ---
 
-<SectionDivider badge="研究方向二" heading="学习先验与扩散模型<br>驱动的 PDE 反问题" />
+<SectionDivider badge="研究方向二" heading="渐近保持神经网络<br>与多尺度保结构方法" />
 
 ---
 
@@ -505,7 +525,7 @@ layout: center
 
 <div class="grid grid-cols-2 gap-8 mt-6">
   <div class="space-y-4">
-    <h3 class="text-title-md">问题陈述</h3>
+    <h3 class="text-title-sm">问题陈述</h3>
     <div class="card p-5">
       <ul class="text-base text-body space-y-3">
         <li>从<strong>间接含噪观测</strong>中恢复未知场（速度、源项、初值）</li>
@@ -524,7 +544,7 @@ layout: center
     </div>
   </div>
   <div class="space-y-4" v-click>
-    <h3 class="text-title-md">我们的方案</h3>
+    <h3 class="text-title-sm">我们的方案</h3>
     <div class="card p-5">
       <Card title="基于分数扩散模型的学习先验" size="sm"
         :items="[
@@ -621,11 +641,106 @@ layout: center
   </div>
 </div>
 
+
+---
+
+# AI4S：三要素
+
+<div class="text-center mt-10">
+  <p class="text-title-lg text-foreground-soft">
+    数据与模型，本质上都是 <strong class="text-primary">约束 (Harness)</strong>
+  </p>
+</div>
+
+<div class="w-full px-8 mt-12 space-y-8">
+
+  <div class="flex items-stretch justify-center gap-4">
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">数据</p>
+      <p class="text-title-md text-foreground-soft">物理规律</p>
+      <p class="text-body-md text-subtle">理论无限，高效利用</p>
+      <span class="badge-primary text-sm px-4 py-1.5">APNN 框架</span>
+    </div>
+    <div class="flex items-center">
+      <span class="text-3xl text-subtle font-light">×</span>
+    </div>
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">模型</p>
+      <p class="text-title-md text-foreground-soft">PDE 解算子</p>
+      <p class="text-body-md text-subtle">特定问题 → 特定数学结构</p>
+      <span class="badge-primary text-sm px-4 py-1.5">DeepRTE</span>
+    </div>
+    <div class="flex items-center">
+      <span class="text-3xl text-subtle font-light">×</span>
+    </div>
+    <div class="card p-8 text-center flex-1 space-y-4">
+      <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
+      <p class="text-display-sm">算法</p>
+      <p class="text-title-md text-foreground-soft">GPU 集群</p>
+      <p class="text-body-md text-subtle">Scaling Law 驱动三者</p>
+      <span class="badge-primary text-sm px-4 py-1.5">Diffusion Inversion</span>
+    </div>
+  </div>
+
+</div>
+
+---
+
+# Loop Engineering
+
+<div class="text-center mt-6">
+  <span class="text-body-md text-muted-foreground">物理规律 → PDE 算子 → 数值求解 → 验证迭代 → 🔄</span>
+</div>
+
+<div class="text-center mt-8 space-y-2">
+
+## LLM Agent
+
+*大脑驱动闭环*
+
+</div>
+
+<div class="flex justify-center my-4">
+  <div class="h-12 w-px bg-gradient-to-b from-coral-400/40 via-coral-400/20 to-transparent"></div>
+</div>
+
+<div class="flex items-stretch justify-center gap-5 px-12">
+
+<div class="card p-8 flex-1 space-y-3">
+
+<div class="w-12 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+### Harness · 约束
+
+数据 = 物理规律，模型 = PDE 解算子
+两者共同界定解空间的可行域
+
+</div>
+
+<div class="flex items-center self-center">
+  <span class="text-2xl text-subtle font-light">×</span>
+</div>
+
+<div class="card p-8 flex-1 space-y-3">
+
+<div class="w-12 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+### Agent · 大脑
+
+LLM 调度数据生成、选择模型架构
+分配算力、验证迭代、驱动闭环
+
+</div>
+
+</div>
+
 ---
 layout: center
 ---
 
-<SectionDivider badge="研究方向三" heading="动理学方程的<br>快速谱算法" />
+<SectionDivider badge="研究方向三" heading="扩散模型驱动的<br>PDE 反问题" />
 
 ---
 
@@ -772,97 +887,65 @@ layout: center
   </div>
 </div>
 
----
-layout: center
----
 
-# 科研基金
-
-<div class="max-w-3xl mx-auto mt-8 space-y-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-3">国家自然科学基金</h3>
-    <div class="space-y-3 text-sm">
-      <div class="flex justify-between items-center border-b border-warm-300/60 dark:border-warm-800/50 pb-2">
-        <div>
-          <span class="badge-primary mr-2">合作单位负责人，重点项目</span>
-          大规模相互作用粒子系统的不确定性量化与计算
-        </div>
-        <span class="text-subtle">2026–2030</span>
-      </div>
-      <div class="flex justify-between items-center border-b border-warm-300/60 dark:border-warm-800/50 pb-2">
-        <div>
-          <span class="badge mr-2">负责人，重大研究计划培育项目</span>
-          利用机器学习方法快速求解辐射输运方程
-        </div>
-        <span class="text-subtle">2023–2025</span>
-      </div>
-      <div class="flex justify-between items-center border-b border-warm-300/60 dark:border-warm-800/50 pb-2">
-        <div>
-          <span class="badge mr-2">负责人，青年科学基金项目</span>
-          多尺度动理学方程的渐近保持神经网络方法
-        </div>
-        <span class="text-subtle">2023–2025</span>
-      </div>
-      <div class="flex justify-between items-center">
-        <div>
-          <span class="badge mr-2">合作单位负责人，重点项目</span>
-          多尺度动理学方程不确定性量化的计算方法与理论
-        </div>
-        <span class="text-subtle">2021–2025</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">实验室合作项目</h3>
-    <p class="text-base text-body">
-      基于机器学习的 ICF 数值模拟建模与计算方法（负责人，2023–至今）·
-      机器学习求解输运方程（负责人，2021–2023）
-    </p>
-  </div>
-</div>
-
----
-layout: center
----
-
-# 论文发表与学术影响
-
-<div class="max-w-3xl mx-auto mt-8 space-y-4">
-<div class="grid grid-cols-4 gap-4">
-    <div class="stat">
-      <p class="stat-num">30+</p>
-      <p class="stat-label">同行评审论文</p>
-    </div>
-    <div class="stat">
-      <p class="stat-num">5</p>
-      <p class="stat-label">预印本</p>
-    </div>
-    <div class="stat">
-      <p class="stat-num">1</p>
-      <p class="stat-label">专著章节</p>
-    </div>
-    <div class="stat">
-      <p class="stat-num">1</p>
-      <p class="stat-label">最佳论文奖 (2019)</p>
-    </div>
-  </div>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">开源软件</h3>
-    <div class="text-sm text-body space-y-1">
-      <p><strong>DeepRTE</strong> —— 辐射输运基础模型（JAX/Flax，Hugging Face 分发）</p>
-      <p><strong>kipack</strong> —— GPU 加速 Boltzmann 求解器（JAX/CuPy，NumPy 接口）</p>
-      <p><strong>fsm-inelastic-boltzmann</strong> —— 首个次立方非弹性 Boltzmann 求解器</p>
-    </div>
-  </div>
-</div>
 
 ---
 layout: center
 ---
 
 <SectionDivider badge="第三部分" heading="未来研究规划" />
+
+---
+
+# 科研愿景
+
+<div class="max-w-3xl mx-auto mt-8 space-y-6">
+  <p class="text-xl leading-relaxed text-body">
+    我们正处于计算科学的转折点。从
+    <span class="font-medium text-foreground-soft">可控核聚变</span>、
+    <span class="font-medium text-foreground-soft">地震成像</span>到
+    <span class="font-medium text-foreground-soft">放射治疗</span>，
+    这些重大挑战最终都归结为在经典数值方法无法企及的规模上求解
+    <em>动理学方程与反问题</em>。
+  </p>
+
+  <div class="card p-6">
+    <p class="text-lg font-semibold text-primary mb-2">我的回答</p>
+    <p class="text-lg leading-relaxed text-body">
+      <strong>全栈 AI for Science</strong> —— 垂直整合的方法论：
+      严格的数学分析 → 嵌入物理硬约束的神经网络架构
+      → 可扩展算法 → 生产级开源软件。
+    </p>
+  </div>
+</div>
+
+---
+
+# 真实物理科学的智能体
+
+<br>
+
+<br>
+
+<div class="max-w-3xl mx-auto mt-8 space-y-6">
+  <p class="text-lg leading-relaxed text-body">
+    我的理念与主流的<em>"一个模型解决一切"</em>范式截然不同。
+    我主张为特定控制方程开发<strong>紧凑的、注入物理信息的专用模型</strong>。
+  </p>
+
+  <div class="grid grid-cols-2 gap-6">
+    <div class="card p-5 space-y-2">
+      <div class="text-2xl">🏛️</div>
+      <h3 class="text-title-sm">领域专用求解器</h3>
+      <p class="text-sm text-muted-foreground">为 RTE、Boltzmann、Vlasov–Maxwell 等方程定制专用架构——物理结构嵌入网络设计</p>
+    </div>
+    <div class="card p-5 space-y-2">
+      <div class="text-2xl">🤖</div>
+      <h3 class="text-title-sm">大语言模型作为调度器</h3>
+      <p class="text-sm text-muted-foreground">LLM 协调物理感知求解器的集成体——不是通用的 PDE 求解器，而是智能调度中心</p>
+    </div>
+  </div>
+</div>
 
 ---
 
