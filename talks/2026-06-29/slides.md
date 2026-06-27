@@ -37,7 +37,7 @@ layout: center
     <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
       <h3 class="text-title-md text-foreground-soft">个人简介</h3>
-      <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
+      <p class="text-sm text-muted-foreground">学术经历</p>
     </div>
     <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
@@ -70,28 +70,28 @@ layout: center
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2008 – 2012</span>
       <h3 class="!text-sm leading-tight mt-4">数学与应用数学学士</h3>
-      <div class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</div>
+      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2012 – 2017</span>
-      <h3 class="!text-sm leading-tight mt-1">计算数学博士</h3>
-      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学<br>导师：金石教授</p>
+      <h3 class="!text-sm leading-tight mt-4">计算数学博士</h3>
+      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学<br>导师：金石教授</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2017 – 2020</span>
-      <h3 class="!text-sm leading-tight mt-1">Golomb 访问助理教授</h3>
-      <p class="text-xs text-muted-foreground leading-snug text-center">普渡大学数学系<br>合作导师：Jingwei Hu</p>
+      <h3 class="!text-sm leading-tight mt-4">Golomb 访问助理教授</h3>
+      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">普渡大学数学系<br>合作导师：Jingwei Hu</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2020 至今</span>
-      <h3 class="!text-sm leading-tight mt-1">长聘教轨副教授</h3>
-      <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学数学科学学院<br>自然科学研究院</p>
+      <h3 class="!text-sm leading-tight mt-4">长聘教轨副教授</h3>
+      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学数学科学学院<br>自然科学研究院</p>
     </div>
   </div>
   </div>
@@ -122,10 +122,12 @@ layout: center
 </div>
 
 ---
-layout: center
----
 
 # 真实物理科学的智能体
+
+<br>
+
+<br>
 
 <div class="max-w-3xl mx-auto mt-8 space-y-6">
   <p class="text-lg leading-relaxed text-body">
@@ -179,7 +181,7 @@ layout: center
     </div>
     <div class="card p-8 text-center flex-1 space-y-4">
       <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
-      <p class="text-display-sm">算力 / 算法</p>
+      <p class="text-display-sm">算法</p>
       <p class="text-title-md text-foreground-soft">GPU 集群</p>
       <p class="text-body-md text-subtle">Scaling Law 驱动三者</p>
       <span class="badge-primary text-sm px-4 py-1.5">Diffusion Inversion</span>
@@ -237,6 +239,52 @@ layout: center
   <div class="text-center">
     <span class="badge-primary text-sm px-4 py-1.5">🔄 Loop Engineer</span>
   </div>
+</div>
+
+---
+
+# 背景
+
+<div grid="~ cols-2 gap-6">
+  <Card
+    title="惯性约束聚变"
+    subtitle="清洁能源产生"
+    icon="i-ph-atom-duotone"
+    size="md"
+  >
+    <div class="flex flex-col items-center gap-3">
+      <img src="./icf.png" class="rounded-lg shadow-lg h-42 object-contain" />
+      <div class="text-xs text-on-surface-variant text-center">
+        辐射输运驱动聚变靶丸的内爆动力学
+      </div>
+    </div>
+  </Card>
+
+  <Card
+    title="放射治疗"
+    subtitle="精准癌症治疗"
+    icon="i-ph-heart-duotone"
+    size="md"
+  >
+    <div class="flex flex-col items-center gap-3">
+      <img src="./rad-therapy.jpg" class="rounded-lg shadow-lg h-42 object-contain" />
+      <div class="text-xs text-on-surface-variant text-center">
+        精确的剂量计算以实现有效治疗
+      </div>
+    </div>
+  </Card>
+</div>
+
+<div mt-4>
+  <Card text-center size="md">
+    <div class="text-lg mb-2">
+      <span class="emphasis-tech font-semibold">核心挑战：</span>
+      <span class="emphasis-primary font-semibold">辐射输运方程</span>的数值模拟
+    </div>
+    <div class="text-sm text-on-surface-variant">
+      高维相空间 • 复杂碰撞算子 • 多尺度物理
+    </div>
+  </Card>
 </div>
 
 ---
@@ -631,60 +679,6 @@ layout: center
 
   <div class="text-center text-sm text-muted-foreground">
     快速经典算法 ↔ 现代机器学习 —— 闭环反馈
-  </div>
-</div>
-
----
-layout: center
----
-
-# 深度神经网络训练的数学理论
-
-<div class="max-w-3xl mx-auto mt-8">
-  <p class="text-sm text-subtle text-center mb-6">
-    在安全关键的科学计算中部署神经网络，需要严格的数学理解——而非仅仅经验验证。
-  </p>
-
-  <h3 class="!text-2xl mb-4">频率原则（F-Principle）</h3>
-  <p class="text-lg text-body leading-relaxed max-w-2xl">
-    神经网络损失函数上的梯度下降<strong>最先拟合低频分量</strong>，
-    逐步捕捉高频分量。这一谱偏差解释了为何朴素 PINN 公式在多尺度 PDE 上失效——
-    并直接启发了 APNN 架构的设计。
-  </p>
-</div>
-
----
-
-# 频率原则：理论成果
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-  <div class="card p-5 space-y-3">
-    <h3 class="text-title-sm">一般理论</h3>
-    <p class="text-sm text-muted-foreground">
-      任意宽度和深度网络的无限宽神经正切核的谱动力学——
-      训练收敛速率的闭式预测。
-    </p>
-  </div>
-  <div class="card p-5 space-y-3">
-    <h3 class="text-title-sm">精确可解模型</h3>
-    <p class="text-sm text-muted-foreground">
-      复现两层网络 F-Principle 动力学的线性 ODE 模型——
-      收敛性作为架构和学习率函数的解析预测。
-    </p>
-  </div>
-  <div class="card p-5 space-y-3">
-    <h3 class="text-title-sm">相图</h3>
-    <p class="text-sm text-muted-foreground">
-      无限宽极限下两层 ReLU 网络泛化相的完整刻画——
-      从初始化和架构到隐式偏差和测试误差的严格映射。
-    </p>
-  </div>
-  <div class="card p-5 space-y-3">
-    <h3 class="text-title-sm">工程影响</h3>
-    <p class="text-sm text-muted-foreground">
-      ODE 模型提供了<strong>定量指导</strong>：网络深度和宽度应如何
-      随目标 PDE 解的正则性缩放——将启发式设计转化为有原则的决策。
-    </p>
   </div>
 </div>
 
