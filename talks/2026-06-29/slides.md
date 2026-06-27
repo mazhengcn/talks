@@ -34,22 +34,22 @@ layout: center
 <div class="space-y-10 text-center">
   <h2 class="text-display-md text-foreground-soft">汇报提纲</h2>
   <div class="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
-    <div class="card p-6 text-left space-y-2" v-click>
+    <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">1</div>
       <h3 class="text-title-md text-foreground-soft">个人简介</h3>
       <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
     </div>
-    <div class="card p-6 text-left space-y-2" v-click>
+    <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
       <h3 class="text-title-md text-foreground-soft">科研工作</h3>
       <p class="text-sm text-muted-foreground">三个相互关联的计算科学研究方向</p>
     </div>
-    <div class="card p-6 text-left space-y-2" v-click>
+    <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
       <h3 class="text-title-md text-foreground-soft">教学工作</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
     </div>
-    <div class="card p-6 text-left space-y-2" v-click>
+    <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">4</div>
       <h3 class="text-title-md text-foreground-soft">未来规划</h3>
       <p class="text-sm text-muted-foreground">科研与教育的下一阶段愿景</p>
@@ -67,28 +67,28 @@ layout: center
     <div class="flex justify-between w-full mx-auto">
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2008 – 2012</span>
       <h3 class="!text-sm leading-tight mt-4">数学与应用数学学士</h3>
       <div class="text-xs text-muted-foreground mt-4 leading-snug text-center">上海交通大学致远学院<br>辅修：应用物理</div>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2012 – 2017</span>
       <h3 class="!text-sm leading-tight mt-1">计算数学博士</h3>
       <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学<br>导师：金石教授</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2017 – 2020</span>
       <h3 class="!text-sm leading-tight mt-1">Golomb 访问助理教授</h3>
       <p class="text-xs text-muted-foreground leading-snug text-center">普渡大学数学系<br>合作导师：Jingwei Hu</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
-      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-[7px] mb-4"></div>
+      <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2020 至今</span>
       <h3 class="!text-sm leading-tight mt-1">长聘教轨副教授</h3>
       <p class="text-xs text-muted-foreground leading-snug text-center">上海交通大学数学科学学院<br>自然科学研究院</p>
