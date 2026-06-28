@@ -58,6 +58,16 @@ layout: center
 </div>
 
 ---
+layout: center
+---
+
+<div class="text-center space-y-6">
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第一部分</span>
+  <h2 class="text-display-lg">个人情况简介</h2>
+  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
+
+---
 
 # 学术经历
 
@@ -282,6 +292,101 @@ layout: center
 </div>
 
 ---
+layout: center
+---
+
+<div class="text-center space-y-6">
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第二部分</span>
+  <h2 class="text-display-lg">教学与人才培养</h2>
+  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
+
+---
+
+# 教学理念
+
+<div class="space-y-6 mt-4">
+  <div class="border-l-3 border-coral-400/60 pl-5 py-1">
+    <p class="text-xl text-foreground-soft leading-relaxed">
+      教师能给学生最持久的礼物不是知识体系，而是一种<strong>思维方式</strong>。
+      内容会过时；方法永存。
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4">
+    <div class="card p-4">
+      <h4 class="text-title-sm mb-2">教方法而非内容</h4>
+      <p class="text-xs text-muted-foreground">要求学生在使用库函数之前从零实现算法——只有经历困难，才能真正内化方法为何有效、何处可能失败。</p>
+    </div>
+    <div class="card p-4">
+      <h4 class="text-title-sm mb-2">教学相长</h4>
+      <p class="text-xs text-muted-foreground">每堂课都是学习机会。学生的问题促使我修正推导、发现更简洁的证明，甚至重新审视自己的研究。</p>
+    </div>
+    <div class="card p-4">
+      <h4 class="text-title-sm mb-2">AI 时代三项元技能</h4>
+      <p class="text-xs text-muted-foreground">学会如何学习 · 区分基础与技巧 · 先广度后深度 —— 培养跨领域创造力。</p>
+    </div>
+  </div>
+</div>
+
+---
+
+# 教学经历
+
+<div class="space-y-4 mt-4">
+  <p class="text-base text-body">
+    2020 年加入上海交通大学以来：<strong>13 门不同课程</strong>，涵盖本科和研究生层次，
+    涉及计算数学、数值分析和人工智能。
+  </p>
+
+  <DataTable
+    :headers="['课程', '层次', '课时（个人）']"
+    :rows="[
+      ['科学计算', '本科', '48 × 5 轮次'],
+      ['计算方法', '研究生（中/英）', '48 × 5 轮次'],
+      ['数值分析', '本科', '48'],
+      ['动手学深度学习（Python）', '本科（新课）', '32'],
+      ['人工智能基础', '本科（新课）', '32'],
+      ['微分方程高性能计算', '研究生', '32 × 2 轮次 + 16'],
+    ]"
+    :enable-latex="false"
+  />
+</div>
+
+---
+
+# 课程建设
+
+<div class="space-y-5 mt-4">
+  <div class="card p-5">
+    <h3 class="text-title-sm mb-2">动手学深度学习（Python）—— MATH2806</h3>
+    <p class="text-base text-body">
+      2025 年新开设的数学专业本科生必修课。基于 <em>动手学深度学习</em>（d2l.ai）。
+      学生从零实现 MLP、CNN、RNN 和 Transformer（PyTorch）。
+      每个概念立即配以可执行代码——<strong>动手不是锦上添花，而是学习的主要模式。</strong>
+    </p>
+  </div>
+
+  <div class="card p-5">
+    <h3 class="text-title-sm mb-2">科学计算 —— MATH2802</h3>
+    <p class="text-base text-body">
+      从 MATLAB 迁移至 Python/NumPy/SciPy 工作流。增设开放式模拟项目：
+      传染病动力学建模、不规则区域 PDE 模拟、稀疏系统迭代求解器基准测试。
+      学生需要融合数学分析、算法思维和软件工程能力。
+    </p>
+  </div>
+
+  <div class="card p-5">
+    <h3 class="text-title-sm mb-2">未来规划：科学机器学习新课程</h3>
+    <p class="text-base text-body">
+      统一经典数值分析与现代深度学习的研究生课程——涵盖 PINNs、神经算子、
+      生成模型——着重理论保证与实际计算项目的结合。
+    </p>
+  </div>
+</div>
+
+
+---
 
 # 背景
 
@@ -375,7 +480,11 @@ layout: center
 layout: center
 ---
 
-<SectionDivider badge="研究方向一" heading="辐射输运的高效<br>神经算子基础模型" />
+<div class="text-center space-y-5">
+  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向一</span>
+  <h2 class="text-display-md">辐射输运的高效<br>神经算子基础模型</h2>
+  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
 
 ---
 
@@ -541,7 +650,11 @@ layout: center
 layout: center
 ---
 
-<SectionDivider badge="研究方向二" heading="渐近保持神经网络<br>与多尺度保结构方法" />
+<div class="text-center space-y-5">
+  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向二</span>
+  <h2 class="text-display-md">渐近保持神经网络<br>与多尺度保结构方法</h2>
+  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
 
 ---
 
@@ -764,7 +877,11 @@ LLM 调度数据生成、选择模型架构
 layout: center
 ---
 
-<SectionDivider badge="研究方向三" heading="扩散模型驱动的<br>PDE 反问题" />
+<div class="text-center space-y-5">
+  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向三</span>
+  <h2 class="text-display-md">扩散模型驱动的<br>PDE 反问题</h2>
+  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
 
 ---
 
@@ -821,103 +938,17 @@ layout: center
   </div>
 </div>
 
----
-layout: center
----
-
-<SectionDivider badge="第二部分" heading="教学与人才培养" />
-
----
-
-# 教学理念
-
-<div class="space-y-6 mt-4">
-  <div class="border-l-3 border-coral-400/60 pl-5 py-1">
-    <p class="text-xl text-foreground-soft leading-relaxed">
-      教师能给学生最持久的礼物不是知识体系，而是一种<strong>思维方式</strong>。
-      内容会过时；方法永存。
-    </p>
-  </div>
-
-  <div class="grid grid-cols-3 gap-4">
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">教方法而非内容</h4>
-      <p class="text-xs text-muted-foreground">要求学生在使用库函数之前从零实现算法——只有经历困难，才能真正内化方法为何有效、何处可能失败。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">教学相长</h4>
-      <p class="text-xs text-muted-foreground">每堂课都是学习机会。学生的问题促使我修正推导、发现更简洁的证明，甚至重新审视自己的研究。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">AI 时代三项元技能</h4>
-      <p class="text-xs text-muted-foreground">学会如何学习 · 区分基础与技巧 · 先广度后深度 —— 培养跨领域创造力。</p>
-    </div>
-  </div>
-</div>
-
----
-
-# 教学经历
-
-<div class="space-y-4 mt-4">
-  <p class="text-base text-body">
-    2020 年加入上海交通大学以来：<strong>13 门不同课程</strong>，涵盖本科和研究生层次，
-    涉及计算数学、数值分析和人工智能。
-  </p>
-
-  <DataTable
-    :headers="['课程', '层次', '课时（个人）']"
-    :rows="[
-      ['科学计算', '本科', '48 × 5 轮次'],
-      ['计算方法', '研究生（中/英）', '48 × 5 轮次'],
-      ['数值分析', '本科', '48'],
-      ['动手学深度学习（Python）', '本科（新课）', '32'],
-      ['人工智能基础', '本科（新课）', '32'],
-      ['微分方程高性能计算', '研究生', '32 × 2 轮次 + 16'],
-    ]"
-    :enable-latex="false"
-  />
-</div>
-
----
-
-# 课程建设
-
-<div class="space-y-5 mt-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">动手学深度学习（Python）—— MATH2806</h3>
-    <p class="text-base text-body">
-      2025 年新开设的数学专业本科生必修课。基于 <em>动手学深度学习</em>（d2l.ai）。
-      学生从零实现 MLP、CNN、RNN 和 Transformer（PyTorch）。
-      每个概念立即配以可执行代码——<strong>动手不是锦上添花，而是学习的主要模式。</strong>
-    </p>
-  </div>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">科学计算 —— MATH2802</h3>
-    <p class="text-base text-body">
-      从 MATLAB 迁移至 Python/NumPy/SciPy 工作流。增设开放式模拟项目：
-      传染病动力学建模、不规则区域 PDE 模拟、稀疏系统迭代求解器基准测试。
-      学生需要融合数学分析、算法思维和软件工程能力。
-    </p>
-  </div>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">未来规划：科学机器学习新课程</h3>
-    <p class="text-base text-body">
-      统一经典数值分析与现代深度学习的研究生课程——涵盖 PINNs、神经算子、
-      生成模型——着重理论保证与实际计算项目的结合。
-    </p>
-  </div>
-</div>
-
 
 
 ---
 layout: center
 ---
 
-<SectionDivider badge="第三部分" heading="未来研究规划" />
+<div class="text-center space-y-6">
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
+  <h2 class="text-display-lg">未来研究规划</h2>
+  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
 
 ---
 
