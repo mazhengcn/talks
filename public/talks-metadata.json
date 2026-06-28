@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-22T05:17:19.644Z",
+  "generatedAt": "2026-06-28T12:15:48.278Z",
   "count": 9,
   "talks": [
     {
       "id": "2026-06-29",
       "title": "长聘教职答辩",
       "date": "2026-06-29",
-      "speaker": "1\n      科研工作\n      三个相互关联的计算科学研究方向",
-      "affiliation": "2",
+      "speaker": "1\n      个人情况\n      学术经历、论文发表与科研项目",
+      "affiliation": "3",
       "conference": "Tenure Track Defense",
       "location": "Shanghai, China",
       "conferenceUrl": "https://www.sjtu.edu.cn",
