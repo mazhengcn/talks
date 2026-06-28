@@ -394,6 +394,121 @@ layout: center
 
 </div>
 
+
+
+---
+
+# 学生培养
+
+<div class="max-w-5xl mx-auto mt-2 space-y-3">
+
+<div class="grid grid-cols-6 gap-4">
+  <div class="stat"><p class="stat-num">6</p><p class="stat-label">在读博士</p></div>
+  <div class="stat"><p class="stat-num">3</p><p class="stat-label">在读硕士</p></div>
+  <div class="stat"><p class="stat-num">2</p><p class="stat-label">已毕业博士</p></div>
+  <div class="stat"><p class="stat-num">5</p><p class="stat-label">已毕业硕士</p></div>
+  <div class="stat"><p class="stat-num">1</p><p class="stat-label">出站博士后</p></div>
+  <div class="stat"><p class="stat-num">13</p><p class="stat-label">本科毕设</p></div>
+</div>
+
+<div class="grid grid-cols-2 gap-5">
+
+<div class="card pt-5 px-5 pb-0 space-y-1.5">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">博士毕业生</h3>
+
+<div>
+  <p class="text-body-md font-semibold text-foreground-soft">吴科科</p>
+  <p class="text-body-sm text-foreground-soft mt-0.5">2021–2024 → 中国科学技术大学苏州高等研究院 博士后</p>
+  <div class="flex items-center gap-1 flex-wrap mt-0.5">
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">江苏省卓越博士后 A 类</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 shrink-0">中国博士后科学基金面上项目</span>
+  </div>
+</div>
+
+<div class="border-b border-warm-400/40 dark:border-warm-600/30 p-2"></div>
+
+<div>
+  <p class="text-body-md font-semibold text-foreground-soft">竺烨锟</p>
+  <p class="text-body-sm text-foreground-soft mt-0.5">2021–2025 → 字节跳动</p>
+</div>
+
+</div>
+
+<div class="card pt-5 px-5 pb-3 space-y-1.5">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">出站博士后</h3>
+
+<div>
+  <p class="text-body-md font-semibold text-foreground-soft">燕雄斌</p>
+  <p class="text-body-sm text-foreground-soft mt-0.5">2022–2024 → 兰州大学计算数学研究所 副教授</p>
+</div>
+
+<div class="flex items-center gap-1 flex-wrap mt-1">
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-500 text-white shrink-0">主持</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
+  <span class="text-body-sm text-foreground-soft mt-2">数据和模型驱动的深度反演求解波动方程反问题</span>
+  <span class="text-xs text-subtle tabular-nums shrink-0 ml-auto mt-2">2025–2027</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+---
+
+# Introduction
+
+Kinetic equations are important in many areas
+
+<div grid="~ cols-3 gap-2">
+  <div flex="~ col gap-1" items-center>
+    <div text-xl>Neutron transport</div>
+    <img src="./reactor.png" border="~ violet/50" rounded-lg h-55 />
+    <div>Fission reactor</div>
+  </div>
+  <div flex="~ col gap-1" items-center>
+    <div text-xl>Radiative transfer</div>
+    <img src="./icf.png" border="~ violet/50" rounded-lg h-55 />
+    <div>ICF</div>
+  </div>
+  <div flex="~ col gap-1" items-center>
+    <div text-xl>Rarefied gas</div>
+    <img src="./reentry.png" border="~ violet/50" rounded-lg shadow-l h-55 />
+    <div>Reentry</div>
+  </div>
+</div>
+
+  <Card
+    title="放射治疗"
+    subtitle="精准癌症治疗"
+    icon="i-ph-heart-duotone"
+    size="md"
+  >
+    <div class="flex flex-col items-center gap-3">
+      <img src="./rad-therapy.jpg" class="rounded-lg shadow-lg h-42 object-contain" />
+      <div class="text-xs text-on-surface-variant text-center">
+        精确的剂量计算以实现有效治疗
+      </div>
+    </div>
+  </Card>
+
+<br>
+
+<div rounded-lg bg-violet:10 p4 mx8>
+  <div text-center text-2xl>
+
+  Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis>
+
+  </div>
+</div>
+
 ---
 
 # 背景
