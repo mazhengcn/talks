@@ -1,12 +1,12 @@
 {
-  "name": "tenure-track",
+  "name": "2026-06-29",
   "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "slidev",
     "build": "bun ../../scripts/build.ts",
-    "export": "slidev export --per-slide --output ./assets/tenure-track.pdf"
+    "export": "slidev export --per-slide --output ./assets/2026-06-29.pdf"
   },
   "dependencies": {
     "@slidev/cli": "catalog:",
@@ -14,8 +14,5 @@
     "@slidev/theme-default": "catalog:",
     "vite": "catalog:",
     "unocss": "catalog:"
-  },
-  "devDependencies": {
-    "@unocss/preset-web-fonts": "66.7.2"
   }
 }

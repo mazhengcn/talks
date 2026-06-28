@@ -5,17 +5,17 @@ command = "bun --bun run build"
 
 # CORS headers for metadata API
 [[headers]]
-for = "/talks-metadata.json"
-[headers.values]
-Access-Control-Allow-Origin = "*"
-Access-Control-Allow-Methods = "GET, OPTIONS"
-Access-Control-Allow-Headers = "Content-Type"
-Cache-Control = "public, max-age=3600"
+  for = "/talks-metadata.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
+    Cache-Control = "public, max-age=3600"
 
 
 [[redirects]]
 from = "/2025-07-10/pdf"
-to = "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-10/assets/2025-07-10-hksiam-en.pdf?raw=true"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-10/assets/2025-07-10.pdf?raw=true"
 status = 302
 
 [[redirects]]
@@ -86,6 +86,51 @@ status = 302
 [[redirects]]
 from = "/2025-12-28/*"
 to = "/2025-12-28/index.html"
+status = 200
+
+[[redirects]]
+from = "/2026-02-01/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2026-02-01/assets/2026-02-01.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/2026-02-01/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/2026-02-01"
+status = 302
+
+[[redirects]]
+from = "/2026-02-01/*"
+to = "/2026-02-01/index.html"
+status = 200
+
+[[redirects]]
+from = "/2026-03-18/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2026-03-18/assets/2026-03-18.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/2026-03-18/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/2026-03-18"
+status = 302
+
+[[redirects]]
+from = "/2026-03-18/*"
+to = "/2026-03-18/index.html"
+status = 200
+
+[[redirects]]
+from = "/2026-06-29/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2026-06-29/assets/2026-06-29.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/2026-06-29/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/2026-06-29"
+status = 302
+
+[[redirects]]
+from = "/2026-06-29/*"
+to = "/2026-06-29/index.html"
 status = 200
 
 [[redirects]]
