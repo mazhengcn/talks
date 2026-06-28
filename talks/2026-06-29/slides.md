@@ -461,9 +461,6 @@ layout: center
 
 </div>
 
-
-
-
 ---
 
 # 高效培养模式
@@ -542,97 +539,53 @@ layout: center
 </div>
 
 ---
+layout: center
+---
 
-# Introduction
-
-Kinetic equations are important in many areas
-
-<div grid="~ cols-3 gap-2">
-  <div flex="~ col gap-1" items-center>
-    <div text-xl>Neutron transport</div>
-    <img src="./reactor.png" border="~ violet/50" rounded-lg h-55 />
-    <div>Fission reactor</div>
-  </div>
-  <div flex="~ col gap-1" items-center>
-    <div text-xl>Radiative transfer</div>
-    <img src="./icf.png" border="~ violet/50" rounded-lg h-55 />
-    <div>ICF</div>
-  </div>
-  <div flex="~ col gap-1" items-center>
-    <div text-xl>Rarefied gas</div>
-    <img src="./reentry.png" border="~ violet/50" rounded-lg shadow-l h-55 />
-    <div>Reentry</div>
-  </div>
-</div>
-
-  <Card
-    title="放射治疗"
-    subtitle="精准癌症治疗"
-    icon="i-ph-heart-duotone"
-    size="md"
-  >
-    <div class="flex flex-col items-center gap-3">
-      <img src="./rad-therapy.jpg" class="rounded-lg shadow-lg h-42 object-contain" />
-      <div class="text-xs text-on-surface-variant text-center">
-        精确的剂量计算以实现有效治疗
-      </div>
-    </div>
-  </Card>
-
-<br>
-
-<div rounded-lg bg-violet:10 p4 mx8>
-  <div text-center text-2xl>
-
-  Key problem: numerical simulation of <Emphasis>kinetic equations</Emphasis>
-
-  </div>
+<div class="text-center space-y-6">
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
+  <h2 class="text-display-lg">科学研究与应用</h2>
+  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
 </div>
 
 ---
 
-# 背景
+# 研究背景：动理学方程
 
-<div grid="~ cols-2 gap-6">
-  <Card
-    title="惯性约束聚变"
-    subtitle="清洁能源产生"
-    icon="i-ph-atom-duotone"
-    size="md"
-  >
-    <div class="flex flex-col items-center gap-3">
-      <img src="./icf.png" class="rounded-lg shadow-lg h-42 object-contain" />
-      <div class="text-xs text-on-surface-variant text-center">
-        辐射输运驱动聚变靶丸的内爆动力学
-      </div>
-    </div>
-  </Card>
+<div class="max-w-5xl mx-auto -mt-1 space-y-3">
 
-  <Card
-    title="放射治疗"
-    subtitle="精准癌症治疗"
-    icon="i-ph-heart-duotone"
-    size="md"
-  >
-    <div class="flex flex-col items-center gap-3">
-      <img src="./rad-therapy.jpg" class="rounded-lg shadow-lg h-42 object-contain" />
-      <div class="text-xs text-on-surface-variant text-center">
-        精确的剂量计算以实现有效治疗
-      </div>
-    </div>
-  </Card>
+<div class="grid grid-cols-4 gap-4">
+
+<div class="card px-1.5 pt-1.5 pb-0 text-center">
+  <img src="./reactor.png" class="rounded-lg w-full h-64 object-cover" />
+  <p class="text-xs text-muted-foreground pt-0"><span class="font-medium text-foreground-soft">中子输运</span> · 核反应堆</p>
 </div>
 
-<div mt-4>
-  <Card text-center size="md">
-    <div class="text-lg mb-2">
-      <span class="emphasis-tech font-semibold">核心挑战：</span>
-      <span class="emphasis-primary font-semibold">辐射输运方程</span>的数值模拟
-    </div>
-    <div class="text-sm text-on-surface-variant">
-      高维相空间 • 复杂碰撞算子 • 多尺度物理
-    </div>
-  </Card>
+<div class="card px-1.5 pt-1.5 pb-0 text-center">
+  <img src="./icf.png" class="rounded-lg w-full h-64 object-cover" />
+  <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">惯性约束聚变</span> · 清洁能源</p>
+</div>
+
+<div class="card px-1.5 pt-1.5 pb-0 text-center">
+  <img src="./reentry.png" class="rounded-lg w-full h-64 object-cover" />
+  <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">稀薄气体</span> · 再入动力学</p>
+</div>
+
+<div class="card px-1.5 pt-1.5 pb-0 text-center">
+  <img src="./rad-therapy.jpg" class="rounded-lg w-full h-64 object-cover" />
+  <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">放射治疗</span> · 精准剂量计算</p>
+</div>
+
+</div>
+
+<div class="text-center space-y-1.5 mt-4 rounded-xl bg-warm-200 dark:bg-warm-900 ring-1 ring-coral-400/30 dark:ring-coral-500/20 px-8 py-2.5">
+
+  <p class="text-title-md text-foreground-soft">
+
+  $\partial_t f + v \cdot \nabla_x f = Q(f)$<span class="text-body-sm text-muted-foreground ml-2">—— 高维相空间 · 复杂碰撞算子 · 多尺度物理</span>
+  </p>
+</div>
+
 </div>
 
 ---
