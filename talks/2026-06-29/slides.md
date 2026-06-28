@@ -533,7 +533,7 @@ layout: center
 
 <p class="text-xs text-muted-foreground">科研产出沉淀为可检索、可复用的<strong>数字资产</strong>——新成员上手时间从数周缩短至数天</p>
 
-<img src="./wikis.png" class="rounded-lg w-full" />
+<img src="./public/wikis.png" class="rounded-lg w-full" />
 
 </div>
 </div>
@@ -557,22 +557,22 @@ layout: center
 <div class="grid grid-cols-4 gap-4">
 
 <div class="card px-1.5 pt-1.5 pb-0 text-center">
-  <img src="./reactor.png" class="rounded-lg w-full h-64 object-cover" />
+  <img src="./public/reactor.png" class="rounded-lg w-full h-64 object-cover" />
   <p class="text-xs text-muted-foreground pt-0"><span class="font-medium text-foreground-soft">中子输运</span> · 核反应堆</p>
 </div>
 
 <div class="card px-1.5 pt-1.5 pb-0 text-center">
-  <img src="./icf.png" class="rounded-lg w-full h-64 object-cover" />
+  <img src="./public/icf.png" class="rounded-lg w-full h-64 object-cover" />
   <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">惯性约束聚变</span> · 清洁能源</p>
 </div>
 
 <div class="card px-1.5 pt-1.5 pb-0 text-center">
-  <img src="./reentry.png" class="rounded-lg w-full h-64 object-cover" />
+  <img src="./public/reentry.png" class="rounded-lg w-full h-64 object-cover" />
   <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">稀薄气体</span> · 再入动力学</p>
 </div>
 
 <div class="card px-1.5 pt-1.5 pb-0 text-center">
-  <img src="./rad-therapy.jpg" class="rounded-lg w-full h-64 object-cover" />
+  <img src="./public/rad-therapy.jpg" class="rounded-lg w-full h-64 object-cover" />
   <p class="text-xs text-muted-foreground"><span class="font-medium text-foreground-soft">放射治疗</span> · 精准剂量计算</p>
 </div>
 
@@ -691,7 +691,7 @@ layout: center
 
 </div>
 
-<img src="./deeprte.png" class="rounded-lg w-full" />
+<img src="./public/deeprte.png" class="rounded-lg w-full" />
 
 </div>
 
@@ -748,7 +748,7 @@ layout: center
 </div>
 
 <div class="flex justify-center">
-<img src="./apnns.png" class="rounded-lg h-64" />
+<img src="./public/apnns.png" class="rounded-lg h-64" />
 </div>
 
 </div>
@@ -1091,7 +1091,7 @@ LLM 调度数据生成、选择模型架构
     <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
     <span class="text-xs font-medium text-foreground-soft">CLI 终端交互</span>
   </div>
-  <img src="./unitarylab-cli.png" class="mt-2 mx-auto rounded-lg h-53" />
+  <img src="./public/unitarylab-cli.png" class="mt-2 mx-auto rounded-lg h-53" />
 </div>
 
 <div class="rounded-xl bg-stone-100 dark:bg-stone-800 p-2 space-y-1">
@@ -1099,7 +1099,7 @@ LLM 调度数据生成、选择模型架构
     <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
     <span class="text-xs font-medium text-foreground-soft">Web 平台界面</span>
   </div>
-  <img src="./unitarylab-2.0.png" class="mt-2 mx-auto rounded-lg h-53" />
+  <img src="./public/unitarylab-2.0.png" class="mt-2 mx-auto rounded-lg h-53" />
 </div>
 
 </div>
