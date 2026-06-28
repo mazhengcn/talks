@@ -757,55 +757,48 @@ layout: center
 
 # APNNs：发展与应用
 
-<div class="max-w-5xl mx-auto mt-5 space-y-4">
+<div class="max-w-5xl mx-auto mt-4 space-y-8">
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-3 gap-4">
 
-<Card title="线性输运方程" size="sm"
-  subtitle="动理学→扩散极限一致精度，$\varepsilon < 10^{-3}$ 下 PINNs 完全失效"
-  :enable-latex="true"
-/>
-<Card title="非线性 VPFP 系统" size="sm"
-  subtitle="推广至长程电磁自相互作用的 Vlasov–Poisson–Fokker–Planck 系统"
-/>
-<Card title="算子学习 AP-CON" size="sm"
-  subtitle="卷积 DeepONets，$10^4$ 种光学配置泛化，推理加速 $10^3\times$"
-  :enable-latex="true"
-/>
-<Card title="时序推广 RT-APNN" size="sm"
-  subtitle="GRU 融合物理先验，首个成功模拟 Marshak 波问题"
-/>
+<div class="rounded-lg bg-coral-50 dark:bg-coral-950/30 p-4 space-y-1.5">
+  <div class="text-title-sm text-foreground-soft">线性输运方程</div>
+  <div class="text-body-sm text-muted-foreground">动理学→扩散极限一致精度</div>
+</div>
+
+<div class="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-4 space-y-1.5">
+  <div class="text-title-sm text-foreground-soft">非线性 VPFP 系统</div>
+  <div class="text-body-sm text-muted-foreground">推广至长程电磁自相互作用的 VPFP 系统</div>
+</div>
+
+<div class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 p-4 space-y-1.5">
+  <div class="text-title-sm text-foreground-soft">算子学习 AP-CON</div>
+  <div class="text-body-sm text-muted-foreground">卷积 DeepONets，推理加速 100 倍以上</div>
+</div>
+
+<div class="rounded-lg bg-sky-50 dark:bg-sky-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">时序推广 RT-APNN</div>
+  <div class="text-body-sm text-muted-foreground">预训练融合物理先验，成功模拟 Marshak 波</div>
+</div>
+
+<div class="rounded-lg bg-violet-50 dark:bg-violet-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">AP-RFM：超越神经网络</div>
+  <div class="text-body-sm text-muted-foreground">随机特征方法，更高的全尺度精度</div>
+</div>
+
+<div class="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-4 space-y-1.5">
+  <div class="text-title-sm text-foreground-soft">Gray RTE</div>
+  <div class="text-body-sm text-muted-foreground">偶奇分解 APNNs，非线性灰度辐射输运方程</div>
+</div>
 
 </div>
 
-<div class="card p-5 space-y-3">
-
-<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">AP-RFM：超越神经网络</h3>
-
-<p class="text-body-sm text-muted-foreground leading-relaxed">
-  与陈景润教授（中国科大）合作，证明 AP 是<strong>普适数学框架</strong>——随机特征方法：固定权重基函数展开，无网格逼近，$O(N)$ 复杂度，全尺度一致精度。
-</p>
-
-</div>
-
-<div class="card p-4 space-y-2">
-
-<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">参考文献</h3>
-
-<div class="text-xs text-muted-foreground space-y-1">
-  <p>Jin, Ma, Wu. <strong>APNNs for Multiscale Kinetic Eqs</strong>. <em>Commun. Comput. Phys.</em>, 2024.</p>
-  <p>Jin, Ma, Wu. <strong>APNNs for Time-Dependent Transport</strong>. <em>J. Sci. Comput.</em>, 2023.</p>
-  <p>Wu, Yan, Jin, Ma. <strong>AP-CON</strong>. <em>Comput. Methods Appl. Mech. Eng.</em>, 2024.</p>
-  <p>Jin, Ma, Zhang. <strong>APNNs for VPFP</strong>. <em>J. Sci. Comput.</em>, 2024.</p>
-  <p>Chen, Ma, Wu. <strong>AP-RFM</strong>. <em>J. Comput. Phys.</em>, 2025.</p>
-  <p>Xie, Chen, Ma, Wang. <strong>RT-APNN for Gray RTE</strong>. <em>Commun. Comput. Phys.</em>, 2026.</p>
-  <p>Wu, Xie, Chen, Wang, Ma. <strong>APNNs for Gray RTE</strong>. <em>CSIAM Trans. Appl. Math.</em>, 2026.</p>
-</div>
-
+<div class="grid grid-cols-2 gap-x-10 gap-y-6 text-xs text-muted-foreground leading-relaxed">
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 mr-1.5">Commun. Comput. Phys.</span> Jin, Ma, Wu, '24 · Xie, Chen, Ma, Wang, '26</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 mr-1.5">J. Sci. Comput.</span> Jin, Ma, Wu, '23 · Jin, Ma, Zhang, '24</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-50 dark:bg-amber-950/20 text-amber-600 dark:text-amber-300 mr-1.5">Comput. Methods Appl. Mech. Eng.</span> Wu, Yan, Jin, Ma, '24</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-950/20 text-sky-600 dark:text-sky-300 mr-1.5">J. Comput. Phys.</span> Chen, Ma, Wu, '25</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-300 mr-1.5">CSIAM Trans. Appl. Math.</span> Wu, Xie, Chen, Wang, Ma, '26</div>
 </div>
 
 </div>
