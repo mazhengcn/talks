@@ -301,33 +301,6 @@ layout: center
   <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
 </div>
 
----
-
-# 教学理念
-
-<div class="space-y-6 mt-4">
-  <div class="border-l-3 border-coral-400/60 pl-5 py-1">
-    <p class="text-xl text-foreground-soft leading-relaxed">
-      教师能给学生最持久的礼物不是知识体系，而是一种<strong>思维方式</strong>。
-      内容会过时；方法永存。
-    </p>
-  </div>
-
-  <div class="grid grid-cols-3 gap-4">
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">教方法而非内容</h4>
-      <p class="text-xs text-muted-foreground">要求学生在使用库函数之前从零实现算法——只有经历困难，才能真正内化方法为何有效、何处可能失败。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">教学相长</h4>
-      <p class="text-xs text-muted-foreground">每堂课都是学习机会。学生的问题促使我修正推导、发现更简洁的证明，甚至重新审视自己的研究。</p>
-    </div>
-    <div class="card p-4">
-      <h4 class="text-title-sm mb-2">AI 时代三项元技能</h4>
-      <p class="text-xs text-muted-foreground">学会如何学习 · 区分基础与技巧 · 先广度后深度 —— 培养跨领域创造力。</p>
-    </div>
-  </div>
-</div>
 
 ---
 
@@ -342,11 +315,12 @@ layout: center
   <DataTable
     :headers="['课程', '层次', '课时（个人）']"
     :rows="[
+      ['人工智能基础', '本科（新课, 校AI大课）', '32'],
+      ['人工智能导论', '本科（新课）', '16'],
+      ['动手学深度学习（Python）', '本科（新课）', '32'],
+      ['数值分析', '本科（新课）', '48'],
       ['科学计算', '本科', '48 × 5 轮次'],
       ['计算方法', '研究生（中/英）', '48 × 5 轮次'],
-      ['数值分析', '本科', '48'],
-      ['动手学深度学习（Python）', '本科（新课）', '32'],
-      ['人工智能基础', '本科（新课）', '32'],
       ['微分方程高性能计算', '研究生', '32 × 2 轮次 + 16'],
     ]"
     :enable-latex="false"
@@ -355,36 +329,70 @@ layout: center
 
 ---
 
-# 课程建设
+# 教学与课程建设
 
-<div class="space-y-5 mt-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">动手学深度学习（Python）—— MATH2806</h3>
-    <p class="text-base text-body">
-      2025 年新开设的数学专业本科生必修课。基于 <em>动手学深度学习</em>（d2l.ai）。
-      学生从零实现 MLP、CNN、RNN 和 Transformer（PyTorch）。
-      每个概念立即配以可执行代码——<strong>动手不是锦上添花，而是学习的主要模式。</strong>
-    </p>
-  </div>
+<div class="max-w-5xl mx-auto mt-8">
 
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">科学计算 —— MATH2802</h3>
-    <p class="text-base text-body">
-      从 MATLAB 迁移至 Python/NumPy/SciPy 工作流。增设开放式模拟项目：
-      传染病动力学建模、不规则区域 PDE 模拟、稀疏系统迭代求解器基准测试。
-      学生需要融合数学分析、算法思维和软件工程能力。
-    </p>
-  </div>
+<div class="card p-5 mb-8 space-y-2">
 
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">未来规划：科学机器学习新课程</h3>
-    <p class="text-base text-body">
-      统一经典数值分析与现代深度学习的研究生课程——涵盖 PINNs、神经算子、
-      生成模型——着重理论保证与实际计算项目的结合。
-    </p>
-  </div>
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<p class="text-body-md text-foreground-soft leading-relaxed">
+  参与学院<strong>数学与人工智能学科建设</strong>的整体规划与课程体系设计，推动计算数学与 AI 深度融合
+</p>
+
 </div>
 
+<div class="grid grid-cols-3 gap-6">
+
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">梯度建设</span>
+
+<h4 class="text-title-sm">AI 课程体系</h4>
+<p class="text-xs text-subtle">本科→研究生全层次覆盖</p>
+
+<p class="text-body-sm text-muted-foreground">
+  构建<strong>基础概念 → 理论推导 → 代码实现</strong>的全闭环，打通从数学到 AI 的路径
+</p>
+
+</div>
+
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300">Python 实践</span>
+
+<h4 class="text-title-sm">动手学深度学习</h4>
+<p class="text-xs text-subtle">MATH2806 · 数学专业必修课</p>
+
+<p class="text-body-sm text-muted-foreground">
+  针对数学学生缺乏代码实践能力，强调<strong>理论→算法≠实现</strong>，从零实现现代深度学习算法
+</p>
+
+</div>
+
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300">课程改革</span>
+
+<h4 class="text-title-sm">数值计算现代化</h4>
+<p class="text-xs text-subtle">MATH2802 · 开放式模拟项目</p>
+
+<p class="text-body-sm text-muted-foreground">
+  传统数值分析融入 Python 生态与深度学习求解器，增设开放式项目，融合数学 + 算法 + 工程
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 ---
 
