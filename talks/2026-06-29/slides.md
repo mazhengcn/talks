@@ -732,97 +732,82 @@ layout: center
 
 # APNNs：渐近保持神经网络
 
-<div class="space-y-5 mt-4">
-  <p class="text-base text-body">
-    一种<strong>全新方法论</strong>来解决多尺度问题。使用神经网络求解 PDE 时，
-    经典求解器的硬约束被松弛化。在极端多尺度区域（$\varepsilon \to 0$），
-    这种松弛因谱偏差而失效。
-  </p>
+<div class="max-w-5xl mx-auto mt-3 space-y-3">
 
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">APNN 原理</h3>
-    <p class="text-base text-body">
-      将微观-宏观分解代数地嵌入网络架构。每个分支受正确的极限方程
-      <strong>硬约束</strong>。保证在所有 Knudsen 数下的一致精度——
-      即使数据有限且优化存在不准确性。
-    </p>
-  </div>
+<div class="card p-4 space-y-2">
 
-  <div class="grid grid-cols-2 gap-4">
-    <Card title="线性输运方程" size="sm"
-      subtitle="证明了从动理学到扩散极限的一致精度。在 $\\varepsilon < 10^{-3}$ 下 PINNs 完全失效时仍然有效。"
-      :enable-latex="true"
-    />
-    <Card title="非线性 VPFP 系统" size="sm"
-      subtitle="推广到具有长程电磁自相互作用的 Vlasov–Poisson–Fokker–Planck 系统。"
-    />
-    <Card title="算子学习（AP-CON）" size="sm"
-      subtitle="卷积 DeepONets 在 $10^4$ 种光学配置上泛化，推理加速 $10^3\\times$。"
-      :enable-latex="true"
-    />
-    <Card title="时序推广（RT-APNN）" size="sm"
-      subtitle="基于 GRU 的架构融合物理先验，在不同时间尺度上稳定捕捉长时间动力学。"
-    />
-  </div>
+<div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<p class="text-body-sm text-foreground-soft leading-relaxed">
+  物理信息嵌入可<strong>减少对训练数据的依赖</strong>，但多尺度动理学方程存在<strong>刚性问题</strong>——标准 PINNs 对于小尺度严重失效。APNN 通过<strong>微观-宏观分解</strong>嵌入网络架构，保证<strong>全尺度一致精度</strong>：
+
+  $$\mathcal{R}_{\varepsilon}(u_{\theta}) \to 0 \;\Longrightarrow\; u_{\theta} \to u_{\text{true}}, \quad \text{uniformly in } \varepsilon.$$
+
+</p>
+
+</div>
+
+<div class="flex justify-center">
+<img src="./apnns.png" class="rounded-lg h-64" />
+</div>
+
 </div>
 
 ---
 
-# APNNs：框架实践
+# APNNs：发展与应用
 
-<div class="space-y-4 mt-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-3">AP 交换图</h3>
-    <p class="text-base text-body mb-3">
-      在有限 $\varepsilon$ 下极小化残差 $\mathcal{R} \to 0$，
-      自动给出正确的 $\varepsilon \to 0$ 极限。
-    </p>
-    <div class="rounded-lg bg-warm-100/70 dark:bg-warm-900/60 px-4 py-3 text-center">
-      <p class="text-sm text-muted-foreground">
-        $\mathcal{R}_{\varepsilon}(u_{\theta}) \to 0 \;\Longrightarrow\; u_{\theta} \to u_{\text{true}}$ 对 $\varepsilon$ 一致成立
-      </p>
-    </div>
-  </div>
+<div class="max-w-5xl mx-auto mt-5 space-y-4">
 
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">架构：解耦分支</h3>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="callout text-center">
-        <p class="text-sm font-medium">宏观分支（密度 $\rho$）</p>
-        <p class="text-xs text-muted-foreground mt-1">扩散方程作为硬约束</p>
-      </div>
-      <div class="callout text-center">
-        <p class="text-sm font-medium">微观分支（偏差 $g$）</p>
-        <p class="text-xs text-muted-foreground mt-1">动理学修正作为硬约束</p>
-      </div>
-    </div>
-  </div>
+<div class="grid grid-cols-2 gap-4">
+
+<Card title="线性输运方程" size="sm"
+  subtitle="动理学→扩散极限一致精度，$\varepsilon < 10^{-3}$ 下 PINNs 完全失效"
+  :enable-latex="true"
+/>
+<Card title="非线性 VPFP 系统" size="sm"
+  subtitle="推广至长程电磁自相互作用的 Vlasov–Poisson–Fokker–Planck 系统"
+/>
+<Card title="算子学习 AP-CON" size="sm"
+  subtitle="卷积 DeepONets，$10^4$ 种光学配置泛化，推理加速 $10^3\times$"
+  :enable-latex="true"
+/>
+<Card title="时序推广 RT-APNN" size="sm"
+  subtitle="GRU 融合物理先验，首个成功模拟 Marshak 波问题"
+/>
+
 </div>
 
----
+<div class="card p-5 space-y-3">
 
-# 超越神经网络：AP-RFM
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
 
-<div class="space-y-5 mt-4">
-  <p class="text-base text-body">
-    与中国科学技术大学陈景润教授合作，我们证明了 AP 设计原则
-    <strong>是一个普适的数学框架</strong>——不依赖于任何特定的机器学习架构。
-  </p>
+<h3 class="text-title-sm">AP-RFM：超越神经网络</h3>
 
-  <Card title="渐近保持随机特征方法" size="md"
-    :items="[
-      '用固定随机权重的随机基函数 $\\sigma(\\omega_j \\cdot x + b_j)$ 展开解',
-      '无网格逼近，误差可控，复杂度仅 $O(N)$',
-      '微观-宏观分解编码进基函数构造和最小二乘拟合',
-      '在所有<strong>Knudsen 数下一致精确</strong>，成本远低于神经网络训练',
-    ]"
-    :enable-latex="true"
-  />
+<p class="text-body-sm text-muted-foreground leading-relaxed">
+  与陈景润教授（中国科大）合作，证明 AP 是<strong>普适数学框架</strong>——随机特征方法：固定权重基函数展开，无网格逼近，$O(N)$ 复杂度，全尺度一致精度。
+</p>
 
-  <p class="text-xs text-subtle">
-    这一结果验证了<strong>渐近保持</strong>是科学机器学习的普适设计原则——
-    而非特定架构的特性。
-  </p>
+</div>
+
+<div class="card p-4 space-y-2">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">参考文献</h3>
+
+<div class="text-xs text-muted-foreground space-y-1">
+  <p>Jin, Ma, Wu. <strong>APNNs for Multiscale Kinetic Eqs</strong>. <em>Commun. Comput. Phys.</em>, 2024.</p>
+  <p>Jin, Ma, Wu. <strong>APNNs for Time-Dependent Transport</strong>. <em>J. Sci. Comput.</em>, 2023.</p>
+  <p>Wu, Yan, Jin, Ma. <strong>AP-CON</strong>. <em>Comput. Methods Appl. Mech. Eng.</em>, 2024.</p>
+  <p>Jin, Ma, Zhang. <strong>APNNs for VPFP</strong>. <em>J. Sci. Comput.</em>, 2024.</p>
+  <p>Chen, Ma, Wu. <strong>AP-RFM</strong>. <em>J. Comput. Phys.</em>, 2025.</p>
+  <p>Xie, Chen, Ma, Wang. <strong>RT-APNN for Gray RTE</strong>. <em>Commun. Comput. Phys.</em>, 2026.</p>
+  <p>Wu, Xie, Chen, Wang, Ma. <strong>APNNs for Gray RTE</strong>. <em>CSIAM Trans. Appl. Math.</em>, 2026.</p>
+</div>
+
+</div>
+
 </div>
 
 ---
