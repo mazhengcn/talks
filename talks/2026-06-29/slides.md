@@ -804,135 +804,89 @@ layout: center
 </div>
 
 ---
-layout: center
----
 
-<div class="text-center space-y-5">
-  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向二</span>
-  <h2 class="text-display-md">渐近保持神经网络<br>与多尺度保结构方法</h2>
-  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+# 扩散模型反问题：方法
+
+<div class="max-w-5xl mx-auto mt-10 space-y-6">
+
+<div class="card p-6 pb-2 space-y-2">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<div class="text-body-md text-foreground-soft leading-relaxed">
+  从<strong>间接含噪观测</strong>中恢复未知场，根本困难在于<strong>不适定性</strong>——无穷多解可拟合同一观测。
+
+  经典方法依赖手工正则化（Tikhonov、TV），无法捕捉真实物理场的复杂统计结构。
+
+  我们采用<strong>扩散模型</strong>从高维物理场数据中学习低维流形先验，无需配对数据，提供有原则的数据驱动正则化。
+</div>
+
+</div>
+
+<div class="grid grid-cols-3 gap-5">
+
+<div class="rounded-lg bg-coral-50 dark:bg-coral-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">ODE-DPS</div>
+  <div class="w-8 h-0.5 bg-coral-400/40 rounded-full"></div>
+  <div class="text-body-sm text-muted-foreground leading-relaxed">确定性概率流 ODE 替代随机 SDE，自适应范数修正减少边界误差，更稳定精确</div>
+</div>
+
+<div class="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">无监督 FWI</div>
+  <div class="w-8 h-0.5 bg-amber-400/40 rounded-full"></div>
+  <div class="text-body-sm text-muted-foreground leading-relaxed">随机权重网络贝叶斯反演，无需标注训练数据，适配多种地质模型</div>
+</div>
+
+<div class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">BINO</div>
+  <div class="w-8 h-0.5 bg-emerald-400/40 rounded-full"></div>
+  <div class="text-body-sm text-muted-foreground leading-relaxed">贝叶斯反演 + 神经算子，高效求解 subdiffusion 问题，显著降低时间成本</div>
+</div>
+
+</div>
+
 </div>
 
 ---
 
-# 反问题的挑战
+# 扩散模型反问题应用：FWI
 
-<div class="grid grid-cols-2 gap-8 mt-6">
-  <div class="space-y-4">
-    <h3 class="text-title-sm">问题陈述</h3>
-    <div class="card p-5">
-      <ul class="text-base text-body space-y-3">
-        <li>从<strong>间接含噪观测</strong>中恢复未知场（速度、源项、初值）</li>
-        <li>应用：地球物理、医学成像、材料科学</li>
-        <li>根本困难：<strong>不适定性</strong>——无穷多参数场可解释同一组观测数据</li>
-      </ul>
-    </div>
-    <div class="card p-5">
-      <h4 class="text-title-sm mb-2">经典方法：手工设计正则化</h4>
-      <p class="text-sm text-muted-foreground">
-        $\min_{u}\; \mathcal{L}_{\text{data}}(u) + \lambda\,\mathcal{R}(u)$
-      </p>
-      <p class="text-xs text-subtle mt-2">
-        Tikhonov、TV、稀疏性——基于几何直觉，无法捕捉真实物理场的复杂统计结构
-      </p>
-    </div>
-  </div>
-  <div class="space-y-4" v-click>
-    <h3 class="text-title-sm">我们的方案</h3>
-    <div class="card p-5">
-      <Card title="基于分数扩散模型的学习先验" size="sm"
-        :items="[
-          '扩散模型学习 $\\nabla_u \\log p(u)$ —— 真实先验分布的**分数函数**',
-          '使用**无配对**的未知场样本训练——无需昂贵配对数据',
-          '推理时：学习到的分数引导重建趋向**物理合理的解**',
-        ]"
-        :enable-latex="true"
-      />
-    </div>
-    <div class="card p-5">
-      <h4 class="text-title-sm mb-2">核心优势</h4>
-      <p class="text-base text-body">
-        物理场存在于名义高维参数空间中的<strong>低维流形</strong>上。
-        分数函数隐式编码了这一流形几何——提供了无需手工设计的、
-        有原则的数据驱动正则化信号。
-      </p>
-    </div>
-  </div>
+<div class="max-w-5xl mx-auto mt-4 space-y-6">
+
+<div class="card p-6 space-y-2">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<div class="text-body-md text-foreground-soft leading-relaxed">
+  全波形反演（FWI）是从地震记录恢复地下波速的典型 PDE 反问题。我们提出<strong>鲁棒物理引导扩散框架</strong>，引入 Wasserstein-2 数据一致性势函数和预条件引导逆向扩散，在 OpenFWI 全部基准上取得<strong>SOTA 重建精度</strong>。
 </div>
 
----
-
-# ODE-DPS：PDE 反问题的扩散后验采样
-
-<div class="space-y-5 mt-4">
-  <p class="text-base text-body">
-    一个适用于一般 PDE 反问题的全扩散框架。将 PDE 反演视为
-    <strong>贝叶斯后验采样</strong>：给定含噪观测 $y^{\delta} = \mathcal{F}(\bar{u}) + \xi$，
-    后验分布 $p(\bar{u}\,|\,y^{\delta})$ 集中于物理一致的解。
-  </p>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">核心算法贡献</h3>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="space-y-2">
-        <h4 class=text-title-sm>ODE 逆向采样器</h4>
-        <p class="text-xs text-muted-foreground">
-          用确定性概率流 ODE 替代随机 SDE 动力学。
-          两个具有相同 Fokker–Planck 边缘分布的正向过程
-          → 更稳定、更精确的反演轨迹。
-        </p>
-      </div>
-      <div class="space-y-2">
-        <h4 class=text-title-sm>自适应范数修正</h4>
-        <p class="text-xs text-muted-foreground">
-          用空间加权范数替换 $\ell_2$ 数据残差——
-          减少边界附近的重建误差。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <p class="text-xs text-subtle">
-    在热源恢复、波动方程反演等任务上验证——始终优于 Tikhonov 和 Landweber 迭代基线。
-  </p>
 </div>
 
----
+<div class="grid grid-cols-2 gap-5">
 
-# 鲁棒物理引导扩散全波形反演
+<div class="rounded-lg bg-sky-50 dark:bg-sky-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">Wasserstein-2 引导</div>
+  <div class="w-8 h-0.5 bg-sky-400/40 rounded-full"></div>
+  <div class="text-body-sm text-muted-foreground leading-relaxed">逐道 1D W₂ 距离替代 ℓ₂ 失配，对相位偏移和振幅不平衡保持不变，缓解周期跳跃</div>
+</div>
 
-<div class="space-y-4 mt-4">
-  <p class="text-base text-body">
-    <em>本方向最新工作。</em> 全波形反演（FWI）——从地震记录恢复地下波速
-    $v(\mathbf{x})$——是 PDE 反问题的典型试验场。
-  </p>
+<div class="rounded-lg bg-violet-50 dark:bg-violet-950/30 p-5 space-y-2">
+  <div class="text-title-sm text-foreground-soft">预条件逆向扩散</div>
+  <div class="w-8 h-0.5 bg-violet-400/40 rounded-full"></div>
+  <div class="text-body-sm text-muted-foreground leading-relaxed">对角预条件子自适应调整引导强度，早期保守、后期增强，更稳定高效</div>
+</div>
 
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">两项核心创新</h3>
-    <div class="space-y-4">
-      <div>
-        <h4 class=text-title-sm>1. Wasserstein-2 数据一致性势函数</h4>
-        <p class="text-xs text-muted-foreground mt-1">
-          用逐道 1D Wasserstein-2 距离替代点态 $\ell_2$ 失配。
-          $W_2$ 对比分位函数 → 对相位偏移和振幅不平衡保持不变性，缓解周期跳跃问题。
-        </p>
-      </div>
-      <div>
-        <h4 class=text-title-sm>2. 预条件引导逆向扩散</h4>
-        <p class="text-xs text-muted-foreground mt-1">
-          对角预条件子 $P_i = \rho_i D_i$ 跨扩散步和空间位置自适应调整引导强度。
-          早期保守引导，后期逐步增强。
-        </p>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <div class="card p-4">
-    <p class="text-sm font-medium text-foreground-soft">
-      结果：在相同计算预算下，所有 OpenFWI 基准（CurveVel A/B、FlatFault A/B、CurveFault A/B）上
-      获得最低重建误差和最高 PSNR/SSIM。
-    </p>
-  </div>
+<div class="mt-2 grid grid-cols-2 gap-x-10 gap-y-6 text-xs text-muted-foreground leading-relaxed">
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 mr-1.5">J. Sci. Comput.</span> Jiang, Peng, Ma, Yan, ODE-DPS, 2025</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 mr-1.5">CSIAM Trans. Appl. Math.</span> Yan, Wu, Xu, Ma, Unsup. FWI, 2025</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-50 dark:bg-amber-950/20 text-amber-600 dark:text-amber-300 mr-1.5">J. Comput. Appl. Math.</span> Yan, Xu, Ma, BINO, 2025</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-950/20 text-sky-600 dark:text-sky-300 mr-1.5">arXiv</span> Peng, Jiang, Ma, Yan, Robust FWI, 2026</div>
+  <div><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-300 mr-1.5">arXiv</span> Min, Ma, DLO-FWI, 2026</div>
+</div>
+
 </div>
 
 
@@ -1041,63 +995,6 @@ layout: center
 </div>
 
 ---
-
-# 快速谱方法
-
-<div class="space-y-5 mt-4">
-  <p class="text-base text-body">
-    经典快速算法具有<strong>双重角色</strong>：生成训练 ML 模型的基准真值数据的参考求解器，
-    以及拓展动理学理论计算边界的独立科学贡献。
-  </p>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">非弹性 Boltzmann 碰撞算子</h3>
-    <p class="text-base text-body mb-3">
-      在 $N^3$ 分辨率下直接评估需要每时间步 $O(N^6)$ 运算。
-      快速谱方法将弹性碰撞降至 $O(N^4 \log N)$——但<strong>非弹性</strong>
-      算子在我们的工作之前没有任何次立方算法。
-    </p>
-    <div class="callout">
-      <p>
-        <strong>我们的贡献：</strong>首个 $O(N^2 \log N)$ 非弹性 Boltzmann 算子算法——
-        通过适当的 Fourier 空间变量变换，揭示了先前未被认识的卷积结构。
-      </p>
-    </div>
-  </div>
-
-  <div class="text-xs text-subtle space-x-4">
-    <span>开源：<a href="https://github.com/mazhengcn/fsm-inelastic-boltzmann">fsm-inelastic-boltzmann</a></span>
-    <span>|</span>
-    <span>GPU 加速：<a href="https://github.com/mazhengcn/kipack">kipack</a>（JAX/CuPy）</span>
-  </div>
-</div>
-
----
-
-# AP-UQ：严格的不确定性量化
-
-<div class="space-y-5 mt-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">渐近保持不确定性量化</h3>
-    <p class="text-base text-body mb-3">
-      通过随机 Galerkin 离散化，为含不确定性的输运方程和双曲方程开发了
-      严格的 AP-UQ 方法。这为 APNN 架构提供了<strong>数学框架和设计直觉</strong>。
-    </p>
-    <ul class="text-sm text-body space-y-1">
-      <li>从动理学区域到扩散极限的一致谱收敛</li>
-      <li>在整个多尺度过渡过程中考虑随机输入</li>
-      <li>迄今为止对多尺度动理学理论 UQ 最完整的严格分析</li>
-    </ul>
-  </div>
-
-  <div class="text-center text-sm text-muted-foreground">
-    快速经典算法 ↔ 现代机器学习 —— 闭环反馈
-  </div>
-</div>
-
-
-
----
 layout: center
 ---
 
@@ -1130,6 +1027,9 @@ layout: center
     </p>
   </div>
 </div>
+
+---
+
 # 真实物理科学的智能体
 
 <br>
