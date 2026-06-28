@@ -445,7 +445,7 @@ layout: center
 
 <div>
   <p class="text-body-md font-semibold text-foreground-soft">燕雄斌</p>
-  <p class="text-body-sm text-foreground-soft mt-0.5">2022–2024 → 兰州大学计算数学研究所 副教授</p>
+  <p class="text-body-sm text-foreground-soft mt-0.5">2022–2024 → 兰州大学数学科学学院 副教授</p>
 </div>
 
 <div class="flex items-center gap-1 flex-wrap mt-1">
@@ -459,6 +459,86 @@ layout: center
 
 </div>
 
+</div>
+
+
+
+
+---
+
+# 高效培养模式
+
+<div class="max-w-5xl mx-auto -mt-2 space-y-3">
+
+<div class="card p-4">
+
+<div class="flex items-center gap-2.5 mb-3">
+  <span class="badge-primary text-xs">飞书</span>
+  <div class="flex items-center gap-2">
+    <div class="w-6 h-6 rounded-full bg-coral-400/30 flex items-center justify-center text-xs font-semibold text-coral-600 shrink-0">马</div>
+    <div>
+      <span class="text-body-sm font-medium text-foreground-soft">马征</span>
+      <span class="text-xs text-subtle ml-1.5">负责人</span>
+    </div>
+  </div>
+  <span class="text-xs text-muted-foreground ml-auto">权限分级 · 全员可见</span>
+</div>
+
+<div class="grid grid-cols-4 gap-3">
+
+<div class="bg-warm-100/60 dark:bg-warm-900/40 rounded-lg px-3 py-2 space-y-1">
+  <div class="flex items-center gap-2">
+    <div class="w-6 h-6 rounded-full bg-coral-100 dark:bg-coral-900/30 flex items-center justify-center text-xs font-semibold text-coral-600 shrink-0">动</div>
+    <span class="text-body-sm font-medium text-foreground-soft">动理学</span>
+    <span class="text-xs text-subtle ml-auto">5人</span>
+  </div>
+  <p class="text-xs text-muted-foreground">DeepRTE · APNNs</p>
+</div>
+
+<div class="bg-warm-100/60 dark:bg-warm-900/40 rounded-lg px-3 py-2 space-y-1">
+  <div class="flex items-center gap-2">
+    <div class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-xs font-semibold text-amber-600 shrink-0">反</div>
+    <span class="text-body-sm font-medium text-foreground-soft">反问题</span>
+    <span class="text-xs text-subtle ml-auto">6人</span>
+  </div>
+  <p class="text-xs text-muted-foreground">扩散模型 · FWI</p>
+</div>
+
+<div class="bg-warm-100/60 dark:bg-warm-900/40 rounded-lg px-3 py-2 space-y-1">
+  <div class="flex items-center gap-2">
+    <div class="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-xs font-semibold text-emerald-600 shrink-0">核</div>
+    <span class="text-body-sm font-medium text-foreground-soft">核聚变</span>
+    <span class="text-xs text-subtle ml-auto">3人</span>
+  </div>
+  <p class="text-xs text-muted-foreground">ICF 数值模拟</p>
+</div>
+
+<div class="bg-warm-100/60 dark:bg-warm-900/40 rounded-lg px-3 py-2 space-y-1">
+  <div class="flex items-center gap-2">
+    <div class="w-6 h-6 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-xs font-semibold text-sky-600 shrink-0">机</div>
+    <span class="text-body-sm font-medium text-foreground-soft">机器学习</span>
+    <span class="text-xs text-subtle ml-auto">18人</span>
+  </div>
+  <p class="text-xs text-muted-foreground">一般深度学习讨论</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card p-4 space-y-1.5">
+
+<div class="flex items-center gap-2">
+  <span class="badge-primary text-xs">知识</span>
+  <h3 class="text-title-sm">结构化知识库</h3>
+  <span class="text-xs text-subtle ml-auto">AI 驱动</span>
+</div>
+
+<p class="text-xs text-muted-foreground">科研产出沉淀为可检索、可复用的<strong>数字资产</strong>——新成员上手时间从数周缩短至数天</p>
+
+<img src="./wikis.png" class="rounded-lg w-full" />
+
+</div>
 </div>
 
 ---
@@ -1096,9 +1176,6 @@ layout: center
     </p>
   </div>
 </div>
-
----
-
 # 真实物理科学的智能体
 
 <br>
