@@ -1089,20 +1089,20 @@ LLM 调度数据生成、选择模型架构
 
 <div class="grid grid-cols-2 gap-3">
 
-<div class="card p-2 space-y-1">
-  <div class="flex items-center gap-1.5">
+<div class="rounded-xl bg-stone-100 dark:bg-stone-800 p-2 space-y-1">
+  <div class="flex items-center justify-center gap-1.5">
     <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
     <span class="text-xs font-medium text-foreground-soft">CLI 终端交互</span>
   </div>
-  <img src="./unitarylab-cli.png" class="mx-auto rounded-lg h-53" />
+  <img src="./unitarylab-cli.png" class="mt-2 mx-auto rounded-lg h-53" />
 </div>
 
-<div class="card p-2 space-y-1">
-  <div class="flex items-center gap-1.5">
+<div class="rounded-xl bg-stone-100 dark:bg-stone-800 p-2 space-y-1">
+  <div class="flex items-center justify-center gap-1.5">
     <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
     <span class="text-xs font-medium text-foreground-soft">Web 平台界面</span>
   </div>
-  <img src="./unitarylab-2.0.png" class="mx-auto rounded-lg h-53" />
+  <img src="./unitarylab-2.0.png" class="mt-2 mx-auto rounded-lg h-53" />
 </div>
 
 </div>
@@ -1158,8 +1158,6 @@ layout: center
   </div>
 </div>
 
----
-layout: center
 ---
 
 # 附录：代表性论文
