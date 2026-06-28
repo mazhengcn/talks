@@ -589,90 +589,85 @@ layout: center
 </div>
 
 ---
-layout: center
----
 
 # 三个系列工作
 
-<div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
+<div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto mt-8">
 
-<div class="card p-8 space-y-4">
-  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
-  <h3 class="text-title-lg">DeepRTE</h3>
-  <p class="text-body-md text-muted-foreground leading-relaxed">辐射输运的高效神经算子基础模型</p>
-  <div class="space-y-1.5 pt-2">
-    <p class="text-body-sm text-muted-foreground">零样本泛化 · 推理加速 80×</p>
-    <p class="text-body-sm text-muted-foreground">HuggingFace 开源分发</p>
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+
+<h3 class="text-title-lg">DeepRTE</h3>
+
+<span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 whitespace-nowrap">神经算子结构设计</span>
+
+<p class="text-body-sm text-muted-foreground">辐射输运的高效神经算子基础模型</p>
+
+<div class="grid grid-cols-2 gap-2 pt-1">
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">80×</p>
+    <p class="text-[11px] text-subtle">推理加速</p>
+  </div>
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">零样本</p>
+    <p class="text-[11px] text-subtle">泛化能力</p>
   </div>
 </div>
 
-<div class="card p-8 space-y-4">
-  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
-  <h3 class="text-title-lg">APNNs</h3>
-  <p class="text-body-md text-muted-foreground leading-relaxed">渐近保持神经网络与多尺度保结构方法</p>
-  <div class="space-y-1.5 pt-2">
-    <p class="text-body-sm text-muted-foreground">AP-CON · RT-APNN · AP-RFM</p>
-    <p class="text-body-sm text-muted-foreground">AP-UQ · 非弹性 Boltzmann</p>
+<p class="text-xs text-subtle">数学算子机构 · Attention机制</p>
+
+</div>
+
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+
+<h3 class="text-title-lg">APNNs</h3>
+
+<span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 whitespace-nowrap">物理约束融合</span>
+
+<p class="text-body-sm text-muted-foreground">渐近保持神经网络框架</p>
+
+<div class="grid grid-cols-2 gap-2 pt-1">
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">一致</p>
+    <p class="text-[11px] text-subtle">全尺度精度</p>
+  </div>
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">硬约束</p>
+    <p class="text-[11px] text-subtle">物理嵌入架构</p>
   </div>
 </div>
 
-<div class="card p-8 space-y-4">
-  <div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
-  <h3 class="text-title-lg">扩散模型反问题</h3>
-  <p class="text-body-md text-muted-foreground leading-relaxed">扩散模型驱动的 PDE 反问题学习先验</p>
-  <div class="space-y-1.5 pt-2">
-    <p class="text-body-sm text-muted-foreground">ODE-DPS · 无监督 FWI</p>
-    <p class="text-body-sm text-muted-foreground">Wasserstein-2 引导</p>
+<p class="text-xs text-subtle">APNN · AP-CON · RT-APNN · AP-RFM</p>
+
+</div>
+
+<div class="card p-6 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/60 rounded-full"></div>
+
+<h3 class="text-title-lg">扩散模型反问题</h3>
+
+<span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-50/80 dark:bg-amber-950/20 text-amber-600 dark:text-amber-300 whitespace-nowrap">下游反问题求解</span>
+
+<p class="text-body-sm text-muted-foreground">扩散模型驱动的 PDE 反问题求解</p>
+
+<div class="grid grid-cols-2 gap-2 pt-1">
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">W₂</p>
+    <p class="text-[11px] text-subtle">鲁棒引导</p>
+  </div>
+  <div class="text-center bg-warm-100/60 dark:bg-warm-900/40 rounded-lg py-1.5">
+    <p class="text-primary font-bold tabular-nums text-sm">SOTA</p>
+    <p class="text-[11px] text-subtle">OpenFWI</p>
   </div>
 </div>
 
-</div>
-
-<p class="caption text-center mt-8">
-  30+ 篇同行评审论文 · 系列开源软件包 · NSFC 资助超 400 万元
-</p>
-
----
-layout: center
----
-
-<div class="text-center space-y-5">
-  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向一</span>
-  <h2 class="text-display-md">辐射输运的高效<br>神经算子基础模型</h2>
-  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
-</div>
-
----
-
-# 为什么动理学方程至关重要
-
-<div class="grid grid-cols-2 gap-8 mt-4">
-
-<Card title="计算挑战" size="md"
-  :items="[
-    '动理学方程描述**介观尺度**的物质行为——连接量子力学与流体动力学',
-    '相空间维度：$2\\times d$（三维时为 6）——**维度灾难**',
-    '单次 RTE 模拟：$10^8$–$10^{12}$ 个未知量，超级计算机需数小时',
-    '聚变等离子体：需**每秒数百万次 Vlasov–Maxwell 求解**以实现实时控制',
-  ]"
-  :enable-latex="true"
-/>
-
-<Card title="多尺度难题" size="md"
-  :items="[
-    'Knudsen 数 $\\varepsilon \\ll 1$：动理学方程退化为扩散/流体极限',
-    '经典求解器出现 **刚性问题**：$\\Delta t = O(\\varepsilon)$',
-    '标准神经网络（PINNs）在此区域**严重失效**',
-    '需求：在所有尺度上**一致精确**的方法',
-  ]"
-  :enable-latex="true"
-/>
+<p class="text-xs text-subtle">ODE-DPS · 无监督 FWI · Wasserstein-2</p>
 
 </div>
-
-<div class="card p-4 mt-4 text-center">
-
-**物理结构（渐近极限、守恒律）** 必须作为<span class="text-primary font-medium">硬架构约束</span>，而非软正则化惩罚
 
 </div>
 
@@ -704,6 +699,18 @@ layout: center
     和 <a href="https://huggingface.co/mazhengcn/deeprte">huggingface.co/mazhengcn/deeprte</a>。
   </p>
 </div>
+
+
+---
+layout: center
+---
+
+<div class="text-center space-y-5">
+  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向一</span>
+  <h2 class="text-display-md">辐射输运的高效<br>神经算子基础模型</h2>
+  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
+
 
 ---
 
