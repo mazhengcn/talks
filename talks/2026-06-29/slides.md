@@ -894,7 +894,7 @@ layout: center
 ---
 
 <div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第四部分</span>
   <h2 class="text-display-lg">服务与未来规划</h2>
   <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
 </div>
