@@ -84,7 +84,7 @@ layout: center
       <div class="h-0.5 w-full bg-warm-300 dark:bg-warm-800 -mt-2 mb-4"></div>
       <span class="badge-primary text-xs">2017 – 2020</span>
       <h3 class="!text-sm leading-tight mt-4">Golomb 访问助理教授</h3>
-      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">普渡大学数学系<br>合作导师：Jingwei Hu</p>
+      <p class="text-xs text-muted-foreground mt-4 leading-snug text-center">美国普渡大学数学系<br>合作导师：Jingwei Hu</p>
     </div>
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
@@ -118,7 +118,7 @@ layout: center
     </div>
     <div class="stat">
       <p class="stat-num">1</p>
-      <p class="stat-label">最佳论文奖 (2019)</p>
+      <p class="stat-label">最佳论文奖</p>
     </div>
   </div>
 
