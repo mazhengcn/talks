@@ -17,11 +17,11 @@
       "talks/*"
     ],
     "catalog": {
-      "@slidev/cli": "^52.16.0",
-      "@slidev/client": "^52.16.0",
+      "@slidev/cli": "^52.15.2",
+      "@slidev/client": "^52.15.2",
       "@slidev/theme-default": "^0.25.0",
       "unocss": "^66.7.2",
-      "vite": "^8.0.16"
+      "vite": "^8"
     }
   },
   "devDependencies": {
@@ -39,9 +39,5 @@
     "rimraf": "^6.1.3",
     "seedrandom": "^3.0.5",
     "tinyexec": "^1.2.4"
-  },
-  "dependencies": {
-    "node-source-han-sans-sc": "^1.1.0-2.001R",
-    "vue": "^3.5.39"
   }
 }
