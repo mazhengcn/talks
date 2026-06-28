@@ -717,7 +717,7 @@ layout: center
   />
 
   <p class="text-body-sm text-muted-foreground">
-    DeepRTE 是<strong>可复用的计算资产</strong> ·
+    DeepRTE 是<strong>完全可复现的计算资产</strong> ·
     <a href="https://github.com/mazhengcn/deeprte">GitHub</a> ·
     <a href="https://huggingface.co/mazhengcn/deeprte">HuggingFace</a>
   </p>
@@ -1048,9 +1048,6 @@ LLM 调度数据生成、选择模型架构
 
 </div>
 
----
-
-
 
 ---
 
@@ -1160,22 +1157,56 @@ layout: center
 
 ---
 
-# 附录：代表性论文
+# 附录：论文列表（一）
 
-<div class="text-xs text-muted-foreground space-y-2 mt-6 max-w-3xl mx-auto leading-relaxed">
-  <p><strong>DeepRTE (2026).</strong> 稳态辐射输运方程的高效神经算子方法. <em>J. Comput. Phys.</em></p>
-  <p><strong>ODE-DPS (2025).</strong> 基于分数的扩散后验采样求解 PDE 反问题.</p>
-  <p><strong>APNN (2023, 2024).</strong> 多尺度动理学方程的渐近保持神经网络. <em>J. Comput. Phys.</em>, <em>SIAM J. Sci. Comput.</em></p>
-  <p><strong>APNN-VPFP (2024).</strong> Vlasov–Poisson–Fokker–Planck 系统的 APNNs.</p>
-  <p><strong>AP-CON (2024).</strong> 灰色辐射输运的渐近保持卷积 DeepONets.</p>
-  <p><strong>RT-APNN (2025).</strong> 基于 GRU 的循环时序 APNNs 求解时间依赖多尺度问题.</p>
-  <p><strong>AP-RFM (2025).</strong> 多尺度辐射输运的渐近保持随机特征方法.</p>
-  <p><strong>FWI-DL (2025).</strong> 无监督深度学习全波形反演.</p>
-  <p><strong>Peng et al. (2026).</strong> 鲁棒物理引导扩散 FWI 与 Wasserstein-2 引导.</p>
-  <p><strong>频率原则 (2020, 2021).</strong> 神经网络训练的谱偏差. <em>J. Mach. Learn. Res.</em>, <em>Commun. Comput. Phys.</em></p>
-  <p><strong>非弹性 Boltzmann (2019).</strong> 非弹性 Boltzmann 碰撞算子的快速谱方法. <em>J. Comput. Phys.</em></p>
-  <p><strong>AP-UQ (2017, 2018).</strong> 多尺度动理学方程的渐近保持不确定性量化.</p>
+<div class="max-w-5xl mx-auto mt-4 space-y-1.5 text-[11px] text-muted-foreground leading-relaxed">
+
+<div><strong>Zhu, Tang, Ma.</strong> DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer. <span class="text-primary font-medium">Comput. Methods Appl. Mech. Eng.</span>, 2026.</div>
+<div><strong>Wu, Xie, Chen, Wang, Ma.</strong> APNNs based on Even-odd Decomposition for Multiscale Gray RTE. <span class="text-primary font-medium">CSIAM Trans. Appl. Math.</span>, 2026.</div>
+<div><strong>Xie, Chen, Ma, Wang.</strong> RT-APNN for Solving Gray Radiative Transfer Equations. <span class="text-primary font-medium">Commun. Comput. Phys.</span>, 2026.</div>
+<div><strong>Peng, Jiang, Ma, Yan.</strong> Robust Physics-Guided Diffusion for Full-Waveform Inversion. <em>arXiv</em>, 2026.</div>
+<div><strong>Min, Ma.</strong> Decoupled Latent Optimization of Diffusion Models for FWI. <em>arXiv</em>, 2026.</div>
+<div><strong>Jiang, Peng, Ma, Yan.</strong> ODE-DPS: ODE-Based Diffusion Posterior Sampling for Inverse Problems in PDE. <span class="text-primary font-medium">J. Sci. Comput.</span>, 2025.</div>
+<div><strong>Yan, Wu, Xu, Ma.</strong> A Deep Learning Approach for Solving the Inverse Problem of the Wave Equation. <span class="text-primary font-medium">CSIAM Trans. Appl. Math.</span>, 2025.</div>
+<div><strong>Chen, Ma, Wu.</strong> A Micro-Macro Decomposition-Based APRFM for Multiscale RTE. <span class="text-primary font-medium">J. Comput. Phys.</span>, 2025.</div>
+<div><strong>Yan, Xu, Ma.</strong> BINO for Modeling Subdiffusion: Forward and Inverse Problems. <span class="text-primary font-medium">J. Comput. Appl. Math.</span>, 2025.</div>
+<div><strong>Lei, Li, Ma, Zhang, Tang.</strong> Identification of the Governing Equation for Run-and-Tumble Dynamics. <span class="text-primary font-medium">PLOS Comput. Biol.</span>, 2025.</div>
+<div><strong>Jin, Ma, Wu.</strong> APNNs for Multiscale Kinetic Equations. <span class="text-primary font-medium">Commun. Comput. Phys.</span>, 2024.</div>
+<div><strong>Jin, Ma, Zhang.</strong> APNNs for Multiscale VPFP System in the High-Field Regime. <span class="text-primary font-medium">J. Sci. Comput.</span>, 2024.</div>
+<div><strong>Wu, Yan, Jin, Ma.</strong> AP Convolutional DeepONets for Multiscale Linear Transport Equations. <span class="text-primary font-medium">Comput. Methods Appl. Mech. Eng.</span>, 2024.</div>
+<div><strong>Yan, Xu, Ma.</strong> Laplace-fPINNs for Forward/Inverse Problems of Time Fractional Equation. <span class="text-primary font-medium">East Asian J. Appl. Math.</span>, 2024.</div>
+<div><strong>Zhou, Ma.</strong> Capturing Shock Waves by Relaxation Neural Networks. <em>arXiv</em>, 2024.</div>
+<div><strong>Jin, Ma, Wu.</strong> APNNs for Multiscale Time-Dependent Linear Transport Equations. <span class="text-primary font-medium">J. Sci. Comput.</span>, 2023.</div>
+<div><strong>Wang, Li, Luo, Ma, Yip, Lin.</strong> Numerical Stability for Differential Equations with Memory. <em>arXiv</em>, 2023.</div>
+
 </div>
+
+---
+
+# 附录：论文列表（二）
+
+<div class="max-w-5xl mx-auto mt-4 space-y-1.5 text-[11px] text-muted-foreground leading-relaxed">
+
+<div><strong>Zhang, Luo, Zhang, E, Xu, Ma.</strong> MOD-Net: A Model-Operator-Data Network for Solving PDEs. <span class="text-primary font-medium">Commun. Comput. Phys.</span>, 2022.</div>
+<div><strong>Luo, Ma, Xu, Zhang.</strong> On the Exact Computation of Linear Frequency Principle Dynamics. <span class="text-primary font-medium">SIAM J. Math. Data Sci.</span>, 2022.</div>
+<div><strong>Ding, Chen, Ma, Zhang, Liu.</strong> Heat Flux Estimation in Hypersonic Rarefied Flow via Neural Network. <span class="text-primary font-medium">AIP Adv.</span>, 2022.</div>
+<div><strong>Luo, Ma, Wang, Xu, Zhang.</strong> An Upper Limit of Decaying Rate w.r.t. Frequency in DNN. <em>Proc. Math. Sci. Mach. Learn.</em>, 2022.</div>
+<div><strong>Luo, Xu, Ma, Zhang.</strong> Phase Diagram for Two-layer ReLU Neural Networks at Infinite-width Limit. <span class="text-primary font-medium">J. Mach. Learn. Res.</span>, 2021.</div>
+<div><strong>Luo, Ma, Xu, Zhang.</strong> Theory of the Frequency Principle for General Deep Neural Networks. <span class="text-primary font-medium">CSIAM Trans. Appl. Math.</span>, 2021.</div>
+<div><strong>Zhang, Luo, Ma, Xu.</strong> A Linear Frequency Principle Model for Absence of Overfitting. <span class="text-primary font-medium">Chin. Phys. Lett.</span>, 2021.</div>
+<div><strong>Carrillo, Hu, Ma, Rey.</strong> Trails in Kinetic Theory: Foundational Aspects and Numerical Methods. <em>SEMA SIMAI Springer Series</em>, 2021. (专著章节)</div>
+<div><strong>Xu, Zhang, Luo, Xiao, Ma.</strong> Frequency Principle: Fourier Analysis Sheds Light on Deep Neural Networks. <span class="text-primary font-medium">Commun. Comput. Phys.</span>, 2020.</div>
+<div><strong>Zhang, Xu, Luo, Ma.</strong> A Type of Generalization Error Induced by Initialization in DNNs. <em>Proc. Math. Sci. Mach. Learn.</em>, 2020.</div>
+<div><strong>Han, Ma, Ma, E.</strong> Uniformly Accurate ML-Based Hydrodynamic Models for Kinetic Equations. <span class="text-primary font-medium">Proc. Natl. Acad. Sci.</span>, 2019.</div>
+<div><strong>Hu, Ma.</strong> A Fast Spectral Method for the Inelastic Boltzmann Collision Operator. <span class="text-primary font-medium">J. Comput. Phys.</span>, 2019.</div>
+<div><strong>Zhang, Xu, Luo, Ma.</strong> Explicitizing an Implicit Bias of the Frequency Principle in Two-layer NNs. <em>arXiv</em>, 2019.</div>
+<div><strong>Jin, Ma.</strong> The Discrete Stochastic Galerkin Method for Hyperbolic Equations. <span class="text-primary font-medium">J. Sci. Comput.</span>, 2018.</div>
+<div><strong>Jin, Liu, Ma.</strong> Uniform Spectral Convergence of Stochastic Galerkin for Linear Transport. <span class="text-primary font-medium">Res. Math. Sci.</span>, 2017.</div>
+<div><strong>Ma, Zhang, Zhou.</strong> Semi-Lagrangian Time Splitting Spectral Method for Schrödinger Equation. <span class="text-primary font-medium">Appl. Numer. Math.</span>, 2017.</div>
+<div><strong>Liu, Ma, Zhou.</strong> Explicit and Implicit TVD Schemes for Conservation Laws with Caputo Derivatives. <span class="text-primary font-medium">J. Sci. Comput.</span>, 2017.</div>
+
+</div>
+
 
 ---
 layout: center
