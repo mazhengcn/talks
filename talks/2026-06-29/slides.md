@@ -675,42 +675,58 @@ layout: center
 
 # DeepRTE：辐射输运的基础模型
 
-<div class="space-y-4 mt-4">
-  <p class="text-base text-body">
-    针对稳态辐射输运方程（RTE）的高效神经算子。
-    RTE 是控制辐射在参与性介质中传播的微分-积分方程，应用涵盖中子输运、
-    大气辐射、传热和光学成像。
-  </p>
+<div class="max-w-5xl mx-auto mt-4 space-y-4">
+
+<div class="card p-4 space-y-2">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<p class="text-body-md text-foreground-soft leading-relaxed">
+  针对稳态<strong>辐射输运方程</strong>（RTE），提出基于注意力机制的预训练神经算子 <strong>DeepRTE</strong>，实现高效、可复用的辐射输运求解。
+</p>
+
+<div class="text-xs text-muted-foreground">
+  应用：中子输运 · 激光聚变 · 放疗 · 光学成像
+</div>
+
+</div>
+
+<img src="./deeprte.png" class="rounded-lg w-full" />
+
+</div>
+
+---
+
+# DeepRTE：性能对比
+
+<div class="mt-5" />
+
+目标实现在剂量计算引擎、中子输运模拟的快速替代
+
+<div class="max-w-5xl mx-auto mt-5 space-y-4">
 
   <DataTable
-    :headers="['方面', '经典 $S_N$ 求解器', 'DeepRTE']"
+    :headers="['', '经典 $S_N$ 求解器', 'DeepRTE']"
     :rows="[
-      ['推理时间', '$10^4$–$10^6$ 秒/几何体', '~2.3 秒（$83.9\\times$ 加速）'],
-      ['数学范畴', '方程离散化', '算子映射 $\\mathcal{A}: (I^{-},\\mu_t,p)\\to I$'],
+      ['推理时间', '$10^2$–$10^3$ 秒', '~2.3 秒（$83.9\\times$ 加速）'],
+      ['数学范畴', '方程离散化', '算子映射 $\\mathcal{A}: (I^{-},\\mu,p)\\to I$'],
       ['复用性', '无原生复用能力', '零样本泛化，无需重新训练'],
-      ['分发方式', '专用 Fortran/C++ 库', 'Hugging Face + JAX/Flax API'],
+      ['分发方式', '专用 Fortran/C++ 库', 'HuggingFace + JAX/Flax API'],
     ]"
     :highlight-col="2"
   />
 
-  <p class="text-xs text-subtle">
-    DeepRTE 是<strong>可复用的计算资产</strong>——巨大的初始训练成本被均摊到数千个下游任务中。
-    代码与模型发布于 <a href="https://github.com/mazhengcn/deeprte">github.com/mazhengcn/deeprte</a>
-    和 <a href="https://huggingface.co/mazhengcn/deeprte">huggingface.co/mazhengcn/deeprte</a>。
+  <p class="text-body-sm text-muted-foreground">
+    DeepRTE 是<strong>可复用的计算资产</strong> ·
+    <a href="https://github.com/mazhengcn/deeprte">GitHub</a> ·
+    <a href="https://huggingface.co/mazhengcn/deeprte">HuggingFace</a>
   </p>
+
+  <p class="text-body-sm text-foreground-soft">
+    Yekun Zhu, Min Tang, Zheng Ma. <strong>DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer</strong>. <em>Comput. Methods Appl. Mech. Eng.</em>, 2026.
+  </p>
+
 </div>
-
-
----
-layout: center
----
-
-<div class="text-center space-y-5">
-  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向一</span>
-  <h2 class="text-display-md">辐射输运的高效<br>神经算子基础模型</h2>
-  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
-</div>
-
 
 ---
 
