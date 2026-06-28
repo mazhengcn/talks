@@ -40,19 +40,19 @@ layout: center
       <p class="text-sm text-muted-foreground">学术经历、论文发表与科研项目</p>
     </div>
     <div class="card p-6 text-left space-y-2">
-      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
       <h3 class="text-title-md text-foreground-soft">教书育人</h3>
       <p class="text-sm text-muted-foreground">教学理念、课程建设与学生培养</p>
     </div>
     <div class="card p-6 text-left space-y-2">
-      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">2</div>
+      <div class="text-3xl mb-2 text-primary font-bold tabular-nums">3</div>
       <h3 class="text-title-md text-foreground-soft">科学研究</h3>
       <p class="text-sm text-muted-foreground">研究内容、研究成果与科学理念</p>
     </div>
     <div class="card p-6 text-left space-y-2">
       <div class="text-3xl mb-2 text-primary font-bold tabular-nums">4</div>
       <h3 class="text-title-md text-foreground-soft">服务与规划</h3>
-      <p class="text-sm text-muted-foreground">社会服务与科研与教育的下一阶段愿景</p>
+      <p class="text-sm text-muted-foreground">社会服务与科研教育的下一阶段愿景</p>
     </div>
   </div>
 </div>
@@ -914,7 +914,7 @@ layout: center
 <h3 class="text-title-sm">学术组织与育人</h3>
 
 <div class="space-y-2 text-body-sm text-muted-foreground">
-  <div>参与举办<strong>中国机器学习与应用大会</strong>（2021 年起每年一次）</div>
+  <div>参与组织<strong>中国机器学习与应用大会</strong>（2021 年起每年一次）</div>
   <div>担任<strong>吴文俊班班主任</strong>，获评 <span class="badge-primary text-xs">2025 优秀班主任</span></div>
 </div>
 
