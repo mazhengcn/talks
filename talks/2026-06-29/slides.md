@@ -161,7 +161,7 @@ layout: center
 <div class="card p-6 space-y-2">
   <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
   <p class="text-body-md font-semibold text-foreground-soft">APNNs</p>
-  <p class="text-body-sm text-muted-foreground">渐进保持神经网络/算子框架多尺度动理学方程求解器 · Github</p>
+  <p class="text-body-sm text-muted-foreground">渐近保持神经网络（算子）多尺度动理学方程求解器 · Github</p>
 </div>
 
 <div class="card p-6 space-y-2">
@@ -193,25 +193,13 @@ layout: center
 
 <div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
   <div class="flex items-center gap-2 flex-1 min-w-0">
-    <span class="badge text-xs shrink-0">参与</span>
-    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">重点项目</span>
-    <span class="text-body-md text-foreground-soft truncate">大规模相互作用粒子系统的不确定性量化与计算</span>
-  </div>
-  <div class="flex items-center gap-3 shrink-0 ml-4">
-    <span class="text-xs text-subtle tabular-nums">2026–2030</span>
-    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
-  </div>
-</div>
-
-<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
-  <div class="flex items-center gap-2 flex-1 min-w-0">
     <span class="badge-primary text-xs shrink-0">主持</span>
     <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 shrink-0">重大研究计划培育</span>
-    <span class="text-body-md text-foreground-soft truncate">利用机器学习方法快速求解辐射输运方程</span>
+    <span class="text-body-md text-foreground-soft truncate">机器学习方法快速求解辐射输运方程</span>
   </div>
   <div class="flex items-center gap-3 shrink-0 ml-4">
     <span class="text-xs text-subtle tabular-nums">2023–2025</span>
-    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+    <span class="text-xs text-muted-foreground tabular-nums">80万</span>
   </div>
 </div>
 
@@ -219,10 +207,22 @@ layout: center
   <div class="flex items-center gap-2 flex-1 min-w-0">
     <span class="badge-primary text-xs shrink-0">主持</span>
     <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
-    <span class="text-body-md text-foreground-soft truncate">多尺度动理学方程的渐近保持神经网络方法</span>
+    <span class="text-body-md text-foreground-soft truncate">渐近保持的神经网络方法求解多尺度动理学方程</span>
   </div>
   <div class="flex items-center gap-3 shrink-0 ml-4">
     <span class="text-xs text-subtle tabular-nums">2023–2025</span>
+    <span class="text-xs text-muted-foreground tabular-nums">30万</span>
+  </div>
+</div>
+
+<div class="flex justify-between items-center border-b border-warm-400/40 dark:border-warm-700/40 pb-2">
+  <div class="flex items-center gap-2 flex-1 min-w-0">
+    <span class="badge text-xs shrink-0">参与</span>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">重点项目</span>
+    <span class="text-body-md text-foreground-soft truncate">大规模相互作用粒子系统的不确定性量化与计算</span>
+  </div>
+  <div class="flex items-center gap-3 shrink-0 ml-4">
+    <span class="text-xs text-subtle tabular-nums">2026–至今</span>
     <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
   </div>
 </div>
@@ -258,7 +258,7 @@ layout: center
   </div>
   <div class="flex items-center gap-3 shrink-0 ml-4">
     <span class="text-xs text-subtle tabular-nums">2023–至今</span>
-    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+    <span class="text-xs text-muted-foreground tabular-nums">31.5万</span>
   </div>
 </div>
 
@@ -269,7 +269,7 @@ layout: center
   </div>
   <div class="flex items-center gap-3 shrink-0 ml-4">
     <span class="text-xs text-subtle tabular-nums">2021–2023</span>
-    <span class="text-xs text-muted-foreground tabular-nums">[金额]</span>
+    <span class="text-xs text-muted-foreground tabular-nums">20万</span>
   </div>
 </div>
 
