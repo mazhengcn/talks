@@ -3,7 +3,7 @@ layout: cover
 highlighter: shiki
 css: unocss
 colorSchema: auto
-transition: fade
+transition: none
 mdc: true
 title: 长聘教职答辩
 remoteAssets: true
