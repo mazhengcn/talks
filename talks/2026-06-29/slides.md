@@ -61,9 +61,32 @@ layout: center
 
 # 学术经历
 
-<div class="h-full flex items-center -mt-8">
+<div class="h-full flex flex-col items-center justify-center">
+
+  <!-- honors above timeline -->
+  <div class="w-full mb-1">
+    <div class="flex justify-between w-full mx-auto">
+      <div class="w-1/4"></div>
+      <div class="w-1/4 flex flex-col items-center">
+        <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
+          <span class="w-1 h-1 rounded-full bg-coral-400"></span>
+          上海交大优秀博士毕业生
+        </span>
+        <div class="h-6 w-px border-l border-dashed border-coral-400/40 my-1.5"></div>
+      </div>
+      <div class="w-1/4"></div>
+      <div class="w-1/4 flex flex-col items-center">
+        <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
+          <span class="w-1 h-1 rounded-full bg-coral-400"></span>
+          上海市海外高层次人才（2020）
+        </span>
+        <div class="h-6 w-px border-l border-dashed border-coral-400/40 my-1.5"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- timeline -->
   <div class="w-full">
-    <!-- timeline: dot + label columns, centered -->
     <div class="flex justify-between w-full mx-auto">
     <div class="flex flex-col items-center w-1/4">
       <div class="w-3.5 h-3.5 rounded-full bg-coral-500 z-10"></div>
@@ -95,6 +118,7 @@ layout: center
     </div>
   </div>
   </div>
+
 </div>
 
 ---
@@ -155,7 +179,7 @@ layout: center
 
 ---
 
-# 科研基金
+# 基金项目
 
 <div class="max-w-4xl mx-auto -mt-2 space-y-3">
 
@@ -223,7 +247,7 @@ layout: center
 
 <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
 
-<h3 class="text-title-sm">实验室合作项目</h3>
+<h3 class="text-title-sm">省部级基金</h3>
 
 <div class="space-y-1.5">
 
@@ -254,9 +278,6 @@ layout: center
   </div>
 
 </div>
-
-
-
 
 ---
 
