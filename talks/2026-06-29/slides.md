@@ -131,7 +131,13 @@ layout: center
 <div class="card p-6 space-y-2">
   <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
   <p class="text-body-md font-semibold text-foreground-soft">DeepRTE</p>
-  <p class="text-body-sm text-muted-foreground">辐射输运基础模型<br/>JAX/Flax · Hugging Face 分发</p>
+  <p class="text-body-sm text-muted-foreground">辐射输运基础模型<br/>JAX/Flax · Github · Hugging Face</p>
+</div>
+
+<div class="card p-6 space-y-2">
+  <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+  <p class="text-body-md font-semibold text-foreground-soft">APNNs</p>
+  <p class="text-body-sm text-muted-foreground">渐进保持神经网络/算子框架多尺度动理学方程求解器 · Github</p>
 </div>
 
 <div class="card p-6 space-y-2">
@@ -140,11 +146,6 @@ layout: center
   <p class="text-body-sm text-muted-foreground">GPU 加速 Boltzmann 求解器<br/>JAX/CuPy · NumPy 接口</p>
 </div>
 
-<div class="card p-6 space-y-2">
-  <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
-  <p class="text-body-md font-semibold text-foreground-soft">fsm-inelastic</p>
-  <p class="text-body-sm text-muted-foreground">首个次立方非弹性<br/>Boltzmann 碰撞算子求解器</p>
-</div>
 
 </div>
 
