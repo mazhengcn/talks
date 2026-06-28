@@ -17,8 +17,8 @@
       "talks/*"
     ],
     "catalog": {
-      "@slidev/cli": "^52.15.2",
-      "@slidev/client": "^52.15.2",
+      "@slidev/cli": "52.14.1",
+      "@slidev/client": "52.14.1",
       "@slidev/theme-default": "^0.25.0",
       "unocss": "^66.7.2",
       "vite": "^7.0.0"
