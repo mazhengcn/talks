@@ -68,17 +68,17 @@ layout: center
     <div class="flex justify-between w-full mx-auto">
       <div class="w-1/4"></div>
       <div class="w-1/4 flex flex-col items-center">
-        <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
-          <span class="w-1 h-1 rounded-full bg-coral-400"></span>
+        <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
+          <span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span>
           上海交大优秀博士毕业生
         </span>
         <div class="h-6 w-px border-l border-dashed border-coral-400/40 my-1.5"></div>
       </div>
       <div class="w-1/4"></div>
       <div class="w-1/4 flex flex-col items-center">
-        <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
-          <span class="w-1 h-1 rounded-full bg-coral-400"></span>
-          上海市海外高层次人才（2020）
+        <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium bg-coral-50 dark:bg-coral-950/40 text-coral-600 dark:text-coral-300 whitespace-nowrap">
+          <span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span>
+          上海市海外高层次人才
         </span>
         <div class="h-6 w-px border-l border-dashed border-coral-400/40 my-1.5"></div>
       </div>
