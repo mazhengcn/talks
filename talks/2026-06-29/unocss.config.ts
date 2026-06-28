@@ -1,5 +1,4 @@
 import config from "@slidev/client/uno.config.ts";
-import { createLocalFontProcessor } from "@unocss/preset-web-fonts/local";
 import { mergeConfigs, presetWebFonts } from "unocss";
 
 export default mergeConfigs([
@@ -402,7 +401,6 @@ export default mergeConfigs([
           serif: ["EB Garamond", "Noto Serif SC"],
           mono: "JetBrains Mono"
         },
-        processors: createLocalFontProcessor(),
       }),
     ],
   },
