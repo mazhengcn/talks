@@ -889,6 +889,70 @@ layout: center
 
 </div>
 
+---
+layout: center
+---
+
+<div class="text-center space-y-6">
+  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
+  <h2 class="text-display-lg">服务与未来规划</h2>
+  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+</div>
+
+---
+
+# 服务
+
+<div class="max-w-5xl mx-auto mt-10 space-y-8">
+
+<div class="grid grid-cols-2 gap-5">
+
+<div class="card p-5 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">学术组织与育人</h3>
+
+<div class="space-y-2 text-body-sm text-muted-foreground">
+  <div>参与举办<strong>中国机器学习与应用大会</strong>（2021 年起每年一次）</div>
+  <div>担任<strong>吴文俊班班主任</strong>，获评 <span class="badge-primary text-xs">2025 优秀班主任</span></div>
+</div>
+
+</div>
+
+<div class="card p-5 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">学院服务</h3>
+
+<div class="space-y-2 text-body-sm text-muted-foreground">
+  <div>参与学院<strong>本科生与研究生招生</strong>各项面试工作</div>
+  <div>参与学科建设、课程评审等学院事务</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="card p-5 space-y-3">
+
+<div class="w-10 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<h3 class="text-title-sm">期刊审稿</h3>
+
+<div class="flex items-center gap-2 flex-wrap text-body-sm text-muted-foreground">
+  <span>服务领域顶级期刊：</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300">J. Comput. Phys.</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-50 dark:bg-amber-950/20 text-amber-600 dark:text-amber-300">CSIAM</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">Commun. Comput. Phys.</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-950/20 text-sky-600 dark:text-sky-300">MMMAS</span>
+  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-300">J. Sci. Comput.</span>
+</div>
+
+</div>
+
+</div>
 
 ---
 
@@ -927,7 +991,7 @@ layout: center
       <div class="w-12 h-0.5 bg-coral-400/50 rounded-full mx-auto"></div>
       <p class="text-display-sm">算法</p>
       <p class="text-title-md text-foreground-soft">GPU 集群</p>
-      <p class="text-body-md text-subtle">Scaling Law 驱动三者</p>
+      <p class="text-body-md text-subtle">不同下游任务</p>
       <span class="badge-primary text-sm px-4 py-1.5">Diffusion Inversion</span>
     </div>
   </div>
@@ -985,82 +1049,71 @@ LLM 调度数据生成、选择模型架构
 </div>
 
 ---
-layout: center
+
+
+
 ---
 
-<div class="text-center space-y-5">
-  <span class="badge-primary text-xs px-3 py-1 tracking-widest">研究方向三</span>
-  <h2 class="text-display-md">扩散模型驱动的<br>PDE 反问题</h2>
-  <div class="w-16 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
+# Agent 落地：UnitaryLab 2.0
+
+<div class="max-w-5xl mx-auto mt-4 space-y-3">
+
+<div class="card p-3 space-y-1.5">
+
+<div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
+
+<div class="text-body-sm text-foreground-soft leading-relaxed">
+  参与孵化的<strong>酉术量子</strong>发布全球首个 <strong>Agent 驱动全链路量子科学计算平台</strong> UnitaryLab 2.0（2026.5），将 Loop Engineering 落地为工业产品。
 </div>
 
----
-layout: center
----
-
-<div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
-  <h2 class="text-display-lg">未来研究规划</h2>
-  <div class="w-20 h-0.5 bg-coral-400/40 rounded-full mx-auto"></div>
 </div>
 
----
+<div class="grid grid-cols-3 gap-2">
 
-# 科研愿景
+<div class="rounded-lg bg-coral-50 dark:bg-coral-950/30 p-2.5 space-y-1">
+  <div class="text-xs font-semibold text-foreground-soft">自然语言驱动</div>
+  <div class="text-[11px] text-muted-foreground">Agent 自动完成算法调用、资源调度与计算</div>
+</div>
 
-<div class="max-w-3xl mx-auto mt-8 space-y-6">
-  <p class="text-xl leading-relaxed text-body">
-    我们正处于计算科学的转折点。从
-    <span class="font-medium text-foreground-soft">可控核聚变</span>、
-    <span class="font-medium text-foreground-soft">地震成像</span>到
-    <span class="font-medium text-foreground-soft">放射治疗</span>，
-    这些重大挑战最终都归结为在经典数值方法无法企及的规模上求解
-    <em>动理学方程与反问题</em>。
-  </p>
+<div class="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-2.5 space-y-1">
+  <div class="text-xs font-semibold text-foreground-soft">全链路自动化</div>
+  <div class="text-[11px] text-muted-foreground">需求理解 → 算法选择 → 执行 → 可视化</div>
+</div>
 
-  <div class="card p-6">
-    <p class="text-lg font-semibold text-primary mb-2">我的回答</p>
-    <p class="text-lg leading-relaxed text-body">
-      <strong>全栈 AI for Science</strong> —— 垂直整合的方法论：
-      严格的数学分析 → 嵌入物理硬约束的神经网络架构
-      → 可扩展算法 → 生产级开源软件。
-    </p>
+<div class="rounded-lg bg-emerald-50 dark:bg-emerald-950/30 p-2.5 space-y-1">
+  <div class="text-xs font-semibold text-foreground-soft">开源生态</div>
+  <div class="text-[11px] text-muted-foreground">全领域量子算法库，10+ 大类 50+ 能力</div>
+</div>
+
+</div>
+
+<div class="grid grid-cols-2 gap-3">
+
+<div class="card p-2 space-y-1">
+  <div class="flex items-center gap-1.5">
+    <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
+    <span class="text-xs font-medium text-foreground-soft">CLI 终端交互</span>
   </div>
+  <img src="./unitarylab-cli.png" class="mx-auto rounded-lg h-53" />
 </div>
 
----
-
-# 真实物理科学的智能体
-
-<br>
-
-<br>
-
-<div class="max-w-3xl mx-auto mt-8 space-y-6">
-  <p class="text-lg leading-relaxed text-body">
-    我的理念与主流的<em>"一个模型解决一切"</em>范式截然不同。
-    我主张为特定控制方程开发<strong>紧凑的、注入物理信息的专用模型</strong>。
-  </p>
-
-  <div class="grid grid-cols-2 gap-6">
-    <div class="card p-5 space-y-2">
-      <div class="text-2xl">🏛️</div>
-      <h3 class="text-title-sm">领域专用求解器</h3>
-      <p class="text-sm text-muted-foreground">为 RTE、Boltzmann、Vlasov–Maxwell 等方程定制专用架构——物理结构嵌入网络设计</p>
-    </div>
-    <div class="card p-5 space-y-2">
-      <div class="text-2xl">🤖</div>
-      <h3 class="text-title-sm">大语言模型作为调度器</h3>
-      <p class="text-sm text-muted-foreground">LLM 协调物理感知求解器的集成体——不是通用的 PDE 求解器，而是智能调度中心</p>
-    </div>
+<div class="card p-2 space-y-1">
+  <div class="flex items-center gap-1.5">
+    <div class="w-1.5 h-1.5 rounded-full bg-coral-400"></div>
+    <span class="text-xs font-medium text-foreground-soft">Web 平台界面</span>
   </div>
+  <img src="./unitarylab-2.0.png" class="mx-auto rounded-lg h-53" />
+</div>
+
+</div>
+
 </div>
 
 ---
 
 # 等离子体与聚变基础模型
 
-<div class="space-y-5 mt-4">
+<div class="space-y-5 mt-10">
   <div class="card p-5">
     <h3 class="text-title-md mb-2">下一个前沿</h3>
     <p class="text-base text-body">
@@ -1081,65 +1134,13 @@ layout: center
       <h4 class="text-title-sm mb-2">核心挑战</h4>
       <p class="text-xs text-muted-foreground">
         在算子学习架构中作为<strong>硬架构约束</strong>保持物理不变量
-        （总能量、$L^2$ 范数、熵不等式）。
+        （总能量、熵不等式等等）。
       </p>
     </div>
   </div>
 
   <p class="text-xs text-subtle">
     与上海交通大学自然科学研究院等离子体物理学家合作开展。
-  </p>
-</div>
-
----
-
-# 收敛理论与保结构算子
-
-<div class="space-y-5 mt-4">
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">扩散模型反演的严格误差分析</h3>
-    <p class="text-base text-body">
-      当前方法（ODE-DPS）对后验分数近似依赖启发性论证。
-      我们旨在给出学习后验与真实贝叶斯后验之间 Wasserstein 距离的界限，
-      作为分数近似误差、ODE 离散化步长和正演模型精度的函数。
-      <strong>首个生成式反演方法的端到端收敛保证。</strong>
-    </p>
-  </div>
-
-  <div class="card p-5">
-    <h3 class="text-title-sm mb-2">保结构算子学习</h3>
-    <p class="text-base text-body">
-      推广 APNN 设计原则：构建<strong>可证明保持非线性守恒律</strong>
-      （质量、能量、熵）的算子学习架构，适用于 Hamiltonian 和耗散 PDE 系统。
-      硬约束方法至关重要——基于惩罚的方法在刚性多尺度极限下必然退化。
-    </p>
-  </div>
-</div>
-
----
-layout: center
----
-
-# 总结
-
-<div class="max-w-3xl mx-auto mt-8 space-y-6 text-center">
-  <p class="text-xl leading-relaxed text-body">
-    我的研究推进了一条有原则的、数学严格的
-    <strong>AI for Science</strong> 道路——一个跨越基础理论、
-    新型神经架构和生产级软件的全栈方法论。
-  </p>
-
-  <div class="border-l-3 border-coral-400/60 pl-5 py-1 text-left">
-    <p class="text-lg text-foreground-soft leading-relaxed">
-      <strong>统一洞察：</strong>物理结构必须编码为硬约束，而非可选的软正则化。
-      这一哲学确保方法不仅在经验上成功，而且在经典离散化失效的
-      刚性和高维区域中可证明鲁棒。
-    </p>
-  </div>
-
-  <p class="text-lg text-muted-foreground">
-    我期待在上海交通大学推进这一研究计划，培养国际合作，
-    并培育能够在严格分析与前沿人工智能之间架起桥梁的下一代计算数学家。
   </p>
 </div>
 
