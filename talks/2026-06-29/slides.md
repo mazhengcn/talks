@@ -420,19 +420,19 @@ layout: center
 <h3 class="text-title-sm">博士毕业生</h3>
 
 <div>
-  <p class="text-body-md font-semibold text-foreground-soft">吴科科</p>
-  <p class="text-body-sm text-foreground-soft mt-0.5">2021–2024 → 中国科学技术大学苏州高等研究院 博士后</p>
-  <div class="flex items-center gap-1 flex-wrap mt-0.5">
+  <div class="text-body-md font-semibold text-foreground-soft">吴科科</div>
+  <div class="text-body-sm text-foreground-soft mt-2">2021–2024 → 中国科学技术大学苏州高等研究院 博士后</div>
+  <div class="flex items-center gap-1 flex-wrap mt-2">
     <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-amber-100/80 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 shrink-0">江苏省卓越博士后 A 类</span>
     <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-50/80 dark:bg-coral-950/20 text-coral-600 dark:text-coral-300 shrink-0">中国博士后科学基金面上项目</span>
   </div>
 </div>
 
-<div class="border-b border-warm-400/40 dark:border-warm-600/30 p-2"></div>
+<div class="border-b border-warm-400/40 dark:border-warm-600/30 mt-2 py-2"></div>
 
-<div>
-  <p class="text-body-md font-semibold text-foreground-soft">竺烨锟</p>
-  <p class="text-body-sm text-foreground-soft mt-0.5">2021–2025 → 字节跳动</p>
+<div class="py-2">
+  <div class="text-body-md font-semibold text-foreground-soft mt-2">竺烨锟</div>
+  <div class="text-body-sm text-foreground-soft mt-2">2021–2025 → 字节跳动</div>
 </div>
 
 </div>
@@ -444,11 +444,11 @@ layout: center
 <h3 class="text-title-sm">出站博士后</h3>
 
 <div>
-  <p class="text-body-md font-semibold text-foreground-soft">燕雄斌</p>
-  <p class="text-body-sm text-foreground-soft mt-0.5">2022–2024 → 兰州大学数学科学学院 副教授</p>
+  <div class="text-body-md font-semibold text-foreground-soft">燕雄斌</div>
+  <div class="text-body-sm text-foreground-soft mt-2">2022–2024 → 兰州大学数学科学学院 副教授</div>
 </div>
 
-<div class="flex items-center gap-1 flex-wrap mt-1">
+<div class="flex items-center gap-1 flex-wrap mt-2 py-2">
   <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-coral-500 text-white shrink-0">主持</span>
   <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
   <span class="text-body-sm text-foreground-soft mt-2">数据和模型驱动的深度反演求解波动方程反问题</span>
@@ -738,12 +738,12 @@ layout: center
 
 <div class="w-8 h-0.5 bg-coral-400/50 rounded-full"></div>
 
-<p class="text-body-sm text-foreground-soft leading-relaxed">
+<div class="text-body-sm text-foreground-soft leading-relaxed">
   物理信息嵌入可<strong>减少对训练数据的依赖</strong>，但多尺度动理学方程存在<strong>刚性问题</strong>——标准 PINNs 对于小尺度严重失效。APNN 通过<strong>微观-宏观分解</strong>嵌入网络架构，保证<strong>全尺度一致精度</strong>：
 
   $$\mathcal{R}_{\varepsilon}(u_{\theta}) \to 0 \;\Longrightarrow\; u_{\theta} \to u_{\text{true}}, \quad \text{uniformly in } \varepsilon.$$
 
-</p>
+</div>
 
 </div>
 
@@ -1212,7 +1212,10 @@ layout: center
 # 附录：授课信息（一）
 
 <table class="w-full text-[10px] leading-none -mt-2 max-w-5xl mx-auto">
+<thead>
 <tr class="text-subtle border-b border-warm-300/50"><td class="pr-2 font-medium">学期</td><td class="pr-2 font-medium">课程名称</td><td class="pr-2 font-medium">课程号</td><td class="pr-2 font-medium">对象</td><td class="pr-2 font-medium">课时</td><td class="font-medium">类别</td></tr>
+</thead>
+<tbody>
 <tr><td class="pr-2 text-muted-foreground">2025-2026-2</td><td class="pr-2 text-foreground-soft">人工智能基础（A）</td><td class="pr-2 text-muted-foreground">AI1201</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">32</td><td class="text-muted-foreground">必修</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2025-2026-2</td><td class="pr-2 text-foreground-soft">数值分析</td><td class="pr-2 text-muted-foreground">MATH2804</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">必修/限选</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2025-2026-1</td><td class="pr-2 text-foreground-soft">动手学深度学习（Python）</td><td class="pr-2 text-muted-foreground">MATH2806</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">32</td><td class="text-muted-foreground">必修</td></tr>
@@ -1224,6 +1227,7 @@ layout: center
 <tr><td class="pr-2 text-muted-foreground">2024-2025-2</td><td class="pr-2 text-foreground-soft">研讨课II</td><td class="pr-2 text-muted-foreground">MATH3302</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">限选</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2024-2025-1</td><td class="pr-2 text-foreground-soft">微分方程高性能计算</td><td class="pr-2 text-muted-foreground">MATH9218</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">32/48</td><td class="text-muted-foreground">专业前沿</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2024-2025-1</td><td class="pr-2 text-foreground-soft">计算方法</td><td class="pr-2 text-muted-foreground">MATH6004</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">公共基础</td></tr>
+</tbody>
 </table>
 
 ---
@@ -1231,7 +1235,10 @@ layout: center
 # 附录：授课信息（二）
 
 <table class="w-full text-[10px] leading-none mt-2 max-w-5xl mx-auto">
+<thead>
 <tr class="text-subtle border-b border-warm-300/50"><td class="pr-2 font-medium">学期</td><td class="pr-2 font-medium">课程名称</td><td class="pr-2 font-medium">课程号</td><td class="pr-2 font-medium">对象</td><td class="pr-2 font-medium">课时</td><td class="font-medium">类别</td></tr>
+</thead>
+<tbody>
 <tr><td class="pr-2 text-muted-foreground">2023-2024-2</td><td class="pr-2 text-foreground-soft">科学计算</td><td class="pr-2 text-muted-foreground">MATH2802</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">必修/限选</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2023-2024-2</td><td class="pr-2 text-foreground-soft">科学问题可计算建模</td><td class="pr-2 text-muted-foreground">MATH9210</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">16/48</td><td class="text-muted-foreground">专业前沿</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2023-2024-1</td><td class="pr-2 text-foreground-soft">计算方法</td><td class="pr-2 text-muted-foreground">MATH6004</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">公共基础</td></tr>
@@ -1242,4 +1249,5 @@ layout: center
 <tr><td class="pr-2 text-muted-foreground">2021-2022-1</td><td class="pr-2 text-foreground-soft">计算方法</td><td class="pr-2 text-muted-foreground">MATH6004</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">公共基础</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2020-2021-2</td><td class="pr-2 text-foreground-soft">微分方程数值解法</td><td class="pr-2 text-muted-foreground">MATH6209</td><td class="pr-2 text-muted-foreground">研究生</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">专业选修</td></tr>
 <tr><td class="pr-2 text-muted-foreground">2020-2021-2</td><td class="pr-2 text-foreground-soft">科学计算</td><td class="pr-2 text-muted-foreground">MA235</td><td class="pr-2 text-muted-foreground">本科</td><td class="pr-2 text-muted-foreground">48</td><td class="text-muted-foreground">必修/限选</td></tr>
+</tbody>
 </table>
