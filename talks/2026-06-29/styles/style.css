@@ -1,7 +1,13 @@
-/* ── Slidev code padding ────────────────── */
-:root {
-  --slidev-code-padding: 8px 12px;
-}
+/* ═══════════════════════════════════════════════════════════════════
+ * FONT FAMILIES
+ *
+ * theme.fontFamily in unocss.config.ts is the single source of truth.
+ * @apply font-sans / @apply font-serif resolve from there directly —
+ * no preflights, no CSS variables, no duplication.
+ *
+ * Chinese fonts are system fonts (no web font download needed).
+ * presetWebFonts only loads JetBrains Mono.
+ * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
 #slide-content {
@@ -13,28 +19,30 @@
   color: #faf9f5 !important;
 }
 
-/* ── Typographic defaults ────────────────── */
+/* ── Base typography ──────────────────── */
 .slidev-layout {
-  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, sans-serif;
+  @apply font-sans;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Display headings: Noto Serif SC (weight 700).                                      ── */
-/* ── Weight 700 compensates for CJK serif projecting lighter than Latin serif           ── */
+/* h1/h2 — serif display. Weight 700 compensates for CJK serif
+   projecting lighter than Latin serif. */
 .slidev-layout h1, .slidev-layout h2 {
-  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif !important;
+  @apply font-serif #{!important};
   font-weight: 700 !important;
   letter-spacing: 0;
   text-wrap: pretty;
 }
 .slidev-layout h1 { line-height: 1.35; }
 .slidev-layout h2 { line-height: 1.4; }
-/* ── Utility headings: Chinese sans, weight 600 for presentation clarity ── */
+
+/* h3–h6: @apply font-sans with !important so UnoCSS font-serif
+   in a shortcut can't leak into subheadings. */
 .slidev-layout h3, .slidev-layout h4,
 .slidev-layout h5, .slidev-layout h6 {
-  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, sans-serif !important;
+  @apply font-sans #{!important};
   font-weight: 600 !important;
   line-height: 1.5;
   text-wrap: pretty;
@@ -192,7 +200,7 @@
 /* Table headers: uppercase only affects Latin text (no-op for CJK).
    Weight/size used for hierarchy. */
 .slidev-layout th {
-  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  @apply font-sans;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
