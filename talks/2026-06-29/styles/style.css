@@ -15,38 +15,35 @@
 
 /* ── Typographic defaults ────────────────── */
 .slidev-layout {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, sans-serif;
   font-weight: 400;
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* ── Display headings: EB Garamond serif (weight 600).                                  ── */
-/* ── Flat -0.02em is fallback; use text-display-{xl,lg,md,sm} for progressive tracking ── */
+/* ── Display headings: Noto Serif SC (weight 700).                                      ── */
+/* ── Weight 700 compensates for CJK serif projecting lighter than Latin serif           ── */
 .slidev-layout h1, .slidev-layout h2 {
-  font-family: 'EB Garamond', 'Noto Serif SC', serif !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.02em;
-  text-wrap: pretty;
-}
-.slidev-layout h1 { line-height: 1.1; }
-.slidev-layout h2 { line-height: 1.15; }
-/* ── Utility headings: sans, weight 600 for presentation clarity ── */
-.slidev-layout h3, .slidev-layout h4,
-.slidev-layout h5, .slidev-layout h6 {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif !important;
-  font-weight: 600 !important;
-  line-height: 1.4;
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif !important;
+  font-weight: 700 !important;
   letter-spacing: 0;
   text-wrap: pretty;
 }
+.slidev-layout h1 { line-height: 1.35; }
+.slidev-layout h2 { line-height: 1.4; }
+/* ── Utility headings: Chinese sans, weight 600 for presentation clarity ── */
+.slidev-layout h3, .slidev-layout h4,
+.slidev-layout h5, .slidev-layout h6 {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, sans-serif !important;
+  font-weight: 600 !important;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
 
-/* ── Body: DESIGN.md body-md (16px, 400, 1.55, 0) ── */
+/* ── Body: Chinese-optimized leading (1.75 for CJK readability at projection distance) ── */
 .slidev-layout p, .slidev-layout li {
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.75;
   text-wrap: pretty;
 }
 
@@ -132,8 +129,36 @@
 .dark .slidev-layout strong {
   color: #faf9f5;
 }
+/* ── Emphasis: weight + color instead of italic (CJK has no italic form) ── */
 .slidev-layout em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
+  color: #a9583e;
+}
+.dark .slidev-layout em {
+  color: #e68367;
+}
+
+/* ── Chinese emphasis (explicit opt-in, no italic fallback) ── */
+.slidev-layout .cjk-em {
+  font-style: normal;
+  font-weight: 600;
+  color: #a9583e;
+}
+.dark .slidev-layout .cjk-em {
+  color: #e68367;
+}
+
+/* ── Academic reference entry ────────────────── */
+.slidev-layout .ref-entry {
+  line-height: 1.65;
+}
+.slidev-layout .ref-entry .journal-name {
+  color: #a9583e;
+  font-weight: 500;
+}
+.dark .slidev-layout .ref-entry .journal-name {
+  color: #e68367;
 }
 
 /* ── Click transitions ────────────────────── */
@@ -164,8 +189,10 @@
   border-collapse: collapse;
   font-feature-settings: "tnum", "lnum";
 }
+/* Table headers: uppercase only affects Latin text (no-op for CJK).
+   Weight/size used for hierarchy. */
 .slidev-layout th {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;

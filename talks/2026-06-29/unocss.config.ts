@@ -48,6 +48,24 @@ export default mergeConfigs([
           950: "#442b12",
         },
       },
+      fontFamily: {
+        sans: [
+          "'Noto Sans SC'",
+          "'PingFang SC'",
+          "'Microsoft YaHei'",
+          "'WenQuanYi Micro Hei'",
+          "system-ui",
+          "-apple-system",
+          "sans-serif",
+        ],
+        serif: [
+          "'Noto Serif SC'",
+          "'Songti SC'",
+          "'SimSun'",
+          "serif",
+        ],
+        mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
+      },
     },
     shortcuts: {
       "bg-background": "bg-warm-50 dark:bg-warm-1000",
@@ -66,42 +84,45 @@ export default mergeConfigs([
       "text-on-dark-soft": "text-[#a09d96]",
 
       // ══════════════════════════════════════════════════════════════
-      // TYPE SCALE TOKENS  (Claude DESIGN.md)
+      // TYPE SCALE TOKENS  (Chinese academic presentation)
       //
-      // Font families are defined in styles/style.css:
-      //   Display (h1,h2) — EB Garamond serif, weight 600
-      //   Title  (h3-h6) — Inter sans, weight 600
-      //   Body   (p,li)  — Inter sans, weight 400
-      //   Code   (pre)   — JetBrains Mono, weight 400
+      // Font families — unified Chinese system fonts:
+      //   Display (h1,h2) — Noto Serif SC, weight 700 (CSS cascade)
+      //   Title  (h3-h6)  — Noto Sans SC, weight 600 (CSS cascade)
+      //   Body   (p,li)   — Noto Sans SC, weight 400 (CSS cascade)
+      //   Code   (pre)    — JetBrains Mono (CSS cascade)
       //
-      // Weight discipline:
-      //   400 running text, code
-      //   600 headings, strong emphasis
-      //   700 display numerals only (stat counters)
+      // Each shortcut includes `font-serif` or `font-sans` so it
+      // works correctly even on non-semantic elements (e.g. <p> used
+      // as a heading).
       //
-      // Progressive negative tracking on display sizes
-      // (Claude DESIGN.md Copernicus pattern)
+      // CHINESE-SPECIFIC RULES:
+      //   - NO negative letter-spacing (CJK characters occupy fixed em)
+      //   - Line-height 1.7+ for body text
+      //   - Line-height 1.2+ for display text
+      //   - Weight 700 for serif display (CJK serif projects lighter)
       // ══════════════════════════════════════════════════════════════
 
-      // Display: EB Garamond serif — progressive negative tracking
-      "text-display-xl": "text-[64px] leading-[1.05] tracking-[-1.5px]",
-      "text-display-lg": "text-[48px] leading-[1.10] tracking-[-1px]",
-      "text-display-md": "text-[36px] leading-[1.15] tracking-[-0.5px]",
-      "text-display-sm": "text-[28px] leading-[1.20] tracking-[-0.3px]",
+      // Display: Noto Serif SC — academic authority, generous leading
+      "text-display-xl": "font-serif text-[56px] leading-[1.2]",
+      "text-display-lg": "font-serif text-[44px] leading-[1.25]",
+      "text-display-md": "font-serif text-[34px] leading-[1.3]",
+      "text-display-sm": "font-serif text-[28px] leading-[1.35]",
 
-      // Title: Inter sans — clean, tight
-      "text-title-lg": "text-[22px] leading-[1.3]",
-      "text-title-md": "text-[18px] leading-[1.4]",
-      "text-title-sm": "text-[16px] leading-[1.4]",
+      // Title: Noto Sans SC — clean, readable
+      "text-title-lg": "font-sans text-[24px] leading-[1.4]",
+      "text-title-md": "font-sans text-[20px] leading-[1.45]",
+      "text-title-sm": "font-sans text-[18px] leading-[1.5]",
 
-      // Body: Inter sans — comfortable reading
-      "text-body-md": "text-[16px] leading-[1.55]",
-      "text-body-sm": "text-[14px] leading-[1.55]",
+      // Body: Noto Sans SC — comfortable Chinese reading
+      "text-body-lg": "font-sans text-[18px] leading-[1.7]",
+      "text-body-md": "font-sans text-[16px] leading-[1.75]",
+      "text-body-sm": "font-sans text-[14px] leading-[1.7]",
 
       // Supporting — self-contained weights and tracking
-      "text-caption-token": "text-[13px] leading-[1.4] font-500",
+      "text-caption-token": "font-sans text-[13px] leading-[1.5] font-medium",
       "text-caption-caps":
-        "text-[12px] leading-[1.4] font-500 tracking-[1.5px] uppercase",
+        "font-sans text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase",
 
       // ── Cards ──────────────────────────────────────────────────────────
       // `card` is the visual foundation: background, rounding, ring.
@@ -171,15 +192,30 @@ export default mergeConfigs([
 
       // Stat — large number + tiny label, lighter than a card
       stat: "text-center",
-      "stat-num": "text-4xl font-bold text-primary tracking-tight tabular-nums",
-      "stat-label": "text-xs text-muted-foreground mt-1",
+      "stat-num": "text-4xl font-bold text-primary tabular-nums",
+      "stat-label": "text-xs text-muted-foreground mt-1.5",
+
+      // ── Academic typography ──────────────────────────────────────
+      // Reference entry — paper citation line in appendix
+      "ref-entry": "text-[13px] leading-[1.65] text-muted-foreground",
+
+      // Journal name in citations (primary colored)
+      "journal-name": "text-primary font-medium",
+
+      // Theorem block — coral-tinted with left border
+      theorem:
+        "rounded-lg bg-coral-50/80 dark:bg-coral-950/20 " +
+        "p-4 text-sm border-l-4 border-coral-400 dark:border-coral-500",
+
+      // Definition block — amber-tinted with left border
+      definition:
+        "rounded-lg bg-amber-50/80 dark:bg-amber-950/30 " +
+        "p-4 text-sm border-l-4 border-amber-400 dark:border-amber-500",
     },
     presets: [
       presetWebFonts({
         fonts: {
-          sans: ["Inter", "Noto Sans SC"],
-          serif: ["EB Garamond", "Noto Serif SC"],
-          mono: "JetBrains Mono"
+          mono: "JetBrains Mono",
         },
       }),
     ],

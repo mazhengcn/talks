@@ -3,7 +3,7 @@
  * SectionDivider — centered section header for transition slides.
  *
  * Used on `layout: center` slides to introduce a new major section.
- * Renders a Coral badge label, a display heading (h2, EB Garamond),
+ * Renders a Coral badge label, a display heading (h2, Noto Serif SC),
  * and a short decorative rule below.
  *
  * @example

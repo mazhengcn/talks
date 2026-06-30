@@ -15,7 +15,7 @@ remoteAssets: true
     <h1 class="text-display-lg">
     长聘教轨晋升答辩
     </h1>
-    <p class="text-xl text-muted-foreground max-w-2xl leading-relaxed tracking-wide">
+    <p class="text-xl text-muted-foreground max-w-2xl">
       全栈 AI for Science
     </p>
   </div>
@@ -1159,7 +1159,7 @@ layout: center
 
 # 附录：论文列表（一）
 
-<div class="max-w-5xl mx-auto mt-4 space-y-1.5 text-[11px] text-muted-foreground leading-relaxed">
+<div class="max-w-5xl mx-auto mt-4 space-y-1.5 ref-entry">
 
 <div>1. <strong>Zhu, Tang, Ma.</strong> DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer. <span class="text-primary font-medium">Comput. Methods Appl. Mech. Eng.</span>, 2026.</div>
 <div>2. <strong>Wu, Xie, Chen, Wang, Ma.</strong> APNNs based on Even-odd Decomposition for Multiscale Gray RTE. <span class="text-primary font-medium">CSIAM Trans. Appl. Math.</span>, 2026.</div>
@@ -1185,7 +1185,7 @@ layout: center
 
 # 附录：论文列表（二）
 
-<div class="max-w-5xl mx-auto mt-4 space-y-1.5 text-[11px] text-muted-foreground leading-relaxed">
+<div class="max-w-5xl mx-auto mt-4 space-y-1.5 ref-entry">
 
 <div>18. <strong>Zhang, Luo, Zhang, E, Xu, Ma.</strong> MOD-Net: A Model-Operator-Data Network for Solving PDEs. <span class="text-primary font-medium">Commun. Comput. Phys.</span>, 2022.</div>
 <div>19. <strong>Luo, Ma, Xu, Zhang.</strong> On the Exact Computation of Linear Frequency Principle Dynamics. <span class="text-primary font-medium">SIAM J. Math. Data Sci.</span>, 2022.</div>
