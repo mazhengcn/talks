@@ -1,0 +1,18 @@
+{
+  "conference": "Tenure Track Defense",
+  "conference_url": "https://www.sjtu.edu.cn",
+  "location": "Shanghai, China",
+  "description": "长聘教职申请答辩：全栈AI for Science —— 从多尺度动理学方程到扩散模型反问题",
+  "language": "zh-CN",
+  "published": false,
+  "tags": [
+    "tenure-track",
+    "ai-for-science",
+    "kinetic-equations",
+    "deep-learning",
+    "inverse-problems"
+  ],
+  "custom": {
+    "type": "defense"
+  }
+}

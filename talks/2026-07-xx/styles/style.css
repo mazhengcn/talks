@@ -1,0 +1,249 @@
+/* ═══════════════════════════════════════════════════════════════════
+ * FONT FAMILIES
+ *
+ * theme.fontFamily in unocss.config.ts is the single source of truth.
+ * @apply font-sans / @apply font-serif resolve from there directly —
+ * no preflights, no CSS variables, no duplication.
+ *
+ * All web fonts (Inter, Noto Sans SC, JetBrains Mono) load via
+ * presetWebFonts in unocss.config.ts.
+ * ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Slide background ─────────────────── */
+#slide-content {
+  background-color: #fafafa !important;
+  color: #111113 !important;
+}
+.dark #slide-content {
+  background-color: #09090b !important;
+  color: #fafafa !important;
+}
+
+/* ── Base typography ──────────────────── */
+.slidev-layout {
+  @apply font-sans;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* h1/h2 — serif display. Weight 700 compensates for CJK serif
+   projecting lighter than Latin serif. */
+.slidev-layout h1, .slidev-layout h2 {
+  @apply font-serif #{!important};
+  font-weight: 700 !important;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+.slidev-layout h1 { line-height: 1.35; }
+.slidev-layout h2 { line-height: 1.4; }
+
+/* h3–h6: @apply font-sans with !important so UnoCSS font-serif
+   in a shortcut can't leak into subheadings. */
+.slidev-layout h3, .slidev-layout h4,
+.slidev-layout h5, .slidev-layout h6 {
+  @apply font-sans #{!important};
+  font-weight: 600 !important;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* ── Body: Chinese-optimized leading (1.75 for CJK readability at projection distance) ── */
+.slidev-layout p, .slidev-layout li {
+  font-weight: 400;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+/* ── Lists: padding & marker color ──────────── */
+.slidev-layout ul, .slidev-layout ol {
+  padding-left: 1.5em;
+}
+
+/* SJTU red list markers */
+.slidev-layout ul > li::marker {
+  color: #C8161E;
+}
+.dark .slidev-layout ul > li::marker {
+  color: #e64545;
+}
+
+.slidev-layout ol > li::marker {
+  color: #C8161E;
+  font-weight: 600;
+  font-feature-settings: "tnum";
+}
+.dark .slidev-layout ol > li::marker {
+  color: #e64545;
+}
+
+/* ── Code blocks: dark-surface code-window card (12px radius) ── */
+.slidev-code {
+  background: #09090b !important;
+  color: #fafafa !important;
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.dark .slidev-code {
+  background: #0c0c0e !important;
+}
+
+/* ── Inline code — SJTU red tint, no border ── */
+.slidev-layout :not(pre) > code {
+  background: #fef2f2;
+  color: #b01218;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.dark .slidev-layout :not(pre) > code {
+  background: #4d080b;
+  color: #e64545;
+}
+
+/* ── Links ────────────────────────────────── */
+.slidev-layout a {
+  color: #b01218;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.dark .slidev-layout a {
+  color: #e64545;
+}
+.slidev-layout a:hover {
+  border-bottom-color: currentColor;
+  color: #991015;
+}
+.dark .slidev-layout a:hover {
+  color: #f87171;
+}
+
+/* ── Math — KaTeX ──────────────────────────── */
+.katex {
+  font-size: 1.05em !important;
+  font-weight: 400 !important;
+}
+.katex-display {
+  margin: 0.75em 0 !important;
+}
+
+/* ── Strong / emphasis ────────────────────── */
+.slidev-layout strong {
+  font-weight: 600 !important;
+  color: inherit;
+}
+.dark .slidev-layout strong {
+  color: #fafafa;
+}
+/* ── Emphasis: weight + color instead of italic (CJK has no italic form) ── */
+.slidev-layout em {
+  font-style: normal;
+  font-weight: 600;
+  color: #b01218;
+}
+.dark .slidev-layout em {
+  color: #e64545;
+}
+
+/* ── Chinese emphasis (explicit opt-in, no italic fallback) ── */
+.slidev-layout .cjk-em {
+  font-style: normal;
+  font-weight: 600;
+  color: #b01218;
+}
+.dark .slidev-layout .cjk-em {
+  color: #e64545;
+}
+
+/* ── Academic reference entry ────────────────── */
+.slidev-layout .ref-entry {
+  line-height: 1.65;
+}
+.slidev-layout .ref-entry .journal-name {
+  color: #b01218;
+  font-weight: 500;
+}
+.dark .slidev-layout .ref-entry .journal-name {
+  color: #e64545;
+}
+
+/* ── Click transitions ────────────────────── */
+.slidev-vclick-target {
+  transition: opacity 500ms ease, filter 350ms ease;
+}
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+/* ── Fade transitions ─────────────────────── */
+.fade-out-leave-active {
+  transition: opacity calc(var(--slidev-transition-duration) * 0.6) ease-out;
+}
+.fade-out-enter-active {
+  transition: opacity calc(var(--slidev-transition-duration) * 0.8) ease-in;
+  transition-delay: calc(var(--slidev-transition-duration) * 0.6);
+}
+.fade-out-enter-from,
+.fade-out-leave-to {
+  opacity: 0;
+}
+
+/* ── Tables ────────────────────────────────── */
+.slidev-layout table {
+  border-collapse: collapse;
+  font-feature-settings: "tnum", "lnum";
+}
+/* Table headers: uppercase only affects Latin text (no-op for CJK).
+   Weight/size used for hierarchy. */
+.slidev-layout th {
+  @apply font-sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+}
+.slidev-layout td {
+  font-feature-settings: "tnum", "lnum";
+}
+.slidev-layout td,
+.slidev-layout th {
+  padding: 0.625rem 0.75rem;
+}
+
+/* ── Selection ─────────────────────────────── */
+::selection {
+  background: #fecaca;
+  color: #111113;
+}
+.dark ::selection {
+  background: #991015;
+  color: #fafafa;
+}
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+/* ── Slide number ─────────────────────────── */
+#slide-container .slidev-page-number {
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "tnum";
+  font-size: 0.7rem;
+  opacity: 0.45;
+}
