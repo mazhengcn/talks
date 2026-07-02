@@ -1,22 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════════
- * FONT FAMILIES
+ * STYLES — slidev layout overrides.
  *
- * theme.fontFamily in unocss.config.ts is the single source of truth.
- * @apply font-sans / @apply font-serif resolve from there directly —
- * no preflights, no CSS variables, no duplication.
+ * Tokens in unocss.config.ts. Semantic shortcuts (text-primary,
+ * bg-background, text-foreground, etc.) used where they match.
+ * Raw palette only where semantic doesn't apply (links, code).
  *
- * Chinese fonts are system fonts (no web font download needed).
- * presetWebFonts only loads JetBrains Mono.
+ * Import order: style.css (index.ts side-effect import)
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
 #slide-content {
-  background-color: #faf9f5 !important;
-  color: #141413 !important;
-}
-.dark #slide-content {
-  background-color: #181715 !important;
-  color: #faf9f5 !important;
+  @apply bg-background text-foreground #{!important};
 }
 
 /* ── Base typography ──────────────────── */
@@ -27,8 +21,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* h1/h2 — serif display. Weight 700 compensates for CJK serif
-   projecting lighter than Latin serif. */
+/* h1/h2 — serif display (EB Garamond, Claude editorial voice).
+   Weight 700 compensates for CJK serif projecting lighter than Latin. */
 .slidev-layout h1, .slidev-layout h2 {
   @apply font-serif #{!important};
   font-weight: 700 !important;
@@ -38,8 +32,8 @@
 .slidev-layout h1 { line-height: 1.35; }
 .slidev-layout h2 { line-height: 1.4; }
 
-/* h3–h6: @apply font-sans with !important so UnoCSS font-serif
-   in a shortcut can't leak into subheadings. */
+/* h3–h6: !important prevents UnoCSS shortcuts from leaking
+   a different font-family into subheadings. */
 .slidev-layout h3, .slidev-layout h4,
 .slidev-layout h5, .slidev-layout h6 {
   @apply font-sans #{!important};
@@ -60,64 +54,54 @@
   padding-left: 1.5em;
 }
 
+/* Coral primary list markers */
 .slidev-layout ul > li::marker {
-  color: #cc785c;
+  @apply text-primary;
 }
-.dark .slidev-layout ul > li::marker {
-  color: #e68367;
-}
-
 .slidev-layout ol > li::marker {
-  color: #cc785c;
+  @apply text-primary;
   font-weight: 600;
   font-feature-settings: "tnum";
 }
-.dark .slidev-layout ol > li::marker {
-  color: #e68367;
-}
 
-/* ── Code blocks: DESIGN.md code-window-card (dark surface, 12px radius) ── */
+/* ── Code blocks: dark-surface code-window card (12px radius) ── */
 .slidev-code {
-  background: #181715 !important;
-  color: #faf9f5 !important;
+  @apply font-mono bg-warm-1000 text-warm-50 #{!important};
   border-radius: 12px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 14px;
   line-height: 1.6;
 }
 .dark .slidev-code {
-  background: #1f1e1b !important;
+  @apply bg-warm-975 #{!important};
 }
 
 /* ── Inline code — warm coral tint, no border ── */
 .slidev-layout :not(pre) > code {
-  background: #fdf0ec;
-  color: #a9583e;
+  @apply bg-coral-50 text-coral-600;
   padding: 0.15em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
 }
 .dark .slidev-layout :not(pre) > code {
-  background: #2d1410;
-  color: #e68367;
+  @apply bg-coral-950 text-coral-400;
 }
 
 /* ── Links ────────────────────────────────── */
 .slidev-layout a {
-  color: #a9583e;
+  @apply text-coral-600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .dark .slidev-layout a {
-  color: #e68367;
+  @apply text-coral-400;
 }
 .slidev-layout a:hover {
   border-bottom-color: currentColor;
-  color: #8a4230;
+  @apply text-coral-700;
 }
 .dark .slidev-layout a:hover {
-  color: #f0a28d;
+  @apply text-coral-300;
 }
 
 /* ── Math — KaTeX ──────────────────────────── */
@@ -135,26 +119,26 @@
   color: inherit;
 }
 .dark .slidev-layout strong {
-  color: #faf9f5;
+  @apply text-foreground;
 }
 /* ── Emphasis: weight + color instead of italic (CJK has no italic form) ── */
 .slidev-layout em {
   font-style: normal;
   font-weight: 600;
-  color: #a9583e;
+  @apply text-coral-600;
 }
 .dark .slidev-layout em {
-  color: #e68367;
+  @apply text-coral-400;
 }
 
 /* ── Chinese emphasis (explicit opt-in, no italic fallback) ── */
 .slidev-layout .cjk-em {
   font-style: normal;
   font-weight: 600;
-  color: #a9583e;
+  @apply text-coral-600;
 }
 .dark .slidev-layout .cjk-em {
-  color: #e68367;
+  @apply text-coral-400;
 }
 
 /* ── Academic reference entry ────────────────── */
@@ -162,11 +146,11 @@
   line-height: 1.65;
 }
 .slidev-layout .ref-entry .journal-name {
-  color: #a9583e;
+  @apply text-coral-600;
   font-weight: 500;
 }
 .dark .slidev-layout .ref-entry .journal-name {
-  color: #e68367;
+  @apply text-coral-400;
 }
 
 /* ── Click transitions ────────────────────── */
@@ -197,8 +181,6 @@
   border-collapse: collapse;
   font-feature-settings: "tnum", "lnum";
 }
-/* Table headers: uppercase only affects Latin text (no-op for CJK).
-   Weight/size used for hierarchy. */
 .slidev-layout th {
   @apply font-sans;
   font-weight: 600;
@@ -216,12 +198,10 @@
 
 /* ── Selection ─────────────────────────────── */
 ::selection {
-  background: #f6c1b3;
-  color: #141413;
+  @apply bg-coral-200 text-warm-1000;
 }
 .dark ::selection {
-  background: #8a4230;
-  color: #faf9f5;
+  @apply bg-coral-700 text-warm-50;
 }
 
 /* ── Scrollbar ─────────────────────────────── */
@@ -232,16 +212,16 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d9cfbb;
+  @apply bg-warm-400;
   border-radius: 3px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #545041;
+  @apply bg-warm-800;
 }
 
 /* ── Slide number ─────────────────────────── */
 #slide-container .slidev-page-number {
-  font-family: "Inter", system-ui, sans-serif;
+  @apply font-sans;
   font-feature-settings: "tnum";
   font-size: 0.7rem;
   opacity: 0.45;

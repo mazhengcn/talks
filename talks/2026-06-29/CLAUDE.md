@@ -17,13 +17,12 @@ The `claude.design.md` file is a [DESIGN.md](https://github.com/google-labs-code
 `unocss.config.ts` defines the entire visual system beyond what Slidev's default preset provides:
 
 - **Color scales:** `warm` (cream-based neutrals 50–1000), `coral` (primary, 50–950), `amber` (accent, 50–950)
-- **Type scale shortcuts:** `text-display-{xl,lg,md,sm}` (EB Garamond serif, progressive negative tracking), `text-title-{lg,md,sm}`, `text-body-{md,sm}`, `text-caption-token`, `text-caption-caps`
-- **Surface shortcuts:** `card`, `card-elevated`, `callout`, `callout-accent`, `badge`, `badge-primary`, `badge-accent`
-- **Stat component:** `stat`, `stat-num`, `stat-label`
-- **Semantic shortcuts:** `text-primary`, `text-foreground-soft`, `text-muted-foreground`, `text-subtle`, `text-body`, `text-ink`, `text-on-dark`, `text-on-dark-soft`, `separator`, `divider`, `caption`
-- **Web fonts:** Inter + Noto Sans SC (sans), EB Garamond + Noto Serif SC (serif), JetBrains Mono (mono)
+- **Semantic tokens** (layer 1): `bg-background`, `text-foreground`, `text-primary`, `bg-primary`, `bg-card`, `bg-muted`, `bg-secondary`, `text-muted-foreground`, `text-accent`, `bg-accent`, `border-border` — shadcn/ui-style naming mapped to warm/coral/amber palette values with `dark:` variants
+- **Type scale shortcuts** (layer 2): `text-display-{xl,lg,md,sm}` (EB Garamond serif), `text-title-{lg,md,sm}`, `text-body-{lg,md,sm}`, `text-caption-token`, `text-caption-caps`
+- **Component shortcuts** (layer 3): `card`, `card-elevated`, `callout`, `callout-accent`, `badge`, `badge-primary`, `badge-accent`, `separator`, `divider`, `caption`, `stat`, `stat-num`, `stat-label`, `ref-entry`, `journal-name`, `theorem`, `definition`
+- **Web fonts** (via `presetWebFonts`): Inter + Noto Sans SC (sans, Google Fonts), EB Garamond + Noto Serif SC (serif, Google Fonts), JetBrains Mono (mono, Google Fonts)
 
-`styles/style.css` sets the typographic hierarchy: EB Garamond serif for `h1`/`h2` (weight 600), Inter sans for `h3`–`h6` (weight 600), Inter for body (weight 400). It also styles code blocks as dark-surface code-window cards, coral-tinted inline code, and KaTeX math.
+`styles/style.css` sets the typographic hierarchy: EB Garamond serif for `h1`/`h2` (weight 700), Inter sans for `h3`–`h6` (weight 600), Inter sans for body (weight 400). All color values use `@apply` semantic shortcuts (`text-primary`, `bg-background`, `bg-coral-50`, etc.) — no hardcoded hex in CSS.
 
 ## Custom components
 
