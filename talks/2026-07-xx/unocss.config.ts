@@ -1,61 +1,61 @@
-import { defineConfig } from "unocss";
+import config from "@slidev/client/uno.config.ts";
+import { mergeConfigs } from "unocss";
 
-export default defineConfig({
-  theme: {
-    colors: {
-      // ══════════════════════════════════════════════════════════════
-      // SJTU NEUTRAL — clean grays, slightly warm to pair with red.
-      // ══════════════════════════════════════════════════════════════
-      neutral: {
-        50: "#fafafa",
-        100: "#f4f4f5",
-        200: "#e8e8ea",
-        300: "#d4d4d8",
-        400: "#a1a1aa",
-        500: "#71717a",
-        600: "#52525b",
-        700: "#3f3f46",
-        800: "#27272a",
-        900: "#18181b",
-        950: "#111113",
-        975: "#0c0c0e",
-        1000: "#09090b",
+export default mergeConfigs([
+  config,
+  {
+    theme: {
+      // Token values live in styles/theme.css — here we just wire
+      // the UnoCSS scale names to the CSS variables.
+      colors: {
+        neutral: {
+          50: "var(--neutral-50)",
+          100: "var(--neutral-100)",
+          200: "var(--neutral-200)",
+          300: "var(--neutral-300)",
+          400: "var(--neutral-400)",
+          500: "var(--neutral-500)",
+          600: "var(--neutral-600)",
+          700: "var(--neutral-700)",
+          800: "var(--neutral-800)",
+          900: "var(--neutral-900)",
+          950: "var(--neutral-950)",
+          975: "var(--neutral-975)",
+          1000: "var(--neutral-1000)",
+        },
+        red: {
+          50: "var(--red-50)",
+          100: "var(--red-100)",
+          200: "var(--red-200)",
+          300: "var(--red-300)",
+          400: "var(--red-400)",
+          500: "var(--red-500)",
+          600: "var(--red-600)",
+          700: "var(--red-700)",
+          800: "var(--red-800)",
+          900: "var(--red-900)",
+          950: "var(--red-950)",
+        },
+        gold: {
+          50: "var(--gold-50)",
+          100: "var(--gold-100)",
+          200: "var(--gold-200)",
+          300: "var(--gold-300)",
+          400: "var(--gold-400)",
+          500: "var(--gold-500)",
+          600: "var(--gold-600)",
+          700: "var(--gold-700)",
+          800: "var(--gold-800)",
+          900: "var(--gold-900)",
+          950: "var(--gold-950)",
+        },
       },
-      // ══════════════════════════════════════════════════════════════
-      // SJTU RED — primary brand color #C8161E (交大红 / 百廿红).
-      // Overrides UnoCSS built-in red with the SJTU VI specification.
-      // ══════════════════════════════════════════════════════════════
-      red: {
-        50: "#fef2f2",
-        100: "#fee2e2",
-        200: "#fecaca",
-        300: "#f87171",
-        400: "#e64545",
-        500: "#C8161E", // SJTU brand red
-        600: "#b01218",
-        700: "#991015",
-        800: "#7f0d12",
-        900: "#660b0e",
-        950: "#4d080b",
-      },
-      // ══════════════════════════════════════════════════════════════
-      // SJTU GOLD — secondary accent #FFC000.
-      // ══════════════════════════════════════════════════════════════
-      gold: {
-        50: "#fffdf0",
-        100: "#fff9db",
-        200: "#fff3b8",
-        300: "#ffeb8a",
-        400: "#ffe05c",
-        500: "#FFC000", // SJTU gold
-        600: "#d9a300",
-        700: "#b38700",
-        800: "#8c6a00",
-        900: "#664d00",
-        950: "#403000",
+      fontFamily: {
+        sans: "var(--font-sans)",
+        serif: "var(--font-serif)",
+        mono: "var(--font-mono)",
       },
     },
-  },
   shortcuts: {
     // ── Surface / semantic ────────────────────────────────────
     "bg-background": "bg-neutral-50 dark:bg-neutral-1000",
@@ -71,30 +71,30 @@ export default defineConfig({
     "text-on-dark-soft": "text-[#a1a1aa]",
 
     // ══════════════════════════════════════════════════════════════
-    // TYPE SCALE — each shortcut self-applies the correct font
-    // family via CSS variables defined in typography.css.
+    // TYPE SCALE — each shortcut self-applies font-sans so it
+    // works correctly regardless of parent element context.
     // ══════════════════════════════════════════════════════════════
 
     // Display
-    "text-display-xl": "text-[56px] leading-[1.2] [font-family:var(--font-sans)]",
-    "text-display-lg": "text-[44px] leading-[1.25] [font-family:var(--font-sans)]",
-    "text-display-md": "text-[34px] leading-[1.3] [font-family:var(--font-sans)]",
-    "text-display-sm": "text-[28px] leading-[1.35] [font-family:var(--font-sans)]",
+    "text-display-xl": "font-sans text-[56px] leading-[1.2]",
+    "text-display-lg": "font-sans text-[44px] leading-[1.25]",
+    "text-display-md": "font-sans text-[34px] leading-[1.3]",
+    "text-display-sm": "font-sans text-[28px] leading-[1.35]",
 
     // Title
-    "text-title-lg": "text-[24px] leading-[1.4] [font-family:var(--font-sans)]",
-    "text-title-md": "text-[20px] leading-[1.45] [font-family:var(--font-sans)]",
-    "text-title-sm": "text-[18px] leading-[1.5] [font-family:var(--font-sans)]",
+    "text-title-lg": "font-sans text-[24px] leading-[1.4]",
+    "text-title-md": "font-sans text-[20px] leading-[1.45]",
+    "text-title-sm": "font-sans text-[18px] leading-[1.5]",
 
     // Body
-    "text-body-lg": "text-[18px] leading-[1.7] [font-family:var(--font-sans)]",
-    "text-body-md": "text-[16px] leading-[1.75] [font-family:var(--font-sans)]",
-    "text-body-sm": "text-[14px] leading-[1.7] [font-family:var(--font-sans)]",
+    "text-body-lg": "font-sans text-[18px] leading-[1.7]",
+    "text-body-md": "font-sans text-[16px] leading-[1.75]",
+    "text-body-sm": "font-sans text-[14px] leading-[1.7]",
 
     // Supporting
-    "text-caption-token": "text-[13px] leading-[1.5] font-medium [font-family:var(--font-sans)]",
+    "text-caption-token": "font-sans text-[13px] leading-[1.5] font-medium",
     "text-caption-caps":
-      "text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase [font-family:var(--font-sans)]",
+      "font-sans text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase",
 
     // ── Cards ────────────────────────────────────────────────
     card:
@@ -163,4 +163,5 @@ export default defineConfig({
       "rounded-lg bg-gold-50/80 dark:bg-gold-950/30 " +
       "p-4 text-sm border-l-4 border-gold-400 dark:border-gold-500",
   },
-});
+  },
+]);

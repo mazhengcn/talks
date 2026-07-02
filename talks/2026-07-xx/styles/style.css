@@ -1,24 +1,23 @@
 /* ═══════════════════════════════════════════════════════════════════
  * STYLES — layout, components, and visual theme.
  *
- * @font-face + font stack CSS variables are in typography.css.
- * This file uses var(--font-sans) / var(--font-mono) directly —
- * no UnoCSS @apply, no fontFamily config needed.
+ * Token values live in theme.css. unocss.config.ts delegates via
+ * var(--token). This file uses @apply — zero hardcoded values.
+ *
+ * Import order: theme.css → fonts.css → style.css
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
 #slide-content {
-  background-color: #fafafa !important;
-  color: #111113 !important;
+  @apply bg-neutral-50 text-neutral-950 #{!important};
 }
 .dark #slide-content {
-  background-color: #09090b !important;
-  color: #fafafa !important;
+  @apply bg-neutral-1000 text-neutral-50 #{!important};
 }
 
 /* ── Base typography ──────────────────── */
 .slidev-layout {
-  font-family: var(--font-sans);
+  @apply font-sans;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,7 +25,7 @@
 
 /* h1/h2 — sans display. Weight 700 for strong hierarchy. */
 .slidev-layout h1, .slidev-layout h2 {
-  font-family: var(--font-sans) !important;
+  @apply font-sans #{!important};
   font-weight: 700 !important;
   letter-spacing: 0;
   text-wrap: pretty;
@@ -34,11 +33,11 @@
 .slidev-layout h1 { line-height: 1.35; }
 .slidev-layout h2 { line-height: 1.4; }
 
-/* h3–h6: @apply font-sans with !important so UnoCSS font-serif
-   in a shortcut can't leak into subheadings. */
+/* h3–h6: !important prevents UnoCSS shortcuts from leaking
+   a different font-family into subheadings. */
 .slidev-layout h3, .slidev-layout h4,
 .slidev-layout h5, .slidev-layout h6 {
-  font-family: var(--font-sans) !important;
+  @apply font-sans #{!important};
   font-weight: 600 !important;
   line-height: 1.5;
   text-wrap: pretty;
@@ -58,63 +57,59 @@
 
 /* SJTU red list markers */
 .slidev-layout ul > li::marker {
-  color: #C8161E;
+  @apply text-red-500;
 }
 .dark .slidev-layout ul > li::marker {
-  color: #e64545;
+  @apply text-red-400;
 }
 
 .slidev-layout ol > li::marker {
-  color: #C8161E;
+  @apply text-red-500;
   font-weight: 600;
   font-feature-settings: "tnum";
 }
 .dark .slidev-layout ol > li::marker {
-  color: #e64545;
+  @apply text-red-400;
 }
 
 /* ── Code blocks: dark-surface code-window card (12px radius) ── */
 .slidev-code {
-  font-family: var(--font-mono);
-  background: #09090b !important;
-  color: #fafafa !important;
+  @apply font-mono bg-neutral-1000 text-neutral-50 #{!important};
   border-radius: 12px;
   font-size: 14px;
   line-height: 1.6;
 }
 .dark .slidev-code {
-  background: #0c0c0e !important;
+  @apply bg-neutral-975 #{!important};
 }
 
 /* ── Inline code — SJTU red tint, no border ── */
 .slidev-layout :not(pre) > code {
-  background: #fef2f2;
-  color: #b01218;
+  @apply bg-red-50 text-red-600;
   padding: 0.15em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
 }
 .dark .slidev-layout :not(pre) > code {
-  background: #4d080b;
-  color: #e64545;
+  @apply bg-red-950 text-red-400;
 }
 
 /* ── Links ────────────────────────────────── */
 .slidev-layout a {
-  color: #b01218;
+  @apply text-red-600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .dark .slidev-layout a {
-  color: #e64545;
+  @apply text-red-400;
 }
 .slidev-layout a:hover {
   border-bottom-color: currentColor;
-  color: #991015;
+  @apply text-red-700;
 }
 .dark .slidev-layout a:hover {
-  color: #f87171;
+  @apply text-red-300;
 }
 
 /* ── Math — KaTeX ──────────────────────────── */
@@ -132,26 +127,26 @@
   color: inherit;
 }
 .dark .slidev-layout strong {
-  color: #fafafa;
+  @apply text-neutral-50;
 }
 /* ── Emphasis: weight + color instead of italic (CJK has no italic form) ── */
 .slidev-layout em {
   font-style: normal;
   font-weight: 600;
-  color: #b01218;
+  @apply text-red-600;
 }
 .dark .slidev-layout em {
-  color: #e64545;
+  @apply text-red-400;
 }
 
 /* ── Chinese emphasis (explicit opt-in, no italic fallback) ── */
 .slidev-layout .cjk-em {
   font-style: normal;
   font-weight: 600;
-  color: #b01218;
+  @apply text-red-600;
 }
 .dark .slidev-layout .cjk-em {
-  color: #e64545;
+  @apply text-red-400;
 }
 
 /* ── Academic reference entry ────────────────── */
@@ -159,11 +154,11 @@
   line-height: 1.65;
 }
 .slidev-layout .ref-entry .journal-name {
-  color: #b01218;
+  @apply text-red-600;
   font-weight: 500;
 }
 .dark .slidev-layout .ref-entry .journal-name {
-  color: #e64545;
+  @apply text-red-400;
 }
 
 /* ── Click transitions ────────────────────── */
@@ -197,7 +192,7 @@
 /* Table headers: uppercase only affects Latin text (no-op for CJK).
    Weight/size used for hierarchy. */
 .slidev-layout th {
-  font-family: var(--font-sans);
+  @apply font-sans;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -213,12 +208,10 @@
 
 /* ── Selection ─────────────────────────────── */
 ::selection {
-  background: #fecaca;
-  color: #111113;
+  @apply bg-red-200 text-neutral-950;
 }
 .dark ::selection {
-  background: #991015;
-  color: #fafafa;
+  @apply bg-red-700 text-neutral-50;
 }
 
 /* ── Scrollbar ─────────────────────────────── */
@@ -229,16 +222,16 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a1a1aa;
+  @apply bg-neutral-400;
   border-radius: 3px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  @apply bg-neutral-800;
 }
 
 /* ── Slide number ─────────────────────────── */
 #slide-container .slidev-page-number {
-  font-family: var(--font-sans);
+  @apply font-sans;
   font-feature-settings: "tnum";
   font-size: 0.7rem;
   opacity: 0.45;

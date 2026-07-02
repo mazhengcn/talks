@@ -1,7 +1,33 @@
 {
-  "generatedAt": "2026-06-28T17:40:54.079Z",
-  "count": 9,
+  "generatedAt": "2026-07-02T07:28:27.217Z",
+  "count": 10,
   "talks": [
+    {
+      "id": "2026-07-xx",
+      "title": "长聘教职答辩",
+      "date": "2026-07-02",
+      "speaker": "1\n      个人情况\n      学术经历、论文发表与科研项目",
+      "affiliation": "2",
+      "conference": "Tenure Track Defense",
+      "location": "Shanghai, China",
+      "conferenceUrl": "https://www.sjtu.edu.cn",
+      "language": "en",
+      "slidesUrl": "https://zheng-talks.netlify.app/2026-07-xx/",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-xx/assets/2026-07-xx.pdf?raw=true",
+      "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-xx",
+      "description": "长聘教职申请答辩：全栈AI for Science —— 从多尺度动理学方程到扩散模型反问题",
+      "tags": [
+        "tenure-track",
+        "ai-for-science",
+        "kinetic-equations",
+        "deep-learning",
+        "inverse-problems"
+      ],
+      "published": false,
+      "custom": {
+        "type": "defense"
+      }
+    },
     {
       "id": "2026-06-29",
       "title": "长聘教职答辩",

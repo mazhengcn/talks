@@ -1,0 +1,55 @@
+/* ═══════════════════════════════════════════════════════════════════
+ * THEME TOKENS — single source of truth for all design values.
+ *
+ * unocss.config.ts references these via var(--token) in theme.colors
+ * and theme.fontFamily. Shortcuts stay clean (text-red-500, font-sans).
+ * Change a value here → propagates everywhere.
+ * ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Neutral ─────────────────────────────────────────────── */
+  --neutral-50: oklch(0.9851 0.0001 271.2);
+  --neutral-100: oklch(0.9674 0.0014 285.2);
+  --neutral-200: oklch(0.9316 0.0028 285.8);
+  --neutral-300: oklch(0.8711 0.0055 286.0);
+  --neutral-400: oklch(0.7118 0.0130 286.0);
+  --neutral-500: oklch(0.5517 0.0139 285.9);
+  --neutral-600: oklch(0.4419 0.0147 285.7);
+  --neutral-700: oklch(0.3703 0.0119 285.8);
+  --neutral-800: oklch(0.2739 0.0055 286.0);
+  --neutral-900: oklch(0.2103 0.0059 285.8);
+  --neutral-950: oklch(0.1785 0.0041 285.9);
+  --neutral-975: oklch(0.1553 0.0042 285.8);
+  --neutral-1000: oklch(0.1408 0.0044 285.8);
+
+  /* ── Red (SJTU brand ~#C8161E) ────────────────────────────── */
+  --red-50: oklch(0.9705 0.0129 16.9);
+  --red-100: oklch(0.9356 0.0309 17.5);
+  --red-200: oklch(0.8845 0.0592 18.2);
+  --red-300: oklch(0.7106 0.1661 22.2);
+  --red-400: oklch(0.6229 0.1980 25.0);
+  --red-500: oklch(0.5310 0.2064 26.7);
+  --red-600: oklch(0.4827 0.1877 27.0);
+  --red-700: oklch(0.4364 0.1683 26.8);
+  --red-800: oklch(0.3823 0.1459 26.2);
+  --red-900: oklch(0.3289 0.1230 26.2);
+  --red-950: oklch(0.2730 0.0993 25.0);
+
+  /* ── Gold (SJTU accent ~#FFC000) ──────────────────────────── */
+  --gold-50: oklch(0.9921 0.0171 99.7);
+  --gold-100: oklch(0.9790 0.0395 97.8);
+  --gold-200: oklch(0.9596 0.0762 98.0);
+  --gold-300: oklch(0.9359 0.1196 98.0);
+  --gold-400: oklch(0.9087 0.1517 96.0);
+  --gold-500: oklch(0.8422 0.1726 84.6);
+  --gold-600: oklch(0.7458 0.1529 84.6);
+  --gold-700: oklch(0.6482 0.1327 85.4);
+  --gold-800: oklch(0.5435 0.1112 86.4);
+  --gold-900: oklch(0.4346 0.0889 87.1);
+  --gold-950: oklch(0.3184 0.0651 88.4);
+
+  /* ── Font stacks ─────────────────────────────────────────── */
+  --font-sans: 'SF Pro', 'PingFang SC', system-ui, sans-serif;
+  --font-serif: 'New York', serif;
+  --font-mono: 'SF Mono', ui-monospace, monospace;
+}

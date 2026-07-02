@@ -1,20 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════
- * TYPOGRAPHY — @font-face + font stacks.
+ * @FONT-FACE — maps local WOFF2 files to font family names.
  *
- * This is the single source of truth for font families. CSS custom
- * properties define the stacks; unocss.config.ts references them via
- * CSS variables are referenced directly (no UnoCSS @apply needed).
- *
- * Imported by styles/index.ts before style.css.
+ * Font stacks (--font-sans etc.) are in theme.css.
+ * Imported by styles/index.ts.
  * ═══════════════════════════════════════════════════════════════════ */
-
-:root {
-  /* Latin-first, CJK-second: SF Pro has no CJK, browser falls through
-     to PingFang SC for Chinese characters. */
-  --font-sans: 'SF Pro', 'PingFang SC', system-ui, sans-serif;
-  --font-serif: 'New York', serif;
-  --font-mono: 'SF Mono', ui-monospace, monospace;
-}
 
 /* ── SF Pro (variable) — English sans ── */
 @font-face {
