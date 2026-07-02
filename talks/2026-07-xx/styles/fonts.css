@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════════
- * @FONT-FACE — maps local WOFF2 files to font family names.
+ * @FONT-FACE — local WOFF2 → family names.
  *
- * Font stacks are in unocss.config.ts (theme.fontFamily).
- * Imported by styles/index.ts before style.css.
+ * Font stacks: unocss.config.ts (theme.fontFamily).
+ * Imported first so family names are registered before @apply use.
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── SF Pro (variable) — English sans ── */

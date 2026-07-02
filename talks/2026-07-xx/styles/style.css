@@ -1,18 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════════
- * STYLES — slidev layout overrides and visual theme.
+ * STYLES — slidev layout overrides.
  *
- * All tokens live in unocss.config.ts (theme.colors + theme.fontFamily).
- * This file uses @apply exclusively — zero hardcoded values.
+ * Tokens in unocss.config.ts. Semantic shortcuts (text-primary,
+ * bg-background, text-foreground, etc.) used where they match.
+ * Raw palette only where semantic doesn't apply (links, code).
  *
  * Import order: fonts.css → style.css
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
 #slide-content {
-  @apply bg-neutral-50 text-neutral-950 #{!important};
-}
-.dark #slide-content {
-  @apply bg-neutral-1000 text-neutral-50 #{!important};
+  @apply bg-background text-foreground #{!important};
 }
 
 /* ── Base typography ──────────────────── */
@@ -57,19 +55,12 @@
 
 /* SJTU red list markers */
 .slidev-layout ul > li::marker {
-  @apply text-red-500;
+  @apply text-primary;
 }
-.dark .slidev-layout ul > li::marker {
-  @apply text-red-400;
-}
-
 .slidev-layout ol > li::marker {
-  @apply text-red-500;
+  @apply text-primary;
   font-weight: 600;
   font-feature-settings: "tnum";
-}
-.dark .slidev-layout ol > li::marker {
-  @apply text-red-400;
 }
 
 /* ── Code blocks: dark-surface code-window card (12px radius) ── */
@@ -127,7 +118,7 @@
   color: inherit;
 }
 .dark .slidev-layout strong {
-  @apply text-neutral-50;
+  @apply text-foreground;
 }
 /* ── Emphasis: weight + color instead of italic (CJK has no italic form) ── */
 .slidev-layout em {
