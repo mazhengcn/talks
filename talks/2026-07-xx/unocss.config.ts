@@ -1,9 +1,6 @@
-import defaultConfig from "@slidev/client/uno.config.ts";
-import { mergeConfigs } from "unocss";
+import { defineConfig } from "unocss";
 
-export default mergeConfigs([
-  defaultConfig,
-  {
+export default defineConfig({
     theme: {
       // ════════════════════════════════════════════════════════
       // COLOR PALETTE — OKLCH, single source of truth.
@@ -191,5 +188,4 @@ export default mergeConfigs([
         "rounded-lg bg-gold-50/80 dark:bg-gold-950/30 " +
         "p-4 text-sm border-l-4 border-gold-400 dark:border-gold-500",
     },
-  },
-]);
+});
