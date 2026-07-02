@@ -1,12 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════
- * FONT FAMILIES
+ * STYLES — layout, components, and visual theme.
  *
- * theme.fontFamily in unocss.config.ts is the single source of truth.
- * @apply font-sans / @apply font-serif resolve from there directly —
- * no preflights, no CSS variables, no duplication.
- *
- * All web fonts (Inter, Noto Sans SC, JetBrains Mono) load via
- * presetWebFonts in unocss.config.ts.
+ * @font-face + font stack CSS variables are in typography.css.
+ * This file uses var(--font-sans) / var(--font-mono) directly —
+ * no UnoCSS @apply, no fontFamily config needed.
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
@@ -21,16 +18,15 @@
 
 /* ── Base typography ──────────────────── */
 .slidev-layout {
-  @apply font-sans;
+  font-family: var(--font-sans);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* h1/h2 — serif display. Weight 700 compensates for CJK serif
-   projecting lighter than Latin serif. */
+/* h1/h2 — sans display. Weight 700 for strong hierarchy. */
 .slidev-layout h1, .slidev-layout h2 {
-  @apply font-serif #{!important};
+  font-family: var(--font-sans) !important;
   font-weight: 700 !important;
   letter-spacing: 0;
   text-wrap: pretty;
@@ -42,7 +38,7 @@
    in a shortcut can't leak into subheadings. */
 .slidev-layout h3, .slidev-layout h4,
 .slidev-layout h5, .slidev-layout h6 {
-  @apply font-sans #{!important};
+  font-family: var(--font-sans) !important;
   font-weight: 600 !important;
   line-height: 1.5;
   text-wrap: pretty;
@@ -79,10 +75,10 @@
 
 /* ── Code blocks: dark-surface code-window card (12px radius) ── */
 .slidev-code {
+  font-family: var(--font-mono);
   background: #09090b !important;
   color: #fafafa !important;
   border-radius: 12px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -201,7 +197,7 @@
 /* Table headers: uppercase only affects Latin text (no-op for CJK).
    Weight/size used for hierarchy. */
 .slidev-layout th {
-  @apply font-sans;
+  font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -242,7 +238,7 @@
 
 /* ── Slide number ─────────────────────────── */
 #slide-container .slidev-page-number {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-feature-settings: "tnum";
   font-size: 0.7rem;
   opacity: 0.45;

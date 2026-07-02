@@ -1,4 +1,4 @@
-import { defineConfig, presetWebFonts } from "unocss";
+import { defineConfig } from "unocss";
 
 export default defineConfig({
   theme: {
@@ -55,36 +55,6 @@ export default defineConfig({
         950: "#403000",
       },
     },
-    // ══════════════════════════════════════════════════════════════
-    // FONT FAMILIES — single source of truth.
-    //
-    // Latin-first, CJK-second strategy: Latin fonts lack CJK glyphs so
-    // the browser falls through to the CJK font for Chinese characters.
-    //
-    //   macOS:        -apple-system (San Francisco) → PingFang SC
-    //   Windows/Other: Inter                        → Noto Sans SC
-    //
-    // Inter, Noto Sans SC, and JetBrains Mono load via presetWebFonts.
-    //
-    // style.css uses @apply font-sans / @apply font-serif to reference these.
-    // ══════════════════════════════════════════════════════════════
-    fontFamily: {
-      sans: [
-        "-apple-system",       // macOS: San Francisco for English
-        "'Inter'",             // Web font: English (all platforms)
-        "'PingFang SC'",       // macOS: Chinese (system font)
-        "'Noto Sans SC'",      // Web font: Chinese (Windows/Linux)
-        "system-ui",
-        "sans-serif",
-      ],
-      serif: [
-        "'Songti SC'",
-        "'Noto Serif SC'",
-        "'SimSun'",
-        "serif",
-      ],
-      mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
-    },
   },
   shortcuts: {
     // ── Surface / semantic ────────────────────────────────────
@@ -101,31 +71,30 @@ export default defineConfig({
     "text-on-dark-soft": "text-[#a1a1aa]",
 
     // ══════════════════════════════════════════════════════════════
-    // TYPE SCALE — Chinese academic presentation.
-    // Each shortcut includes font-serif or font-sans so the correct
-    // font is applied regardless of the HTML element.
+    // TYPE SCALE — each shortcut self-applies the correct font
+    // family via CSS variables defined in typography.css.
     // ══════════════════════════════════════════════════════════════
 
-    // Display: serif — academic authority
-    "text-display-xl": "font-serif text-[56px] leading-[1.2]",
-    "text-display-lg": "font-serif text-[44px] leading-[1.25]",
-    "text-display-md": "font-serif text-[34px] leading-[1.3]",
-    "text-display-sm": "font-serif text-[28px] leading-[1.35]",
+    // Display
+    "text-display-xl": "text-[56px] leading-[1.2] [font-family:var(--font-sans)]",
+    "text-display-lg": "text-[44px] leading-[1.25] [font-family:var(--font-sans)]",
+    "text-display-md": "text-[34px] leading-[1.3] [font-family:var(--font-sans)]",
+    "text-display-sm": "text-[28px] leading-[1.35] [font-family:var(--font-sans)]",
 
-    // Title: sans — clean, readable
-    "text-title-lg": "font-sans text-[24px] leading-[1.4]",
-    "text-title-md": "font-sans text-[20px] leading-[1.45]",
-    "text-title-sm": "font-sans text-[18px] leading-[1.5]",
+    // Title
+    "text-title-lg": "text-[24px] leading-[1.4] [font-family:var(--font-sans)]",
+    "text-title-md": "text-[20px] leading-[1.45] [font-family:var(--font-sans)]",
+    "text-title-sm": "text-[18px] leading-[1.5] [font-family:var(--font-sans)]",
 
-    // Body: sans — comfortable Chinese reading
-    "text-body-lg": "font-sans text-[18px] leading-[1.7]",
-    "text-body-md": "font-sans text-[16px] leading-[1.75]",
-    "text-body-sm": "font-sans text-[14px] leading-[1.7]",
+    // Body
+    "text-body-lg": "text-[18px] leading-[1.7] [font-family:var(--font-sans)]",
+    "text-body-md": "text-[16px] leading-[1.75] [font-family:var(--font-sans)]",
+    "text-body-sm": "text-[14px] leading-[1.7] [font-family:var(--font-sans)]",
 
     // Supporting
-    "text-caption-token": "font-sans text-[13px] leading-[1.5] font-medium",
+    "text-caption-token": "text-[13px] leading-[1.5] font-medium [font-family:var(--font-sans)]",
     "text-caption-caps":
-      "font-sans text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase",
+      "text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase [font-family:var(--font-sans)]",
 
     // ── Cards ────────────────────────────────────────────────
     card:
@@ -194,12 +163,4 @@ export default defineConfig({
       "rounded-lg bg-gold-50/80 dark:bg-gold-950/30 " +
       "p-4 text-sm border-l-4 border-gold-400 dark:border-gold-500",
   },
-  presets: [
-    presetWebFonts({
-      fonts: {
-        sans: ["Inter", "Noto Sans SC"],
-        mono: "JetBrains Mono:400,500",
-      },
-    }),
-  ],
 });
