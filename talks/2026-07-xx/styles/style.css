@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
- * STYLES — layout, components, and visual theme.
+ * STYLES — slidev layout overrides and visual theme.
  *
- * Token values live in theme.css. unocss.config.ts delegates via
- * var(--token). This file uses @apply — zero hardcoded values.
+ * All tokens live in unocss.config.ts (theme.colors + theme.fontFamily).
+ * This file uses @apply exclusively — zero hardcoded values.
  *
- * Import order: theme.css → fonts.css → style.css
+ * Import order: fonts.css → style.css
  * ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Slide background ─────────────────── */
@@ -189,8 +189,6 @@
   border-collapse: collapse;
   font-feature-settings: "tnum", "lnum";
 }
-/* Table headers: uppercase only affects Latin text (no-op for CJK).
-   Weight/size used for hierarchy. */
 .slidev-layout th {
   @apply font-sans;
   font-weight: 600;

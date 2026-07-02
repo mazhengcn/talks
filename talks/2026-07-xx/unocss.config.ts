@@ -1,79 +1,73 @@
-import config from "@slidev/client/uno.config.ts";
+import defaultConfig from "@slidev/client/uno.config.ts";
 import { mergeConfigs } from "unocss";
 
 export default mergeConfigs([
-  config,
+  defaultConfig,
   {
-    theme: {
-      // Token values live in styles/theme.css — here we just wire
-      // the UnoCSS scale names to the CSS variables.
-      colors: {
-        neutral: {
-          50: "var(--neutral-50)",
-          100: "var(--neutral-100)",
-          200: "var(--neutral-200)",
-          300: "var(--neutral-300)",
-          400: "var(--neutral-400)",
-          500: "var(--neutral-500)",
-          600: "var(--neutral-600)",
-          700: "var(--neutral-700)",
-          800: "var(--neutral-800)",
-          900: "var(--neutral-900)",
-          950: "var(--neutral-950)",
-          975: "var(--neutral-975)",
-          1000: "var(--neutral-1000)",
-        },
-        red: {
-          50: "var(--red-50)",
-          100: "var(--red-100)",
-          200: "var(--red-200)",
-          300: "var(--red-300)",
-          400: "var(--red-400)",
-          500: "var(--red-500)",
-          600: "var(--red-600)",
-          700: "var(--red-700)",
-          800: "var(--red-800)",
-          900: "var(--red-900)",
-          950: "var(--red-950)",
-        },
-        gold: {
-          50: "var(--gold-50)",
-          100: "var(--gold-100)",
-          200: "var(--gold-200)",
-          300: "var(--gold-300)",
-          400: "var(--gold-400)",
-          500: "var(--gold-500)",
-          600: "var(--gold-600)",
-          700: "var(--gold-700)",
-          800: "var(--gold-800)",
-          900: "var(--gold-900)",
-          950: "var(--gold-950)",
-        },
+  theme: {
+    // ════════════════════════════════════════════════════════════
+    // COLOR TOKENS — OKLCH, single source of truth.
+    // All values mirror the SJTU VI specification (交大红 #C8161E).
+    // ════════════════════════════════════════════════════════════
+    colors: {
+      neutral: {
+        50: "oklch(0.9851 0.0001 271.2)",
+        100: "oklch(0.9674 0.0014 285.2)",
+        200: "oklch(0.9316 0.0028 285.8)",
+        300: "oklch(0.8711 0.0055 286.0)",
+        400: "oklch(0.7118 0.0130 286.0)",
+        500: "oklch(0.5517 0.0139 285.9)",
+        600: "oklch(0.4419 0.0147 285.7)",
+        700: "oklch(0.3703 0.0119 285.8)",
+        800: "oklch(0.2739 0.0055 286.0)",
+        900: "oklch(0.2103 0.0059 285.8)",
+        950: "oklch(0.1785 0.0041 285.9)",
+        975: "oklch(0.1553 0.0042 285.8)",
+        1000: "oklch(0.1408 0.0044 285.8)",
       },
-      fontFamily: {
-        sans: "var(--font-sans)",
-        serif: "var(--font-serif)",
-        mono: "var(--font-mono)",
+      red: {
+        50: "oklch(0.9705 0.0129 16.9)",
+        100: "oklch(0.9356 0.0309 17.5)",
+        200: "oklch(0.8845 0.0592 18.2)",
+        300: "oklch(0.7106 0.1661 22.2)",
+        400: "oklch(0.6229 0.1980 25.0)",
+        500: "oklch(0.5310 0.2064 26.7)",   // SJTU brand red ≈ #C8161E
+        600: "oklch(0.4827 0.1877 27.0)",
+        700: "oklch(0.4364 0.1683 26.8)",
+        800: "oklch(0.3823 0.1459 26.2)",
+        900: "oklch(0.3289 0.1230 26.2)",
+        950: "oklch(0.2730 0.0993 25.0)",
+      },
+      gold: {
+        50: "oklch(0.9921 0.0171 99.7)",
+        100: "oklch(0.9790 0.0395 97.8)",
+        200: "oklch(0.9596 0.0762 98.0)",
+        300: "oklch(0.9359 0.1196 98.0)",
+        400: "oklch(0.9087 0.1517 96.0)",
+        500: "oklch(0.8422 0.1726 84.6)",   // SJTU gold ≈ #FFC000
+        600: "oklch(0.7458 0.1529 84.6)",
+        700: "oklch(0.6482 0.1327 85.4)",
+        800: "oklch(0.5435 0.1112 86.4)",
+        900: "oklch(0.4346 0.0889 87.1)",
+        950: "oklch(0.3184 0.0651 88.4)",
       },
     },
+    // ════════════════════════════════════════════════════════════
+    // FONT TOKENS — single source of truth.
+    // Latin-first: SF Pro lacks CJK, browser falls through to
+    // PingFang SC for Chinese characters.
+    // @font-face declarations (file → family name) are in fonts.css.
+    // ════════════════════════════════════════════════════════════
+    fontFamily: {
+      sans: "'SF Pro', 'PingFang SC', system-ui, sans-serif",
+      serif: "'New York', serif",
+      mono: "'SF Mono', ui-monospace, monospace",
+    },
+  },
   shortcuts: {
-    // ── Surface / semantic ────────────────────────────────────
-    "bg-background": "bg-neutral-50 dark:bg-neutral-1000",
-    "text-foreground": "text-neutral-950 dark:text-neutral-50",
-    "bg-muted": "bg-neutral-100 dark:bg-neutral-900",
-    "text-foreground-soft": "text-[#1c1c1e] dark:text-neutral-100",
-    "text-muted-foreground": "text-[#52525b] dark:text-neutral-400",
-    "border-border": "border-neutral-300 dark:border-neutral-800",
-    "text-body": "text-[#3f3f46] dark:text-neutral-300",
-    "text-subtle": "text-[#71717a] dark:text-neutral-500",
-    "text-ink": "text-[#111113] dark:text-neutral-50",
-    "text-on-dark": "text-[#fafafa]",
-    "text-on-dark-soft": "text-[#a1a1aa]",
-
-    // ══════════════════════════════════════════════════════════════
-    // TYPE SCALE — each shortcut self-applies font-sans so it
-    // works correctly regardless of parent element context.
-    // ══════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════
+    // TYPE SCALE
+    // ════════════════════════════════════════════════════════════
 
     // Display
     "text-display-xl": "font-sans text-[56px] leading-[1.2]",
@@ -96,7 +90,19 @@ export default mergeConfigs([
     "text-caption-caps":
       "font-sans text-[12px] leading-[1.5] font-medium tracking-[1.5px] uppercase",
 
-    // ── Cards ────────────────────────────────────────────────
+    // ════════════════════════════════════════════════════════════
+    // SEMANTIC — primary + accent
+    // ════════════════════════════════════════════════════════════
+
+    "text-primary": "text-red-500 dark:text-red-400",
+    "text-accent": "text-gold-500 dark:text-gold-400",
+    "bg-primary": "bg-red-500 dark:bg-red-400",
+    "bg-accent": "bg-gold-500 dark:bg-gold-400",
+
+    // ════════════════════════════════════════════════════════════
+    // SURFACES
+    // ════════════════════════════════════════════════════════════
+
     card:
       "rounded-xl bg-neutral-200 dark:bg-neutral-950 " +
       "ring-1 ring-neutral-300/60 dark:ring-neutral-800/40",
@@ -105,7 +111,6 @@ export default mergeConfigs([
       "rounded-xl bg-neutral-300 dark:bg-neutral-900 " +
       "ring-1 ring-neutral-400/50 dark:ring-neutral-700/40",
 
-    // ── Badges ───────────────────────────────────────────────
     badge:
       "inline-flex items-center rounded-full " +
       "px-3 py-1 text-xs font-medium " +
@@ -122,24 +127,28 @@ export default mergeConfigs([
       "px-3 py-1 text-xs font-medium tracking-widest uppercase " +
       "bg-gold-500 text-[#111113]",
 
-    // ── Semantic accent shortcuts ────────────────────────────
-    "text-primary": "text-red-500 dark:text-red-400",
-    "text-accent": "text-gold-500 dark:text-gold-400",
-    "bg-primary": "bg-red-500 dark:bg-red-400",
-    "bg-accent": "bg-gold-500 dark:bg-gold-400",
-
-    // ── Callouts ─────────────────────────────────────────────
+    // ── Callouts ───────────────────────────────────────────
     callout:
-      "rounded-lg " +
-      "bg-red-50 dark:bg-red-950/40 " +
+      "rounded-lg bg-red-50 dark:bg-red-950/40 " +
       "p-3 text-sm text-red-700 dark:text-red-300",
 
     "callout-accent":
-      "rounded-lg " +
-      "bg-gold-50 dark:bg-gold-950/40 " +
+      "rounded-lg bg-gold-50 dark:bg-gold-950/40 " +
       "p-3 text-sm text-gold-700 dark:text-gold-300",
 
-    // ── Dividers ──────────────────────────────────────────────
+    // ── Semantic text ──────────────────────────────────────
+    "text-foreground": "text-neutral-950 dark:text-neutral-50",
+    "text-foreground-soft": "text-[#1c1c1e] dark:text-neutral-100",
+    "text-muted-foreground": "text-[#52525b] dark:text-neutral-400",
+    "bg-muted": "bg-neutral-100 dark:bg-neutral-900",
+    "border-border": "border-neutral-300 dark:border-neutral-800",
+    "text-body": "text-[#3f3f46] dark:text-neutral-300",
+    "text-subtle": "text-[#71717a] dark:text-neutral-500",
+    "text-ink": "text-[#111113] dark:text-neutral-50",
+    "text-on-dark": "text-[#fafafa]",
+    "text-on-dark-soft": "text-[#a1a1aa]",
+
+    // ── Dividers ───────────────────────────────────────────
     separator: "border-b border-neutral-300/70 dark:border-neutral-800/50",
 
     divider:
@@ -148,12 +157,15 @@ export default mergeConfigs([
 
     caption: "text-[13px] leading-[1.4] font-medium text-[#71717a] dark:text-neutral-500",
 
-    // ── Stat ─────────────────────────────────────────────────
+    // ════════════════════════════════════════════════════════════
+    // COMPONENTS
+    // ════════════════════════════════════════════════════════════
+
     stat: "text-center",
     "stat-num": "text-4xl font-bold text-primary tabular-nums",
     "stat-label": "text-xs text-muted-foreground mt-1.5",
 
-    // ── Academic ─────────────────────────────────────────────
+    // ── Academic ───────────────────────────────────────────
     "ref-entry": "text-[13px] leading-[1.65] text-muted-foreground",
     "journal-name": "text-primary font-medium",
     theorem:
