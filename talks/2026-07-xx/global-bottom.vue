@@ -6,7 +6,7 @@
  *   default — accent bar (left edge) + SJTU logo (top-right).
  *             Title is CSS-driven via h1/h2 in style.css.
  *   cover   — SJTU logo (top-left, above the title).
- *   center  — SJTU logo only (centered content, no accent bar).
+ *   center  — SJTU emblem centered above the title (VI standard seal).
  *   other   — SJTU logo only.
  * Footer:  Full-width "上海交通大学" banner (footer-banner.png) at the very
  *          bottom, matching the PPTX content-slide footer. Speaker info and
@@ -77,33 +77,46 @@ const title = computed(() => {
     />
   </div>
 
+  <!-- Center / section layout: SJTU emblem centered above the title -->
+  <div
+    v-if="layout === 'center'"
+    class="absolute top-0 left-0 right-0 z-10 pointer-events-none flex justify-center"
+  >
+    <img
+      src="/sjtu-emblem.png"
+      alt=""
+      aria-hidden="true"
+      class="mt-18 w-14 h-14"
+    />
+  </div>
+
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <!-- FOOTER — PPTX layout 9: full-width SJTU banner,                -->
   <!--           then small speaker-info footnotes below it.          -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <div class="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center">
-    <!-- Footer banner — matches PPTX image4.png, full width at natural ratio -->
+    <!-- Footer banner — full-width red strip -->
     <img
       src="/footer-banner.png"
       alt=""
       aria-hidden="true"
-      class="w-full block opacity-100 dark:opacity-90"
+      class="w-full block opacity-50 dark:opacity-90"
     />
 
     <!-- Speaker info footnotes — below the banner -->
     <div
-      class="flex items-center justify-between w-full px-10 py-1 text-caption-token tracking-wide"
+      class="flex items-center justify-between w-full px-10 py-0.5 text-[10px] tracking-[0.08em]"
     >
-      <div class="flex items-center gap-3 text-subtle">
+      <div class="flex items-center gap-2 text-subtle">
         <span class="font-semibold text-foreground-soft">马 征</span>
-        <span class="text-neutral-300 dark:text-neutral-700 select-none">|</span>
-        <span>数学科学学院</span>
+        <span class="w-px h-2.5 bg-neutral-300/70 dark:bg-neutral-700/50" />
+        <span class="font-light">数学科学学院</span>
       </div>
 
-      <div class="flex items-center gap-3 text-subtle">
-        <span>{{ title }}</span>
-        <span class="text-neutral-300 dark:text-neutral-700 select-none">|</span>
-        <span class="tabular-nums">{{ currentPage }}</span>
+      <div class="flex items-center gap-2 text-subtle">
+        <span class="font-light">{{ title }}</span>
+        <span class="w-px h-2.5 bg-neutral-300/70 dark:bg-neutral-700/50" />
+        <span class="font-medium tabular-nums">{{ currentPage }}</span>
       </div>
     </div>
   </div>
