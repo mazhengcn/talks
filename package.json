@@ -25,15 +25,15 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.0",
     "@types/prompts": "^2.4.9",
     "@types/seedrandom": "^3.0.8",
     "execa": "^9.6.1",
     "fast-glob": "^3.3.3",
     "find-up": "^8.0.0",
     "katex": "^0.17.0",
-    "oxfmt": "^0.56.0",
-    "oxlint": "^1.71.0",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
     "playwright-chromium": "^1.61.1",
     "prompts": "^2.4.2",
     "rimraf": "^6.1.3",
