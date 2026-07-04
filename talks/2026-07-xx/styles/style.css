@@ -31,6 +31,19 @@
 .slidev-layout h1 { line-height: 1.35; }
 .slidev-layout h2 { line-height: 1.4; }
 
+/* Accent bar is in global-bottom header at the left edge.
+   This block tightens top padding and pulls the h1/h2 text
+   leftward so it sits right after the header accent bar,
+   aligned with the SJTU logo in the header band. */
+.slidev-layout.default {
+  padding-top: 1.25rem;
+}
+.slidev-layout.default h1,
+.slidev-layout.default h2 {
+  margin-left: -2.25rem;
+  margin-top: 0;
+}
+
 /* h3–h6: !important prevents UnoCSS shortcuts from leaking
    a different font-family into subheadings. */
 .slidev-layout h3, .slidev-layout h4,

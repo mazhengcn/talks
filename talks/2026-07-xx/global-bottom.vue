@@ -1,31 +1,110 @@
 <script setup lang="ts">
+/**
+ * Global bottom component — SJTU 百廿红 PPTX design system.
+ *
+ * Header (layout-aware):
+ *   default — accent bar (left edge) + SJTU logo (top-right).
+ *             Title is CSS-driven via h1/h2 in style.css.
+ *   cover   — SJTU logo (top-left, above the title).
+ *   center  — SJTU logo only (centered content, no accent bar).
+ *   other   — SJTU logo only.
+ * Footer:  Full-width "上海交通大学" banner (footer-banner.png) at the very
+ *          bottom, matching the PPTX content-slide footer. Speaker info and
+ *          page number are overlaid on top of the banner.
+ */
+import { computed } from "vue";
 import { useNav } from "@slidev/client";
 
 const { currentPage, currentSlideRoute } = useNav();
-const title =
-  (currentSlideRoute.value.meta?.slide as any)?.frontmatter?.title ||
-  "长聘教职答辩";
+
+const layout = computed(
+  () =>
+    (currentSlideRoute.value.meta?.slide as any)?.frontmatter?.layout ||
+    "default",
+);
+
+/**
+ * Extract the real page title from the first `#` heading in the slide content.
+ * `frontmatter.title` is an override field and may not match the actual heading.
+ */
+function extractHeading(content: string): string {
+  const match = content.match(/^# (.+?)(?:\n|$)/m);
+  return match ? match[1].trim() : "";
+}
+
+const title = computed(() => {
+  const slide = currentSlideRoute.value.meta?.slide as any;
+  const raw = slide?.source?.contentRaw ?? slide?.content ?? "";
+  return (
+    extractHeading(raw) ||
+    slide?.title ||
+    slide?.frontmatter?.title ||
+    "长聘教职答辩"
+  );
+});
 </script>
 
 <template>
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- HEADER — cover: logo top-left, default: accent bar + logo      -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- Cover layout: SJTU logo top-left, above the title -->
   <div
-    class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-3 text-xs bg-neutral-50 dark:bg-neutral-1000"
+    v-if="layout === 'cover'"
+    class="absolute top-0 left-0 z-10 pointer-events-none"
   >
-    <!-- Subtle warm accent line at top of footer -->
+    <img
+      src="/sjtu-logo.png"
+      alt="上海交通大学"
+      class="h-12 mt-5 ml-8 opacity-90 dark:opacity-80"
+    />
+  </div>
+
+  <!-- Default layout: accent bar (left edge) + SJTU logo (right) -->
+  <div
+    v-if="layout === 'default'"
+    class="absolute top-0 left-0 right-0 z-10 pointer-events-none"
+  >
+    <!-- Accent bar — left edge -->
+    <div class="absolute top-5 left-0 w-3 h-12 rounded-r-sm bg-gradient-to-b from-red-500 to-[#ED7D31]" />
+
+    <!-- SJTU Logo — right edge -->
+    <img
+      src="/sjtu-logo.png"
+      alt="上海交通大学"
+      class="absolute top-0 right-0 h-12 mt-5 mr-8 opacity-90 dark:opacity-80"
+    />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER — PPTX layout 9: full-width SJTU banner,                -->
+  <!--           then small speaker-info footnotes below it.          -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div class="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center">
+    <!-- Footer banner — matches PPTX image4.png, full width at natural ratio -->
+    <img
+      src="/footer-banner.png"
+      alt=""
+      aria-hidden="true"
+      class="w-full block opacity-100 dark:opacity-90"
+    />
+
+    <!-- Speaker info footnotes — below the banner -->
     <div
-      class="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-red-500/30 to-transparent dark:via-red-400/20"
-    ></div>
+      class="flex items-center justify-between w-full px-10 py-1 text-caption-token tracking-wide"
+    >
+      <div class="flex items-center gap-3 text-subtle">
+        <span class="font-semibold text-foreground-soft">马 征</span>
+        <span class="text-neutral-300 dark:text-neutral-700 select-none">|</span>
+        <span>数学科学学院</span>
+      </div>
 
-    <div class="flex items-center gap-4 text-neutral-600 dark:text-neutral-400">
-      <span class="font-medium text-neutral-800 dark:text-neutral-200"> 马 征 </span>
-      <span class="text-neutral-400 dark:text-neutral-700">|</span>
-      <span>数学科学学院</span>
-    </div>
-
-    <div class="flex items-center gap-3 text-neutral-500 dark:text-neutral-500">
-      <span>{{ title }}</span>
-      <span class="text-neutral-400 dark:text-neutral-700">|</span>
-      <span>{{ currentPage }}</span>
+      <div class="flex items-center gap-3 text-subtle">
+        <span>{{ title }}</span>
+        <span class="text-neutral-300 dark:text-neutral-700 select-none">|</span>
+        <span class="tabular-nums">{{ currentPage }}</span>
+      </div>
     </div>
   </div>
 </template>
