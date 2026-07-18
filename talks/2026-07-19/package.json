@@ -1,12 +1,12 @@
 {
-  "name": "2026-06-29",
+  "name": "2026-07-19",
   "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "slidev",
     "build": "bun ../../scripts/build.ts",
-    "export": "slidev export --per-slide --output ./assets/2026-06-29.pdf"
+    "export": "slidev export --per-slide --output ./assets/2026-07-19.pdf"
   },
   "dependencies": {
     "@slidev/cli": "catalog:",

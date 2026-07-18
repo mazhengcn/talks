@@ -1,10 +1,10 @@
 {
-  "conference": "DeepRTE v1.2.0",
-  "location": "Shanghai, China",
+  "conference": "学术研讨会",
+  "location": "北京，中国",
   "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-  "language": "zh-CN",
-  "published": false,
-  "tags": ["deep-learning", "radiative-transfer", "neural-operator", "attention", "physics"],
+  "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
+  "collaborators": ["唐敏", "竺烨锟"],
+  "published": true,
   "custom": {
     "version": "v1.2.0-zh"
   }
