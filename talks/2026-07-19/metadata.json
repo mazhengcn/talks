@@ -1,0 +1,11 @@
+{
+  "conference": "DeepRTE v1.2.0",
+  "location": "Shanghai, China",
+  "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
+  "language": "zh-CN",
+  "published": false,
+  "tags": ["deep-learning", "radiative-transfer", "neural-operator", "attention", "physics"],
+  "custom": {
+    "version": "v1.2.0-zh"
+  }
+}
