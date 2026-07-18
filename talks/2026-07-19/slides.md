@@ -3,9 +3,9 @@ layout: cover
 highlighter: shiki
 css: unocss
 colorSchema: auto
-transition: fade
+transition: none
 mdc: true
-title: DeepRTE v1.2.0-zh
+title: DeepRTE v1.2.1-zh
 remoteAssets: true
 date: 2026-07-19
 export:
@@ -829,7 +829,7 @@ $$
   title="迭代作为神经网络的模块组合"
   subtitle="受源迭代法启发"
   size="md"
-  mt-5
+  mt-3
   >
 <div flex="~ gap-4 items-center justify-center" text-base>
 <div>
@@ -1378,7 +1378,7 @@ $$
 
 # 数据集参数
 
-<div bg-white:20 dark:bg-black:10 rounded-lg border="t l r white/10" text-sm text-on-surface overflow-hidden mt--2>
+<div bg-white:20 dark:bg-black:10 rounded-lg border="t l r dark:white/10" text-sm text-on-surface overflow-hidden mt--3>
 
 | 类别 | 参数 | 符号 | 值/范围 |
 | -------- | ---------- | ------ | ----------- |
@@ -1507,7 +1507,7 @@ class: pt-4
 
 </div>
 
-<div class="mt-4">
+<div class="mt-2">
 <GlassCard
   title="3 个案例"
   variant="gradient-secondary"
@@ -1739,13 +1739,9 @@ $$
 
 ---
 
-# 结论
+# 总结
 
-<!-- <div class="mb-4 text-center">
-  <div class="text-xl text-on-surface mb-2">
-    <span class="emphasis-primary font-bold">当前局限</span>与研究方向
-  </div>
-</div> -->
+<br>
 
 <div grid="~ cols-2 gap-6" mt-4>
 
@@ -1777,24 +1773,6 @@ $$
   ]"
 />
 
-</div>
-
-<div class="mt-4">
-  <GlassCard
-    title="广泛影响"
-    variant="gradient-secondary"
-    icon="i-ph-globe-duotone"
-    size="lg"
-  >
-    <div class="text-center">
-      <div class="mb-1">
-        <strong>应用：</strong> ICF 设计、医学成像、天体物理
-      </div>
-      <div>
-        <strong>影响：</strong> 实时模拟与优化
-      </div>
-    </div>
-  </GlassCard>
 </div>
 
 ---
@@ -1841,13 +1819,13 @@ class: "text-center pb-5"
       text-center
     >
       <div class="text-sm mt-6">
-        马征<br/>
-        上海交通大学
+        马 征<br/>
+        <a href="mailto:zhengma@sjtu.edu.cn">zhengma@sjtu.edu.cn</a>
       </div>
     </GlassCard>
   </div>
 </div>
 
 <div class="mt-10 text-lg">
-  可以访问 <a href="https://zheng-home.netlify.app/talks">https://zheng-home-netlify.app/talks</a> 获取幻灯片
+  可以访问 <a href="https://zheng-home.netlify.app/talks">https://zheng-home.netlify.app/talks</a> 获取幻灯片
 </div>

@@ -1,7 +1,30 @@
 {
-  "generatedAt": "2026-07-18T13:48:54.972Z",
+  "generatedAt": "2026-07-18T15:13:10.635Z",
   "count": 12,
   "talks": [
+    {
+      "id": "deeprte",
+      "title": "DeepRTE",
+      "date": "2026-09-19",
+      "conference": "DeepRTE v1.2.0",
+      "location": "Shanghai, China",
+      "language": "en",
+      "slidesUrl": "https://zheng-talks.netlify.app/deeprte/",
+      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deeprte/assets/deeprte.pdf?raw=true",
+      "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deeprte",
+      "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
+      "tags": [
+        "deep-learning",
+        "radiative-transfer",
+        "neural-operator",
+        "attention",
+        "physics"
+      ],
+      "published": false,
+      "custom": {
+        "version": "v1.2.0-zh"
+      }
+    },
     {
       "id": "2026-07-29",
       "title": "长聘教职答辩",
@@ -30,7 +53,7 @@
     },
     {
       "id": "2026-07-19",
-      "title": "DeepRTE v1.2.0-zh",
+      "title": "DeepRTE v1.2.1-zh",
       "date": "2026-07-19",
       "speaker": "马 征",
       "affiliation": "上海交通大学",
@@ -53,29 +76,6 @@
         "竺烨锟"
       ],
       "published": true,
-      "custom": {
-        "version": "v1.2.0-zh"
-      }
-    },
-    {
-      "id": "deeprte",
-      "title": "DeepRTE",
-      "date": "2026-07-18",
-      "conference": "DeepRTE v1.2.0",
-      "location": "Shanghai, China",
-      "language": "en",
-      "slidesUrl": "https://zheng-talks.netlify.app/deeprte/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deeprte/assets/deeprte.pdf?raw=true",
-      "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deeprte",
-      "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": [
-        "deep-learning",
-        "radiative-transfer",
-        "neural-operator",
-        "attention",
-        "physics"
-      ],
-      "published": false,
       "custom": {
         "version": "v1.2.0-zh"
       }
