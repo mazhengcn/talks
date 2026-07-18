@@ -37,10 +37,11 @@
    aligned with the SJTU logo in the header band. */
 .slidev-layout.default {
   padding-top: 1.25rem;
+  margin-left: -1rem;
 }
 .slidev-layout.default h1,
 .slidev-layout.default h2 {
-  margin-left: -2.25rem;
+  margin-left: -0.75rem;
   margin-top: 0;
 }
 
