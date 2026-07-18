@@ -7,7 +7,6 @@ transition: none
 mdc: true
 title: DeepRTE
 remoteAssets: true
-date: 2026-xx-xx
 ---
 
 <div class="space-y-10">

@@ -1,12 +1,12 @@
 {
-  "name": "2026-xx-xx",
+  "name": "deeprte",
   "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "slidev",
     "build": "bun ../../scripts/build.ts",
-    "export": "slidev export --per-slide --output ./assets/2026-xx-xx.pdf"
+    "export": "slidev export --per-slide --output ./assets/deeprte.pdf"
   },
   "dependencies": {
     "@slidev/cli": "catalog:",
