@@ -176,6 +176,10 @@ export function presetSJTU(): Preset {
           1000: "#000000",
         },
       },
+      fontFamily: {
+        sans: "Inter, Noto Sans SC",
+        mono: "JetBrains Mono",
+      },
     },
     rules: [
       // Modern vibrant gradients

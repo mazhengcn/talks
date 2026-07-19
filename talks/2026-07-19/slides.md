@@ -8,8 +8,6 @@ mdc: true
 title: DeepRTE v1.2.1-zh
 remoteAssets: true
 date: 2026-07-19
-export:
-  dark: true
 seoMeta:
   ogImage: auto
 ---

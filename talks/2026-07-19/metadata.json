@@ -1,11 +1,11 @@
 {
-  "conference": "学术研讨会",
-  "location": "北京，中国",
+  "conference": "CSIAM-BDAI 2026",
+  "location": "厦门，中国",
   "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
   "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
   "collaborators": ["唐敏", "竺烨锟"],
   "published": true,
   "custom": {
-    "version": "v1.2.0-zh"
+    "version": "v1.2.1-zh"
   }
 }

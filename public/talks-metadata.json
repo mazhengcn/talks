@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T14:48:38.370Z",
+  "generatedAt": "2026-07-19T03:28:57.676Z",
   "count": 12,
   "talks": [
     {
@@ -57,8 +57,8 @@
       "date": "2026-07-19",
       "speaker": "马 征",
       "affiliation": "上海交通大学",
-      "conference": "学术研讨会",
-      "location": "北京，中国",
+      "conference": "CSIAM-BDAI 2026",
+      "location": "厦门，中国",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-07-19/",
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-19/assets/2026-07-19.pdf?raw=true",
@@ -77,7 +77,7 @@
       ],
       "published": true,
       "custom": {
-        "version": "v1.2.0-zh"
+        "version": "v1.2.1-zh"
       }
     },
     {
