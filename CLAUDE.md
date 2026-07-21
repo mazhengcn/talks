@@ -29,6 +29,18 @@ bun run export           # Export slides as PDF only
 
 There are no tests in this repo.
 
+### MCP server
+
+Slidev exposes an MCP (Model Context Protocol) server at the dev server's `/__mcp` endpoint. This lets Claude Code interact with a running presentation directly — navigating slides, reading slide content, and more.
+
+Register the MCP server in Claude Code with:
+
+```bash
+claude mcp add --transport http slidev http://localhost:3030/__mcp
+```
+
+The Slidev dev server must be running (via `bun run dev`) for the MCP server to be reachable. If the dev server is on a different port, adjust the URL accordingly.
+
 ## Architecture
 
 ### Workspace structure

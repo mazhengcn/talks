@@ -27,7 +27,6 @@ Options:
 | `--theme` | - | Override theme |
 
 Examples:
-
 ```bash
 slidev --port 8080 --open
 slidev --remote mypassword
@@ -50,7 +49,6 @@ Options:
 | `--without-notes` | false | Exclude presenter notes |
 
 Examples:
-
 ```bash
 slidev build --base /my-repo/
 slidev build --download --out public
@@ -79,7 +77,6 @@ Options:
 | `--executable-path` | - | Browser path |
 
 Examples:
-
 ```bash
 slidev export
 slidev export --format pptx
@@ -95,6 +92,14 @@ slidev format [entry]
 ```
 
 Formats the slides markdown file.
+
+## MCP Server
+
+```bash
+slidev mcp [entry]
+```
+
+Starts an MCP (Model Context Protocol) server over stdio for AI agents to inspect and edit the slides. When a dev server is running, an HTTP MCP endpoint is also available at `http://localhost:<port>/__mcp`. See [tool-mcp](tool-mcp.md).
 
 ## Theme Eject
 
@@ -113,7 +118,6 @@ Extracts theme to local directory for customization.
 ## npm Script Usage
 
 In package.json:
-
 ```json
 {
   "scripts": {
@@ -125,7 +129,6 @@ In package.json:
 ```
 
 With arguments (note `--`):
-
 ```bash
 npm run dev -- --port 8080 --open
 npm run export -- --format pptx
