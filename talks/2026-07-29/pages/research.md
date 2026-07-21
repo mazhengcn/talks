@@ -2,11 +2,7 @@
 layout: center
 ---
 
-<div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第三部分</span>
-  <h2 class="text-display-lg">科学研究与应用</h2>
-  <div class="w-20 h-0.5 bg-red-400/40 rounded-full mx-auto"></div>
-</div>
+<SectionDivider badge="第三部分" heading="科学研究与应用" icon="chart-line-data" />
 
 ---
 
@@ -59,9 +55,12 @@ layout: center
 
 <div class="card p-6 space-y-3">
 
-<div class="w-10 h-0.5 bg-red-400/60 rounded-full"></div>
-
-<h3 class="text-title-lg">DeepRTE</h3>
+<div class="flex items-center gap-3 mb-1">
+  <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+    <div class="i-carbon-ibm-watson-knowledge-studio text-red-500 text-lg"></div>
+  </div>
+  <h3 class="text-title-lg">DeepRTE</h3>
+</div>
 
 <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-50/80 dark:bg-red-950/20 text-red-600 dark:text-red-300 whitespace-nowrap">神经算子结构设计</span>
 
@@ -78,15 +77,18 @@ layout: center
   </div>
 </div>
 
-<p class="text-xs text-subtle">数学算子机构 · Attention机制</p>
+<p class="text-xs text-subtle">数学算子结构 · Attention机制</p>
 
 </div>
 
 <div class="card p-6 space-y-3">
 
-<div class="w-10 h-0.5 bg-red-400/60 rounded-full"></div>
-
-<h3 class="text-title-lg">APNNs</h3>
+<div class="flex items-center gap-3 mb-1">
+  <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0">
+    <div class="i-carbon-intent-request-create text-emerald-500 text-lg"></div>
+  </div>
+  <h3 class="text-title-lg">APNNs</h3>
+</div>
 
 <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 whitespace-nowrap">物理约束融合</span>
 
@@ -109,9 +111,12 @@ layout: center
 
 <div class="card p-6 space-y-3">
 
-<div class="w-10 h-0.5 bg-red-400/60 rounded-full"></div>
-
-<h3 class="text-title-lg">扩散模型反问题</h3>
+<div class="flex items-center gap-3 mb-1">
+  <div class="w-10 h-10 rounded-lg bg-gold-50 dark:bg-gold-950/40 flex items-center justify-center shrink-0">
+    <div class="i-carbon-in-progress text-gold-500 text-lg"></div>
+  </div>
+  <h3 class="text-title-lg">扩散模型反问题</h3>
+</div>
 
 <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gold-50/80 dark:bg-gold-950/20 text-gold-600 dark:text-gold-300 whitespace-nowrap">下游反问题求解</span>
 

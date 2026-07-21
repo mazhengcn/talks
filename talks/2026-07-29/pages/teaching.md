@@ -2,11 +2,7 @@
 layout: center
 ---
 
-<div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第二部分</span>
-  <h2 class="text-display-lg">教学与人才培养</h2>
-  <div class="w-20 h-0.5 bg-red-400/40 rounded-full mx-auto"></div>
-</div>
+<SectionDivider badge="第二部分" heading="教学与人才培养" icon="education" />
 
 
 ---
@@ -52,50 +48,41 @@ layout: center
 
 <div class="grid grid-cols-3 gap-6">
 
-<div class="card p-6 space-y-3">
+<Card>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0">
+      <div class="i-carbon-stack-limitation text-emerald-500 text-lg" />
+    </div>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">梯度建设</span>
+  </div>
+  <h4 class="text-title-sm mt-3">AI 课程体系</h4>
+  <p class="text-xs text-subtle">本科→研究生全层次覆盖</p>
+  <p class="text-body-sm text-muted-foreground mt-1">构建<strong>基础概念 → 理论推导 → 代码实现</strong>的全闭环，打通从数学到 AI 的路径</p>
+</Card>
 
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
+<Card>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+      <div class="i-carbon-code text-red-500 text-lg" />
+    </div>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-red-50/80 dark:bg-red-950/20 text-red-600 dark:text-red-300">Python 实践</span>
+  </div>
+  <h4 class="text-title-sm mt-3">动手学深度学习</h4>
+  <p class="text-xs text-subtle">MATH2806 · 数学专业必修课</p>
+  <p class="text-body-sm text-muted-foreground mt-1">针对数学学生缺乏代码实践能力，强调<strong>理论→算法≠实现</strong>，从零实现现代深度学习算法</p>
+</Card>
 
-<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">梯度建设</span>
-
-<h4 class="text-title-sm">AI 课程体系</h4>
-<p class="text-xs text-subtle">本科→研究生全层次覆盖</p>
-
-<p class="text-body-sm text-muted-foreground">
-  构建<strong>基础概念 → 理论推导 → 代码实现</strong>的全闭环，打通从数学到 AI 的路径
-</p>
-
-</div>
-
-<div class="card p-6 space-y-3">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-red-50/80 dark:bg-red-950/20 text-red-600 dark:text-red-300">Python 实践</span>
-
-<h4 class="text-title-sm">动手学深度学习</h4>
-<p class="text-xs text-subtle">MATH2806 · 数学专业必修课</p>
-
-<p class="text-body-sm text-muted-foreground">
-  针对数学学生缺乏代码实践能力，强调<strong>理论→算法≠实现</strong>，从零实现现代深度学习算法
-</p>
-
-</div>
-
-<div class="card p-6 space-y-3">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-gold-100/80 dark:bg-gold-950/30 text-gold-700 dark:text-gold-300">课程改革</span>
-
-<h4 class="text-title-sm">数值计算现代化</h4>
-<p class="text-xs text-subtle">MATH2802 · 开放式模拟项目</p>
-
-<p class="text-body-sm text-muted-foreground">
-  传统数值分析融入 Python 生态与深度学习求解器，增设开放式项目，融合数学 + 算法 + 工程
-</p>
-
-</div>
+<Card>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-gold-50 dark:bg-gold-950/40 flex items-center justify-center shrink-0">
+      <div class="i-carbon-cics-system-group text-gold-500 text-lg" />
+    </div>
+    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-gold-100/80 dark:bg-gold-950/30 text-gold-700 dark:text-gold-300">课程改革</span>
+  </div>
+  <h4 class="text-title-sm mt-3">数值计算现代化</h4>
+  <p class="text-xs text-subtle">MATH2802 · 开放式模拟项目</p>
+  <p class="text-body-sm text-muted-foreground mt-1">传统数值分析融入 Python 生态与深度学习求解器，增设开放式项目，融合数学 + 算法 + 工程</p>
+</Card>
 
 </div>
 
@@ -110,59 +97,56 @@ layout: center
 <div class="max-w-5xl mx-auto mt-2 space-y-3">
 
 <div class="grid grid-cols-6 gap-4">
-  <div class="stat"><p class="stat-num">6</p><p class="stat-label">在读博士</p></div>
-  <div class="stat"><p class="stat-num">3</p><p class="stat-label">在读硕士</p></div>
-  <div class="stat"><p class="stat-num">2</p><p class="stat-label">已毕业博士</p></div>
-  <div class="stat"><p class="stat-num">5</p><p class="stat-label">已毕业硕士</p></div>
-  <div class="stat"><p class="stat-num">1</p><p class="stat-label">出站博士后</p></div>
-  <div class="stat"><p class="stat-num">13</p><p class="stat-label">本科毕设</p></div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">6</p>
+    <p class="stat-label">在读博士</p>
+  </div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">3</p>
+    <p class="stat-label">在读硕士</p>
+  </div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">2</p>
+    <p class="stat-label">已毕业博士</p>
+  </div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">5</p>
+    <p class="stat-label">已毕业硕士</p>
+  </div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">1</p>
+    <p class="stat-label">出站博士后</p>
+  </div>
+  <div class="stat card p-4 space-y-1">
+    <p class="stat-num !text-2xl">13</p>
+    <p class="stat-label">本科毕设</p>
+  </div>
 </div>
 
 <div class="grid grid-cols-2 gap-5">
 
-<div class="card pt-5 px-5 pb-0 space-y-1.5">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">博士毕业生</h3>
-
-<div>
+<Card title="博士毕业生">
   <div class="text-body-md font-semibold text-foreground-soft">吴科科</div>
-  <div class="text-body-sm text-foreground-soft mt-2">2021–2024 → 中国科学技术大学苏州高等研究院 博士后</div>
-  <div class="flex items-center gap-1 flex-wrap mt-2">
+  <div class="text-body-sm text-foreground-soft mt-1">2021–2024 → 中国科学技术大学苏州高等研究院 博士后</div>
+  <div class="flex items-center gap-1 flex-wrap mt-1.5">
     <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gold-100/80 dark:bg-gold-950/30 text-gold-700 dark:text-gold-300 shrink-0">江苏省卓越博士后 A 类</span>
     <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-50/80 dark:bg-red-950/20 text-red-600 dark:text-red-300 shrink-0">中国博士后科学基金面上项目</span>
   </div>
-</div>
+  <div class="separator my-3" />
+  <div class="text-body-md font-semibold text-foreground-soft">竺烨锟</div>
+  <div class="text-body-sm text-foreground-soft mt-1">2021–2025 → 字节跳动</div>
+</Card>
 
-<div class="border-b border-neutral-400/40 dark:border-neutral-600/30 mt-2 py-2"></div>
-
-<div class="py-2">
-  <div class="text-body-md font-semibold text-foreground-soft mt-2">竺烨锟</div>
-  <div class="text-body-sm text-foreground-soft mt-2">2021–2025 → 字节跳动</div>
-</div>
-
-</div>
-
-<div class="card pt-5 px-5 pb-3 space-y-1.5">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">出站博士后</h3>
-
-<div>
+<Card title="出站博士后">
   <div class="text-body-md font-semibold text-foreground-soft">燕雄斌</div>
-  <div class="text-body-sm text-foreground-soft mt-2">2022–2024 → 兰州大学数学科学学院 副教授</div>
-</div>
-
-<div class="flex items-center gap-1 flex-wrap mt-2 py-2">
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-500 text-white shrink-0">主持</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
-  <span class="text-body-sm text-foreground-soft mt-2">数据和模型驱动的深度反演求解波动方程反问题</span>
-  <span class="text-xs text-subtle tabular-nums shrink-0 ml-auto mt-2">2025–2027</span>
-</div>
-
-</div>
+  <div class="text-body-sm text-foreground-soft mt-1">2022–2024 → 兰州大学数学科学学院 副教授</div>
+  <div class="flex items-center gap-1 flex-wrap mt-1.5">
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-500 text-white shrink-0">主持</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300 shrink-0">青年科学基金</span>
+    <span class="text-body-sm text-foreground-soft">数据和模型驱动的深度反演求解波动方程反问题</span>
+    <span class="text-xs text-subtle tabular-nums shrink-0 ml-auto">2025–2027</span>
+  </div>
+</Card>
 
 </div>
 

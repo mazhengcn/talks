@@ -2,11 +2,7 @@
 layout: center
 ---
 
-<div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第一部分</span>
-  <h2 class="text-display-lg">个人情况简介</h2>
-  <div class="w-20 h-0.5 bg-red-400/40 rounded-full mx-auto"></div>
-</div>
+<SectionDivider badge="第一部分" heading="个人情况简介" icon="user-avatar-filled" />
 
 ---
 
@@ -79,20 +75,32 @@ layout: center
 <div class="max-w-5xl mx-auto mt-10 space-y-8">
 
   <div class="grid grid-cols-4 gap-5">
-    <div class="stat">
-      <p class="stat-num">30+</p>
+    <div class="stat card p-5 space-y-2">
+      <div class="w-8 h-8 mx-auto rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-document text-red-500 text-lg"></div>
+      </div>
+      <p class="stat-num !text-3xl">30+</p>
       <p class="stat-label">同行评审论文</p>
     </div>
-    <div class="stat">
-      <p class="stat-num">5</p>
+    <div class="stat card p-5 space-y-2">
+      <div class="w-8 h-8 mx-auto rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-version text-red-500 text-lg"></div>
+      </div>
+      <p class="stat-num !text-3xl">5</p>
       <p class="stat-label">预印本</p>
     </div>
-    <div class="stat">
-      <p class="stat-num">1</p>
+    <div class="stat card p-5 space-y-2">
+      <div class="w-8 h-8 mx-auto rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-book text-red-500 text-lg"></div>
+      </div>
+      <p class="stat-num !text-3xl">1</p>
       <p class="stat-label">专著章节</p>
     </div>
-    <div class="stat">
-      <p class="stat-num">1</p>
+    <div class="stat card p-5 space-y-2">
+      <div class="w-8 h-8 mx-auto rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-trophy text-red-500 text-lg"></div>
+      </div>
+      <p class="stat-num !text-3xl">1</p>
       <p class="stat-label">最佳论文奖</p>
     </div>
   </div>
@@ -103,24 +111,17 @@ layout: center
 
 <div class="grid grid-cols-3 gap-5">
 
-<div class="card p-6 space-y-2">
-  <div class="w-8 h-0.5 bg-red-400/50 rounded-full"></div>
-  <p class="text-body-md font-semibold text-foreground-soft">DeepRTE</p>
-  <p class="text-body-sm text-muted-foreground">辐射输运基础模型<br/>JAX/Flax · Github · Hugging Face</p>
-</div>
+<Card title="DeepRTE">
+  <p class="text-body-sm text-muted-foreground">辐射输运基础模型 · JAX/Flax · Github · Hugging Face</p>
+</Card>
 
-<div class="card p-6 space-y-2">
-  <div class="w-8 h-0.5 bg-red-400/50 rounded-full"></div>
-  <p class="text-body-md font-semibold text-foreground-soft">APNNs</p>
+<Card title="APNNs">
   <p class="text-body-sm text-muted-foreground">渐近保持神经网络（算子）多尺度动理学方程求解器 · Github</p>
-</div>
+</Card>
 
-<div class="card p-6 space-y-2">
-  <div class="w-8 h-0.5 bg-red-400/50 rounded-full"></div>
-  <p class="text-body-md font-semibold text-foreground-soft">Kipack</p>
-  <p class="text-body-sm text-muted-foreground">GPU 加速 Boltzmann 求解器<br/>JAX/CuPy · NumPy 接口</p>
-</div>
-
+<Card title="Kipack">
+  <p class="text-body-sm text-muted-foreground">GPU 加速 Boltzmann 求解器 · JAX/CuPy · NumPy 接口</p>
+</Card>
 
 </div>
 

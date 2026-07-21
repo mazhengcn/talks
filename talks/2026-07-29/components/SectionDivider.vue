@@ -13,14 +13,19 @@
 interface Props {
   badge: string;
   heading: string;
+  /** Optional Carbon icon name (e.g. "user-avatar-filled") */
+  icon?: string;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
 </script>
 
 <template>
   <div class="text-center space-y-4">
-    <span class="badge-primary text-sm">{{ badge }}</span>
+    <div class="flex items-center justify-center gap-2.5">
+      <div v-if="icon" :class="['i-carbon-' + icon, 'text-red-500 text-xl']" />
+      <span class="badge-primary text-sm">{{ badge }}</span>
+    </div>
     <h2 class="text-display-md mt-2" v-html="heading" />
     <div class="w-12 h-0.5 bg-red-400/40 rounded-full mx-auto mt-4" />
   </div>

@@ -2,11 +2,7 @@
 layout: center
 ---
 
-<div class="text-center space-y-6">
-  <span class="badge-primary text-sm px-4 py-1.5 tracking-widest">第四部分</span>
-  <h2 class="text-display-lg">服务与未来规划</h2>
-  <div class="w-20 h-0.5 bg-red-400/40 rounded-full mx-auto"></div>
-</div>
+<SectionDivider badge="第四部分" heading="服务与未来规划" icon="collaborate" />
 
 ---
 
@@ -16,50 +12,44 @@ layout: center
 
 <div class="grid grid-cols-2 gap-5">
 
-<div class="card p-5 space-y-3">
+<Card>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+      <div class="i-carbon-events text-red-500 text-lg" />
+    </div>
+    <h3 class="text-title-sm">学术组织与育人</h3>
+  </div>
+  <div class="space-y-2 text-body-sm text-muted-foreground mt-3">
+    <div>参与组织<strong>中国机器学习与应用大会</strong>（2021 年起每年一次）</div>
+    <div>担任<strong>吴文俊班班主任</strong>，获评 <span class="badge-primary text-xs">2025 优秀班主任</span></div>
+  </div>
+</Card>
 
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">学术组织与育人</h3>
-
-<div class="space-y-2 text-body-sm text-muted-foreground">
-  <div>参与组织<strong>中国机器学习与应用大会</strong>（2021 年起每年一次）</div>
-  <div>担任<strong>吴文俊班班主任</strong>，获评 <span class="badge-primary text-xs">2025 优秀班主任</span></div>
-</div>
-
-</div>
-
-<div class="card p-5 space-y-3">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">学院服务</h3>
-
-<div class="space-y-2 text-body-sm text-muted-foreground">
-  <div>参与学院<strong>本科生与研究生招生</strong>各项面试工作</div>
-  <div>参与学科建设、课程评审等学院事务</div>
-</div>
-
-</div>
-
-</div>
-
-<div class="card p-5 space-y-3">
-
-<div class="w-10 h-0.5 bg-red-400/50 rounded-full"></div>
-
-<h3 class="text-title-sm">期刊审稿</h3>
-
-<div class="flex items-center gap-2 flex-wrap text-body-sm text-muted-foreground">
-  <span>服务领域顶级期刊：</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-300">J. Comput. Phys.</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gold-50 dark:bg-gold-950/20 text-gold-600 dark:text-gold-300">CSIAM</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">Commun. Comput. Phys.</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-950/20 text-sky-600 dark:text-sky-300">MMMAS</span>
-  <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-300">J. Sci. Comput.</span>
-</div>
+<Card>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+      <div class="i-carbon-building-insights-3 text-red-500 text-lg" />
+    </div>
+    <h3 class="text-title-sm">学院服务</h3>
+  </div>
+  <div class="space-y-2 text-body-sm text-muted-foreground mt-3">
+    <div>参与学院<strong>本科生与研究生招生</strong>各项面试工作</div>
+    <div>参与学科建设、课程评审等学院事务</div>
+  </div>
+</Card>
 
 </div>
+
+<Card title="期刊审稿">
+  <div class="flex items-center gap-2 flex-wrap text-body-sm text-muted-foreground">
+    <span>服务领域顶级期刊：</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-300">J. Comput. Phys.</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gold-50 dark:bg-gold-950/20 text-gold-600 dark:text-gold-300">CSIAM</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-300">Commun. Comput. Phys.</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-950/20 text-sky-600 dark:text-sky-300">MMMAS</span>
+    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-violet-50 dark:bg-violet-950/20 text-violet-600 dark:text-violet-300">J. Sci. Comput.</span>
+  </div>
+</Card>
 
 </div>
 
@@ -67,37 +57,46 @@ layout: center
 
 # AI4S：三要素
 
-<div class="text-center mt-10">
+<div class="text-center mt-8">
   <p class="text-title-lg text-foreground-soft">
     数据与模型，本质上都是 <strong class="text-primary">约束 (Harness)</strong>
   </p>
 </div>
 
-<div class="w-full px-8 mt-12 space-y-8">
+<div class="w-full px-8 mt-10 space-y-8">
 
   <div class="flex items-stretch justify-center gap-4">
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-red-400/50 rounded-full mx-auto"></div>
+    <div class="card p-8 text-center flex-1 space-y-4 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/50 to-transparent"></div>
+      <div class="w-14 h-14 mx-auto rounded-xl bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-data-blob text-red-500 text-2xl"></div>
+      </div>
       <p class="text-display-sm">数据</p>
       <p class="text-title-md text-foreground-soft">物理规律</p>
       <p class="text-body-md text-subtle">理论无限，高效利用</p>
       <span class="badge-primary text-sm px-4 py-1.5">APNN 框架</span>
     </div>
     <div class="flex items-center">
-      <span class="text-3xl text-subtle font-light">×</span>
+      <span class="text-3xl text-subtle/50 font-light">×</span>
     </div>
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-red-400/50 rounded-full mx-auto"></div>
+    <div class="card p-8 text-center flex-1 space-y-4 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/50 to-transparent"></div>
+      <div class="w-14 h-14 mx-auto rounded-xl bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-cube text-red-500 text-2xl"></div>
+      </div>
       <p class="text-display-sm">模型</p>
       <p class="text-title-md text-foreground-soft">PDE 解算子</p>
       <p class="text-body-md text-subtle">特定问题 → 特定数学结构</p>
       <span class="badge-primary text-sm px-4 py-1.5">DeepRTE</span>
     </div>
     <div class="flex items-center">
-      <span class="text-3xl text-subtle font-light">×</span>
+      <span class="text-3xl text-subtle/50 font-light">×</span>
     </div>
-    <div class="card p-8 text-center flex-1 space-y-4">
-      <div class="w-12 h-0.5 bg-red-400/50 rounded-full mx-auto"></div>
+    <div class="card p-8 text-center flex-1 space-y-4 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/50 to-transparent"></div>
+      <div class="w-14 h-14 mx-auto rounded-xl bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
+        <div class="i-carbon-chip text-red-500 text-2xl"></div>
+      </div>
       <p class="text-display-sm">算法</p>
       <p class="text-title-md text-foreground-soft">GPU 集群</p>
       <p class="text-body-md text-subtle">不同下游任务</p>
@@ -112,7 +111,16 @@ layout: center
 # Loop Engineering
 
 <div class="text-center mt-6">
-  <span class="text-body-md text-muted-foreground">物理规律 → PDE 算子 → 数值求解 → 验证迭代 → 🔄</span>
+  <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-red-50 dark:bg-red-950/40 text-body-md text-muted-foreground">
+    <span>物理规律</span>
+    <div class="i-carbon-arrow-right text-red-400 text-sm"></div>
+    <span>PDE 算子</span>
+    <div class="i-carbon-arrow-right text-red-400 text-sm"></div>
+    <span>数值求解</span>
+    <div class="i-carbon-arrow-right text-red-400 text-sm"></div>
+    <span>验证迭代</span>
+    <div class="i-carbon-restart text-red-500 text-sm"></div>
+  </div>
 </div>
 
 <div class="text-center mt-8 space-y-2">
@@ -129,9 +137,8 @@ layout: center
 
 <div class="flex items-stretch justify-center gap-5 px-12">
 
-<div class="card p-8 flex-1 space-y-3">
-
-<div class="w-12 h-0.5 bg-red-400/50 rounded-full"></div>
+<div class="card p-8 flex-1 space-y-3 relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/50 to-transparent"></div>
 
 ### Harness · 约束
 
@@ -141,12 +148,11 @@ layout: center
 </div>
 
 <div class="flex items-center self-center">
-  <span class="text-2xl text-subtle font-light">×</span>
+  <span class="text-2xl text-subtle/50 font-light">×</span>
 </div>
 
-<div class="card p-8 flex-1 space-y-3">
-
-<div class="w-12 h-0.5 bg-red-400/50 rounded-full"></div>
+<div class="card p-8 flex-1 space-y-3 relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/50 to-transparent"></div>
 
 ### Agent · 大脑
 
@@ -221,7 +227,12 @@ LLM 调度数据生成、选择模型架构
 
 <div class="space-y-5 mt-10">
   <div class="card p-5">
-    <h3 class="text-title-md mb-2">下一个前沿</h3>
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+        <div class="i-carbon-ibm-watson-knowledge-studio text-red-500 text-lg"></div>
+      </div>
+      <h3 class="text-title-md">下一个前沿</h3>
+    </div>
     <p class="text-base text-body">
       基于 DeepRTE 范式：开发描述聚变等离子体动力学的
       <strong>Vlasov–Maxwell 系统</strong>的算子学习基础模型。
@@ -230,14 +241,24 @@ LLM 调度数据生成、选择模型架构
 
   <div class="grid grid-cols-2 gap-4">
     <div class="card p-4">
-      <h4 class="text-title-sm mb-2">科学目标</h4>
+      <div class="flex items-center gap-2.5 mb-2">
+        <div class="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+          <div class="i-carbon-target text-red-500"></div>
+        </div>
+        <h4 class="text-title-sm">科学目标</h4>
+      </div>
       <p class="text-xs text-muted-foreground">
         替代托卡马克输运计算的 PIC 模拟的代理模型——在全动理学到流体谱上精确，
         可在<strong>毫秒级</strong>内评估，用于等离子体形状和稳定性的实时反馈控制。
       </p>
     </div>
     <div class="card p-4">
-      <h4 class="text-title-sm mb-2">核心挑战</h4>
+      <div class="flex items-center gap-2.5 mb-2">
+        <div class="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0">
+          <div class="i-carbon-threshold text-red-500"></div>
+        </div>
+        <h4 class="text-title-sm">核心挑战</h4>
+      </div>
       <p class="text-xs text-muted-foreground">
         在算子学习架构中作为<strong>硬架构约束</strong>保持物理不变量
         （总能量、熵不等式等等）。
