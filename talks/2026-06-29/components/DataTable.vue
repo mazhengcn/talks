@@ -49,12 +49,9 @@ onMounted(() => {
   if (props.enableLatex) processMath();
 });
 
-watch(
-  [() => props.headers, () => props.rows, () => props.caption],
-  () => {
-    if (props.enableLatex) processMath();
-  },
-);
+watch([() => props.headers, () => props.rows, () => props.caption], () => {
+  if (props.enableLatex) processMath();
+});
 
 function isHighlighted(colIndex: number): boolean {
   return colIndex === props.highlightCol;
@@ -74,11 +71,7 @@ function isLastRow(rowIndex: number): boolean {
             v-for="(header, i) in headers"
             :key="i"
             class="text-left py-2 font-medium"
-            :class="
-              isHighlighted(i)
-                ? 'text-primary'
-                : 'text-muted-foreground'
-            "
+            :class="isHighlighted(i) ? 'text-primary' : 'text-muted-foreground'"
             v-html="renderInlineMarkdown(header)"
           />
         </tr>

@@ -3,8 +3,7 @@ import { useNav } from "@slidev/client";
 
 const { currentPage, currentSlideRoute } = useNav();
 const title =
-  (currentSlideRoute.value.meta?.slide as any)?.frontmatter?.title ||
-  "DeepRTE";
+  (currentSlideRoute.value.meta?.slide as any)?.frontmatter?.title || "DeepRTE";
 </script>
 
 <template>

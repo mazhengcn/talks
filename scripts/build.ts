@@ -9,7 +9,12 @@ const cwd = process.cwd();
 const base = cwd.split("/").pop();
 const args = process.argv.slice(2);
 
-const root = dirname(await findUp("bun.lock", { cwd }));
+const lockFile = await findUp("bun.lock", { cwd });
+if (!lockFile) {
+  console.error("bun.lock not found — not running inside the repo");
+  process.exit(1);
+}
+const root = dirname(lockFile);
 
 const dirStale = join(root, "dist-stale", `${base}`);
 const dirDist = join(root, "dist", `${base}`);

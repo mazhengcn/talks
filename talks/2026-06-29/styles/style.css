@@ -10,7 +10,7 @@
 
 /* ── Slide background ─────────────────── */
 #slide-content {
-  @apply bg-background text-foreground #{!important};
+  @apply bg-background text-foreground;
 }
 
 /* ── Base typography ──────────────────── */
@@ -23,34 +23,43 @@
 
 /* h1/h2 — serif display (EB Garamond, Claude editorial voice).
    Weight 700 compensates for CJK serif projecting lighter than Latin. */
-.slidev-layout h1, .slidev-layout h2 {
-  @apply font-serif #{!important};
+.slidev-layout h1,
+.slidev-layout h2 {
+  @apply font-serif;
   font-weight: 700 !important;
   letter-spacing: 0;
   text-wrap: pretty;
 }
-.slidev-layout h1 { line-height: 1.35; }
-.slidev-layout h2 { line-height: 1.4; }
+.slidev-layout h1 {
+  line-height: 1.35;
+}
+.slidev-layout h2 {
+  line-height: 1.4;
+}
 
 /* h3–h6: !important prevents UnoCSS shortcuts from leaking
    a different font-family into subheadings. */
-.slidev-layout h3, .slidev-layout h4,
-.slidev-layout h5, .slidev-layout h6 {
-  @apply font-sans #{!important};
+.slidev-layout h3,
+.slidev-layout h4,
+.slidev-layout h5,
+.slidev-layout h6 {
+  @apply font-sans;
   font-weight: 600 !important;
   line-height: 1.5;
   text-wrap: pretty;
 }
 
 /* ── Body: Chinese-optimized leading (1.75 for CJK readability at projection distance) ── */
-.slidev-layout p, .slidev-layout li {
+.slidev-layout p,
+.slidev-layout li {
   font-weight: 400;
   line-height: 1.75;
   text-wrap: pretty;
 }
 
 /* ── Lists: padding & marker color ──────────── */
-.slidev-layout ul, .slidev-layout ol {
+.slidev-layout ul,
+.slidev-layout ol {
   padding-left: 1.5em;
 }
 
@@ -66,13 +75,13 @@
 
 /* ── Code blocks: dark-surface code-window card (12px radius) ── */
 .slidev-code {
-  @apply font-mono bg-warm-1000 text-warm-50 #{!important};
+  @apply font-mono bg-warm-1000 text-warm-50;
   border-radius: 12px;
   font-size: 14px;
   line-height: 1.6;
 }
 .dark .slidev-code {
-  @apply bg-warm-975 #{!important};
+  @apply bg-warm-975;
 }
 
 /* ── Inline code — warm coral tint, no border ── */
@@ -91,7 +100,9 @@
   @apply text-coral-600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 .dark .slidev-layout a {
   @apply text-coral-400;
@@ -155,7 +166,9 @@
 
 /* ── Click transitions ────────────────────── */
 .slidev-vclick-target {
-  transition: opacity 500ms ease, filter 350ms ease;
+  transition:
+    opacity 500ms ease,
+    filter 350ms ease;
 }
 .slidev-vclick-hidden {
   opacity: 0;

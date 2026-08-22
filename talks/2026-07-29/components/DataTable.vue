@@ -49,12 +49,9 @@ onMounted(() => {
   if (props.enableLatex) processMath();
 });
 
-watch(
-  [() => props.headers, () => props.rows, () => props.caption],
-  () => {
-    if (props.enableLatex) processMath();
-  },
-);
+watch([() => props.headers, () => props.rows, () => props.caption], () => {
+  if (props.enableLatex) processMath();
+});
 
 function isHighlighted(colIndex: number): boolean {
   return colIndex === props.highlightCol;
@@ -69,16 +66,14 @@ function isLastRow(rowIndex: number): boolean {
   <div ref="tableRef" class="card p-0 overflow-auto">
     <table class="w-full text-sm">
       <thead>
-        <tr class="border-b border-neutral-300 dark:border-neutral-800 bg-muted">
+        <tr
+          class="border-b border-neutral-300 dark:border-neutral-800 bg-muted"
+        >
           <th
             v-for="(header, i) in headers"
             :key="i"
             class="text-left py-2 font-medium"
-            :class="
-              isHighlighted(i)
-                ? 'text-primary'
-                : 'text-muted-foreground'
-            "
+            :class="isHighlighted(i) ? 'text-primary' : 'text-muted-foreground'"
             v-html="renderInlineMarkdown(header)"
           />
         </tr>

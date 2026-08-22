@@ -15,6 +15,7 @@ Split presentations into multiple files for reusability.
 This is a normal page
 
 ---
+
 src: ./pages/toc.md
 ---
 
@@ -51,6 +52,7 @@ src: ./pages/toc.md
 <!-- later... -->
 
 ---
+
 src: ./pages/toc.md
 ---
 ```

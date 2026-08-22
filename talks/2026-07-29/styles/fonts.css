@@ -7,8 +7,8 @@
 
 /* ── SF Pro (variable) — English sans ── */
 @font-face {
-  font-family: 'SF Pro';
-  src: url('/assets/fonts/SF-Pro-VF.woff2') format('woff2');
+  font-family: "SF Pro";
+  src: url("/assets/fonts/SF-Pro-VF.woff2") format("woff2");
   font-weight: 1 1000;
   font-stretch: 30% 150%;
   font-style: normal;
@@ -17,43 +17,43 @@
 
 /* ── PingFang SC (static) — Chinese sans ── */
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Ultralight.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Ultralight.woff2") format("woff2");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Thin.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Thin.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Light.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Regular.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Medium.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'PingFang SC';
-  src: url('/assets/fonts/PingFangSC-Semibold.woff2') format('woff2');
+  font-family: "PingFang SC";
+  src: url("/assets/fonts/PingFangSC-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -61,8 +61,8 @@
 
 /* ── New York (variable) — serif ── */
 @font-face {
-  font-family: 'New York';
-  src: url('/assets/fonts/NewYork-VF.woff2') format('woff2');
+  font-family: "New York";
+  src: url("/assets/fonts/NewYork-VF.woff2") format("woff2");
   font-weight: 400 1000;
   font-style: normal;
   font-display: swap;
@@ -70,85 +70,85 @@
 
 /* ── SF Mono (static) — monospace ── */
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Light.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-LightItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-LightItalic.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Regular.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-RegularItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-RegularItalic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Medium.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-MediumItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-MediumItalic.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Semibold.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-SemiboldItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-SemiboldItalic.woff2") format("woff2");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Bold.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-BoldItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-Heavy.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-Heavy.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Mono';
-  src: url('/assets/fonts/SF-Mono-HeavyItalic.woff2') format('woff2');
+  font-family: "SF Mono";
+  src: url("/assets/fonts/SF-Mono-HeavyItalic.woff2") format("woff2");
   font-weight: 900;
   font-style: italic;
   font-display: swap;

@@ -116,9 +116,7 @@ export function useKaTeX(containerRef: Ref<HTMLElement | undefined>) {
               const katexElements = span.querySelectorAll(".katex, .katex *");
               katexElements.forEach((elem: Element) => {
                 if (elem instanceof HTMLElement && inheritedStyles) {
-                  const colorMatch = inheritedStyles.match(
-                    /color:\s*([^;]+)/,
-                  );
+                  const colorMatch = inheritedStyles.match(/color:\s*([^;]+)/);
                   const backgroundMatch = inheritedStyles.match(
                     /background[^:]*:\s*([^;]+)/g,
                   );

@@ -53,12 +53,9 @@ onMounted(() => {
 });
 
 // Re-process math when content props change
-watch(
-  [() => props.title, () => props.subtitle, () => props.items],
-  () => {
-    if (props.enableLatex) processMath();
-  },
-);
+watch([() => props.title, () => props.subtitle, () => props.items], () => {
+  if (props.enableLatex) processMath();
+});
 
 // Surface variant → UnoCSS shortcut (defined in unocss.config.ts)
 const surfaceVariantClasses: Record<string, string> = {
@@ -108,9 +105,16 @@ const sizeClasses: Record<string, string> = {
             size === 'lg' ? 'text-3xl' : size === 'sm' ? 'text-lg' : 'text-2xl',
           ]"
         />
-        <span class="text-foreground-soft" v-html="renderInlineMarkdown(title)" />
+        <span
+          class="text-foreground-soft"
+          v-html="renderInlineMarkdown(title)"
+        />
       </div>
-      <span v-else class="text-foreground-soft" v-html="renderInlineMarkdown(title)" />
+      <span
+        v-else
+        class="text-foreground-soft"
+        v-html="renderInlineMarkdown(title)"
+      />
     </div>
 
     <!-- Subtitle -->

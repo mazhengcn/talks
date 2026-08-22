@@ -102,6 +102,7 @@ Root `uno.config.ts` is a trivial re-export of `@slidev/client/uno.config.ts`. T
 ### Metadata system
 
 The metadata pipeline is documented in `docs/METADATA_SYSTEM.md`. Additional docs live under `docs/`:
+
 - **`ARCHITECTURE.md`** — architecture decision records and design rationale
 - **`IMPLEMENTATION_SUMMARY.md`** — implementation notes and summaries
 - **`METADATA_JSON_TEMPLATE.md`** — metadata JSON schema reference

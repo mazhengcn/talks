@@ -30,7 +30,9 @@ const bases = (
       };
     }),
   )
-).filter(Boolean);
+).filter((x): x is { dir: string; base: string; pdfFile: string } =>
+  Boolean(x),
+);
 
 console.log(bases);
 const redirects = bases

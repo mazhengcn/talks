@@ -5,12 +5,12 @@ command = "bun --bun run build"
 
 # CORS headers for metadata API
 [[headers]]
-  for = "/talks-metadata.json"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
-    Cache-Control = "public, max-age=3600"
+for = "/talks-metadata.json"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Methods = "GET, OPTIONS"
+Access-Control-Allow-Headers = "Content-Type"
+Cache-Control = "public, max-age=3600"
 
 
 [[redirects]]

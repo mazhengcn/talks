@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 export default defineConfig({
   server: {
@@ -8,12 +8,12 @@ export default defineConfig({
   },
   build: {
     emptyOutDir: true,
-    cssMinify: 'esbuild',
+    cssMinify: "esbuild",
     rollupOptions: {
       onLog(level, log) {
         // Suppress Rolldown INVALID_ANNOTATION warnings from @vueuse/core
-        if (log.code === 'INVALID_ANNOTATION') return
+        if (log.code === "INVALID_ANNOTATION") return;
       },
     },
   },
-})
+});
