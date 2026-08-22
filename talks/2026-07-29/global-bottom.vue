@@ -74,7 +74,9 @@ const title = computed(() => {
     class="absolute top-0 left-0 right-0 z-10 pointer-events-none"
   >
     <!-- Accent bar — left edge -->
-    <div class="absolute top-5 left-0 w-5 h-12 rounded-r-sm bg-gradient-to-b from-red-500 to-[#ED7D31]" />
+    <div
+      class="absolute top-5 left-0 w-5 h-12 rounded-r-sm bg-gradient-to-b from-red-500 to-[#ED7D31]"
+    />
 
     <!-- SJTU Logo — right edge -->
     <img
@@ -84,7 +86,9 @@ const title = computed(() => {
     />
   </div>
 
-  <!-- Center / section layout: SJTU emblem centered above the title -->
+  <!-- Center / section layout: SJTU emblem centered above the title.
+       mt-16 keeps it clear of layout:center content, which is
+       vertically centered (~150px from top on a 552px canvas). -->
   <div
     v-if="layout === 'center'"
     class="absolute top-0 left-0 right-0 z-10 pointer-events-none flex justify-center"
@@ -93,7 +97,7 @@ const title = computed(() => {
       src="/sjtu-emblem.png"
       alt=""
       aria-hidden="true"
-      class="mt-32 w-14 h-14"
+      class="mt-16 w-14 h-14"
     />
   </div>
 
