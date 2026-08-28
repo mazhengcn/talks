@@ -18,18 +18,20 @@ const publishedTalks = await Promise.all(
     return metadata.published === false ? undefined : file.split("/")[1];
   }),
 );
-const filters = publishedTalks
-  .filter((talk): talk is string => Boolean(talk))
-  .flatMap((talk) => ["--filter", talk]);
+const talks = publishedTalks.filter((talk): talk is string => Boolean(talk));
 
-console.log(`Building ${filters.length / 2} published talks`);
-await x("bun", ["run", "--parallel", ...filters, "build"], {
-  throwOnError: true,
-  nodeOptions: {
-    cwd: root,
-    stdio: "inherit",
-  },
-});
+console.log(`Building ${talks.length} published talks`);
+// Slidev's downloadable-PDF build uses a fixed print-server port, so these
+// builds must run sequentially to avoid intermittent port collisions.
+for (const talk of talks) {
+  await x("bun", ["run", "--filter", talk, "build"], {
+    throwOnError: true,
+    nodeOptions: {
+      cwd: root,
+      stdio: "inherit",
+    },
+  });
+}
 
 await collectAllMetadata({
   outputFiles: [join(distDir, "talks-metadata.json")],

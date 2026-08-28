@@ -33,7 +33,7 @@ jobs:
       - name: Check formatting
         run: bun --bun run format:check
 
-      - name: Validate talk metadata and PDFs
+      - name: Validate talk metadata
         run: bun --bun run metadata:check
 
   build:

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T03:02:57.597Z",
+  "generatedAt": "2026-08-28T03:15:20.291Z",
   "count": 12,
   "talks": [
     {
@@ -10,7 +10,6 @@
       "location": "Shanghai, China",
       "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/deeprte/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deeprte/assets/deeprte.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deeprte",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
       "tags": [
@@ -34,7 +33,6 @@
       "conferenceUrl": "https://www.sjtu.edu.cn",
       "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-07-29/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-29/assets/2026-07-29.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-29",
       "description": "长聘教职申请答辩：全栈AI for Science —— 从多尺度动理学方程到扩散模型反问题",
       "tags": [
@@ -59,20 +57,11 @@
       "location": "厦门，中国",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-07-19/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-19/assets/2026-07-19.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2026-07-19/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-19",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": [
-        "深度学习",
-        "辐射输运",
-        "神经网络",
-        "物理",
-        "注意力机制"
-      ],
-      "collaborators": [
-        "唐敏",
-        "竺烨锟"
-      ],
+      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
+      "collaborators": ["唐敏", "竺烨锟"],
       "published": true,
       "custom": {
         "version": "v1.2.1-zh"
@@ -89,7 +78,6 @@
       "conferenceUrl": "https://www.sjtu.edu.cn",
       "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-06-29/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-06-29/assets/2026-06-29.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-06-29",
       "description": "长聘教职申请答辩：全栈AI for Science —— 从多尺度动理学方程到扩散模型反问题",
       "tags": [
@@ -114,16 +102,10 @@
       "location": "上海，中国",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-03-18/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-03-18/assets/2026-03-18.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2026-03-18/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-03-18",
       "description": "OpenClaw：运行在你自己设备上的个人 AI 助手",
-      "tags": [
-        "AI",
-        "个人助手",
-        "开源",
-        "多渠道",
-        "Gateway"
-      ],
+      "tags": ["AI", "个人助手", "开源", "多渠道", "Gateway"],
       "collaborators": [],
       "published": true,
       "custom": {
@@ -140,20 +122,11 @@
       "location": "北京，中国",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-02-01/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-02-01/assets/2026-02-01.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2026-02-01/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-02-01",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": [
-        "深度学习",
-        "辐射输运",
-        "神经网络",
-        "物理",
-        "注意力机制"
-      ],
-      "collaborators": [
-        "唐敏",
-        "竺烨锟"
-      ],
+      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
+      "collaborators": ["唐敏", "竺烨锟"],
       "published": true,
       "custom": {
         "version": "v1.2.0-zh"
@@ -169,7 +142,7 @@
       "location": "SUSTech, Shenzhen, China",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-12-28/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-12-28/assets/2025-12-28.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2025-12-28/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-12-28",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
       "tags": [
@@ -179,10 +152,7 @@
         "physics",
         "attention-mechanism"
       ],
-      "collaborators": [
-        "Min Tang",
-        "Yekun Zhu"
-      ],
+      "collaborators": ["Min Tang", "Yekun Zhu"],
       "published": true,
       "custom": {
         "version": "v1.1.0"
@@ -198,7 +168,7 @@
       "location": "Shanghai, China",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-09-20/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-09-20/assets/2025-09-20.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2025-09-20/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-09-20",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer, with applications in inertial confinement fusion and radiation therapy",
       "tags": [
@@ -208,10 +178,7 @@
         "physics",
         "neural-networks"
       ],
-      "collaborators": [
-        "Min Tang",
-        "Yekun Zhu"
-      ],
+      "collaborators": ["Min Tang", "Yekun Zhu"],
       "published": true,
       "custom": {
         "version": "v1.0.2"
@@ -228,7 +195,7 @@
       "conferenceUrl": "https://my.31huiyi.com/site/pages/index/index?pageId=dcfa0000-b665-5ae1-afd9-08dd553be668",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-08-18/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-08-18/assets/2025-08-18.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2025-08-18/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-08-18",
       "description": "DeepRTE: Pre-trained Attention-based Neural Network for Radiative Transfer",
       "tags": [
@@ -237,10 +204,7 @@
         "neural-network",
         "attention-mechanism"
       ],
-      "collaborators": [
-        "Min Tang",
-        "Yekun Zhu"
-      ],
+      "collaborators": ["Min Tang", "Yekun Zhu"],
       "published": true,
       "custom": {
         "version": "v1.0.0"
@@ -254,7 +218,7 @@
       "location": "上海, 中国",
       "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/deep-pde/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deep-pde/assets/deep-pde.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/deep-pde/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deep-pde",
       "description": "深度学习与微分方程：从入门到精通 - 介绍深度学习方法求解微分方程的基本概念、常见算法和实践应用",
       "tags": [
@@ -282,7 +246,7 @@
       "conferenceUrl": "http://bdai2025.icrp.xjtu.edu.cn",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-07-20/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-20/assets/2025-07-20.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2025-07-20/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-07-20",
       "description": "Solving kinetic equations with deep learning methods, covering neutron transport, radiative transfer, and rarefied gas dynamics",
       "tags": [
@@ -291,12 +255,7 @@
         "scientific-computing",
         "neural-networks"
       ],
-      "collaborators": [
-        "Shi Jin",
-        "Keke Wu",
-        "Han Wang",
-        "Jingrun Chen"
-      ],
+      "collaborators": ["Shi Jin", "Keke Wu", "Han Wang", "Jingrun Chen"],
       "published": true,
       "custom": {
         "version": "v1.1.0"
@@ -313,7 +272,7 @@
       "conferenceUrl": "https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php",
       "language": "en",
       "slidesUrl": "https://zheng-talks.netlify.app/2025-07-10/",
-      "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2025-07-10/assets/2025-07-10.pdf?raw=true",
+      "pdfUrl": "https://zheng-talks.netlify.app/2025-07-10/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2025-07-10",
       "description": "How to solve kinetic equations with deep learning",
       "collaborators": [

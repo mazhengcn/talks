@@ -65,9 +65,6 @@ export interface TalkMetadataConfig {
   /** Language override */
   language?: string;
 
-  /** PDF path relative to the talk directory */
-  pdf?: string;
-
   /** Conference or event name */
   conference?: string;
 

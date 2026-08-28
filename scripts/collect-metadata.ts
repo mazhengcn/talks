@@ -115,10 +115,6 @@ async function collectTalkMetadata(
     const config = await loadMetadataConfig(talkDir);
     const speakerInfo = await extractSpeakerInfo(slidesPath, frontmatter);
     const date = parseDate(folderId, frontmatter, config);
-    const pdf = config.pdf ?? `assets/${folderId}.pdf`;
-    if (!existsSync(join(talkDir, pdf)))
-      throw new Error(`${folderId}: PDF not found at ${pdf}`);
-
     const title = frontmatter.title;
     const language = config.language ?? frontmatter.lang;
 
@@ -136,7 +132,10 @@ async function collectTalkMetadata(
       conferenceUrl: config.conference_url,
       language: typeof language === "string" ? language : "en",
       slidesUrl: `${BASE_URL}/${folderId}/`,
-      pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/${pdf}?raw=true`,
+      pdfUrl:
+        config.published === false
+          ? undefined
+          : `${BASE_URL}/${folderId}/slides.pdf`,
       sourceUrl: `${REPO_URL}/tree/main/talks/${folderId}`,
       description: config.description,
       tags: config.tags,

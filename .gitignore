@@ -3,6 +3,8 @@ node_modules
 *-export*
 dist
 dist-stale
+talks/*/assets/*.pdf
+talks/*/assets/*.pptx
 .DS_Store
 **/public/assets/fonts
 .env

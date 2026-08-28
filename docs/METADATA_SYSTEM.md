@@ -26,7 +26,7 @@ interface TalkMetadata {
   location?: string; // Conference location
   language?: string; // Presentation language
   slidesUrl?: string; // Hosted slides URL
-  pdfUrl?: string; // PDF download URL
+  pdfUrl?: string; // Deployed /<talk>/slides.pdf URL for published talks
   sourceUrl?: string; // Source code URL
   description?: string; // Brief description
   tags?: string[]; // Topics/tags

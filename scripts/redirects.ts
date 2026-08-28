@@ -16,33 +16,30 @@ const bases = (
       const talkRoot = dirname(file);
       const base = talkRoot.split("/").pop();
       if (!base) return;
-      const pdfFile = `assets/${base}.pdf`;
-      try {
-        await fs.access(`${talkRoot}/${pdfFile}`);
-      } catch {
-        throw new Error(`${talkRoot}: expected PDF at ${pdfFile}`);
-      }
+      const metadata = JSON.parse(
+        await fs.readFile(`${talkRoot}/metadata.json`, "utf-8"),
+      );
       return {
         dir: talkRoot,
         base,
-        pdfFile,
+        published: metadata.published !== false,
       };
     }),
   )
-).filter((x): x is { dir: string; base: string; pdfFile: string } =>
+).filter((x): x is { dir: string; base: string; published: boolean } =>
   Boolean(x),
 );
 
 console.log(bases);
 const redirects = bases
-  .flatMap(({ base, pdfFile, dir }) => {
+  .flatMap(({ base, published, dir }) => {
     const parts: string[] = [];
 
-    if (pdfFile) {
+    if (published) {
       parts.push(`
 [[redirects]]
 from = "/${base}/pdf"
-to = "https://github.com/mazhengcn/talks/blob/main/${dir}/${pdfFile}?raw=true"
+to = "/${base}/slides.pdf"
 status = 302`);
     }
 
@@ -52,7 +49,8 @@ from = "/${base}/src"
 to = "https://github.com/mazhengcn/talks/tree/main/${dir}"
 status = 302`);
 
-    parts.push(`
+    if (published)
+      parts.push(`
 [[redirects]]
 from = "/${base}/*"
 to = "/${base}/index.html"

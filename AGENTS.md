@@ -94,9 +94,10 @@ Root `uno.config.ts` is a trivial re-export of `@slidev/client/uno.config.ts`. T
 ### Scripts
 
 - **`scripts/picker.ts`** — interactive CLI that lists date-prefixed talk folders (matching `^\d{4}-`), reads `README.md` titles, and launches slidev. Supports `-y` flag to auto-select the first folder. `bun dev` opens VS Code on the slides.md (via `code`) and starts the dev server.
-- **`scripts/build.ts`** — builds a single talk via `slidev build` (using `tinyexec` as a lightweight `execa` alternative). Locates the repo root via `findUp` on `bun.lock`. Has a **stale-dist caching mechanism**: if `dist-stale/<talk-name>/` exists, it copies the stale build directly (including `talks-metadata.json`) to `dist/` and skips the full build. If no PDF exists in the talk's `assets/`, it exports one via `slidev export --per-slide`. Detects the talk directory from `cwd.split("/").pop()`.
-- **`scripts/collect-metadata.ts`** — scans all `talks/` dirs (ignoring `reuse` and `template`), extracts frontmatter via **hand-rolled regex parsing** (not a YAML parser — multi-line YAML values are not supported in slides.md frontmatter). Extracts speaker info from a `text-left` div in the slides content and collaborators from "Joint work with" patterns. Uses typed metadata structures (`TalkMetadata`, `TalkMetadataConfig`, `TalksCollection`) from `types/metadata.ts`. Reads `BASE_URL` env var (default: `https://zheng-talks.netlify.app`). Outputs to both `dist-stale/` and `public/`. Can be imported and called as `collectAllMetadata()`.
-- **`scripts/redirects.ts`** — auto-generates `netlify.toml` from scratch. Discovers all talks via `talks/*/package.json` glob (not just date-prefixed ones — unlike the picker). For each talk: `/talk/pdf` → 302 to raw PDF on GitHub, `/talk/src` → 302 to GitHub source tree, `/talk/*` → 200 SPA fallback. Also generates a root `/` → 302 redirect to the base URL. Preserves CORS headers on `/talks-metadata.json`.
+- **`scripts/build-all.ts`** — clears `dist/`, discovers published talks from `metadata.json`, and builds them sequentially. Builds are sequential because Slidev's downloadable-PDF renderer uses a fixed local print-server port. It writes the metadata collection after all talks finish.
+- **`scripts/build.ts`** — builds one talk's SPA and downloadable `slides.pdf` directly into `dist/<talk-name>/`. It locates the repo root via `findUp` on `bun.lock` and propagates non-zero Slidev exits.
+- **`scripts/collect-metadata.ts`** — scans all `talks/` dirs (ignoring `reuse` and `template`) and parses Slidev YAML frontmatter with `gray-matter`. It validates dates, extracts speaker information, and generates deployed PDF URLs for published talks. The CLI writes `public/talks-metadata.json`; production builds write `dist/talks-metadata.json`.
+- **`scripts/redirects.ts`** — auto-generates `netlify.toml` from scratch. Discovers all talks via `talks/*/package.json`. Published talks receive `/talk/pdf` → `/talk/slides.pdf` and SPA fallback redirects; all talks receive source redirects.
 - **`scripts/random-icons.ts`** — utility to generate random icon lists from Iconify collections. Not integrated into the build pipeline.
 - **`scripts/pdf2png.sh`** — Ghostscript-based PDF-to-PNG converter (300 DPI, transparent). Not called by any orchestration script.
 
@@ -133,7 +134,8 @@ A GitHub Action (`.github/workflows/update-metadata.yml`) runs `collect-metadata
 
 - **`fonts/`** — local font files for offline use/caching (used by `presetWebFonts` with `createLocalFontProcessor()`)
 - **`.devcontainer/`** — VS Code Dev Container configuration for reproducible development environments
-- **`dist/`** / **`dist-stale/`** — build outputs; `dist-stale/` serves as a per-talk build cache (see `scripts/build.ts`)
+- **`dist/`** — ignored production output containing each published SPA, its generated `slides.pdf`, and the metadata collection
+- **`shared-assets/`** — canonical large assets shared through per-talk `public/` symlinks; Vite materializes them into each production build
 
 ### Environment variables
 

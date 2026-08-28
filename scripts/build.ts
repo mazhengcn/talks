@@ -23,6 +23,10 @@ const command = [
   `/${base}/`,
   "--out",
   dirDist,
+  "--download",
+  "--output",
+  join(dirDist, "slides.pdf"),
+  "--per-slide",
   ...args,
 ];
 
