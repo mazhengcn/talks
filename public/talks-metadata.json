@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T04:45:11.346Z",
+  "generatedAt": "2026-08-28T03:02:57.597Z",
   "count": 12,
   "talks": [
     {
@@ -8,7 +8,7 @@
       "date": "2026-09-19",
       "conference": "DeepRTE v1.2.0",
       "location": "Shanghai, China",
-      "language": "en",
+      "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/deeprte/",
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/deeprte/assets/deeprte.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/deeprte",
@@ -32,7 +32,7 @@
       "conference": "Tenure Track Defense",
       "location": "Shanghai, China",
       "conferenceUrl": "https://www.sjtu.edu.cn",
-      "language": "en",
+      "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-07-29/",
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-29/assets/2026-07-29.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-29",
@@ -62,8 +62,17 @@
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-19/assets/2026-07-19.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-19",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
-      "collaborators": ["唐敏", "竺烨锟"],
+      "tags": [
+        "深度学习",
+        "辐射输运",
+        "神经网络",
+        "物理",
+        "注意力机制"
+      ],
+      "collaborators": [
+        "唐敏",
+        "竺烨锟"
+      ],
       "published": true,
       "custom": {
         "version": "v1.2.1-zh"
@@ -78,7 +87,7 @@
       "conference": "Tenure Track Defense",
       "location": "Shanghai, China",
       "conferenceUrl": "https://www.sjtu.edu.cn",
-      "language": "en",
+      "language": "zh-CN",
       "slidesUrl": "https://zheng-talks.netlify.app/2026-06-29/",
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-06-29/assets/2026-06-29.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-06-29",
@@ -108,7 +117,13 @@
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-03-18/assets/2026-03-18.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-03-18",
       "description": "OpenClaw：运行在你自己设备上的个人 AI 助手",
-      "tags": ["AI", "个人助手", "开源", "多渠道", "Gateway"],
+      "tags": [
+        "AI",
+        "个人助手",
+        "开源",
+        "多渠道",
+        "Gateway"
+      ],
       "collaborators": [],
       "published": true,
       "custom": {
@@ -128,8 +143,17 @@
       "pdfUrl": "https://github.com/mazhengcn/talks/blob/main/talks/2026-02-01/assets/2026-02-01.pdf?raw=true",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-02-01",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
-      "collaborators": ["唐敏", "竺烨锟"],
+      "tags": [
+        "深度学习",
+        "辐射输运",
+        "神经网络",
+        "物理",
+        "注意力机制"
+      ],
+      "collaborators": [
+        "唐敏",
+        "竺烨锟"
+      ],
       "published": true,
       "custom": {
         "version": "v1.2.0-zh"
@@ -155,7 +179,10 @@
         "physics",
         "attention-mechanism"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.1.0"
@@ -181,7 +208,10 @@
         "physics",
         "neural-networks"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.0.2"
@@ -207,7 +237,10 @@
         "neural-network",
         "attention-mechanism"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.0.0"
@@ -258,7 +291,12 @@
         "scientific-computing",
         "neural-networks"
       ],
-      "collaborators": ["Shi Jin", "Keke Wu", "Han Wang", "Jingrun Chen"],
+      "collaborators": [
+        "Shi Jin",
+        "Keke Wu",
+        "Han Wang",
+        "Jingrun Chen"
+      ],
       "published": true,
       "custom": {
         "version": "v1.1.0"
