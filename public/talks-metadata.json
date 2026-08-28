@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T03:15:20.291Z",
+  "generatedAt": "2026-08-28T03:29:08.094Z",
   "count": 12,
   "talks": [
     {
@@ -60,8 +60,17 @@
       "pdfUrl": "https://zheng-talks.netlify.app/2026-07-19/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-19",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
-      "collaborators": ["唐敏", "竺烨锟"],
+      "tags": [
+        "深度学习",
+        "辐射输运",
+        "神经网络",
+        "物理",
+        "注意力机制"
+      ],
+      "collaborators": [
+        "唐敏",
+        "竺烨锟"
+      ],
       "published": true,
       "custom": {
         "version": "v1.2.1-zh"
@@ -105,7 +114,13 @@
       "pdfUrl": "https://zheng-talks.netlify.app/2026-03-18/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-03-18",
       "description": "OpenClaw：运行在你自己设备上的个人 AI 助手",
-      "tags": ["AI", "个人助手", "开源", "多渠道", "Gateway"],
+      "tags": [
+        "AI",
+        "个人助手",
+        "开源",
+        "多渠道",
+        "Gateway"
+      ],
       "collaborators": [],
       "published": true,
       "custom": {
@@ -125,8 +140,17 @@
       "pdfUrl": "https://zheng-talks.netlify.app/2026-02-01/slides.pdf",
       "sourceUrl": "https://github.com/mazhengcn/talks/tree/main/talks/2026-02-01",
       "description": "DeepRTE: 基于注意力机制的辐射输运预训练神经算子",
-      "tags": ["深度学习", "辐射输运", "神经网络", "物理", "注意力机制"],
-      "collaborators": ["唐敏", "竺烨锟"],
+      "tags": [
+        "深度学习",
+        "辐射输运",
+        "神经网络",
+        "物理",
+        "注意力机制"
+      ],
+      "collaborators": [
+        "唐敏",
+        "竺烨锟"
+      ],
       "published": true,
       "custom": {
         "version": "v1.2.0-zh"
@@ -152,7 +176,10 @@
         "physics",
         "attention-mechanism"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.1.0"
@@ -178,7 +205,10 @@
         "physics",
         "neural-networks"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.0.2"
@@ -204,7 +234,10 @@
         "neural-network",
         "attention-mechanism"
       ],
-      "collaborators": ["Min Tang", "Yekun Zhu"],
+      "collaborators": [
+        "Min Tang",
+        "Yekun Zhu"
+      ],
       "published": true,
       "custom": {
         "version": "v1.0.0"
@@ -255,7 +288,12 @@
         "scientific-computing",
         "neural-networks"
       ],
-      "collaborators": ["Shi Jin", "Keke Wu", "Han Wang", "Jingrun Chen"],
+      "collaborators": [
+        "Shi Jin",
+        "Keke Wu",
+        "Han Wang",
+        "Jingrun Chen"
+      ],
       "published": true,
       "custom": {
         "version": "v1.1.0"
