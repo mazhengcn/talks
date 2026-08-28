@@ -25,10 +25,10 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       - name: Install dependencies
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Collect talks metadata
         run: bun run scripts/collect-metadata.ts
@@ -36,14 +36,14 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code dist-stale/talks-metadata.json public/talks-metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code public/talks-metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
         if: steps.git-check.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add dist-stale/talks-metadata.json public/talks-metadata.json
+          git add public/talks-metadata.json
           git commit -m "chore: update talks metadata [skip ci]"
           git push
 
@@ -51,7 +51,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: talks-metadata
-          path: |
-            dist-stale/talks-metadata.json
-            public/talks-metadata.json
+          path: public/talks-metadata.json
           retention-days: 90

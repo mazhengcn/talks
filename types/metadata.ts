@@ -59,6 +59,15 @@ export interface TalkMetadata {
  * Can be placed in each talk directory as metadata.json
  */
 export interface TalkMetadataConfig {
+  /** Presentation date in ISO 8601 format (YYYY-MM-DD) */
+  date?: string;
+
+  /** Language override */
+  language?: string;
+
+  /** PDF path relative to the talk directory */
+  pdf?: string;
+
   /** Conference or event name */
   conference?: string;
 

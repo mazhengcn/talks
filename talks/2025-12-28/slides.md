@@ -631,7 +631,7 @@ $$
     '$I_{-}(r,\\Omega)$: incoming boundary function',
     '$\\mu_t(r)$: total cross section',
     '$\\mu_s(r)$: scattering cross section',
-    '$p(\\Omega,\\Omega^*)$: scattering kernel function'
+    '$' + 'p(\\Omega,\\Omega^*)$: scattering kernel function'
   ]"
 />
 </GlassCard>
@@ -1126,7 +1126,7 @@ Recap
     icon="i-ph-map-pin-duotone"
     size="md"
     :items="[
-      'Encodes $p(\\Omega,\\Omega^*)$',
+      'Encodes $' + 'p(\\Omega,\\Omega^*)$',
       'Capture anisotropic scattering'
     ]"
     :enable-latex="true"

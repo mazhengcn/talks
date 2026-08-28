@@ -608,7 +608,7 @@ $$
     '$I_{-}(r,\\Omega)$: 入射边界函数',
     '$\\mu_t(r)$: 总截面',
     '$\\mu_s(r)$: 散射截面',
-    '$p(\\Omega,\\Omega^*)$: 散射核函数'
+    '$' + 'p(\\Omega,\\Omega^*)$: 散射核函数'
   ]"
 />
 </GlassCard>
@@ -1103,7 +1103,7 @@ $$
     icon="i-ph-tree-structure-duotone"
     size="md"
     :items="[
-      '编码 $p(\\Omega,\\Omega^*)$',
+      '编码 $' + 'p(\\Omega,\\Omega^*)$',
       '捕捉各向异性散射'
     ]"
     :enable-latex="true"

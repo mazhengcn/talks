@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "slidev",
     "build": "bun ../../scripts/build.ts",
-    "export": "slidev export --per-slide --output ./assets/2026-07-xx.pdf"
+    "export": "slidev export --per-slide --output ./assets/2026-07-29.pdf"
   },
   "dependencies": {
     "@slidev/cli": "catalog:",

@@ -134,6 +134,36 @@ to = "/2026-06-29/index.html"
 status = 200
 
 [[redirects]]
+from = "/2026-07-19/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-19/assets/2026-07-19.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/2026-07-19/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-19"
+status = 302
+
+[[redirects]]
+from = "/2026-07-19/*"
+to = "/2026-07-19/index.html"
+status = 200
+
+[[redirects]]
+from = "/2026-07-29/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/2026-07-29/assets/2026-07-29.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/2026-07-29/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/2026-07-29"
+status = 302
+
+[[redirects]]
+from = "/2026-07-29/*"
+to = "/2026-07-29/index.html"
+status = 200
+
+[[redirects]]
 from = "/deep-pde/pdf"
 to = "https://github.com/mazhengcn/talks/blob/main/talks/deep-pde/assets/deep-pde.pdf?raw=true"
 status = 302
@@ -146,6 +176,21 @@ status = 302
 [[redirects]]
 from = "/deep-pde/*"
 to = "/deep-pde/index.html"
+status = 200
+
+[[redirects]]
+from = "/deeprte/pdf"
+to = "https://github.com/mazhengcn/talks/blob/main/talks/deeprte/assets/deeprte.pdf?raw=true"
+status = 302
+
+[[redirects]]
+from = "/deeprte/src"
+to = "https://github.com/mazhengcn/talks/tree/main/talks/deeprte"
+status = 302
+
+[[redirects]]
+from = "/deeprte/*"
+to = "/deeprte/index.html"
 status = 200
 
 [[redirects]]

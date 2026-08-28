@@ -5,12 +5,13 @@ import type {
 } from "../types/metadata";
 import { existsSync } from "node:fs";
 import fs from "node:fs/promises";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import process from "node:process";
 import fg from "fast-glob";
+import matter from "gray-matter";
 
 const TALKS_DIR = join(process.cwd(), "talks");
-const OUTPUT_FILE = join(process.cwd(), "dist-stale/talks-metadata.json");
+const PUBLIC_OUTPUT_FILE = join(process.cwd(), "public/talks-metadata.json");
 const BASE_URL = process.env.BASE_URL || "https://zheng-talks.netlify.app";
 const REPO_URL = "https://github.com/mazhengcn/talks";
 
@@ -19,29 +20,9 @@ const REPO_URL = "https://github.com/mazhengcn/talks";
  */
 async function extractFrontmatter(
   filePath: string,
-): Promise<Record<string, any>> {
+): Promise<Record<string, unknown>> {
   const content = await fs.readFile(filePath, "utf-8");
-  const frontmatterMatch = content.match(/^---\n([\s\S]+?)\n---/);
-
-  if (!frontmatterMatch) return {};
-
-  const frontmatter = frontmatterMatch[1];
-  const parsed: Record<string, any> = {};
-
-  frontmatter.split("\n").forEach((line) => {
-    const match = line.match(/^([^:]+):[ \t]*([^ \t].*)?$/);
-    if (match) {
-      const [, key, value] = match;
-      // Skip if value is undefined or empty
-      if (!value) return;
-      // Parse boolean and string values
-      if (value === "true") parsed[key.trim()] = true;
-      else if (value === "false") parsed[key.trim()] = false;
-      else parsed[key.trim()] = value.trim().replace(/^['"](.*)['"]$/, "$1");
-    }
-  });
-
-  return parsed;
+  return matter(content).data;
 }
 
 /**
@@ -65,16 +46,23 @@ async function loadMetadataConfig(
 /**
  * Parse date from folder name or frontmatter
  */
-function parseDate(folderId: string, frontmatter: Record<string, any>): string {
+function parseDate(
+  folderId: string,
+  frontmatter: Record<string, unknown>,
+  config: TalkMetadataConfig,
+): string {
   // Try to extract date from folder name (e.g., "2025-12-28")
   const dateMatch = folderId.match(/^(\d{4}-\d{2}-\d{2})/);
   if (dateMatch) return dateMatch[1];
 
   // Try to extract from frontmatter or other sources
-  // You can customize this based on your needs
-  if (frontmatter.date)
-    return new Date(frontmatter.date).toISOString().split("T")[0];
-  return new Date().toISOString().split("T")[0];
+  const candidate = config.date ?? frontmatter.date;
+  if (candidate instanceof Date) return candidate.toISOString().split("T")[0];
+  if (typeof candidate !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(candidate))
+    throw new Error(
+      `${folderId}: add a valid YYYY-MM-DD date to slides.md or metadata.json`,
+    );
+  return candidate;
 }
 
 /**
@@ -82,7 +70,7 @@ function parseDate(folderId: string, frontmatter: Record<string, any>): string {
  */
 async function extractSpeakerInfo(
   filePath: string,
-  frontmatter: Record<string, any>,
+  frontmatter: Record<string, unknown>,
 ) {
   const content = await fs.readFile(filePath, "utf-8");
 
@@ -95,9 +83,11 @@ async function extractSpeakerInfo(
 
   return {
     speaker:
-      frontmatter.speaker || speakerMatch?.[1]?.replace(/<[^>]*>/g, "").trim(),
+      (typeof frontmatter.speaker === "string" && frontmatter.speaker) ||
+      speakerMatch?.[1]?.replace(/<[^>]*>/g, "").trim(),
     affiliation:
-      frontmatter.affiliation ||
+      (typeof frontmatter.affiliation === "string" &&
+        frontmatter.affiliation) ||
       speakerMatch?.[2]?.replace(/<[^>]*>/g, "").trim(),
     collaborators: collaboratorsMatch?.[1]
       ?.split(/,|and/)
@@ -120,24 +110,33 @@ async function collectTalkMetadata(
   }
 
   try {
-    const folderId = talkDir.split("/").pop()!;
+    const folderId = basename(talkDir);
     const frontmatter = await extractFrontmatter(slidesPath);
     const config = await loadMetadataConfig(talkDir);
     const speakerInfo = await extractSpeakerInfo(slidesPath, frontmatter);
-    const date = parseDate(folderId, frontmatter);
+    const date = parseDate(folderId, frontmatter, config);
+    const pdf = config.pdf ?? `assets/${folderId}.pdf`;
+    if (!existsSync(join(talkDir, pdf)))
+      throw new Error(`${folderId}: PDF not found at ${pdf}`);
+
+    const title = frontmatter.title;
+    const language = config.language ?? frontmatter.lang;
 
     const metadata: TalkMetadata = {
       id: folderId,
-      title: frontmatter.title || config.custom?.title || "Untitled",
+      title:
+        (typeof title === "string" && title) ||
+        (typeof config.custom?.title === "string" && config.custom.title) ||
+        "Untitled",
       date,
       speaker: speakerInfo.speaker,
       affiliation: speakerInfo.affiliation,
       conference: config.conference,
       location: config.location,
       conferenceUrl: config.conference_url,
-      language: frontmatter.lang || "en",
+      language: typeof language === "string" ? language : "en",
       slidesUrl: `${BASE_URL}/${folderId}/`,
-      pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/assets/${folderId}.pdf?raw=true`,
+      pdfUrl: `${REPO_URL}/blob/main/talks/${folderId}/${pdf}?raw=true`,
       sourceUrl: `${REPO_URL}/tree/main/talks/${folderId}`,
       description: config.description,
       tags: config.tags,
@@ -148,15 +147,23 @@ async function collectTalkMetadata(
 
     return metadata;
   } catch (error) {
-    console.error(`Error collecting metadata for ${talkDir}:`, error);
-    return null;
+    throw new Error(`Error collecting metadata for ${talkDir}`, {
+      cause: error,
+    });
   }
 }
 
 /**
  * Main function to collect all talks metadata
  */
-async function collectAllMetadata(): Promise<void> {
+interface CollectMetadataOptions {
+  check?: boolean;
+  outputFiles?: string[];
+}
+
+async function collectAllMetadata(
+  options: CollectMetadataOptions = {},
+): Promise<void> {
   console.log("🔍 Scanning for talks...");
 
   // Find all talk directories (excluding reuse and template)
@@ -189,32 +196,27 @@ async function collectAllMetadata(): Promise<void> {
     talks,
   };
 
-  // Ensure output directory exists
-  await fs.mkdir(join(process.cwd(), "dist-stale"), { recursive: true });
+  console.log(`✅ Successfully validated metadata for ${talks.length} talks`);
 
-  // Write to file
-  await fs.writeFile(OUTPUT_FILE, JSON.stringify(collection, null, 2), "utf-8");
+  if (options.check) return;
 
-  console.log(`✅ Successfully generated metadata for ${talks.length} talks`);
-  console.log(`📁 Output: ${OUTPUT_FILE}`);
-
-  // Also write to a public directory for easier access
-  const publicOutput = join(process.cwd(), "public/talks-metadata.json");
-  await fs.mkdir(join(process.cwd(), "public"), { recursive: true });
-  await fs.writeFile(
-    publicOutput,
-    JSON.stringify(collection, null, 2),
-    "utf-8",
-  );
-  console.log(`📁 Public output: ${publicOutput}`);
+  const outputFiles = options.outputFiles ?? [PUBLIC_OUTPUT_FILE];
+  const json = `${JSON.stringify(collection, null, 2)}\n`;
+  for (const outputFile of outputFiles) {
+    await fs.mkdir(join(outputFile, ".."), { recursive: true });
+    await fs.writeFile(outputFile, json, "utf-8");
+    console.log(`📁 Output: ${outputFile}`);
+  }
 }
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  collectAllMetadata().catch((error) => {
-    console.error("Failed to collect metadata:", error);
-    process.exit(1);
-  });
+  collectAllMetadata({ check: process.argv.includes("--check") }).catch(
+    (error) => {
+      console.error("Failed to collect metadata:", error);
+      process.exit(1);
+    },
+  );
 }
 
 export { collectAllMetadata };

@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import process from "node:process";
+import { dirname } from "node:path";
 import fg from "fast-glob";
 
 const packageFiles = (
@@ -15,14 +14,14 @@ const bases = (
   await Promise.all(
     packageFiles.map(async (file) => {
       const talkRoot = dirname(file);
-      const pdfFile = (
-        await fg("assets/*.pdf", {
-          cwd: resolve(process.cwd(), `${talkRoot}/`),
-          onlyFiles: true,
-        })
-      )[0];
       const base = talkRoot.split("/").pop();
       if (!base) return;
+      const pdfFile = `assets/${base}.pdf`;
+      try {
+        await fs.access(`${talkRoot}/${pdfFile}`);
+      } catch {
+        throw new Error(`${talkRoot}: expected PDF at ${pdfFile}`);
+      }
       return {
         dir: talkRoot,
         base,
